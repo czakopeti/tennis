@@ -1,7 +1,7 @@
 """
-Teljes ATP Elo tábla mentése tennisabstract.com-ról.
-cloudscraper-t használ a GitHub Actions IP-blokk megkerüléséhez.
-Ha a scrape meghiúsul, a cached adatot tartja meg (nem töri el a pipeline-t).
+Teljes ATP Elo tábla - tennisabstract.com
+Fix: player link check: 'player.cgi' not '/player/'
+Fallback: ha scrape sikertelen, cached adatot tart meg.
 """
 import re, json, time, random
 from bs4 import BeautifulSoup
@@ -22,11 +22,7 @@ def surface_score(c, h):
 
 
 def get_html(url: str) -> str:
-    """
-    1. cloudscraper (megkerüli bot-védelmet)
-    2. requests + Chrome headers (fallback)
-    """
-    # Próba 1: cloudscraper
+    """cloudscraper -> requests fallback"""
     try:
         import cloudscraper
         scraper = cloudscraper.create_scraper(
@@ -37,11 +33,10 @@ def get_html(url: str) -> str:
         if resp.status_code == 200 and len(resp.text) > 5000:
             print(f"[fetch_elo] cloudscraper OK ({len(resp.text):,} kar)")
             return resp.text
-        print(f"[fetch_elo] cloudscraper: HTTP {resp.status_code}, fallback...")
+        print(f"[fetch_elo] cloudscraper HTTP {resp.status_code}, fallback...")
     except Exception as e:
         print(f"[fetch_elo] cloudscraper hiba: {e}, fallback...")
 
-    # Próba 2: requests + teljes Chrome headers
     import requests
     session = requests.Session()
     headers = {
@@ -50,7 +45,7 @@ def get_html(url: str) -> str:
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/124.0.0.0 Safari/537.36"
         ),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
         "Accept-Encoding": "gzip, deflate, br",
         "Connection": "keep-alive",
@@ -61,35 +56,66 @@ def get_html(url: str) -> str:
         "Sec-Fetch-User": "?1",
         "Cache-Control": "max-age=0",
     }
-    # Látogassuk meg a főoldalt először (session, cookie)
     try:
         session.get("https://tennisabstract.com/", headers=headers, timeout=15)
         time.sleep(random.uniform(1.5, 3.0))
     except Exception:
         pass
-
     resp = session.get(url, headers=headers, timeout=30)
     resp.raise_for_status()
-    print(f"[fetch_elo] requests fallback OK ({len(resp.text):,} kar)")
+    print(f"[fetch_elo] requests OK ({len(resp.text):,} kar)")
     return resp.text
 
 
 def parse_elo_table(html: str) -> dict:
     soup  = BeautifulSoup(html, "lxml")
-    table = soup.find("table")
+
+    # --- DEBUG: show first few links found to verify structure ---
+    all_links = soup.find_all("a", href=True)[:10]
+    print(f"[parse] Első 3 link a lapon: {[(l.get('href','')[:60], l.get_text(strip=True)[:20]) for l in all_links[:3]]}")
+
+    # Find the ratings table - look for the one containing player links
+    # tennisabstract player links: href contains 'player.cgi'
+    table = None
+    for t in soup.find_all("table"):
+        if t.find("a", href=lambda h: h and "player.cgi" in h):
+            table = t
+            break
+
+    # Fallback: any table with 'Sinner' in it
     if not table:
-        raise RuntimeError("Tábla nem található")
+        for t in soup.find_all("table"):
+            if "Sinner" in t.get_text():
+                table = t
+                print("[parse] Fallback: 'Sinner' alapján találva tábla")
+                break
+
+    if not table:
+        # Last resort: find all tables and show debug info
+        tables = soup.find_all("table")
+        print(f"[parse] WARN: player.cgi link nem található. Táblák száma: {len(tables)}")
+        if tables:
+            print(f"[parse] Első tábla első 200 kar: {tables[0].get_text()[:200]}")
+        raise RuntimeError(f"Játékos tábla nem található. Táblák: {len(tables)}")
 
     ratings = {}
     for row in table.find_all("tr"):
         cells = row.find_all("td")
         if len(cells) < 16:
             continue
-        link = cells[1].find("a")
-        if not link:
+
+        # Player name: find link with player.cgi in href
+        player_link = cells[1].find("a", href=lambda h: h and "player.cgi" in h)
+
+        # Fallback: any link in cell 1
+        if not player_link:
+            player_link = cells[1].find("a")
+
+        if not player_link:
             continue
-        name = link.get_text(strip=True)
-        if not name:
+
+        name = player_link.get_text(strip=True)
+        if not name or len(name) < 3:
             continue
 
         def sf(i):
@@ -106,6 +132,14 @@ def parse_elo_table(html: str) -> dict:
             "atp_rank": si(15),
             "surface_score": surface_score(c, h) if (c and h) else 3,
         }
+
+    # If still 0, the column indices might be wrong - try to detect
+    if len(ratings) == 0:
+        print("[parse] 0 játékos - column debug:")
+        for row in table.find_all("tr")[:3]:
+            cells = row.find_all("td")
+            print(f"  {len(cells)} cella: {[c.get_text(strip=True)[:15] for c in cells[:18]]}")
+
     return ratings
 
 
@@ -128,15 +162,16 @@ def save_elo_ratings(ratings: dict):
 
 
 def scrape_with_fallback() -> bool:
-    """
-    Megpróbálja frissíteni az Elo-t.
-    Ha sikertelen: cached adatot hagyja, NEM töri el a pipeline-t.
-    """
+    """Megpróbálja frissíteni. Ha nem sikerül, cached adatot használ."""
     try:
         ratings = scrape_elo_ratings()
         if len(ratings) < 50:
-            raise RuntimeError(f"Csak {len(ratings)} játékos - valószínűleg részleges adat")
+            raise RuntimeError(
+                f"Csak {len(ratings)} játékos - valószínűleg parse hiba\n"
+                f"Ellenőrizd a GitHub Actions logot a '[parse]' soroknál"
+            )
         save_elo_ratings(ratings)
+        print(f"[fetch_elo] SIKER: {len(ratings)} játékos mentve")
         return True
     except Exception as e:
         print(f"[fetch_elo] HIBA: {e}")
@@ -145,10 +180,9 @@ def scrape_with_fallback() -> bool:
             data["last_attempt"] = datetime.now(timezone.utc).isoformat()
             data["last_error"]   = str(e)
             OUTPUT_PATH.write_text(json.dumps(data, indent=2))
-            scraped = data.get("scraped_at","?")[:10]
-            print(f"[fetch_elo] Cached adat hasznalata ({scraped})")
+            print(f"[fetch_elo] Cached adat: {data.get('scraped_at','?')[:10]}")
             return False
-        raise  # Ha nincs cache sem, valódi hiba
+        raise  # Nincs cache sem
 
 
 if __name__ == "__main__":
