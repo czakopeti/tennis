@@ -1,17 +1,17 @@
 """
-Daily orchestrator. Run via GitHub Actions cron.
-Usage: python scripts/main.py [--bankroll 1000] [--skip-elo] [--skip-matches]
+Napi orchestrator. GitHub Actions futtatja.
+python main.py [--bankroll 1000] [--skip-elo] [--skip-matches]
 """
 import json, argparse, sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent))
+ROOT = Path(__file__).parent
+sys.path.insert(0, str(ROOT))
 
 from fetch_elo     import scrape_elo_ratings, save_elo_ratings
 from fetch_matches import scrape_matches, save_matches
 from generate_html import analyze_matches, generate_html
 
-DATA_DIR = Path(__file__).parent.parent / "data"
-
+DATA_DIR = ROOT / "data"
 
 def main():
     p = argparse.ArgumentParser()
@@ -19,53 +19,42 @@ def main():
     p.add_argument("--skip-elo",     action="store_true")
     p.add_argument("--skip-matches", action="store_true")
     args = p.parse_args()
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    DATA_DIR.mkdir(exist_ok=True)
 
     elo_path     = DATA_DIR / "elo_ratings.json"
     matches_path = DATA_DIR / "todays_matches.json"
 
-    # ── Step 1: Elo (weekly, or forced) ──────────────────────────────────
-    print("\n=== Elo Ratings ===")
+    print("\n=== 1. Elo Ratings ===")
     if args.skip_elo and elo_path.exists():
-        print("[main] Using cached Elo")
-        with open(elo_path) as f:
-            elo_data = json.load(f)
+        print("[main] Cached Elo használata")
+        elo_data = json.loads(elo_path.read_text())
     else:
         elo_players = scrape_elo_ratings()
         save_elo_ratings(elo_players)
-        with open(elo_path) as f:
-            elo_data = json.load(f)
+        elo_data = json.loads(elo_path.read_text())
 
-    elo_players = elo_data.get("players", elo_data)  # backward compat
+    elo_players = elo_data.get("players", elo_data)
     elo_meta    = {k: v for k, v in elo_data.items() if k != "players"}
 
-    # ── Step 2: Today's matches ───────────────────────────────────────────
-    print("\n=== Today's Matches ===")
+    print("\n=== 2. Mai meccsek ===")
     if args.skip_matches and matches_path.exists():
-        print("[main] Using cached matches")
-        with open(matches_path) as f:
-            matches = json.load(f)
+        print("[main] Cached meccsek használata")
+        matches = json.loads(matches_path.read_text())
     else:
         matches = scrape_matches()
         save_matches(matches)
 
-    # ── Step 3: Enrich with Elo ───────────────────────────────────────────
-    print("\n=== Analysis ===")
+    print("\n=== 3. Elemzés + HTML ===")
     analyses = analyze_matches(matches, elo_players)
-
-    with open(DATA_DIR / "todays_analysis.json", "w") as f:
-        json.dump(analyses, f, indent=2, default=str)
-
-    # ── Step 4: Generate HTML ─────────────────────────────────────────────
-    print("\n=== Generating HTML ===")
+    (DATA_DIR / "todays_analysis.json").write_text(
+        json.dumps(analyses, indent=2, default=str))
     generate_html(analyses, elo_meta=elo_meta, bankroll=args.bankroll)
 
     found   = sum(1 for a in analyses if a.get("elo_found"))
     missing = [a for a in analyses if not a.get("elo_found")]
-    print(f"\n✅ Done: {len(analyses)} meccs, {found} Elo lefedve")
+    print(f"\n✅ Kész: {len(analyses)} meccs, {found} Elo lefedve")
     if missing:
-        print(f"⚠  Hiányzó Elo: {', '.join(m['player1']+' / '+m['player2'] for m in missing)}")
-
+        print(f"⚠  Hiányzó: {', '.join(m['player1']+'/'+m['player2'] for m in missing)}")
 
 if __name__ == "__main__":
     main()

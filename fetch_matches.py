@@ -1,27 +1,20 @@
-"""
-Scrapes today's ATP 500+ matches from TennisExplorer.com.
-Covers all surfaces (clay, hard, grass) and all ATP 500+, M1000, GS tournaments.
-"""
+"""Napi ATP 500+ meccsek scrape-elése TennisExplorer.com-ról."""
 import re, time, random, json, requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 from pathlib import Path
 
-OUTPUT_PATH = Path(__file__).parent.parent / "data" / "todays_matches.json"
+OUTPUT_PATH = Path(__file__).parent / "data" / "todays_matches.json"
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15",
+    "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8",
     "Referer": "https://www.google.com/",
 }
-
 TOURNAMENT_MAP = [
-    # GS
     (["australian open","melbourne"],         "hard",  "GS"),
     (["roland garros","french open"],         "clay",  "GS"),
     (["wimbledon"],                           "grass", "GS"),
     (["us open","flushing"],                  "hard",  "GS"),
-    # M1000
     (["indian wells"],                        "hard",  "M1000"),
     (["miami"],                               "hard",  "M1000"),
     (["monte carlo","monte-carlo"],           "clay",  "M1000"),
@@ -32,7 +25,6 @@ TOURNAMENT_MAP = [
     (["shanghai"],                            "hard",  "M1000"),
     (["paris masters","paris-bercy"],         "hard",  "M1000"),
     (["nitto","atp finals","turin"],          "hard",  "M1000"),
-    # A500
     (["rotterdam"],                           "hard",  "A500"),
     (["dubai"],                               "hard",  "A500"),
     (["acapulco","abierto mexicano"],         "hard",  "A500"),
@@ -49,27 +41,21 @@ TOURNAMENT_MAP = [
     (["dallas"],                              "hard",  "A500"),
     (["lyon"],                                "clay",  "A500"),
 ]
-VALID = {"GS", "M1000", "A500"}
+VALID = {"GS","M1000","A500"}
 
-
-def classify(name: str):
+def classify(name):
     nl = name.lower()
     for kws, surf, cat in TOURNAMENT_MAP:
-        if any(k in nl for k in kws):
-            return surf, cat
+        if any(k in nl for k in kws): return surf, cat
     return None, None
 
-
-def parse_rows(rows) -> list:
+def parse_rows(rows):
     matches, i = [], 0
-    while i < len(rows) - 1:
+    while i < len(rows)-1:
         r1, r2 = rows[i], rows[i+1]
-        t = None
-        for cell in r1.find_all("td"):
-            if re.match(r'^\d{1,2}:\d{2}$', cell.get_text(strip=True)):
-                t = cell.get_text(strip=True); break
-        if not t:
-            i += 1; continue
+        t = next((c.get_text(strip=True) for c in r1.find_all("td")
+                  if re.match(r'^\d{1,2}:\d{2}$', c.get_text(strip=True))), None)
+        if not t: i+=1; continue
         def pname(row):
             for a in row.find_all("a"):
                 if "/player/" in a.get("href",""):
@@ -83,10 +69,8 @@ def parse_rows(rows) -> list:
         i += 2
     return matches
 
-
-def scrape_matches(date: datetime = None) -> list:
-    if date is None:
-        date = datetime.now(timezone.utc)
+def scrape_matches(date=None):
+    if date is None: date = datetime.now(timezone.utc)
     url = (f"https://www.tennisexplorer.com/matches/"
            f"?type=atp-single&year={date.year}&month={date.month:02d}&day={date.day:02d}")
     print(f"[fetch_matches] {url}")
@@ -95,43 +79,34 @@ def scrape_matches(date: datetime = None) -> list:
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
     table = soup.find("table", id="matches") or soup.find("table")
-    if not table:
-        return []
+    if not table: return []
 
-    all_matches, cur_t, cur_s, cur_c, cur_rows = [], None, None, None, []
-
+    all_m, cur_t, cur_s, cur_c, cur_rows = [], None, None, None, []
     def flush():
         if cur_t and cur_c in VALID and cur_rows:
             for m in parse_rows(cur_rows):
-                m["tournament"] = cur_t
-                m["surface"]    = cur_s
-                m["category"]   = cur_c
-                all_matches.append(m)
+                m.update({"tournament":cur_t,"surface":cur_s,"category":cur_c})
+                all_m.append(m)
         cur_rows.clear()
 
     for row in table.find_all("tr"):
-        cls = " ".join(row.get("class", []))
+        cls = " ".join(row.get("class",[]))
         if "head" in cls:
             flush()
             lnk = row.find("a")
             name = re.sub(r'\s+',' ',(lnk.get_text(strip=True) if lnk else row.get_text(strip=True))).strip()
-            cur_s, cur_c = classify(name)
-            cur_t = name
-            cur_rows = []
+            cur_s, cur_c = classify(name); cur_t = name; cur_rows = []
         elif cur_t:
             cur_rows.append(row)
     flush()
-
-    print(f"[fetch_matches] {len(all_matches)} matches found")
-    for m in all_matches:
+    print(f"[fetch_matches] {len(all_m)} meccs")
+    for m in all_m:
         print(f"  [{m['category']}|{m['surface']}] {m['time']} {m['player1']} vs {m['player2']}")
-    return all_matches
-
+    return all_m
 
 def save_matches(matches):
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUTPUT_PATH, "w") as f:
-        json.dump(matches, f, indent=2)
+    OUTPUT_PATH.parent.mkdir(exist_ok=True)
+    OUTPUT_PATH.write_text(json.dumps(matches, indent=2))
 
 if __name__ == "__main__":
     save_matches(scrape_matches())
