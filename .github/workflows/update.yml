@@ -1,10 +1,10 @@
-name: ATP Value Bet
+name: ATP · WTA Value Bet
 
 on:
   schedule:
-    - cron: '0 7 * * *'    # Napi 07:00 UTC
-    - cron: '0 11 * * *'   # Napi 11:00 UTC
-    - cron: '0 6 * * 1'    # Heti Elo: hétfő 06:00 UTC
+    - cron: '0 7 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 6 * * 1'   # Heti Elo frissítés
   workflow_dispatch:
     inputs:
       bankroll:
@@ -22,27 +22,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ hashFiles('requirements.txt') }}-v3
+          key: pip-${{ hashFiles('requirements.txt') }}-v4
+      - run: pip install -r requirements.txt
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Elo frissítés (hétfő / kézi)
+      - name: Heti Elo (ATP + WTA)
         if: github.event.schedule == '0 6 * * 1' || github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
       - name: Napi meccsek + HTML
         run: |
+          ELO_EXISTS=false
+          [ -f "data/elo_ratings_atp.json" ] && [ -f "data/elo_ratings_wta.json" ] && ELO_EXISTS=true
           BANKROLL="${{ github.event.inputs.bankroll || '1000' }}"
-          if [ -f "data/elo_ratings.json" ]; then
+          if [ "$ELO_EXISTS" = "true" ]; then
             python main.py --bankroll "$BANKROLL" --skip-elo
           else
             python main.py --bankroll "$BANKROLL"
