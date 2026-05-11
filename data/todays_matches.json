@@ -9,7 +9,8 @@
     "book_odds_away": 2.3,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "11:15",
@@ -21,7 +22,8 @@
     "book_odds_away": 1.83,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "12:45",
@@ -33,7 +35,8 @@
     "book_odds_away": 1.64,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "13:20",
@@ -45,7 +48,8 @@
     "book_odds_away": 1.42,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "14:35",
@@ -57,7 +61,8 @@
     "book_odds_away": 2.13,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "16:00",
@@ -69,7 +74,8 @@
     "book_odds_away": 19.09,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
   },
   {
     "time": "17:25",
@@ -81,6 +87,98 @@
     "book_odds_away": 2.78,
     "tournament": "Rome",
     "surface": "clay",
-    "category": "M1000"
+    "category": "M1000",
+    "tour": "ATP"
+  },
+  {
+    "time": "19:10",
+    "player1": "Tirante T.",
+    "player2": "Cobolli F.",
+    "seed1": null,
+    "seed2": 10,
+    "book_odds_home": 2.99,
+    "book_odds_away": 1.39,
+    "tournament": "Rome",
+    "surface": "clay",
+    "category": "M1000",
+    "tour": "ATP"
+  },
+  {
+    "time": "11:10",
+    "player1": "Cirstea S.",
+    "player2": "Noskova L.",
+    "seed1": 26,
+    "seed2": 13,
+    "book_odds_home": 2.01,
+    "book_odds_away": 1.79,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
+  },
+  {
+    "time": "12:50",
+    "player1": "Gauff C.",
+    "player2": "Jovic I.",
+    "seed1": 3,
+    "seed2": 16,
+    "book_odds_home": 1.31,
+    "book_odds_away": 3.44,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
+  },
+  {
+    "time": "13:05",
+    "player1": "Ostapenko J.",
+    "player2": "Kalinskaya A.",
+    "seed1": null,
+    "seed2": 22,
+    "book_odds_home": 1.78,
+    "book_odds_away": 2.03,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
+  },
+  {
+    "time": "14:45",
+    "player1": "Andreeva M.",
+    "player2": "Mertens E.",
+    "seed1": 8,
+    "seed2": 21,
+    "book_odds_home": 1.33,
+    "book_odds_away": 3.28,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
+  },
+  {
+    "time": "15:40",
+    "player1": "Svitolina E.",
+    "player2": "Bartunkova N.",
+    "seed1": 7,
+    "seed2": null,
+    "book_odds_home": 1.14,
+    "book_odds_away": 5.69,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
+  },
+  {
+    "time": "18:05",
+    "player1": "Pegula J.",
+    "player2": "Potapova A.",
+    "seed1": 5,
+    "seed2": null,
+    "book_odds_home": 1.49,
+    "book_odds_away": 2.6,
+    "tournament": "Rome WTA",
+    "surface": "clay",
+    "category": "W1000",
+    "tour": "WTA"
   }
 ]

@@ -5,35 +5,38 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#0b1525">
-  <title>ATP Value Bet</title>
+  <title>ATP · WTA Value Bet</title>
   <style>
-    :root{--bg:#0b1525;--bg2:#111d30;--bg3:#162038;--bd:#1e3050;--tx:#e2e8f0;--mu:#64748b;--ac:#3b82f6;--cy:#38bdf8;--gr:#22c55e;--rd:#ef4444;--ye:#eab308}
+    :root{--bg:#0b1525;--bg2:#111d30;--bg3:#162038;--bd:#1e3050;--tx:#e2e8f0;--mu:#64748b;--ac:#3b82f6;--cy:#38bdf8;--gr:#22c55e;--rd:#ef4444;--ye:#eab308;--pink:#ec4899}
     *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
     body{background:var(--bg);color:var(--tx);font-family:-apple-system,'SF Pro Display',system-ui,sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
     header{background:linear-gradient(135deg,#091220,#162038);border-bottom:1px solid var(--bd);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
-    .logo{font-size:1.1rem;font-weight:700}.logo span{color:var(--ac)}
+    .logo{font-size:1.1rem;font-weight:700}.logo .atp{color:var(--ac)}.logo .wta{color:var(--pink)}
     .hmeta{display:flex;gap:.3rem;flex-wrap:wrap}
     .hb{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:#1e3050;border:1px solid var(--bd);color:var(--mu)}
     main{max-width:600px;margin:0 auto;padding:.75rem .75rem 5rem}
-    .sec{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--bd);padding-bottom:.35rem;margin:.75rem 0 .5rem}
+    .sec{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--bd);padding-bottom:.35rem;margin:.75rem 0 .5rem}
     .sec:first-child{margin-top:.1rem}
     .statbar{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.25rem;margin-bottom:.15rem;scrollbar-width:none}
     .statbar::-webkit-scrollbar{display:none}
-    .stat{background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:.5rem .75rem;flex-shrink:0;min-width:90px}
+    .stat{background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:.5rem .75rem;flex-shrink:0;min-width:82px}
     .sl{font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.8px}
-    .sv{font-size:1.15rem;font-weight:700;margin-top:1px}
+    .sv{font-size:1.1rem;font-weight:700;margin-top:1px}
+    .tour-tabs{display:flex;gap:.5rem;margin:.5rem 0}
+    .ttab{flex:1;padding:.5rem;border-radius:8px;text-align:center;font-size:11px;font-weight:700;border:1px solid var(--bd);background:var(--bg2);color:var(--mu)}
+    .ttab.atp{background:#3b82f618;border-color:#3b82f640;color:var(--ac)}
+    .ttab.wta{background:#ec489918;border-color:#ec489940;color:var(--pink)}
     .legend{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:.6rem .75rem;font-size:11px;color:var(--mu);line-height:1.7;margin-bottom:.25rem}
     .cards{display:flex;flex-direction:column;gap:.5rem}
     .card{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
     .ctop{display:flex;justify-content:space-between;align-items:center;padding:.45rem .75rem .2rem;flex-wrap:wrap;gap:.25rem}
     .tags{display:flex;gap:.3rem;align-items:center;flex-wrap:wrap}
     .surf-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.8px;border:1px solid}
-    .cat-tag{font-size:9px;color:var(--mu);padding:2px 6px;border:1px solid var(--bd);border-radius:4px}
+    .cat-tag{font-size:9px;padding:2px 6px;border:1px solid var(--bd);border-radius:4px;font-weight:600}
     .t-tag{font-size:10px;color:var(--mu)}
     .cbody{padding:.5rem .75rem .7rem}
-    .prow{display:grid;grid-template-columns:1fr auto 1fr;gap:.3rem;align-items:start;margin-bottom:.55rem}
+    .prow{display:grid;grid-template-columns:1fr auto 1fr;gap:.3rem;align-items:start;margin-bottom:.5rem}
     .pinfo{min-width:0}
-    .pinfoadv{min-width:0;background:#f59e0b08;border-radius:6px;padding:3px 5px;border:1px solid #f59e0b20}
     .pname{font-weight:600;font-size:.88rem;line-height:1.25;word-break:break-word}
     .pmeta{font-size:9px;color:var(--cy);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .vs{font-size:9px;font-weight:700;color:var(--mu);padding:.3rem .1rem 0;white-space:nowrap}
@@ -53,417 +56,554 @@
 </head>
 <body>
 <header>
-  <div class="logo">ATP <span>Value</span> Bet</div>
+  <div class="logo"><span class="atp">ATP</span> · <span class="wta">WTA</span> Value Bet</div>
   <div class="hmeta">
-    <span class="hb">🔄 2026-05-11 18:47 UTC</span>
+    <span class="hb">🔄 2026-05-11 19:16 UTC</span>
     <span class="hb">Elo: 2026-05-11</span>
   </div>
 </header>
 <main>
-<div class="sec" style="margin-top:.1rem">Összesítő</div>
+
+<div class="sec" style="margin-top:.1rem;color:#94a3b8">Összesítő</div>
 <div class="statbar">
-  <div class="stat"><div class="sl">Meccsek</div><div class="sv" style="color:var(--ac)">7</div></div>
+  <div class="stat"><div class="sl">ATP</div><div class="sv" style="color:var(--ac)">8</div></div>
+  <div class="stat"><div class="sl">WTA</div><div class="sv" style="color:var(--pink)">6</div></div>
   <div class="stat"><div class="sl">Élő</div><div class="sv" style="color:var(--ye)">0</div></div>
-  <div class="stat"><div class="sl">Elo OK</div><div class="sv" style="color:var(--gr)">7/7</div></div>
-  <div class="stat"><div class="sl">Odds</div><div class="sv" style="color:var(--ac)">7/7</div></div>
-  <div class="stat"><div class="sl">⚡ Felületi</div><div class="sv" style="color:#f59e0b">1</div></div>
-  <div class="stat"><div class="sl">🎯 Value</div><div class="sv" style="color:var(--gr)">3</div></div>
+  <div class="stat"><div class="sl">⚡ Felületi</div><div class="sv" style="color:#f59e0b">3</div></div>
+  <div class="stat"><div class="sl">🎯 Value</div><div class="sv" style="color:var(--gr)">4</div></div>
   <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:var(--gr)">+0.0%</div></div>
 </div>
+
 <div class="legend">
-  <strong style="color:var(--tx)">⚡ Felületi előny</strong> — mindhárom feltétel egyszerre teljesül:
-  jobb ezen a borításon az ellenfélnél · ÉS ez a jobb borítása · ÉS az ellenfélnek fordítva.<br>
-  <strong style="color:var(--tx)">🎯 Value</strong> = edge ≥ 4% (modell prob − bukméker implied prob).<br>
-  <strong style="color:var(--tx)">Surface:</strong> 🧱🧱 Salak spec (1) · 🧱 Salak-hajlam (2) · ⚖ All-rounder (3) · 💙 Kemény-hajlam (4) · 💙💙 Kemény spec (5)
+  <strong style="color:var(--tx)">⚡</strong> Felületi előny: jobb ezen a borításon + ez az ő jobb borítása + ellenfélnél fordítva (mind a 3 egyszerre) ·
+  <strong style="color:var(--tx)">🎯</strong> Value: edge ≥ 4% ·
+  🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5)
 </div>
 
-<div class="sec">Mai meccsek</div><div class="cards"><div class="card">
+
+
+<div class="sec" style="color:var(--ac)">ATP — Mai meccsek</div><div class="cards"><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">11:10 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
-      <div class="pinfoadv">
+      <div class="pinfo">
         <div class="pname">[12] Andrey Rublev</div>
-        <div class="pmeta">ATP #14 · c1849 · h1842</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin:left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span></div>
-        <div style="margin-top:4px;padding:3px 7px;border-radius:5px;background:#f59e0b18;border:1px solid #f59e0b40;font-size:9px;font-weight:700;color:#f59e0b;letter-spacing:.5px">⚡ FELÜLETI ELŐNY — jobb salakon mint keményen, ellenfél fordítva</div>
+        <div class="pmeta">#14 · c1849 · h1842</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin-left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div><div style="margin-top:3px;padding:2px 6px;border-radius:4px;background:#f59e0b15;border:1px solid #f59e0b35;font-size:9px;font-weight:700;color:#f59e0b">⚡ Felületi előny — jobb salakon</div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">A. Davidovich Fokina [21]</div>
-        <div class="pmeta">ATP #23 · c1815 · h1838</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#94a3b8;margin:right:3px">⚖</span></div>
-        
+        <div class="pmeta">#23 · c1815 · h1838</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#94a3b8;margin-right:3px">⚖</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#22c55e">1.82</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Rublev<br><span style="color:#64748b">54.8%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Rublev<br><span style="color:#64748b">54.8%</span></div></div>
       <div class="odelta">Δ +34</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#e2e8f0">2.21</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Fokina<br><span style="color:#64748b">45.2%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Fokina<br><span style="color:#64748b">45.2%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.61</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-7.3%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#94a3b8">+1.7%</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.3</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.61</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-7.3%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#94a3b8">+1.7%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.3</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">54.8%</span>
       <div class="bar-out"><div class="bar-in" style="width:54.8%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
       <span class="bar-pct" style="text-align:right">45.2%</span>
     </div>
-    
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">11:15 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">Martin Landaluce</div>
-        <div class="pmeta">ATP #94 · c1569 · h1670</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#818cf8;margin:left:3px">💙💙</span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#94 · c1569 · h1670</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#818cf8;margin-left:3px">💙💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Mattia Bellucci</div>
-        <div class="pmeta">ATP #80 · c1572 · h1656</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#60a5fa;margin:right:3px">💙</span></div>
-        
+        <div class="pmeta">#80 · c1572 · h1656</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#e2e8f0">2.02</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Landaluce<br><span style="color:#64748b">49.6%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Landaluce<br><span style="color:#64748b">49.6%</span></div></div>
       <div class="odelta">Δ -3</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#22c55e">1.98</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Bellucci<br><span style="color:#64748b">50.4%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Bellucci<br><span style="color:#64748b">50.4%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.96</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-1.5%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.2%</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.83</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.96</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-1.5%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.2%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.83</span></div></div><div style="font-size:10px;color:#eab308;text-align:center;margin-top:.3rem;padding:2px .5rem;background:#eab30810;border-radius:4px">⚠ Nyílt meccs — ΔElo &lt; 10</div>
     <div class="bar-row">
       <span class="bar-pct">49.6%</span>
       <div class="bar-out"><div class="bar-in" style="width:49.6%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
       <span class="bar-pct" style="text-align:right">50.4%</span>
     </div>
-    <div style="font-size:10px;color:#eab308;text-align:center;margin-top:.3rem;padding:2px .5rem;background:#eab30810;border-radius:4px">⚠ Nyílt meccs — ΔElo &lt; 10</div>
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">12:45 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">Nikoloz Basilashvili</div>
-        <div class="pmeta">ATP #117 · c1589 · h1590</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin:left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#117 · c1589 · h1590</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin-left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Brandon Nakashima [30]</div>
-        <div class="pmeta">ATP #32 · c1710 · h1773</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#60a5fa;margin:right:3px">💙</span></div>
-        
+        <div class="pmeta">#32 · c1710 · h1773</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#e2e8f0">3.0</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Basilashvili<br><span style="color:#64748b">33.3%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Basilashvili<br><span style="color:#64748b">33.3%</span></div></div>
       <div class="odelta">Δ -120</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#22c55e">1.5</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Nakashima<br><span style="color:#64748b">66.7%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Nakashima<br><span style="color:#64748b">66.7%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.25</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-11.1%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+5.7% VALUE</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.64</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.25</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-11.1%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+5.7% VALUE</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.64</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">33.3%</span>
       <div class="bar-out"><div class="bar-in" style="width:33.3%;background:linear-gradient(90deg,#92400e,#d97706)"></div></div>
       <span class="bar-pct" style="text-align:right">66.7%</span>
     </div>
-    
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">13:20 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">Andrea Pellegrino</div>
-        <div class="pmeta">ATP #155 · c1547 · h1364</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#fb923c;margin:left:3px">🧱🧱</span><span style="width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#155 · c1547 · h1364</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#fb923c;margin-left:3px">🧱🧱</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Frances Tiafoe [20]</div>
-        <div class="pmeta">ATP #22 · c1812 · h1846</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#94a3b8;margin:right:3px">⚖</span></div>
-        
+        <div class="pmeta">#22 · c1812 · h1846</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#94a3b8;margin-right:3px">⚖</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#e2e8f0">5.61</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Pellegrino<br><span style="color:#64748b">17.8%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Pellegrino<br><span style="color:#64748b">17.8%</span></div></div>
       <div class="odelta">Δ -265</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#22c55e">1.22</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Tiafoe<br><span style="color:#64748b">82.2%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Tiafoe<br><span style="color:#64748b">82.2%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.84</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-17.4%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+11.7% VALUE</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.42</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.84</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-17.4%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+11.7% VALUE</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.42</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">17.8%</span>
       <div class="bar-out"><div class="bar-in" style="width:17.8%;background:linear-gradient(90deg,#92400e,#d97706)"></div></div>
       <span class="bar-pct" style="text-align:right">82.2%</span>
     </div>
-    
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">14:35 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">Hamad Medjedovic</div>
-        <div class="pmeta">ATP #67 · c1798 · h1734</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#fbbf24;margin:left:3px">🧱</span><span style="width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#67 · c1798 · h1734</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#fbbf24;margin-left:3px">🧱</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Mariano Navone</div>
-        <div class="pmeta">ATP #44 · c1759 · h1668</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#fbbf24;margin:right:3px">🧱</span></div>
-        
+        <div class="pmeta">#44 · c1759 · h1668</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#fbbf24;margin-right:3px">🧱</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#22c55e">1.8</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Medjedovic<br><span style="color:#64748b">55.6%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Medjedovic<br><span style="color:#64748b">55.6%</span></div></div>
       <div class="odelta">Δ +39</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#e2e8f0">2.25</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Navone<br><span style="color:#64748b">44.4%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Navone<br><span style="color:#64748b">44.4%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.71</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.9%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.6%</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.13</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.71</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.9%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.6%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.13</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">55.6%</span>
       <div class="bar-out"><div class="bar-in" style="width:55.6%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
       <span class="bar-pct" style="text-align:right">44.4%</span>
     </div>
-    
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">16:00 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">[1] Jannik Sinner</div>
-        <div class="pmeta">ATP #1 · c2222 · h2269</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin:left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#1 · c2222 · h2269</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin-left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Alexei Popyrin</div>
-        <div class="pmeta">ATP #60 · c1713 · h1674</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#94a3b8;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#94a3b8;margin:right:3px">⚖</span></div>
-        
+        <div class="pmeta">#60 · c1713 · h1674</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#94a3b8;margin-right:3px">⚖</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#22c55e">1.05</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Sinner<br><span style="color:#64748b">95.0%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Sinner<br><span style="color:#64748b">95.0%</span></div></div>
       <div class="odelta">Δ +510</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#e2e8f0">19.81</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Popyrin<br><span style="color:#64748b">5.0%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Popyrin<br><span style="color:#64748b">5.0%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.02</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-3.1%</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-0.2%</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">19.09</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.02</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-3.1%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-0.2%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">19.09</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">95.0%</span>
       <div class="bar-out"><div class="bar-in" style="width:95.0%;background:linear-gradient(90deg,#15803d,#22c55e)"></div></div>
       <span class="bar-pct" style="text-align:right">5.0%</span>
     </div>
-    
   </div>
 </div><div class="card">
   <div class="ctop">
     <div class="tags">
       <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
-      <span class="cat-tag">M1000</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
       <span class="t-tag">17:25 UTC+1</span>
-    </div>
-    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">[7] Daniil Medvedev</div>
-        <div class="pmeta">ATP #9 · c1904 · h1974</div>
-        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin:left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#60a5fa;display:inline-block;margin:0 1px"></span></div>
-        
+        <div class="pmeta">#9 · c1904 · h1974</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin-left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">Pablo Llamas Ruiz</div>
-        <div class="pmeta">ATP #139 · c1681 · h1599</div>
-        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;background:#fb923c;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="width:7px;height:7px;border-radius:50%;background:#1e3a5f;display:inline-block;margin:0 1px"></span><span style="font-size:9px;color:#fbbf24;margin:right:3px">🧱</span></div>
-        
+        <div class="pmeta">#139 · c1681 · h1599</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#fbbf24;margin-right:3px">🧱</span></div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:#22c55e">1.28</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Medvedev<br><span style="color:#64748b">78.4%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Medvedev<br><span style="color:#64748b">78.4%</span></div></div>
       <div class="odelta">Δ +224</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:#e2e8f0">4.63</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair odds</span><br>Ruiz<br><span style="color:#64748b">21.6%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Ruiz<br><span style="color:#64748b">21.6%</span></div></div>
     </div>
-    
-    <div style="display:flex;align-items:center;justify-content:space-between;
-                background:#0d1e35;border:1px solid #1e3050;border-radius:7px;
-                padding:.4rem .6rem;margin-top:.4rem;gap:.3rem">
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.8px">Bukméker</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.43</span>
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+8.5% VALUE</span>
-      </div>
-      <span style="font-size:9px;color:#64748b">TennisExplorer</span>
-      <div style="display:flex;align-items:center;gap:.4rem">
-        <span style="font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-14.4%</span>
-        <span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.78</span>
-      </div>
-    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.43</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+8.5% VALUE</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-14.4%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.78</span></div></div>
     <div class="bar-row">
       <span class="bar-pct">78.4%</span>
       <div class="bar-out"><div class="bar-in" style="width:78.4%;background:linear-gradient(90deg,#15803d,#22c55e)"></div></div>
       <span class="bar-pct" style="text-align:right">21.6%</span>
     </div>
-    
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#3b82f6;border-color:#3b82f640">ATP M1000</span>
+      <span class="t-tag">19:10 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">T. Agustin Tirante</div>
+        <div class="pmeta">#69 · c1675 · h1617</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#fbbf24;margin-left:3px">🧱</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Flavio Cobolli [10]</div>
+        <div class="pmeta">#12 · c1859 · h1806</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#fbbf24;margin-right:3px">🧱</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#e2e8f0">3.88</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Tirante<br><span style="color:#64748b">25.7%</span></div></div>
+      <div class="odelta">Δ -184</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#22c55e">1.35</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Cobolli<br><span style="color:#64748b">74.3%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.99</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-7.7%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#94a3b8">+2.3%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.39</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">25.7%</span>
+      <div class="bar-out"><div class="bar-in" style="width:25.7%;background:linear-gradient(90deg,#92400e,#d97706)"></div></div>
+      <span class="bar-pct" style="text-align:right">74.3%</span>
+    </div>
   </div>
 </div></div>
+<div class="sec" style="color:var(--pink)">WTA — Mai meccsek</div><div class="cards"><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">11:10 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">[26] Sorana Cirstea</div>
+        <div class="pmeta">#27 · c1805 · h1903</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin-left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Linda Noskova [13]</div>
+        <div class="pmeta">#13 · c1813 · h1909</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#e2e8f0">2.04</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Cirstea<br><span style="color:#64748b">48.9%</span></div></div>
+      <div class="odelta">Δ -7</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#22c55e">1.96</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Noskova<br><span style="color:#64748b">51.1%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.01</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-0.8%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.8%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.79</span></div></div><div style="font-size:10px;color:#eab308;text-align:center;margin-top:.3rem;padding:2px .5rem;background:#eab30810;border-radius:4px">⚠ Nyílt meccs — ΔElo &lt; 10</div>
+    <div class="bar-row">
+      <span class="bar-pct">48.9%</span>
+      <div class="bar-out"><div class="bar-in" style="width:48.9%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
+      <span class="bar-pct" style="text-align:right">51.1%</span>
+    </div>
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">12:50 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">[3] Coco Gauff</div>
+        <div class="pmeta">#4 · c2024 · h2041</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin-left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Iva Jovic [16]</div>
+        <div class="pmeta">#17 · c1748 · h1823</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#22c55e">1.21</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Gauff<br><span style="color:#64748b">83.0%</span></div></div>
+      <div class="odelta">Δ +275</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#e2e8f0">5.87</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Jovic<br><span style="color:#64748b">17.0%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.31</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#22c55e18;border:1px solid #22c55e40;color:#22c55e">+6.6% VALUE</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-12.0%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">3.44</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">83.0%</span>
+      <div class="bar-out"><div class="bar-in" style="width:83.0%;background:linear-gradient(90deg,#15803d,#22c55e)"></div></div>
+      <span class="bar-pct" style="text-align:right">17.0%</span>
+    </div>
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">13:05 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">Jelena Ostapenko</div>
+        <div class="pmeta">#36 · c1790 · h1782</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin-left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div><div style="margin-top:3px;padding:2px 6px;border-radius:4px;background:#f59e0b15;border:1px solid #f59e0b35;font-size:9px;font-weight:700;color:#f59e0b">⚡ Felületi előny — jobb salakon</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Anna Kalinskaya [22]</div>
+        <div class="pmeta">#24 · c1754 · h1856</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#818cf8;margin-right:3px">💙💙</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#22c55e">1.81</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Ostapenko<br><span style="color:#64748b">55.3%</span></div></div>
+      <div class="odelta">Δ +37</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#e2e8f0">2.24</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Kalinskaya<br><span style="color:#64748b">44.7%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.78</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-0.9%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.5%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.03</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">55.3%</span>
+      <div class="bar-out"><div class="bar-in" style="width:55.3%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
+      <span class="bar-pct" style="text-align:right">44.7%</span>
+    </div>
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">14:45 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">[8] Mirra Andreeva</div>
+        <div class="pmeta">#7 · c1992 · h1981</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#94a3b8;margin-left:3px">⚖</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#94a3b8"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span></div><div style="margin-top:3px;padding:2px 6px;border-radius:4px;background:#f59e0b15;border:1px solid #f59e0b35;font-size:9px;font-weight:700;color:#f59e0b">⚡ Felületi előny — jobb salakon</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Elise Mertens [21]</div>
+        <div class="pmeta">#22 · c1814 · h1855</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#22c55e">1.36</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Andreeva<br><span style="color:#64748b">73.5%</span></div></div>
+      <div class="odelta">Δ +178</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#e2e8f0">3.78</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Mertens<br><span style="color:#64748b">26.5%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.33</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-1.7%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.0%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">3.28</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">73.5%</span>
+      <div class="bar-out"><div class="bar-in" style="width:73.5%;background:linear-gradient(90deg,#15803d,#22c55e)"></div></div>
+      <span class="bar-pct" style="text-align:right">26.5%</span>
+    </div>
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">15:40 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">[7] Elina Svitolina</div>
+        <div class="pmeta">#10 · c1930 · h1976</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#60a5fa;margin-left:3px">💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Nikola Bartunkova</div>
+        <div class="pmeta">#94 · c1606 · h1667</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="font-size:9px;color:#60a5fa;margin-right:3px">💙</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#22c55e">1.15</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Svitolina<br><span style="color:#64748b">86.6%</span></div></div>
+      <div class="odelta">Δ +324</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#e2e8f0">7.47</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Bartunkova<br><span style="color:#64748b">13.4%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.14</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-1.1%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-4.2%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">5.69</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">86.6%</span>
+      <div class="bar-out"><div class="bar-in" style="width:86.6%;background:linear-gradient(90deg,#15803d,#22c55e)"></div></div>
+      <span class="bar-pct" style="text-align:right">13.4%</span>
+    </div>
+  </div>
+</div><div class="card">
+  <div class="ctop">
+    <div class="tags">
+      <span class="surf-tag" style="background:#ea580c1a;border-color:#ea580c40;color:#fb923c">🧱 Salak</span>
+      <span class="cat-tag" style="color:#ec4899;border-color:#ec489940">WTA W1000</span>
+      <span class="t-tag">18:05 UTC+1</span>
+    </div><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>
+  </div>
+  <div class="cbody">
+    <div class="prow">
+      <div class="pinfo">
+        <div class="pname">[5] Jessica Pegula</div>
+        <div class="pmeta">#5 · c1946 · h2061</div>
+        <div style="display:flex;align-items:center;gap:1px"><span style="font-size:9px;color:#818cf8;margin-left:3px">💙💙</span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#60a5fa"></span></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pinfo" style="text-align:right">
+        <div class="pname">Anastasia Potapova</div>
+        <div class="pmeta">#38 · c1845 · h1789</div>
+        <div style="display:flex;align-items:center;gap:1px;justify-content:flex-end"><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#fb923c"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:#1e3a5f"></span><span style="font-size:9px;color:#fbbf24;margin-right:3px">🧱</span></div>
+      </div>
+    </div>
+    <div class="odds-row">
+      <div class="obox"><div class="odec" style="color:#22c55e">1.56</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Pegula<br><span style="color:#64748b">64.2%</span></div></div>
+      <div class="odelta">Δ +102</div>
+      <div class="obox" style="flex-direction:row-reverse;text-align:right">
+        <div class="odec" style="color:#e2e8f0">2.8</div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>Potapova<br><span style="color:#64748b">35.8%</span></div></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem"><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;color:#64748b">Bukméker</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">1.49</span><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.9%</span></div><span style="font-size:9px;color:#64748b">TE odds</span><div style="display:flex;align-items:center;gap:.35rem"><span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:#1e3050;border:1px solid #1e3050;color:#ef4444">-2.7%</span><span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">2.6</span></div></div>
+    <div class="bar-row">
+      <span class="bar-pct">64.2%</span>
+      <div class="bar-out"><div class="bar-in" style="width:64.2%;background:linear-gradient(90deg,#1d4ed8,#38bdf8)"></div></div>
+      <span class="bar-pct" style="text-align:right">35.8%</span>
+    </div>
+  </div>
+</div></div>
+
 </main>
-<footer>tennisabstract.com Elo · TennisExplorer odds · Fair odds = 1/P · Nem befektetési tanácsadás.</footer>
+<footer>tennisabstract.com Elo (ATP+WTA) · TennisExplorer odds · Fair odds = 1/P · Nem befektetési tanácsadás.</footer>
 </body>
 </html>
