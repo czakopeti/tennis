@@ -1,1 +1,52 @@
+name: ATP Value Bet
 
+on:
+  schedule:
+    - cron: '0 7 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      bankroll:
+        description: 'Bankroll (USD)'
+        default: '1000'
+      force_elo:
+        description: 'Elo frissítés? (yes/no)'
+        default: 'no'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ hashFiles('requirements.txt') }}
+      - run: pip install -r requirements.txt
+
+      - name: Heti Elo frissítés (hétfő)
+        if: github.event.schedule == '0 6 * * 1' || github.event.inputs.force_elo == 'yes'
+        run: python fetch_elo.py
+
+      - name: Napi meccsek + HTML
+        run: |
+          if [ -f "data/elo_ratings.json" ]; then
+            python main.py --bankroll ${{ github.event.inputs.bankroll || '1000' }} --skip-elo
+          else
+            python main.py --bankroll ${{ github.event.inputs.bankroll || '1000' }}
+          fi
+
+      - name: Commit & push
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add index.html data/
+          git diff --staged --quiet || git commit -m "🎾 $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push
