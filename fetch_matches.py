@@ -1,10 +1,10 @@
 """
 Napi ATP 500+ meccsek - TennisExplorer.com
-cloudscraper a GitHub Actions IP-blokk megkerüléséhez.
+Alap URL (/matches/ dátum-param nélkül), majd dátum-szekció + torna alapú szűrés.
 """
 import re, time, random, json
 from bs4 import BeautifulSoup
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 OUTPUT_PATH = Path(__file__).parent / "data" / "todays_matches.json"
@@ -53,7 +53,6 @@ def classify(name: str):
 
 def get_html(url: str) -> str:
     """cloudscraper -> requests fallback"""
-    # Próba 1: cloudscraper
     try:
         import cloudscraper
         scraper = cloudscraper.create_scraper(
@@ -68,7 +67,6 @@ def get_html(url: str) -> str:
     except Exception as e:
         print(f"[fetch_matches] cloudscraper hiba: {e}, fallback...")
 
-    # Próba 2: requests
     import requests
     headers = {
         "User-Agent": (
@@ -87,12 +85,24 @@ def get_html(url: str) -> str:
     return resp.text
 
 
-def parse_rows(rows: list) -> list:
+def parse_date_header(row) -> str | None:
+    """
+    Felismeri a dátum-szekció fejlécet.
+    TennisExplorer formátum: '11. 05. 2026' vagy '11.05.2026'
+    """
+    txt = row.get_text(strip=True)
+    m = re.search(r'(\d{1,2})\.\s*(\d{2})\.\s*(\d{4})', txt)
+    if m:
+        return f"{m.group(3)}-{m.group(2)}-{int(m.group(1)):02d}"
+    return None
+
+
+def parse_match_rows(rows: list) -> list:
     matches = []
     i = 0
     while i < len(rows) - 1:
         r1, r2 = rows[i], rows[i + 1]
-        # Find time in first row
+        # Időpont keresése az első sorban
         t = None
         for cell in r1.find_all("td"):
             txt = cell.get_text(strip=True)
@@ -106,13 +116,10 @@ def parse_rows(rows: list) -> list:
         def pname(row):
             for a in row.find_all("a"):
                 href = a.get("href", "")
-                if "/player/" in href or "player=" in href:
-                    return re.sub(r'\s+', ' ', a.get_text(strip=True)).strip()
-            # fallback: any link that looks like a player name
-            for a in row.find_all("a"):
-                txt = a.get_text(strip=True)
-                if len(txt) > 4 and txt[0].isupper():
-                    return re.sub(r'\s+', ' ', txt).strip()
+                if "player" in href:
+                    n = re.sub(r'\s+', ' ', a.get_text(strip=True)).strip()
+                    if n and len(n) > 3:
+                        return n
             return None
 
         def pseed(row):
@@ -122,7 +129,8 @@ def parse_rows(rows: list) -> list:
         p1, p2 = pname(r1), pname(r2)
         if p1 and p2:
             matches.append({
-                "time": t, "player1": p1, "player2": p2,
+                "time": t,
+                "player1": p1, "player2": p2,
                 "seed1": pseed(r1), "seed2": pseed(r2),
             })
         i += 2
@@ -133,72 +141,97 @@ def scrape_matches(date: datetime = None) -> list:
     if date is None:
         date = datetime.now(timezone.utc)
 
-    url = (f"https://www.tennisexplorer.com/matches/"
-           f"?type=atp-single"
-           f"&year={date.year}&month={date.month:02d}&day={date.day:02d}")
+    today_str = date.strftime("%Y-%m-%d")
+
+    # ── Fő URL: paraméter nélkül, ATP singles tab ──────────────────────
+    # A TennisExplorer dátum-szekciókra bontva mutatja a meccseket
+    url = "https://www.tennisexplorer.com/matches/?type=atp-single"
     print(f"[fetch_matches] {url}")
+    print(f"[fetch_matches] Keresett dátum: {today_str}")
 
     try:
         html = get_html(url)
     except Exception as e:
-        print(f"[fetch_matches] HIBA a lekéréskor: {e}")
+        print(f"[fetch_matches] HIBA: {e}")
         return []
 
     soup  = BeautifulSoup(html, "lxml")
-    table = soup.find("table", id="matches") or soup.find("table")
 
-    if not table:
-        print(f"[fetch_matches] Táblázat nem található. HTML méret: {len(html)}")
-        print(f"[fetch_matches] HTML eleje: {html[:300]}")
-        return []
+    # A teljes tartalom táblázatban van
+    # Struktúra: date-header sor → torna-header sorok → meccs sorok
+    # Keressük az összes <tr>-t, és dátum szerint szűrjük
 
-    # Debug: show all tournament headers found
-    heads = []
-    for row in table.find_all("tr"):
-        if "head" in " ".join(row.get("class", [])):
-            heads.append(row.get_text(strip=True)[:80])
-    print(f"[fetch_matches] Torna fejlécek: {heads}")
+    all_rows = soup.find_all("tr")
+    print(f"[fetch_matches] Összes sor: {len(all_rows)}")
+
+    # Gyűjtsük össze a dátum-szekciókra bontott sorokat
+    sections = {}   # date_str -> [rows]
+    current_date = None
+    for row in all_rows:
+        cls = " ".join(row.get("class", []))
+        txt = row.get_text(strip=True)
+
+        # Dátum fejléc felismerése
+        d = parse_date_header(row)
+        if d:
+            current_date = d
+            sections[d] = []
+            print(f"[fetch_matches] Dátum szekció: {d}")
+            continue
+
+        if current_date:
+            sections[current_date].append(row)
+
+    print(f"[fetch_matches] Talált dátumok: {list(sections.keys())}")
+
+    # Ha nincs mai dátum, próbáljuk a holnapit is (időzóna eltérés)
+    tomorrow_str = (date + timedelta(days=1)).strftime("%Y-%m-%d")
+    target_dates = [today_str, tomorrow_str]
+    print(f"[fetch_matches] Célzott dátumok: {target_dates}")
 
     all_matches = []
-    current = {"t": None, "s": None, "c": None, "rows": []}
+    for target_date in target_dates:
+        if target_date not in sections:
+            continue
 
-    def flush():
-        if current["t"] and current["c"] in VALID and current["rows"]:
-            parsed = parse_rows(current["rows"])
-            for m in parsed:
-                m["tournament"] = current["t"]
-                m["surface"]    = current["s"]
-                m["category"]   = current["c"]
-                all_matches.append(m)
-        current["rows"] = []
+        rows = sections[target_date]
+        print(f"[fetch_matches] {target_date}: {len(rows)} sor feldolgozása")
 
-    for row in table.find_all("tr"):
-        cls = " ".join(row.get("class", []))
-        if "head" in cls:
-            flush()
-            lnk  = row.find("a")
-            name = re.sub(r'\s+', ' ',
-                          (lnk.get_text(strip=True) if lnk
-                           else row.get_text(strip=True))).strip()
-            surf, cat = classify(name)
-            current["t"] = name
-            current["s"] = surf
-            current["c"] = cat
-            current["rows"] = []
-            if cat in VALID:
-                print(f"[fetch_matches] Torna found: [{cat}|{surf}] {name}")
+        # Torna-szekciókra bontás a dátumon belül
+        cur_t = cur_s = cur_c = None
+        cur_rows = []
+
+        def flush(t, s, c, rows):
+            if t and c in VALID and rows:
+                parsed = parse_match_rows(rows)
+                for m in parsed:
+                    m["tournament"] = t
+                    m["surface"]    = s
+                    m["category"]   = c
+                    all_matches.append(m)
+                if parsed:
+                    print(f"  [{c}|{s}] {t}: {len(parsed)} meccs")
+
+        for row in rows:
+            cls = " ".join(row.get("class", []))
+            if "head" in cls:
+                flush(cur_t, cur_s, cur_c, cur_rows)
+                lnk  = row.find("a")
+                name = re.sub(r'\s+', ' ',
+                              (lnk.get_text(strip=True) if lnk
+                               else row.get_text(strip=True))).strip()
+                # Torna neve: vegyük az első 40 karaktert (nem kell a S/1/2/3... rész)
+                name = re.split(r'\s+[S]\s+', name)[0].strip()
+                surf, cat = classify(name)
+                cur_t, cur_s, cur_c = name, surf, cat
+                cur_rows = []
+                print(f"  Torna: [{cat}|{surf}] {name}")
             else:
-                print(f"[fetch_matches] Kihagyva (nem ATP500+): {name}")
-        else:
-            current["rows"].append(row)
+                cur_rows.append(row)
 
-    flush()
+        flush(cur_t, cur_s, cur_c, cur_rows)
 
-    print(f"[fetch_matches] Összesen {len(all_matches)} meccs")
-    for m in all_matches:
-        print(f"  [{m['category']}|{m['surface']}] {m['time']} "
-              f"{m['player1']} vs {m['player2']}")
-
+    print(f"[fetch_matches] Összesen {len(all_matches)} ATP500+ meccs")
     return all_matches
 
 
