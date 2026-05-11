@@ -7,11 +7,12 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT))
 
-from fetch_elo     import scrape_elo_ratings, save_elo_ratings
+from fetch_elo     import scrape_with_fallback, scrape_elo_ratings, save_elo_ratings
 from fetch_matches import scrape_matches, save_matches
 from generate_html import analyze_matches, generate_html
 
 DATA_DIR = ROOT / "data"
+
 
 def main():
     p = argparse.ArgumentParser()
@@ -24,27 +25,32 @@ def main():
     elo_path     = DATA_DIR / "elo_ratings.json"
     matches_path = DATA_DIR / "todays_matches.json"
 
+    # ── 1. Elo ──────────────────────────────────────────────────────────
     print("\n=== 1. Elo Ratings ===")
     if args.skip_elo and elo_path.exists():
-        print("[main] Cached Elo használata")
-        elo_data = json.loads(elo_path.read_text())
+        print("[main] Cached Elo")
     else:
-        elo_players = scrape_elo_ratings()
-        save_elo_ratings(elo_players)
-        elo_data = json.loads(elo_path.read_text())
+        scrape_with_fallback()  # nem crashel ha 403
 
+    if not elo_path.exists():
+        print("[main] HIBA: nincs elo_ratings.json - pipeline leáll")
+        sys.exit(1)
+
+    elo_data    = json.loads(elo_path.read_text())
     elo_players = elo_data.get("players", elo_data)
     elo_meta    = {k: v for k, v in elo_data.items() if k != "players"}
 
+    # ── 2. Meccsek ──────────────────────────────────────────────────────
     print("\n=== 2. Mai meccsek ===")
     if args.skip_matches and matches_path.exists():
-        print("[main] Cached meccsek használata")
+        print("[main] Cached meccsek")
         matches = json.loads(matches_path.read_text())
     else:
         matches = scrape_matches()
         save_matches(matches)
 
-    print("\n=== 3. Elemzés + HTML ===")
+    # ── 3. HTML ─────────────────────────────────────────────────────────
+    print("\n=== 3. HTML generálás ===")
     analyses = analyze_matches(matches, elo_players)
     (DATA_DIR / "todays_analysis.json").write_text(
         json.dumps(analyses, indent=2, default=str))
@@ -54,7 +60,8 @@ def main():
     missing = [a for a in analyses if not a.get("elo_found")]
     print(f"\n✅ Kész: {len(analyses)} meccs, {found} Elo lefedve")
     if missing:
-        print(f"⚠  Hiányzó: {', '.join(m['player1']+'/'+m['player2'] for m in missing)}")
+        print(f"⚠  Hiányzó: {[m['player1']+'/'+m['player2'] for m in missing]}")
+
 
 if __name__ == "__main__":
     main()
