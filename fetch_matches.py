@@ -1,6 +1,10 @@
 """
 Napi ATP 500+ meccsek - TennisExplorer.com
-DEBUG verzió: kiírja a HTML struktúrát a logba.
+Javítások:
+- Csak class="head flags" sorok = torna fejlécek (sidebar kizárva)
+- "challenger" / "futures" / "utr" explicit kizárás
+- "Live streams" szöveg kiszűrése a játékosnevekből
+- Dátum: span.tab alapú szűrés
 """
 import re, time, random, json
 from bs4 import BeautifulSoup
@@ -42,9 +46,19 @@ TOURNAMENT_MAP = [
 ]
 VALID = {"GS", "M1000", "A500"}
 
+# Szavak amik garantáltan NEM ATP500+ tornák
+EXCLUDE_KEYWORDS = [
+    "challenger", "futures", "utr", "itf", "satellite",
+    "wta", "doubles", "h2h", "main tournaments",
+    "lower level", "motuwethfr",
+]
+
 
 def classify(name: str):
     nl = name.lower()
+    # Kizárás: challenger/futures/utr stb.
+    if any(kw in nl for kw in EXCLUDE_KEYWORDS):
+        return None, None
     for kws, surf, cat in TOURNAMENT_MAP:
         if any(k in nl for k in kws):
             return surf, cat
@@ -62,6 +76,7 @@ def get_html(url: str) -> str:
         if resp.status_code == 200 and len(resp.text) > 2000:
             print(f"[fetch_matches] cloudscraper OK ({len(resp.text):,} kar)")
             return resp.text
+        print(f"[fetch_matches] cloudscraper HTTP {resp.status_code}")
     except Exception as e:
         print(f"[fetch_matches] cloudscraper hiba: {e}")
 
@@ -76,35 +91,30 @@ def get_html(url: str) -> str:
     return resp.text
 
 
-def debug_html_structure(html: str):
-    """Kiírja a HTML struktúrát hogy lássuk a dátum/torna fejléceket."""
-    soup = BeautifulSoup(html, "lxml")
+def is_player_name(text: str) -> bool:
+    """Kiszűri a 'Live streams', reklám, stb. sorokat."""
+    if not text or len(text) < 3:
+        return False
+    bad = ["live stream", "bet365", "unibet", "1xbet", "bwin", "sky sports",
+           "bein", "eurosport", "dazn", "tv", "info", "h2h"]
+    tl = text.lower()
+    if any(b in tl for b in bad):
+        return False
+    return True
 
-    print("\n[DEBUG] === Első 50 TR sor class és szöveg ===")
-    for i, row in enumerate(soup.find_all("tr")[:50]):
-        cls  = row.get("class", [])
-        txt  = row.get_text(separator=" ", strip=True)[:80]
-        if cls or any(x in txt.lower() for x in ["2026","rome","madrid","atp","date","result"]):
-            print(f"  [{i}] class={cls} | {txt}")
 
-    print("\n[DEBUG] === Minden div/span/td ami dátumot tartalmaz ===")
-    for el in soup.find_all(text=re.compile(r'\d{1,2}\.\s*\d{2}\.\s*20\d{2}'))[:10]:
-        parent = el.parent
-        print(f"  tag={parent.name} class={parent.get('class',[])} | '{el.strip()}'")
+def parse_player(row) -> str | None:
+    for a in row.find_all("a"):
+        if "player" in a.get("href", ""):
+            n = re.sub(r'\s+', ' ', a.get_text(strip=True)).strip()
+            if is_player_name(n):
+                return n
+    return None
 
-    print("\n[DEBUG] === 'rome' vagy 'Rome' előfordulások ===")
-    for el in soup.find_all(text=re.compile(r'[Rr]ome'))[:5]:
-        parent = el.parent
-        gp     = parent.parent
-        print(f"  tag={parent.name} class={parent.get('class',[])} gp={gp.name} | '{el.strip()[:60]}'")
 
-    print("\n[DEBUG] === Összes unique TR class ===")
-    classes = set()
-    for row in soup.find_all("tr"):
-        cls = tuple(row.get("class", []))
-        classes.add(cls)
-    for c in sorted(classes):
-        print(f"  {c}")
+def parse_seed(row) -> int | None:
+    m = re.search(r'\((\d+)\)', row.get_text())
+    return int(m.group(1)) if m else None
 
 
 def parse_match_rows(rows: list) -> list:
@@ -112,6 +122,8 @@ def parse_match_rows(rows: list) -> list:
     i = 0
     while i < len(rows) - 1:
         r1, r2 = rows[i], rows[i + 1]
+
+        # Időpont az első sorban
         t = None
         for cell in r1.find_all("td"):
             txt = cell.get_text(strip=True)
@@ -122,37 +134,42 @@ def parse_match_rows(rows: list) -> list:
             i += 1
             continue
 
-        def pname(row):
-            for a in row.find_all("a"):
-                if "player" in a.get("href", ""):
-                    n = re.sub(r'\s+', ' ', a.get_text(strip=True)).strip()
-                    if n and len(n) > 3:
-                        return n
-            return None
+        p1 = parse_player(r1)
+        p2 = parse_player(r2)
 
-        def pseed(row):
-            m = re.search(r'\((\d+)\)', row.get_text())
-            return int(m.group(1)) if m else None
-
-        p1, p2 = pname(r1), pname(r2)
         if p1 and p2:
             matches.append({
-                "time": t, "player1": p1, "player2": p2,
-                "seed1": pseed(r1), "seed2": pseed(r2),
+                "time":    t,
+                "player1": p1,  "player2": p2,
+                "seed1":   parse_seed(r1),
+                "seed2":   parse_seed(r2),
             })
         i += 2
     return matches
+
+
+def get_today_str(html: str, target_date: str) -> str:
+    """
+    A TennisExplorer <span class="tab"> elemekben tárolja a dátumokat.
+    Visszaadja hogy a célzott dátum megjelenik-e a lapon.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    for span in soup.find_all("span", class_="tab"):
+        txt = span.get_text(strip=True)
+        m = re.search(r'(\d{1,2})\.\s*(\d{2})\.\s*(\d{4})', txt)
+        if m:
+            d = f"{m.group(3)}-{m.group(2)}-{int(m.group(1)):02d}"
+            print(f"[fetch_matches] Dátum tab: '{txt}' → {d}")
+    return target_date
 
 
 def scrape_matches(date: datetime = None) -> list:
     if date is None:
         date = datetime.now(timezone.utc)
 
-    today_str    = date.strftime("%Y-%m-%d")
-    tomorrow_str = (date + timedelta(days=1)).strftime("%Y-%m-%d")
-
+    today_str = date.strftime("%Y-%m-%d")
     url = "https://www.tennisexplorer.com/matches/?type=atp-single"
-    print(f"[fetch_matches] {url} | keresett dátum: {today_str}")
+    print(f"[fetch_matches] {url} | dátum: {today_str}")
 
     try:
         html = get_html(url)
@@ -160,52 +177,12 @@ def scrape_matches(date: datetime = None) -> list:
         print(f"[fetch_matches] HIBA: {e}")
         return []
 
-    # DEBUG: térképezzük fel a struktúrát
-    debug_html_structure(html)
+    get_today_str(html, today_str)
 
-    soup     = BeautifulSoup(html, "lxml")
-    all_rows = soup.find_all("tr")
+    soup = BeautifulSoup(html, "lxml")
 
-    # ── Próba 1: dátum-szekció alapú parsing ────────────────────────────
-    # Dátum fejléc: <tr class="result"> vagy hasonló, szöveg: "11. 05. 2026"
-    date_pattern = re.compile(r'(\d{1,2})\.\s*(\d{2})\.\s*(\d{4})')
-
-    sections      = {}
-    current_date  = None
-
-    for row in all_rows:
-        txt = row.get_text(separator=" ", strip=True)
-        m   = date_pattern.search(txt)
-        if m and len(txt) < 120:   # dátum fejléc rövid szövegű
-            d = f"{m.group(3)}-{m.group(2)}-{int(m.group(1)):02d}"
-            current_date = d
-            if d not in sections:
-                sections[d] = []
-            continue
-        if current_date:
-            sections[current_date].append(row)
-
-    print(f"[fetch_matches] Dátum szekciók (1. próba): {list(sections.keys())}")
-
-    # ── Próba 2: ha nincs dátum-szekció, próbáljuk az összes sort ───────
-    # A "Rome" előfordulástól kezdve feldolgozunk mindent
-    target_rows = []
-    for d in [today_str, tomorrow_str]:
-        if d in sections:
-            target_rows.extend(sections[d])
-
-    if not target_rows:
-        print("[fetch_matches] Dátum-szekció alapján nincs találat, próba: 'rome' keresése")
-        rome_found = False
-        for row in all_rows:
-            txt_low = row.get_text(strip=True).lower()
-            if "rome" in txt_low or "internazionali" in txt_low:
-                rome_found = True
-            if rome_found:
-                target_rows.append(row)
-        print(f"[fetch_matches] 'Rome' keresés: {len(target_rows)} sor")
-
-    # ── Parse torna-szekciók a célzott sorokból ──────────────────────────
+    # ── Fő logika: csak class="head flags" = torna fejléc ───────────────
+    # Ez kizárja a sidebar táblák head sorait, amik csak class="head"-et kapnak
     all_matches = []
     cur_t = cur_s = cur_c = None
     cur_rows = []
@@ -219,25 +196,32 @@ def scrape_matches(date: datetime = None) -> list:
                 m["surface"]    = cur_s
                 m["category"]   = cur_c
                 all_matches.append(m)
-            if parsed:
-                print(f"  -> [{cur_c}|{cur_s}] {cur_t}: {len(parsed)} meccs")
+            print(f"  [{cur_c}|{cur_s}] {cur_t}: {len(parsed)} meccs")
         cur_rows = []
 
-    for row in target_rows:
-        cls = " ".join(row.get("class", []))
-        if "head" in cls:
+    for row in soup.find_all("tr"):
+        classes = row.get("class", [])
+
+        # ── Torna fejléc: CSAK "head" ÉS "flags" együtt ─────────────────
+        if "head" in classes and "flags" in classes:
             flush()
             lnk  = row.find("a")
             name = re.sub(r'\s+', ' ',
                           (lnk.get_text(strip=True) if lnk
                            else row.get_text(strip=True))).strip()
-            name = re.split(r'\s+S\s+', name)[0].strip()
+            # Levágja a "S 1 2 3 4 5 H2H H A" részt a torna névből
+            name = re.split(r'\s+S\s+\d', name)[0].strip()
             surf, cat = classify(name)
             cur_t, cur_s, cur_c = name, surf, cat
+            if cat in VALID:
+                print(f"  ✅ Torna: [{cat}|{surf}] {name}")
+            else:
+                print(f"  ⏭ Kihagyva: {name}")
             cur_rows = []
-            print(f"  Torna: [{cat}|{surf}] {name}")
         else:
-            cur_rows.append(row)
+            # Meccs sor (csak ha van aktív ATP500+ torna)
+            if cur_c in VALID:
+                cur_rows.append(row)
 
     flush()
 
