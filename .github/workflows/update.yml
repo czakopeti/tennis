@@ -30,7 +30,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ hashFiles('requirements.txt') }}-v2
+          key: pip-${{ hashFiles('requirements.txt') }}-v3
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -39,7 +39,7 @@ jobs:
         if: github.event.schedule == '0 6 * * 1' || github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
-      - name: Napi meccsek + HTML generálás
+      - name: Napi meccsek + HTML
         run: |
           BANKROLL="${{ github.event.inputs.bankroll || '1000' }}"
           if [ -f "data/elo_ratings.json" ]; then
