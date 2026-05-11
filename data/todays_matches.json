@@ -5,6 +5,8 @@
     "player2": "Davidovich Fokina A.",
     "seed1": 12,
     "seed2": 21,
+    "book_odds_home": 1.61,
+    "book_odds_away": 2.3,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -15,6 +17,8 @@
     "player2": "Bellucci M.",
     "seed1": null,
     "seed2": null,
+    "book_odds_home": 1.96,
+    "book_odds_away": 1.83,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -25,6 +29,8 @@
     "player2": "Nakashima B.",
     "seed1": null,
     "seed2": 30,
+    "book_odds_home": 2.25,
+    "book_odds_away": 1.64,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -35,6 +41,8 @@
     "player2": "Tiafoe F.",
     "seed1": null,
     "seed2": 20,
+    "book_odds_home": 2.84,
+    "book_odds_away": 1.42,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -45,6 +53,8 @@
     "player2": "Navone M.",
     "seed1": null,
     "seed2": null,
+    "book_odds_home": 1.71,
+    "book_odds_away": 2.13,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -55,6 +65,8 @@
     "player2": "Popyrin A.",
     "seed1": 1,
     "seed2": null,
+    "book_odds_home": 1.02,
+    "book_odds_away": 19.09,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
@@ -65,6 +77,8 @@
     "player2": "Llamas Ruiz P.",
     "seed1": 7,
     "seed2": null,
+    "book_odds_home": 1.43,
+    "book_odds_away": 2.78,
     "tournament": "Rome",
     "surface": "clay",
     "category": "M1000"
