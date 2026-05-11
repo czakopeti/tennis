@@ -1,17 +1,21 @@
-"""
-Napi orchestrator. GitHub Actions futtatja.
-python main.py [--bankroll 1000] [--skip-elo] [--skip-matches]
-"""
+"""Napi orchestrator — ATP + WTA."""
 import json, argparse, sys
 from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT))
 
-from fetch_elo     import scrape_with_fallback, scrape_elo_ratings, save_elo_ratings
+from fetch_elo     import scrape_with_fallback
 from fetch_matches import scrape_matches, save_matches
 from generate_html import analyze_matches, generate_html
 
 DATA_DIR = ROOT / "data"
+
+
+def load_elo(tour):
+    p = DATA_DIR / f"elo_ratings_{tour}.json"
+    if not p.exists(): return {}, {}
+    d = json.loads(p.read_text())
+    return d.get("players", d), {k:v for k,v in d.items() if k!="players"}
 
 
 def main():
@@ -22,45 +26,46 @@ def main():
     args = p.parse_args()
     DATA_DIR.mkdir(exist_ok=True)
 
-    elo_path     = DATA_DIR / "elo_ratings.json"
-    matches_path = DATA_DIR / "todays_matches.json"
-
     # ── 1. Elo ──────────────────────────────────────────────────────────
     print("\n=== 1. Elo Ratings ===")
-    if args.skip_elo and elo_path.exists():
-        print("[main] Cached Elo")
+    if not args.skip_elo:
+        scrape_with_fallback("atp")
+        scrape_with_fallback("wta")
     else:
-        scrape_with_fallback()  # nem crashel ha 403
+        print("[main] Cached Elo")
 
-    if not elo_path.exists():
-        print("[main] HIBA: nincs elo_ratings.json - pipeline leáll")
-        sys.exit(1)
+    atp_players, atp_meta = load_elo("atp")
+    wta_players, wta_meta = load_elo("wta")
 
-    elo_data    = json.loads(elo_path.read_text())
-    elo_players = elo_data.get("players", elo_data)
-    elo_meta    = {k: v for k, v in elo_data.items() if k != "players"}
+    if not atp_players:
+        print("[main] HIBA: nincs ATP Elo adat"); sys.exit(1)
 
     # ── 2. Meccsek ──────────────────────────────────────────────────────
-    print("\n=== 2. Mai meccsek ===")
+    print("\n=== 2. Meccsek ===")
+    matches_path = DATA_DIR / "todays_matches.json"
     if args.skip_matches and matches_path.exists():
-        print("[main] Cached meccsek")
         matches = json.loads(matches_path.read_text())
+        print(f"[main] Cached: {len(matches)} meccs")
     else:
         matches = scrape_matches()
         save_matches(matches)
 
-    # ── 3. HTML ─────────────────────────────────────────────────────────
-    print("\n=== 3. HTML generálás ===")
-    analyses = analyze_matches(matches, elo_players)
-    (DATA_DIR / "todays_analysis.json").write_text(
-        json.dumps(analyses, indent=2, default=str))
-    generate_html(analyses, elo_meta=elo_meta, bankroll=args.bankroll)
+    # ── 3. Elemzés ───────────────────────────────────────────────────────
+    print("\n=== 3. Elemzés + HTML ===")
+    atp_matches = [m for m in matches if m.get("tour","ATP") == "ATP"]
+    wta_matches = [m for m in matches if m.get("tour") == "WTA"]
 
-    found   = sum(1 for a in analyses if a.get("elo_found"))
-    missing = [a for a in analyses if not a.get("elo_found")]
-    print(f"\n✅ Kész: {len(analyses)} meccs, {found} Elo lefedve")
-    if missing:
-        print(f"⚠  Hiányzó: {[m['player1']+'/'+m['player2'] for m in missing]}")
+    atp_analyses = analyze_matches(atp_matches, atp_players)
+    wta_analyses = analyze_matches(wta_matches, wta_players) if wta_players else []
+
+    all_analyses = atp_analyses + wta_analyses
+    (DATA_DIR / "todays_analysis.json").write_text(
+        json.dumps(all_analyses, indent=2, default=str))
+
+    generate_html(atp_analyses, wta_analyses,
+                  elo_meta=atp_meta, bankroll=args.bankroll)
+
+    print(f"\n✅ ATP: {len(atp_analyses)} meccs | WTA: {len(wta_analyses)} meccs")
 
 
 if __name__ == "__main__":
