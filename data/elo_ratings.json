@@ -1,0 +1,5186 @@
+{
+  "scraped_at": "2026-05-11T13:21:43.133210+00:00",
+  "source": "https://tennisabstract.com/reports/atp_elo_ratings.html",
+  "players": {
+    "Jannik\u00a0Sinner": {
+      "elo_rank": 1,
+      "age": 24.6,
+      "elo": 2331.1,
+      "hElo": 2268.9,
+      "cElo": 2222.5,
+      "gElo": 2094.0,
+      "atp_rank": 1,
+      "surface_score": 4
+    },
+    "Carlos\u00a0Alcaraz": {
+      "elo_rank": 2,
+      "age": 22.9,
+      "elo": 2271.8,
+      "hElo": 2198.3,
+      "cElo": 2211.6,
+      "gElo": 2139.2,
+      "atp_rank": 2,
+      "surface_score": 3
+    },
+    "Alexander\u00a0Zverev": {
+      "elo_rank": 3,
+      "age": 28.9,
+      "elo": 2086.8,
+      "hElo": 2035.0,
+      "cElo": 2028.4,
+      "gElo": 1898.3,
+      "atp_rank": 3,
+      "surface_score": 3
+    },
+    "Novak\u00a0Djokovic": {
+      "elo_rank": 4,
+      "age": 38.7,
+      "elo": 2079.6,
+      "hElo": 2031.8,
+      "cElo": 1982.2,
+      "gElo": 1935.0,
+      "atp_rank": 4,
+      "surface_score": 4
+    },
+    "Arthur\u00a0Fils": {
+      "elo_rank": 5,
+      "age": 21.8,
+      "elo": 2046.2,
+      "hElo": 1962.6,
+      "cElo": 1985.7,
+      "gElo": 1809.2,
+      "atp_rank": 17,
+      "surface_score": 3
+    },
+    "Daniil\u00a0Medvedev": {
+      "elo_rank": 6,
+      "age": 30.1,
+      "elo": 2000.1,
+      "hElo": 1973.7,
+      "cElo": 1904.4,
+      "gElo": 1879.1,
+      "atp_rank": 9,
+      "surface_score": 4
+    },
+    "Felix\u00a0Auger\u00a0Aliassime": {
+      "elo_rank": 7,
+      "age": 25.6,
+      "elo": 1985.4,
+      "hElo": 1945.9,
+      "cElo": 1873.7,
+      "gElo": 1794.0,
+      "atp_rank": 5,
+      "surface_score": 4
+    },
+    "Alex\u00a0De\u00a0Minaur": {
+      "elo_rank": 8,
+      "age": 27.1,
+      "elo": 1983.4,
+      "hElo": 1946.8,
+      "cElo": 1877.7,
+      "gElo": 1827.6,
+      "atp_rank": 8,
+      "surface_score": 4
+    },
+    "Taylor\u00a0Fritz": {
+      "elo_rank": 9,
+      "age": 28.3,
+      "elo": 1980.4,
+      "hElo": 1924.2,
+      "cElo": 1872.7,
+      "gElo": 1914.3,
+      "atp_rank": 7,
+      "surface_score": 4
+    },
+    "Rafael\u00a0Jodar": {
+      "elo_rank": 10,
+      "age": 19.5,
+      "elo": 1980.0,
+      "hElo": 1863.4,
+      "cElo": 1933.9,
+      "gElo": 1690.0,
+      "atp_rank": 34,
+      "surface_score": 2
+    },
+    "Ben\u00a0Shelton": {
+      "elo_rank": 11,
+      "age": 23.5,
+      "elo": 1976.0,
+      "hElo": 1929.4,
+      "cElo": 1890.5,
+      "gElo": 1803.6,
+      "atp_rank": 6,
+      "surface_score": 3
+    },
+    "Lorenzo\u00a0Musetti": {
+      "elo_rank": 12,
+      "age": 24.1,
+      "elo": 1966.9,
+      "hElo": 1902.6,
+      "cElo": 1951.4,
+      "gElo": 1849.4,
+      "atp_rank": 10,
+      "surface_score": 2
+    },
+    "Jiri\u00a0Lehecka": {
+      "elo_rank": 13,
+      "age": 24.4,
+      "elo": 1954.8,
+      "hElo": 1898.7,
+      "cElo": 1849.8,
+      "gElo": 1809.9,
+      "atp_rank": 13,
+      "surface_score": 4
+    },
+    "Casper\u00a0Ruud": {
+      "elo_rank": 14,
+      "age": 27.3,
+      "elo": 1937.1,
+      "hElo": 1865.7,
+      "cElo": 1938.6,
+      "gElo": 1691.8,
+      "atp_rank": 25,
+      "surface_score": 2
+    },
+    "Jakub\u00a0Mensik": {
+      "elo_rank": 15,
+      "age": 20.6,
+      "elo": 1934.7,
+      "hElo": 1894.6,
+      "cElo": 1811.4,
+      "gElo": 1728.7,
+      "atp_rank": 28,
+      "surface_score": 4
+    },
+    "Joao\u00a0Fonseca": {
+      "elo_rank": 16,
+      "age": 19.6,
+      "elo": 1931.8,
+      "hElo": 1915.8,
+      "cElo": 1828.9,
+      "gElo": 1707.1,
+      "atp_rank": 29,
+      "surface_score": 4
+    },
+    "Tommy\u00a0Paul": {
+      "elo_rank": 17,
+      "age": 28.9,
+      "elo": 1929.0,
+      "hElo": 1871.4,
+      "cElo": 1869.4,
+      "gElo": 1761.9,
+      "atp_rank": 18,
+      "surface_score": 3
+    },
+    "Alexander\u00a0Bublik": {
+      "elo_rank": 18,
+      "age": 28.8,
+      "elo": 1925.1,
+      "hElo": 1854.6,
+      "cElo": 1871.2,
+      "gElo": 1831.5,
+      "atp_rank": 11,
+      "surface_score": 3
+    },
+    "Sebastian\u00a0Korda": {
+      "elo_rank": 19,
+      "age": 25.6,
+      "elo": 1923.6,
+      "hElo": 1880.0,
+      "cElo": 1784.9,
+      "gElo": 1794.0,
+      "atp_rank": 43,
+      "surface_score": 4
+    },
+    "Francisco\u00a0Cerundolo": {
+      "elo_rank": 20,
+      "age": 27.6,
+      "elo": 1908.9,
+      "hElo": 1869.0,
+      "cElo": 1871.6,
+      "gElo": 1676.7,
+      "atp_rank": 27,
+      "surface_score": 3
+    },
+    "Jack\u00a0Draper": {
+      "elo_rank": 21,
+      "age": 24.3,
+      "elo": 1907.8,
+      "hElo": 1875.2,
+      "cElo": 1789.4,
+      "gElo": 1741.3,
+      "atp_rank": 50,
+      "surface_score": 4
+    },
+    "Learner\u00a0Tien": {
+      "elo_rank": 22,
+      "age": 20.3,
+      "elo": 1902.6,
+      "hElo": 1885.0,
+      "cElo": 1616.7,
+      "gElo": 1693.6,
+      "atp_rank": 21,
+      "surface_score": 5
+    },
+    "Valentin\u00a0Vacherot": {
+      "elo_rank": 23,
+      "age": 27.4,
+      "elo": 1901.6,
+      "hElo": 1851.7,
+      "cElo": 1786.7,
+      "gElo": 1604.7,
+      "atp_rank": 16,
+      "surface_score": 4
+    },
+    "Raphael\u00a0Collignon": {
+      "elo_rank": 24,
+      "age": 24.2,
+      "elo": 1893.2,
+      "hElo": 1836.7,
+      "cElo": 1791.6,
+      "gElo": 1644.1,
+      "atp_rank": 68,
+      "surface_score": 4
+    },
+    "Alexander\u00a0Blockx": {
+      "elo_rank": 25,
+      "age": 21.0,
+      "elo": 1891.4,
+      "hElo": 1786.0,
+      "cElo": 1858.7,
+      "gElo": 1690.7,
+      "atp_rank": 36,
+      "surface_score": 2
+    },
+    "Flavio\u00a0Cobolli": {
+      "elo_rank": 26,
+      "age": 23.9,
+      "elo": 1889.2,
+      "hElo": 1806.1,
+      "cElo": 1859.3,
+      "gElo": 1756.8,
+      "atp_rank": 12,
+      "surface_score": 2
+    },
+    "Andrey\u00a0Rublev": {
+      "elo_rank": 27,
+      "age": 28.4,
+      "elo": 1888.0,
+      "hElo": 1841.5,
+      "cElo": 1848.6,
+      "gElo": 1793.5,
+      "atp_rank": 14,
+      "surface_score": 3
+    },
+    "Frances\u00a0Tiafoe": {
+      "elo_rank": 28,
+      "age": 28.1,
+      "elo": 1886.3,
+      "hElo": 1845.6,
+      "cElo": 1811.9,
+      "gElo": 1744.0,
+      "atp_rank": 22,
+      "surface_score": 3
+    },
+    "Alejandro\u00a0Davidovich\u00a0Fokina": {
+      "elo_rank": 29,
+      "age": 26.8,
+      "elo": 1884.8,
+      "hElo": 1838.2,
+      "cElo": 1814.9,
+      "gElo": 1720.2,
+      "atp_rank": 23,
+      "surface_score": 3
+    },
+    "Cameron\u00a0Norrie": {
+      "elo_rank": 30,
+      "age": 30.6,
+      "elo": 1875.5,
+      "hElo": 1812.4,
+      "cElo": 1842.3,
+      "gElo": 1758.5,
+      "atp_rank": 19,
+      "surface_score": 3
+    },
+    "Tomas\u00a0Martin\u00a0Etcheverry": {
+      "elo_rank": 31,
+      "age": 26.7,
+      "elo": 1865.3,
+      "hElo": 1792.4,
+      "cElo": 1813.8,
+      "gElo": 1612.0,
+      "atp_rank": 26,
+      "surface_score": 3
+    },
+    "Stefanos\u00a0Tsitsipas": {
+      "elo_rank": 32,
+      "age": 27.6,
+      "elo": 1860.0,
+      "hElo": 1816.0,
+      "cElo": 1883.2,
+      "gElo": 1704.0,
+      "atp_rank": 75,
+      "surface_score": 2
+    },
+    "Ugo\u00a0Humbert": {
+      "elo_rank": 33,
+      "age": 27.8,
+      "elo": 1854.3,
+      "hElo": 1836.6,
+      "cElo": 1713.1,
+      "gElo": 1713.3,
+      "atp_rank": 33,
+      "surface_score": 5
+    },
+    "Tomas\u00a0Machac": {
+      "elo_rank": 34,
+      "age": 25.5,
+      "elo": 1850.1,
+      "hElo": 1821.4,
+      "cElo": 1755.4,
+      "gElo": 1698.0,
+      "atp_rank": 41,
+      "surface_score": 4
+    },
+    "Alejandro\u00a0Tabilo": {
+      "elo_rank": 35,
+      "age": 28.8,
+      "elo": 1847.4,
+      "hElo": 1764.0,
+      "cElo": 1799.2,
+      "gElo": 1722.1,
+      "atp_rank": 35,
+      "surface_score": 3
+    },
+    "Karen\u00a0Khachanov": {
+      "elo_rank": 36,
+      "age": 29.9,
+      "elo": 1831.9,
+      "hElo": 1784.8,
+      "cElo": 1784.1,
+      "gElo": 1744.1,
+      "atp_rank": 15,
+      "surface_score": 3
+    },
+    "Matteo\u00a0Berrettini": {
+      "elo_rank": 37,
+      "age": 30.0,
+      "elo": 1829.9,
+      "hElo": 1796.7,
+      "cElo": 1783.6,
+      "gElo": 1738.2,
+      "atp_rank": 100,
+      "surface_score": 3
+    },
+    "Tallon\u00a0Griekspoor": {
+      "elo_rank": 38,
+      "age": 29.7,
+      "elo": 1822.8,
+      "hElo": 1793.3,
+      "cElo": 1746.4,
+      "gElo": 1768.5,
+      "atp_rank": 31,
+      "surface_score": 4
+    },
+    "Dino\u00a0Prizmic": {
+      "elo_rank": 39,
+      "age": 20.7,
+      "elo": 1822.6,
+      "hElo": 1724.0,
+      "cElo": 1786.8,
+      "gElo": 1607.4,
+      "atp_rank": 79,
+      "surface_score": 2
+    },
+    "Alex\u00a0Michelsen": {
+      "elo_rank": 40,
+      "age": 21.6,
+      "elo": 1820.4,
+      "hElo": 1807.8,
+      "cElo": 1648.0,
+      "gElo": 1707.8,
+      "atp_rank": 42,
+      "surface_score": 5
+    },
+    "Hamad\u00a0Medjedovic": {
+      "elo_rank": 41,
+      "age": 22.7,
+      "elo": 1820.3,
+      "hElo": 1734.0,
+      "cElo": 1798.3,
+      "gElo": 1642.9,
+      "atp_rank": 67,
+      "surface_score": 2
+    },
+    "Hubert\u00a0Hurkacz": {
+      "elo_rank": 42,
+      "age": 29.1,
+      "elo": 1819.0,
+      "hElo": 1736.9,
+      "cElo": 1784.9,
+      "gElo": 1726.4,
+      "atp_rank": 53,
+      "surface_score": 2
+    },
+    "Arthur\u00a0Rinderknech": {
+      "elo_rank": 43,
+      "age": 30.7,
+      "elo": 1815.7,
+      "hElo": 1765.5,
+      "cElo": 1730.5,
+      "gElo": 1688.1,
+      "atp_rank": 24,
+      "surface_score": 3
+    },
+    "Gael\u00a0Monfils": {
+      "elo_rank": 44,
+      "age": 39.6,
+      "elo": 1815.2,
+      "hElo": 1789.4,
+      "cElo": 1699.0,
+      "gElo": 1657.7,
+      "atp_rank": 222,
+      "surface_score": 4
+    },
+    "Marin\u00a0Cilic": {
+      "elo_rank": 45,
+      "age": 37.5,
+      "elo": 1814.5,
+      "hElo": 1768.5,
+      "cElo": 1725.3,
+      "gElo": 1778.1,
+      "atp_rank": 47,
+      "surface_score": 4
+    },
+    "Ethan\u00a0Quinn": {
+      "elo_rank": 46,
+      "age": 22.1,
+      "elo": 1814.1,
+      "hElo": 1772.2,
+      "cElo": 1725.6,
+      "gElo": 1655.1,
+      "atp_rank": 48,
+      "surface_score": 4
+    },
+    "Jaume\u00a0Munar": {
+      "elo_rank": 47,
+      "age": 28.9,
+      "elo": 1811.3,
+      "hElo": 1765.7,
+      "cElo": 1732.2,
+      "gElo": 1640.5,
+      "atp_rank": 38,
+      "surface_score": 3
+    },
+    "Eliot\u00a0Spizzirri": {
+      "elo_rank": 48,
+      "age": 24.1,
+      "elo": 1810.3,
+      "hElo": 1772.1,
+      "cElo": 1596.1,
+      "gElo": 1637.2,
+      "atp_rank": 92,
+      "surface_score": 5
+    },
+    "Brandon\u00a0Nakashima": {
+      "elo_rank": 49,
+      "age": 24.7,
+      "elo": 1809.2,
+      "hElo": 1772.9,
+      "cElo": 1709.6,
+      "gElo": 1727.0,
+      "atp_rank": 32,
+      "surface_score": 4
+    },
+    "Corentin\u00a0Moutet": {
+      "elo_rank": 50,
+      "age": 27.0,
+      "elo": 1808.8,
+      "hElo": 1758.9,
+      "cElo": 1743.3,
+      "gElo": 1720.7,
+      "atp_rank": 30,
+      "surface_score": 3
+    },
+    "Denis\u00a0Shapovalov": {
+      "elo_rank": 51,
+      "age": 27.0,
+      "elo": 1806.7,
+      "hElo": 1792.8,
+      "cElo": 1710.3,
+      "gElo": 1648.8,
+      "atp_rank": 37,
+      "surface_score": 4
+    },
+    "Yibing\u00a0Wu": {
+      "elo_rank": 52,
+      "age": 26.5,
+      "elo": 1806.1,
+      "hElo": 1772.4,
+      "cElo": 1698.1,
+      "gElo": 1589.6,
+      "atp_rank": 88,
+      "surface_score": 4
+    },
+    "Zizou\u00a0Bergs": {
+      "elo_rank": 53,
+      "age": 26.8,
+      "elo": 1802.8,
+      "hElo": 1754.3,
+      "cElo": 1708.8,
+      "gElo": 1664.7,
+      "atp_rank": 39,
+      "surface_score": 4
+    },
+    "Fabian\u00a0Marozsan": {
+      "elo_rank": 54,
+      "age": 26.5,
+      "elo": 1796.0,
+      "hElo": 1752.5,
+      "cElo": 1738.6,
+      "gElo": 1599.2,
+      "atp_rank": 49,
+      "surface_score": 3
+    },
+    "Arthur\u00a0Cazaux": {
+      "elo_rank": 55,
+      "age": 23.5,
+      "elo": 1792.9,
+      "hElo": 1737.6,
+      "cElo": 1702.8,
+      "gElo": 1658.7,
+      "atp_rank": 73,
+      "surface_score": 3
+    },
+    "Yannick\u00a0Hanfmann": {
+      "elo_rank": 56,
+      "age": 34.4,
+      "elo": 1787.4,
+      "hElo": 1724.0,
+      "cElo": 1749.3,
+      "gElo": 1645.9,
+      "atp_rank": 59,
+      "surface_score": 3
+    },
+    "Marcos\u00a0Giron": {
+      "elo_rank": 57,
+      "age": 32.7,
+      "elo": 1782.6,
+      "hElo": 1736.5,
+      "cElo": 1662.5,
+      "gElo": 1708.1,
+      "atp_rank": 77,
+      "surface_score": 4
+    },
+    "Holger\u00a0Rune": {
+      "elo_rank": 58,
+      "age": 22.4,
+      "elo": 1781.9,
+      "hElo": 1749.5,
+      "cElo": 1753.7,
+      "gElo": 1640.9,
+      "atp_rank": 40,
+      "surface_score": 3
+    },
+    "Luciano\u00a0Darderi": {
+      "elo_rank": 59,
+      "age": 24.1,
+      "elo": 1776.9,
+      "hElo": 1649.5,
+      "cElo": 1789.6,
+      "gElo": 1589.6,
+      "atp_rank": 20,
+      "surface_score": 1
+    },
+    "Daniel\u00a0Merida\u00a0Aguilar": {
+      "elo_rank": 60,
+      "age": 21.5,
+      "elo": 1775.9,
+      "hElo": 1691.7,
+      "cElo": 1722.3,
+      "gElo": 1588.0,
+      "atp_rank": 86,
+      "surface_score": 3
+    },
+    "Roman\u00a0Safiullin": {
+      "elo_rank": 61,
+      "age": 28.7,
+      "elo": 1773.7,
+      "hElo": 1715.5,
+      "cElo": 1763.7,
+      "gElo": 1622.1,
+      "atp_rank": 144,
+      "surface_score": 2
+    },
+    "Mariano\u00a0Navone": {
+      "elo_rank": 62,
+      "age": 25.1,
+      "elo": 1773.2,
+      "hElo": 1668.4,
+      "cElo": 1759.1,
+      "gElo": 1551.4,
+      "atp_rank": 44,
+      "surface_score": 2
+    },
+    "Jordan\u00a0Thompson": {
+      "elo_rank": 63,
+      "age": 31.7,
+      "elo": 1772.4,
+      "hElo": 1732.6,
+      "cElo": 1604.6,
+      "gElo": 1708.7,
+      "atp_rank": 142,
+      "surface_score": 5
+    },
+    "Marton\u00a0Fucsovics": {
+      "elo_rank": 64,
+      "age": 34.1,
+      "elo": 1772.4,
+      "hElo": 1727.4,
+      "cElo": 1704.3,
+      "gElo": 1717.9,
+      "atp_rank": 57,
+      "surface_score": 3
+    },
+    "Grigor\u00a0Dimitrov": {
+      "elo_rank": 65,
+      "age": 34.9,
+      "elo": 1769.0,
+      "hElo": 1748.4,
+      "cElo": 1682.1,
+      "gElo": 1658.7,
+      "atp_rank": 170,
+      "surface_score": 4
+    },
+    "Reilly\u00a0Opelka": {
+      "elo_rank": 66,
+      "age": 28.6,
+      "elo": 1767.1,
+      "hElo": 1742.9,
+      "cElo": 1668.4,
+      "gElo": 1643.7,
+      "atp_rank": 74,
+      "surface_score": 4
+    },
+    "Botic\u00a0Van\u00a0De\u00a0Zandschulp": {
+      "elo_rank": 67,
+      "age": 30.5,
+      "elo": 1765.4,
+      "hElo": 1721.7,
+      "cElo": 1713.2,
+      "gElo": 1603.6,
+      "atp_rank": 54,
+      "surface_score": 3
+    },
+    "Kamil\u00a0Majchrzak": {
+      "elo_rank": 68,
+      "age": 30.2,
+      "elo": 1762.1,
+      "hElo": 1719.9,
+      "cElo": 1716.2,
+      "gElo": 1666.7,
+      "atp_rank": 76,
+      "surface_score": 3
+    },
+    "Pablo\u00a0Carreno\u00a0Busta": {
+      "elo_rank": 69,
+      "age": 34.7,
+      "elo": 1758.1,
+      "hElo": 1722.8,
+      "cElo": 1726.0,
+      "gElo": 1576.8,
+      "atp_rank": 91,
+      "surface_score": 3
+    },
+    "Camilo\u00a0Ugo\u00a0Carabelli": {
+      "elo_rank": 70,
+      "age": 26.8,
+      "elo": 1756.1,
+      "hElo": 1640.0,
+      "cElo": 1747.9,
+      "gElo": 1494.7,
+      "atp_rank": 61,
+      "surface_score": 1
+    },
+    "Roman\u00a0Andres\u00a0Burruchaga": {
+      "elo_rank": 71,
+      "age": 24.2,
+      "elo": 1753.9,
+      "hElo": 1566.1,
+      "cElo": 1736.0,
+      "gElo": 1592.6,
+      "atp_rank": 56,
+      "surface_score": 1
+    },
+    "Adolfo\u00a0Daniel\u00a0Vallejo": {
+      "elo_rank": 72,
+      "age": 21.9,
+      "elo": 1751.9,
+      "hElo": 1525.7,
+      "cElo": 1720.0,
+      "gElo": 1626.0,
+      "atp_rank": 84,
+      "surface_score": 1
+    },
+    "Lorenzo\u00a0Sonego": {
+      "elo_rank": 73,
+      "age": 30.9,
+      "elo": 1751.8,
+      "hElo": 1717.7,
+      "cElo": 1663.9,
+      "gElo": 1666.8,
+      "atp_rank": 66,
+      "surface_score": 4
+    },
+    "Benjamin\u00a0Bonzi": {
+      "elo_rank": 74,
+      "age": 29.8,
+      "elo": 1748.7,
+      "hElo": 1712.8,
+      "cElo": 1634.7,
+      "gElo": 1643.5,
+      "atp_rank": 101,
+      "surface_score": 4
+    },
+    "Terence\u00a0Atmane": {
+      "elo_rank": 75,
+      "age": 24.2,
+      "elo": 1746.6,
+      "hElo": 1695.1,
+      "cElo": 1667.6,
+      "gElo": 1563.2,
+      "atp_rank": 51,
+      "surface_score": 3
+    },
+    "Juncheng\u00a0Shang": {
+      "elo_rank": 76,
+      "age": 21.0,
+      "elo": 1745.8,
+      "hElo": 1698.4,
+      "cElo": 1640.2,
+      "gElo": 1650.8,
+      "atp_rank": 261,
+      "surface_score": 4
+    },
+    "Sebastian\u00a0Baez": {
+      "elo_rank": 77,
+      "age": 25.3,
+      "elo": 1745.3,
+      "hElo": 1701.8,
+      "cElo": 1706.5,
+      "gElo": 1539.2,
+      "atp_rank": 65,
+      "surface_score": 3
+    },
+    "Jenson\u00a0Brooksby": {
+      "elo_rank": 78,
+      "age": 25.4,
+      "elo": 1743.0,
+      "hElo": 1706.5,
+      "cElo": 1658.5,
+      "gElo": 1678.9,
+      "atp_rank": 63,
+      "surface_score": 4
+    },
+    "Vit\u00a0Kopriva": {
+      "elo_rank": 79,
+      "age": 28.8,
+      "elo": 1740.7,
+      "hElo": 1670.7,
+      "cElo": 1718.7,
+      "gElo": 1603.9,
+      "atp_rank": 55,
+      "surface_score": 2
+    },
+    "Nishesh\u00a0Basavareddy": {
+      "elo_rank": 80,
+      "age": 20.9,
+      "elo": 1739.6,
+      "hElo": 1689.6,
+      "cElo": 1635.8,
+      "gElo": 1553.2,
+      "atp_rank": 154,
+      "surface_score": 4
+    },
+    "Alex\u00a0Molcan": {
+      "elo_rank": 81,
+      "age": 28.3,
+      "elo": 1737.5,
+      "hElo": 1650.2,
+      "cElo": 1714.0,
+      "gElo": 1613.4,
+      "atp_rank": 113,
+      "surface_score": 2
+    },
+    "Soon\u00a0Woo\u00a0Kwon": {
+      "elo_rank": 82,
+      "age": 28.3,
+      "elo": 1734.8,
+      "hElo": 1697.7,
+      "cElo": 1620.5,
+      "gElo": 1591.4,
+      "atp_rank": 252,
+      "surface_score": 4
+    },
+    "Matteo\u00a0Arnaldi": {
+      "elo_rank": 83,
+      "age": 25.1,
+      "elo": 1732.4,
+      "hElo": 1683.5,
+      "cElo": 1729.9,
+      "gElo": 1567.4,
+      "atp_rank": 106,
+      "surface_score": 2
+    },
+    "Roberto\u00a0Bautista\u00a0Agut": {
+      "elo_rank": 84,
+      "age": 38.0,
+      "elo": 1731.3,
+      "hElo": 1683.7,
+      "cElo": 1676.2,
+      "gElo": 1699.7,
+      "atp_rank": 98,
+      "surface_score": 3
+    },
+    "Gabriel\u00a0Diallo": {
+      "elo_rank": 85,
+      "age": 24.5,
+      "elo": 1731.2,
+      "hElo": 1685.9,
+      "cElo": 1653.9,
+      "gElo": 1670.8,
+      "atp_rank": 46,
+      "surface_score": 3
+    },
+    "Leandro\u00a0Riedi": {
+      "elo_rank": 86,
+      "age": 24.2,
+      "elo": 1730.0,
+      "hElo": 1693.7,
+      "cElo": 1587.5,
+      "gElo": 1662.8,
+      "atp_rank": 128,
+      "surface_score": 5
+    },
+    "Alexei\u00a0Popyrin": {
+      "elo_rank": 87,
+      "age": 26.7,
+      "elo": 1728.2,
+      "hElo": 1674.0,
+      "cElo": 1712.7,
+      "gElo": 1608.3,
+      "atp_rank": 60,
+      "surface_score": 3
+    },
+    "Michael\u00a0Zheng": {
+      "elo_rank": 88,
+      "age": 22.0,
+      "elo": 1727.2,
+      "hElo": 1687.5,
+      "cElo": 1473.6,
+      "gElo": 1544.2,
+      "atp_rank": 149,
+      "surface_score": 5
+    },
+    "Ignacio\u00a0Buse": {
+      "elo_rank": 89,
+      "age": 22.0,
+      "elo": 1723.9,
+      "hElo": 1612.6,
+      "cElo": 1695.3,
+      "gElo": 1535.4,
+      "atp_rank": 62,
+      "surface_score": 2
+    },
+    "Nuno\u00a0Borges": {
+      "elo_rank": 90,
+      "age": 29.1,
+      "elo": 1723.1,
+      "hElo": 1691.2,
+      "cElo": 1683.0,
+      "gElo": 1595.9,
+      "atp_rank": 52,
+      "surface_score": 3
+    },
+    "Miomir\u00a0Kecmanovic": {
+      "elo_rank": 91,
+      "age": 26.6,
+      "elo": 1720.9,
+      "hElo": 1685.2,
+      "cElo": 1662.9,
+      "gElo": 1622.2,
+      "atp_rank": 70,
+      "surface_score": 3
+    },
+    "Giovanni\u00a0Mpetshi\u00a0Perricard": {
+      "elo_rank": 92,
+      "age": 22.6,
+      "elo": 1718.7,
+      "hElo": 1662.3,
+      "cElo": 1664.8,
+      "gElo": 1641.7,
+      "atp_rank": 58,
+      "surface_score": 3
+    },
+    "Zachary\u00a0Svajda": {
+      "elo_rank": 93,
+      "age": 23.3,
+      "elo": 1718.5,
+      "hElo": 1690.2,
+      "cElo": 1499.9,
+      "gElo": 1701.4,
+      "atp_rank": 90,
+      "surface_score": 5
+    },
+    "Toby\u00a0Samuel": {
+      "elo_rank": 94,
+      "age": 23.6,
+      "elo": 1714.0,
+      "hElo": 1713.0,
+      "cElo": 1558.7,
+      "gElo": 1561.0,
+      "atp_rank": 161,
+      "surface_score": 5
+    },
+    "Kei\u00a0Nishikori": {
+      "elo_rank": 95,
+      "age": 36.3,
+      "elo": 1714.0,
+      "hElo": 1680.3,
+      "cElo": 1609.5,
+      "gElo": 1591.1,
+      "atp_rank": 558,
+      "surface_score": 4
+    },
+    "Titouan\u00a0Droguet": {
+      "elo_rank": 96,
+      "age": 24.8,
+      "elo": 1712.5,
+      "hElo": 1647.8,
+      "cElo": 1691.9,
+      "gElo": 1599.4,
+      "atp_rank": 109,
+      "surface_score": 2
+    },
+    "Rinky\u00a0Hijikata": {
+      "elo_rank": 97,
+      "age": 25.1,
+      "elo": 1712.4,
+      "hElo": 1676.1,
+      "cElo": 1543.9,
+      "gElo": 1616.5,
+      "atp_rank": 96,
+      "surface_score": 5
+    },
+    "Otto\u00a0Virtanen": {
+      "elo_rank": 98,
+      "age": 24.8,
+      "elo": 1711.7,
+      "hElo": 1677.1,
+      "cElo": 1555.7,
+      "gElo": 1693.4,
+      "atp_rank": 127,
+      "surface_score": 5
+    },
+    "Alexandre\u00a0Muller": {
+      "elo_rank": 99,
+      "age": 29.2,
+      "elo": 1707.6,
+      "hElo": 1651.8,
+      "cElo": 1681.4,
+      "gElo": 1537.9,
+      "atp_rank": 105,
+      "surface_score": 3
+    },
+    "Sebastian\u00a0Ofner": {
+      "elo_rank": 100,
+      "age": 29.9,
+      "elo": 1705.5,
+      "hElo": 1650.9,
+      "cElo": 1673.8,
+      "gElo": 1631.4,
+      "atp_rank": 82,
+      "surface_score": 3
+    },
+    "Luca\u00a0Van\u00a0Assche": {
+      "elo_rank": 101,
+      "age": 21.9,
+      "elo": 1705.1,
+      "hElo": 1683.4,
+      "cElo": 1624.7,
+      "gElo": 1557.4,
+      "atp_rank": 97,
+      "surface_score": 4
+    },
+    "Zsombor\u00a0Piros": {
+      "elo_rank": 102,
+      "age": 26.5,
+      "elo": 1704.8,
+      "hElo": 1651.2,
+      "cElo": 1663.2,
+      "gElo": 1574.4,
+      "atp_rank": 163,
+      "surface_score": 3
+    },
+    "Zhizhen\u00a0Zhang": {
+      "elo_rank": 103,
+      "age": 29.5,
+      "elo": 1703.3,
+      "hElo": 1652.8,
+      "cElo": 1692.1,
+      "gElo": 1602.6,
+      "atp_rank": 239,
+      "surface_score": 3
+    },
+    "Thiago\u00a0Agustin\u00a0Tirante": {
+      "elo_rank": 104,
+      "age": 25.0,
+      "elo": 1702.6,
+      "hElo": 1617.0,
+      "cElo": 1675.3,
+      "gElo": 1539.8,
+      "atp_rank": 69,
+      "surface_score": 2
+    },
+    "Emilio\u00a0Nava": {
+      "elo_rank": 105,
+      "age": 24.3,
+      "elo": 1699.9,
+      "hElo": 1619.0,
+      "cElo": 1664.7,
+      "gElo": 1573.7,
+      "atp_rank": 108,
+      "surface_score": 2
+    },
+    "Jan\u00a0Lennard\u00a0Struff": {
+      "elo_rank": 106,
+      "age": 35.9,
+      "elo": 1698.1,
+      "hElo": 1636.2,
+      "cElo": 1674.9,
+      "gElo": 1622.4,
+      "atp_rank": 83,
+      "surface_score": 3
+    },
+    "Martin\u00a0Landaluce": {
+      "elo_rank": 107,
+      "age": 20.2,
+      "elo": 1695.9,
+      "hElo": 1669.5,
+      "cElo": 1568.7,
+      "gElo": 1646.3,
+      "atp_rank": 94,
+      "surface_score": 5
+    },
+    "Juan\u00a0Manuel\u00a0Cerundolo": {
+      "elo_rank": 108,
+      "age": 24.4,
+      "elo": 1694.4,
+      "hElo": 1609.5,
+      "cElo": 1680.9,
+      "gElo": 1464.5,
+      "atp_rank": 72,
+      "surface_score": 2
+    },
+    "Pablo\u00a0Llamas\u00a0Ruiz": {
+      "elo_rank": 109,
+      "age": 23.5,
+      "elo": 1693.6,
+      "hElo": 1598.7,
+      "cElo": 1680.6,
+      "gElo": 1538.0,
+      "atp_rank": 139,
+      "surface_score": 2
+    },
+    "Coleman\u00a0Wong": {
+      "elo_rank": 110,
+      "age": 21.8,
+      "elo": 1691.1,
+      "hElo": 1650.5,
+      "cElo": 1474.0,
+      "gElo": 1542.0,
+      "atp_rank": 110,
+      "surface_score": 5
+    },
+    "Nicolai\u00a0Budkov\u00a0Kjaer": {
+      "elo_rank": 111,
+      "age": 19.6,
+      "elo": 1690.2,
+      "hElo": 1632.9,
+      "cElo": 1644.3,
+      "gElo": 1544.8,
+      "atp_rank": 124,
+      "surface_score": 3
+    },
+    "Yoshihito\u00a0Nishioka": {
+      "elo_rank": 112,
+      "age": 30.3,
+      "elo": 1688.7,
+      "hElo": 1659.2,
+      "cElo": 1618.3,
+      "gElo": 1539.9,
+      "atp_rank": 175,
+      "surface_score": 4
+    },
+    "Andrea\u00a0Vavassori": {
+      "elo_rank": 113,
+      "age": 30.9,
+      "elo": 1688.1,
+      "hElo": 1655.0,
+      "cElo": 1642.3,
+      "gElo": 1538.1,
+      "atp_rank": 551,
+      "surface_score": 3
+    },
+    "Quentin\u00a0Halys": {
+      "elo_rank": 114,
+      "age": 29.4,
+      "elo": 1686.9,
+      "hElo": 1666.9,
+      "cElo": 1624.6,
+      "gElo": 1624.9,
+      "atp_rank": 93,
+      "surface_score": 4
+    },
+    "Alexander\u00a0Shevchenko": {
+      "elo_rank": 115,
+      "age": 25.3,
+      "elo": 1686.2,
+      "hElo": 1651.1,
+      "cElo": 1627.6,
+      "gElo": 1485.9,
+      "atp_rank": 85,
+      "surface_score": 3
+    },
+    "Daniel\u00a0Altmaier": {
+      "elo_rank": 116,
+      "age": 27.6,
+      "elo": 1685.6,
+      "hElo": 1627.4,
+      "cElo": 1665.8,
+      "gElo": 1535.5,
+      "atp_rank": 64,
+      "surface_score": 3
+    },
+    "Jason\u00a0Kubler": {
+      "elo_rank": 117,
+      "age": 32.7,
+      "elo": 1684.5,
+      "hElo": 1635.3,
+      "cElo": 1615.7,
+      "gElo": 1679.3,
+      "atp_rank": 377,
+      "surface_score": 3
+    },
+    "Martin\u00a0Damm": {
+      "elo_rank": 118,
+      "age": 22.5,
+      "elo": 1682.7,
+      "hElo": 1645.3,
+      "cElo": 1493.8,
+      "gElo": 1649.5,
+      "atp_rank": 115,
+      "surface_score": 5
+    },
+    "Borna\u00a0Gojo": {
+      "elo_rank": 119,
+      "age": 28.1,
+      "elo": 1682.4,
+      "hElo": 1661.9,
+      "cElo": 1640.7,
+      "gElo": 1467.9,
+      "atp_rank": 177,
+      "surface_score": 3
+    },
+    "Cristian\u00a0Garin": {
+      "elo_rank": 120,
+      "age": 29.8,
+      "elo": 1681.9,
+      "hElo": 1579.6,
+      "cElo": 1683.7,
+      "gElo": 1624.8,
+      "atp_rank": 104,
+      "surface_score": 1
+    },
+    "Stan\u00a0Wawrinka": {
+      "elo_rank": 121,
+      "age": 41.0,
+      "elo": 1681.7,
+      "hElo": 1665.7,
+      "cElo": 1616.1,
+      "gElo": 1591.7,
+      "atp_rank": 125,
+      "surface_score": 4
+    },
+    "Lloyd\u00a0Harris": {
+      "elo_rank": 122,
+      "age": 29.1,
+      "elo": 1681.7,
+      "hElo": 1648.7,
+      "cElo": 1575.5,
+      "gElo": 1637.8,
+      "atp_rank": 146,
+      "surface_score": 4
+    },
+    "Laslo\u00a0Djere": {
+      "elo_rank": 123,
+      "age": 30.8,
+      "elo": 1678.6,
+      "hElo": 1603.8,
+      "cElo": 1703.8,
+      "gElo": 1561.9,
+      "atp_rank": 279,
+      "surface_score": 2
+    },
+    "Mattia\u00a0Bellucci": {
+      "elo_rank": 124,
+      "age": 24.8,
+      "elo": 1677.1,
+      "hElo": 1656.2,
+      "cElo": 1571.7,
+      "gElo": 1612.7,
+      "atp_rank": 80,
+      "surface_score": 4
+    },
+    "Valentin\u00a0Royer": {
+      "elo_rank": 125,
+      "age": 24.8,
+      "elo": 1676.9,
+      "hElo": 1603.1,
+      "cElo": 1641.6,
+      "gElo": 1614.2,
+      "atp_rank": 71,
+      "surface_score": 3
+    },
+    "Dalibor\u00a0Svrcina": {
+      "elo_rank": 126,
+      "age": 23.5,
+      "elo": 1674.6,
+      "hElo": 1641.7,
+      "cElo": 1600.2,
+      "gElo": 1506.3,
+      "atp_rank": 116,
+      "surface_score": 4
+    },
+    "Jaime\u00a0Faria": {
+      "elo_rank": 127,
+      "age": 22.7,
+      "elo": 1673.3,
+      "hElo": 1584.2,
+      "cElo": 1641.8,
+      "gElo": 1598.6,
+      "atp_rank": 119,
+      "surface_score": 2
+    },
+    "Adam\u00a0Walton": {
+      "elo_rank": 128,
+      "age": 27.0,
+      "elo": 1670.3,
+      "hElo": 1633.4,
+      "cElo": 1511.4,
+      "gElo": 1504.6,
+      "atp_rank": 103,
+      "surface_score": 5
+    },
+    "David\u00a0Goffin": {
+      "elo_rank": 129,
+      "age": 35.3,
+      "elo": 1666.6,
+      "hElo": 1626.4,
+      "cElo": 1643.1,
+      "gElo": 1650.1,
+      "atp_rank": 249,
+      "surface_score": 3
+    },
+    "Arthur\u00a0Fery": {
+      "elo_rank": 130,
+      "age": 23.7,
+      "elo": 1665.3,
+      "hElo": 1656.8,
+      "cElo": 1457.7,
+      "gElo": 1491.1,
+      "atp_rank": 157,
+      "surface_score": 5
+    },
+    "Adrian\u00a0Mannarino": {
+      "elo_rank": 131,
+      "age": 37.8,
+      "elo": 1663.9,
+      "hElo": 1642.6,
+      "cElo": 1489.1,
+      "gElo": 1655.9,
+      "atp_rank": 45,
+      "surface_score": 5
+    },
+    "Kyrian\u00a0Jacquet": {
+      "elo_rank": 132,
+      "age": 24.8,
+      "elo": 1663.6,
+      "hElo": 1652.2,
+      "cElo": 1554.4,
+      "gElo": 1554.6,
+      "atp_rank": 147,
+      "surface_score": 4
+    },
+    "Christopher\u00a0Oconnell": {
+      "elo_rank": 133,
+      "age": 31.8,
+      "elo": 1663.4,
+      "hElo": 1652.0,
+      "cElo": 1588.4,
+      "gElo": 1535.8,
+      "atp_rank": 150,
+      "surface_score": 4
+    },
+    "Marco\u00a0Trungelliti": {
+      "elo_rank": 134,
+      "age": 36.2,
+      "elo": 1659.3,
+      "hElo": 1512.4,
+      "cElo": 1659.7,
+      "gElo": 1497.5,
+      "atp_rank": 78,
+      "surface_score": 1
+    },
+    "Chris\u00a0Rodesch": {
+      "elo_rank": 135,
+      "age": 24.7,
+      "elo": 1656.7,
+      "hElo": 1640.8,
+      "cElo": 1554.3,
+      "gElo": 1598.1,
+      "atp_rank": 166,
+      "surface_score": 4
+    },
+    "Hugo\u00a0Gaston": {
+      "elo_rank": 136,
+      "age": 25.5,
+      "elo": 1654.6,
+      "hElo": 1644.3,
+      "cElo": 1590.6,
+      "gElo": 1551.5,
+      "atp_rank": 118,
+      "surface_score": 4
+    },
+    "Pavel\u00a0Kotov": {
+      "elo_rank": 137,
+      "age": 27.4,
+      "elo": 1651.9,
+      "hElo": 1628.5,
+      "cElo": 1584.8,
+      "gElo": 1530.0,
+      "atp_rank": 253,
+      "surface_score": 4
+    },
+    "Vilius\u00a0Gaubas": {
+      "elo_rank": 138,
+      "age": 21.3,
+      "elo": 1651.6,
+      "hElo": 1594.8,
+      "cElo": 1610.6,
+      "gElo": 1564.5,
+      "atp_rank": 121,
+      "surface_score": 3
+    },
+    "James\u00a0Duckworth": {
+      "elo_rank": 139,
+      "age": 34.2,
+      "elo": 1651.5,
+      "hElo": 1603.7,
+      "cElo": 1585.0,
+      "gElo": 1572.6,
+      "atp_rank": 81,
+      "surface_score": 3
+    },
+    "Nicolas\u00a0Jarry": {
+      "elo_rank": 140,
+      "age": 30.5,
+      "elo": 1648.3,
+      "hElo": 1573.5,
+      "cElo": 1641.5,
+      "gElo": 1635.2,
+      "atp_rank": 173,
+      "surface_score": 2
+    },
+    "Damir\u00a0Dzumhur": {
+      "elo_rank": 141,
+      "age": 33.9,
+      "elo": 1646.1,
+      "hElo": 1599.6,
+      "cElo": 1624.1,
+      "gElo": 1536.4,
+      "atp_rank": 87,
+      "surface_score": 3
+    },
+    "Francisco\u00a0Comesana": {
+      "elo_rank": 142,
+      "age": 25.5,
+      "elo": 1644.7,
+      "hElo": 1616.8,
+      "cElo": 1612.7,
+      "gElo": 1535.3,
+      "atp_rank": 114,
+      "surface_score": 3
+    },
+    "Henrique\u00a0Rocha": {
+      "elo_rank": 143,
+      "age": 22.0,
+      "elo": 1644.5,
+      "hElo": 1558.7,
+      "cElo": 1628.1,
+      "gElo": 1528.1,
+      "atp_rank": 120,
+      "surface_score": 2
+    },
+    "Mackenzie\u00a0Mcdonald": {
+      "elo_rank": 144,
+      "age": 31.0,
+      "elo": 1641.9,
+      "hElo": 1622.3,
+      "cElo": 1501.8,
+      "gElo": 1577.4,
+      "atp_rank": 129,
+      "surface_score": 5
+    },
+    "Jesper\u00a0De\u00a0Jong": {
+      "elo_rank": 145,
+      "age": 25.8,
+      "elo": 1637.0,
+      "hElo": 1570.1,
+      "cElo": 1634.3,
+      "gElo": 1499.5,
+      "atp_rank": 102,
+      "surface_score": 2
+    },
+    "Dusan\u00a0Lajovic": {
+      "elo_rank": 146,
+      "age": 35.8,
+      "elo": 1635.6,
+      "hElo": 1566.3,
+      "cElo": 1605.9,
+      "gElo": 1495.3,
+      "atp_rank": 132,
+      "surface_score": 3
+    },
+    "Nikoloz\u00a0Basilashvili": {
+      "elo_rank": 147,
+      "age": 34.1,
+      "elo": 1634.1,
+      "hElo": 1589.7,
+      "cElo": 1589.2,
+      "gElo": 1604.7,
+      "atp_rank": 117,
+      "surface_score": 3
+    },
+    "Jerome\u00a0Kym": {
+      "elo_rank": 148,
+      "age": 23.0,
+      "elo": 1633.9,
+      "hElo": 1608.9,
+      "cElo": 1576.6,
+      "gElo": 1494.6,
+      "atp_rank": 187,
+      "surface_score": 3
+    },
+    "Rei\u00a0Sakamoto": {
+      "elo_rank": 149,
+      "age": 19.8,
+      "elo": 1632.1,
+      "hElo": 1601.7,
+      "cElo": 1520.0,
+      "gElo": 1516.1,
+      "atp_rank": 156,
+      "surface_score": 4
+    },
+    "Bu\u00a0Yunchaokete": {
+      "elo_rank": 150,
+      "age": 24.2,
+      "elo": 1629.1,
+      "hElo": 1589.5,
+      "cElo": 1581.2,
+      "gElo": 1456.7,
+      "atp_rank": 152,
+      "surface_score": 3
+    },
+    "Gustavo\u00a0Heide": {
+      "elo_rank": 151,
+      "age": 24.1,
+      "elo": 1629.1,
+      "hElo": 1502.7,
+      "cElo": 1623.3,
+      "gElo": 1484.0,
+      "atp_rank": 209,
+      "surface_score": 1
+    },
+    "Hugo\u00a0Dellien": {
+      "elo_rank": 152,
+      "age": 32.8,
+      "elo": 1627.5,
+      "hElo": 1480.8,
+      "cElo": 1616.0,
+      "gElo": 1474.5,
+      "atp_rank": 133,
+      "surface_score": 1
+    },
+    "Francesco\u00a0Passaro": {
+      "elo_rank": 153,
+      "age": 25.1,
+      "elo": 1626.2,
+      "hElo": 1578.6,
+      "cElo": 1615.0,
+      "gElo": 1469.5,
+      "atp_rank": 145,
+      "surface_score": 3
+    },
+    "Jacob\u00a0Fearnley": {
+      "elo_rank": 154,
+      "age": 24.6,
+      "elo": 1625.8,
+      "hElo": 1577.8,
+      "cElo": 1652.4,
+      "gElo": 1581.9,
+      "atp_rank": 123,
+      "surface_score": 2
+    },
+    "Patrick\u00a0Kypson": {
+      "elo_rank": 155,
+      "age": 26.4,
+      "elo": 1625.3,
+      "hElo": 1603.6,
+      "cElo": 1534.7,
+      "gElo": 1474.9,
+      "atp_rank": 89,
+      "surface_score": 4
+    },
+    "Liam\u00a0Broady": {
+      "elo_rank": 156,
+      "age": 32.2,
+      "elo": 1622.5,
+      "hElo": 1593.2,
+      "cElo": 1486.9,
+      "gElo": 1524.2,
+      "atp_rank": 223,
+      "surface_score": 5
+    },
+    "Luca\u00a0Nardi": {
+      "elo_rank": 157,
+      "age": 22.6,
+      "elo": 1622.0,
+      "hElo": 1590.3,
+      "cElo": 1573.5,
+      "gElo": 1447.2,
+      "atp_rank": 151,
+      "surface_score": 3
+    },
+    "Roberto\u00a0Carballes\u00a0Baena": {
+      "elo_rank": 158,
+      "age": 33.0,
+      "elo": 1622.0,
+      "hElo": 1587.4,
+      "cElo": 1606.5,
+      "gElo": 1500.8,
+      "atp_rank": 199,
+      "surface_score": 3
+    },
+    "Giulio\u00a0Zeppieri": {
+      "elo_rank": 159,
+      "age": 24.3,
+      "elo": 1621.9,
+      "hElo": 1589.0,
+      "cElo": 1565.7,
+      "gElo": 1578.9,
+      "atp_rank": 164,
+      "surface_score": 3
+    },
+    "Arthur\u00a0Gea": {
+      "elo_rank": 160,
+      "age": 21.2,
+      "elo": 1621.4,
+      "hElo": 1621.9,
+      "cElo": 1538.3,
+      "gElo": 1510.7,
+      "atp_rank": 143,
+      "surface_score": 4
+    },
+    "Elmer\u00a0Moller": {
+      "elo_rank": 161,
+      "age": 22.7,
+      "elo": 1620.3,
+      "hElo": 1489.6,
+      "cElo": 1609.8,
+      "gElo": 1539.2,
+      "atp_rank": 153,
+      "surface_score": 1
+    },
+    "Joel\u00a0Schwaerzler": {
+      "elo_rank": 162,
+      "age": 20.2,
+      "elo": 1619.9,
+      "hElo": 1540.9,
+      "cElo": 1589.3,
+      "gElo": 1509.9,
+      "atp_rank": 172,
+      "surface_score": 2
+    },
+    "Aleksandar\u00a0Kovacevic": {
+      "elo_rank": 163,
+      "age": 27.6,
+      "elo": 1618.2,
+      "hElo": 1602.0,
+      "cElo": 1468.1,
+      "gElo": 1485.0,
+      "atp_rank": 95,
+      "surface_score": 5
+    },
+    "Michael\u00a0Mmoh": {
+      "elo_rank": 164,
+      "age": 28.2,
+      "elo": 1617.9,
+      "hElo": 1599.2,
+      "cElo": 1510.6,
+      "gElo": 1525.8,
+      "atp_rank": 218,
+      "surface_score": 4
+    },
+    "Harry\u00a0Wendelken": {
+      "elo_rank": 165,
+      "age": 24.2,
+      "elo": 1617.1,
+      "hElo": 1592.8,
+      "cElo": 1418.6,
+      "gElo": 1461.3,
+      "atp_rank": 226,
+      "surface_score": 5
+    },
+    "Jack\u00a0Pinnington\u00a0Jones": {
+      "elo_rank": 166,
+      "age": 23.0,
+      "elo": 1616.7,
+      "hElo": 1577.3,
+      "cElo": 1489.9,
+      "gElo": 1615.8,
+      "atp_rank": 137,
+      "surface_score": 4
+    },
+    "Sho\u00a0Shimabukuro": {
+      "elo_rank": 167,
+      "age": 28.7,
+      "elo": 1616.0,
+      "hElo": 1577.9,
+      "cElo": 1499.9,
+      "gElo": 1571.1,
+      "atp_rank": 107,
+      "surface_score": 4
+    },
+    "Pedro\u00a0Martinez": {
+      "elo_rank": 168,
+      "age": 28.9,
+      "elo": 1614.9,
+      "hElo": 1569.6,
+      "cElo": 1596.5,
+      "gElo": 1468.8,
+      "atp_rank": 136,
+      "surface_score": 3
+    },
+    "Harold\u00a0Mayot": {
+      "elo_rank": 169,
+      "age": 23.9,
+      "elo": 1614.7,
+      "hElo": 1576.8,
+      "cElo": 1591.4,
+      "gElo": 1521.5,
+      "atp_rank": 210,
+      "surface_score": 3
+    },
+    "Tomas\u00a0Barrios\u00a0Vera": {
+      "elo_rank": 170,
+      "age": 28.3,
+      "elo": 1613.0,
+      "hElo": 1551.4,
+      "cElo": 1595.7,
+      "gElo": 1574.7,
+      "atp_rank": 134,
+      "surface_score": 2
+    },
+    "Dhakshineswar\u00a0Suresh": {
+      "elo_rank": 171,
+      "age": 25.8,
+      "elo": 1610.6,
+      "hElo": 1563.4,
+      "cElo": 1415.3,
+      "gElo": 1505.3,
+      "atp_rank": 468,
+      "surface_score": 5
+    },
+    "Daniel\u00a0Evans": {
+      "elo_rank": 172,
+      "age": 35.6,
+      "elo": 1610.4,
+      "hElo": 1573.1,
+      "cElo": 1527.5,
+      "gElo": 1603.0,
+      "atp_rank": 206,
+      "surface_score": 4
+    },
+    "Carlos\u00a0Taberner": {
+      "elo_rank": 173,
+      "age": 28.4,
+      "elo": 1610.3,
+      "hElo": 1445.0,
+      "cElo": 1604.7,
+      "gElo": 1433.4,
+      "atp_rank": 131,
+      "surface_score": 1
+    },
+    "Alex\u00a0Bolt": {
+      "elo_rank": 174,
+      "age": 33.2,
+      "elo": 1609.4,
+      "hElo": 1557.9,
+      "cElo": 1431.6,
+      "gElo": 1590.1,
+      "atp_rank": 138,
+      "surface_score": 5
+    },
+    "Jurij\u00a0Rodionov": {
+      "elo_rank": 175,
+      "age": 26.9,
+      "elo": 1608.0,
+      "hElo": 1569.9,
+      "cElo": 1558.4,
+      "gElo": 1520.6,
+      "atp_rank": 160,
+      "surface_score": 3
+    },
+    "Ilia\u00a0Simakin": {
+      "elo_rank": 176,
+      "age": 22.4,
+      "elo": 1606.4,
+      "hElo": 1576.4,
+      "cElo": 1413.2,
+      "gElo": 1503.2,
+      "atp_rank": 245,
+      "surface_score": 5
+    },
+    "Emil\u00a0Ruusuvuori": {
+      "elo_rank": 177,
+      "age": 26.6,
+      "elo": 1606.1,
+      "hElo": 1576.8,
+      "cElo": 1558.3,
+      "gElo": 1576.4,
+      "atp_rank": 714,
+      "surface_score": 3
+    },
+    "Clement\u00a0Tabur": {
+      "elo_rank": 178,
+      "age": 26.2,
+      "elo": 1604.2,
+      "hElo": 1571.5,
+      "cElo": 1538.0,
+      "gElo": 1471.6,
+      "atp_rank": 168,
+      "surface_score": 3
+    },
+    "Aleksandar\u00a0Vukic": {
+      "elo_rank": 179,
+      "age": 30.0,
+      "elo": 1602.6,
+      "hElo": 1583.4,
+      "cElo": 1488.0,
+      "gElo": 1559.1,
+      "atp_rank": 99,
+      "surface_score": 4
+    },
+    "Lukas\u00a0Klein": {
+      "elo_rank": 180,
+      "age": 27.8,
+      "elo": 1601.1,
+      "hElo": 1535.1,
+      "cElo": 1623.9,
+      "gElo": 1557.2,
+      "atp_rank": 159,
+      "surface_score": 2
+    },
+    "Yosuke\u00a0Watanuki": {
+      "elo_rank": 181,
+      "age": 27.8,
+      "elo": 1598.4,
+      "hElo": 1559.4,
+      "cElo": 1576.1,
+      "gElo": 1566.1,
+      "atp_rank": 262,
+      "surface_score": 3
+    },
+    "Liam\u00a0Draxl": {
+      "elo_rank": 182,
+      "age": 24.3,
+      "elo": 1594.8,
+      "hElo": 1563.0,
+      "cElo": 1506.0,
+      "gElo": 1458.1,
+      "atp_rank": 171,
+      "surface_score": 4
+    },
+    "Matteo\u00a0Gigante": {
+      "elo_rank": 183,
+      "age": 23.7,
+      "elo": 1591.8,
+      "hElo": 1533.6,
+      "cElo": 1598.0,
+      "gElo": 1457.1,
+      "atp_rank": 232,
+      "surface_score": 2
+    },
+    "Darwin\u00a0Blanch": {
+      "elo_rank": 184,
+      "age": 18.5,
+      "elo": 1591.3,
+      "hElo": 1503.2,
+      "cElo": 1537.6,
+      "gElo": 1495.7,
+      "atp_rank": 228,
+      "surface_score": 3
+    },
+    "Pierre\u00a0Hugues\u00a0Herbert": {
+      "elo_rank": 185,
+      "age": 35.0,
+      "elo": 1591.1,
+      "hElo": 1568.6,
+      "cElo": 1513.0,
+      "gElo": 1545.5,
+      "atp_rank": 213,
+      "surface_score": 4
+    },
+    "Facundo\u00a0Bagnis": {
+      "elo_rank": 186,
+      "age": 35.5,
+      "elo": 1590.7,
+      "hElo": 1512.9,
+      "cElo": 1583.8,
+      "gElo": 1363.2,
+      "atp_rank": 419,
+      "surface_score": 2
+    },
+    "Alexis\u00a0Galarneau": {
+      "elo_rank": 187,
+      "age": 27.1,
+      "elo": 1589.2,
+      "hElo": 1557.7,
+      "cElo": 1459.4,
+      "gElo": 1513.5,
+      "atp_rank": 192,
+      "surface_score": 4
+    },
+    "Filip\u00a0Misolic": {
+      "elo_rank": 188,
+      "age": 24.5,
+      "elo": 1587.2,
+      "hElo": 1469.3,
+      "cElo": 1663.9,
+      "gElo": 1531.3,
+      "atp_rank": 111,
+      "surface_score": 1
+    },
+    "Stefano\u00a0Travaglia": {
+      "elo_rank": 189,
+      "age": 34.3,
+      "elo": 1586.3,
+      "hElo": 1547.0,
+      "cElo": 1549.6,
+      "gElo": 1460.2,
+      "atp_rank": 141,
+      "surface_score": 3
+    },
+    "Facundo\u00a0Diaz\u00a0Acosta": {
+      "elo_rank": 190,
+      "age": 25.3,
+      "elo": 1586.2,
+      "hElo": 1485.9,
+      "cElo": 1586.1,
+      "gElo": 1429.1,
+      "atp_rank": 179,
+      "surface_score": 1
+    },
+    "Nicolas\u00a0Moreno\u00a0De\u00a0Alboran": {
+      "elo_rank": 191,
+      "age": 28.7,
+      "elo": 1583.8,
+      "hElo": 1561.6,
+      "cElo": 1537.8,
+      "gElo": 1495.2,
+      "atp_rank": 536,
+      "surface_score": 3
+    },
+    "Jan\u00a0Choinski": {
+      "elo_rank": 192,
+      "age": 29.8,
+      "elo": 1583.7,
+      "hElo": 1520.1,
+      "cElo": 1577.4,
+      "gElo": 1407.8,
+      "atp_rank": 122,
+      "surface_score": 2
+    },
+    "Clement\u00a0Chidekh": {
+      "elo_rank": 193,
+      "age": 24.8,
+      "elo": 1582.1,
+      "hElo": 1557.8,
+      "cElo": 1384.0,
+      "gElo": 1491.0,
+      "atp_rank": 181,
+      "surface_score": 5
+    },
+    "Jack\u00a0Kennedy": {
+      "elo_rank": 194,
+      "age": null,
+      "elo": 1580.6,
+      "hElo": 1410.5,
+      "cElo": 1555.7,
+      "gElo": 1490.3,
+      "atp_rank": 433,
+      "surface_score": 1
+    },
+    "Gauthier\u00a0Onclin": {
+      "elo_rank": 195,
+      "age": 25.1,
+      "elo": 1578.9,
+      "hElo": 1557.9,
+      "cElo": 1528.8,
+      "gElo": 1491.1,
+      "atp_rank": 183,
+      "surface_score": 3
+    },
+    "Stefanos\u00a0Sakellaridis": {
+      "elo_rank": 196,
+      "age": 21.5,
+      "elo": 1578.0,
+      "hElo": 1539.7,
+      "cElo": 1549.7,
+      "gElo": 1539.0,
+      "atp_rank": 200,
+      "surface_score": 3
+    },
+    "Thiago\u00a0Monteiro": {
+      "elo_rank": 197,
+      "age": 31.7,
+      "elo": 1577.0,
+      "hElo": 1537.3,
+      "cElo": 1566.0,
+      "gElo": 1475.3,
+      "atp_rank": 292,
+      "surface_score": 3
+    },
+    "Mark\u00a0Lajal": {
+      "elo_rank": 198,
+      "age": 22.9,
+      "elo": 1575.7,
+      "hElo": 1537.1,
+      "cElo": 1483.1,
+      "gElo": 1575.5,
+      "atp_rank": 158,
+      "surface_score": 4
+    },
+    "Pol\u00a0Martin\u00a0Tiffon": {
+      "elo_rank": 199,
+      "age": 26.7,
+      "elo": 1575.5,
+      "hElo": 1551.9,
+      "cElo": 1513.6,
+      "gElo": 1455.0,
+      "atp_rank": 237,
+      "surface_score": 3
+    },
+    "Hugo\u00a0Grenier": {
+      "elo_rank": 200,
+      "age": 29.9,
+      "elo": 1573.1,
+      "hElo": 1535.7,
+      "cElo": 1438.1,
+      "gElo": 1470.6,
+      "atp_rank": 224,
+      "surface_score": 4
+    },
+    "Alejandro\u00a0Moro\u00a0Canas": {
+      "elo_rank": 201,
+      "age": 25.3,
+      "elo": 1572.1,
+      "hElo": 1541.5,
+      "cElo": 1527.7,
+      "gElo": 1509.4,
+      "atp_rank": 242,
+      "surface_score": 3
+    },
+    "Elias\u00a0Ymer": {
+      "elo_rank": 202,
+      "age": 29.8,
+      "elo": 1569.5,
+      "hElo": 1538.1,
+      "cElo": 1515.1,
+      "gElo": 1518.6,
+      "atp_rank": 176,
+      "surface_score": 3
+    },
+    "Francesco\u00a0Maestrelli": {
+      "elo_rank": 203,
+      "age": 23.3,
+      "elo": 1568.7,
+      "hElo": 1566.1,
+      "cElo": 1493.8,
+      "gElo": 1429.8,
+      "atp_rank": 112,
+      "surface_score": 4
+    },
+    "Tom\u00a0Gentzsch": {
+      "elo_rank": 204,
+      "age": 22.6,
+      "elo": 1568.4,
+      "hElo": 1493.6,
+      "cElo": 1525.6,
+      "gElo": 1484.2,
+      "atp_rank": 219,
+      "surface_score": 3
+    },
+    "Mikhail\u00a0Kukushkin": {
+      "elo_rank": 205,
+      "age": 38.3,
+      "elo": 1568.3,
+      "hElo": 1537.4,
+      "cElo": 1526.7,
+      "gElo": 1541.4,
+      "atp_rank": 281,
+      "surface_score": 3
+    },
+    "Stefano\u00a0Napolitano": {
+      "elo_rank": 206,
+      "age": 30.9,
+      "elo": 1567.9,
+      "hElo": 1482.7,
+      "cElo": 1554.0,
+      "gElo": 1502.8,
+      "atp_rank": 246,
+      "surface_score": 2
+    },
+    "Federico\u00a0Coria": {
+      "elo_rank": 207,
+      "age": 34.0,
+      "elo": 1566.9,
+      "hElo": 1464.1,
+      "cElo": 1545.5,
+      "gElo": 1385.1,
+      "atp_rank": 754,
+      "surface_score": 2
+    },
+    "Rio\u00a0Noguchi": {
+      "elo_rank": 208,
+      "age": 27.3,
+      "elo": 1560.6,
+      "hElo": 1526.5,
+      "cElo": 1327.9,
+      "gElo": 1435.2,
+      "atp_rank": 204,
+      "surface_score": 5
+    },
+    "Tristan\u00a0Schoolkate": {
+      "elo_rank": 209,
+      "age": 25.1,
+      "elo": 1560.0,
+      "hElo": 1519.9,
+      "cElo": 1448.6,
+      "gElo": 1565.8,
+      "atp_rank": 126,
+      "surface_score": 4
+    },
+    "Gianluca\u00a0Cadenasso": {
+      "elo_rank": 210,
+      "age": 21.5,
+      "elo": 1559.6,
+      "hElo": 1389.8,
+      "cElo": 1539.6,
+      "gElo": 1479.8,
+      "atp_rank": null,
+      "surface_score": 1
+    },
+    "Andrea\u00a0Pellegrino": {
+      "elo_rank": 211,
+      "age": 29.0,
+      "elo": 1558.4,
+      "hElo": 1364.2,
+      "cElo": 1546.6,
+      "gElo": 1401.1,
+      "atp_rank": 155,
+      "surface_score": 1
+    },
+    "Buvaysar\u00a0Gadamauri": {
+      "elo_rank": 212,
+      "age": 25.7,
+      "elo": 1557.9,
+      "hElo": 1463.7,
+      "cElo": 1524.6,
+      "gElo": 1479.0,
+      "atp_rank": 280,
+      "surface_score": 2
+    },
+    "Albert\u00a0Ramos": {
+      "elo_rank": 213,
+      "age": 37.7,
+      "elo": 1557.7,
+      "hElo": 1520.0,
+      "cElo": 1526.1,
+      "gElo": 1424.1,
+      "atp_rank": 557,
+      "surface_score": 3
+    },
+    "Luka\u00a0Mikrut": {
+      "elo_rank": 214,
+      "age": 21.8,
+      "elo": 1556.5,
+      "hElo": 1422.9,
+      "cElo": 1601.7,
+      "gElo": 1478.2,
+      "atp_rank": 198,
+      "surface_score": 1
+    },
+    "Cedrik\u00a0Marcel\u00a0Stebe": {
+      "elo_rank": 215,
+      "age": 35.3,
+      "elo": 1556.4,
+      "hElo": 1523.2,
+      "cElo": 1544.9,
+      "gElo": 1463.3,
+      "atp_rank": 333,
+      "surface_score": 3
+    },
+    "Daniil\u00a0Glinka": {
+      "elo_rank": 216,
+      "age": 25.9,
+      "elo": 1555.2,
+      "hElo": 1529.8,
+      "cElo": 1493.8,
+      "gElo": 1527.6,
+      "atp_rank": 178,
+      "surface_score": 3
+    },
+    "Marco\u00a0Cecchinato": {
+      "elo_rank": 217,
+      "age": 33.5,
+      "elo": 1555.1,
+      "hElo": 1435.8,
+      "cElo": 1535.1,
+      "gElo": 1427.9,
+      "atp_rank": 182,
+      "surface_score": 2
+    },
+    "Stefan\u00a0Dostanic": {
+      "elo_rank": 218,
+      "age": 24.4,
+      "elo": 1553.3,
+      "hElo": 1525.5,
+      "cElo": 1461.8,
+      "gElo": 1476.6,
+      "atp_rank": 266,
+      "surface_score": 4
+    },
+    "Lukas\u00a0Neumayer": {
+      "elo_rank": 219,
+      "age": 23.6,
+      "elo": 1553.2,
+      "hElo": 1446.4,
+      "cElo": 1545.8,
+      "gElo": 1432.2,
+      "atp_rank": 191,
+      "surface_score": 2
+    },
+    "Dominic\u00a0Stricker": {
+      "elo_rank": 220,
+      "age": 23.6,
+      "elo": 1550.6,
+      "hElo": 1517.4,
+      "cElo": 1504.7,
+      "gElo": 1538.8,
+      "atp_rank": 311,
+      "surface_score": 3
+    },
+    "Andrea\u00a0Guerrieri": {
+      "elo_rank": 221,
+      "age": 27.3,
+      "elo": 1547.6,
+      "hElo": 1394.8,
+      "cElo": 1507.9,
+      "gElo": 1473.8,
+      "atp_rank": 248,
+      "surface_score": 1
+    },
+    "August\u00a0Holmgren": {
+      "elo_rank": 222,
+      "age": 27.9,
+      "elo": 1543.9,
+      "hElo": 1505.6,
+      "cElo": 1411.7,
+      "gElo": 1612.2,
+      "atp_rank": 167,
+      "surface_score": 4
+    },
+    "Trevor\u00a0Svajda": {
+      "elo_rank": 223,
+      "age": 19.8,
+      "elo": 1541.9,
+      "hElo": 1506.8,
+      "cElo": 1380.9,
+      "gElo": 1470.9,
+      "atp_rank": 389,
+      "surface_score": 5
+    },
+    "Nicolas\u00a0Mejia": {
+      "elo_rank": 224,
+      "age": 26.1,
+      "elo": 1538.8,
+      "hElo": 1472.8,
+      "cElo": 1535.2,
+      "gElo": 1469.4,
+      "atp_rank": 174,
+      "surface_score": 2
+    },
+    "Ilya\u00a0Ivashka": {
+      "elo_rank": 225,
+      "age": 32.1,
+      "elo": 1538.0,
+      "hElo": 1507.5,
+      "cElo": 1556.7,
+      "gElo": 1516.5,
+      "atp_rank": 722,
+      "surface_score": 2
+    },
+    "Brandon\u00a0Holt": {
+      "elo_rank": 226,
+      "age": 27.7,
+      "elo": 1536.8,
+      "hElo": 1507.1,
+      "cElo": 1353.7,
+      "gElo": 1507.0,
+      "atp_rank": 352,
+      "surface_score": 5
+    },
+    "Juan\u00a0Carlos\u00a0Prado\u00a0Angelo": {
+      "elo_rank": 227,
+      "age": 21.1,
+      "elo": 1536.4,
+      "hElo": 1398.7,
+      "cElo": 1542.2,
+      "gElo": 1468.2,
+      "atp_rank": 180,
+      "surface_score": 1
+    },
+    "Ugo\u00a0Blanchet": {
+      "elo_rank": 228,
+      "age": 27.2,
+      "elo": 1535.7,
+      "hElo": 1553.3,
+      "cElo": 1443.5,
+      "gElo": 1445.4,
+      "atp_rank": 162,
+      "surface_score": 5
+    },
+    "Kimmer\u00a0Coppejans": {
+      "elo_rank": 229,
+      "age": 32.1,
+      "elo": 1535.1,
+      "hElo": 1464.8,
+      "cElo": 1509.4,
+      "gElo": 1451.1,
+      "atp_rank": 217,
+      "surface_score": 2
+    },
+    "Timofey\u00a0Skatov": {
+      "elo_rank": 230,
+      "age": 25.2,
+      "elo": 1534.9,
+      "hElo": 1474.8,
+      "cElo": 1524.2,
+      "gElo": 1479.5,
+      "atp_rank": 188,
+      "surface_score": 2
+    },
+    "Dane\u00a0Sweeny": {
+      "elo_rank": 231,
+      "age": 25.1,
+      "elo": 1534.6,
+      "hElo": 1504.0,
+      "cElo": 1332.5,
+      "gElo": 1411.1,
+      "atp_rank": 135,
+      "surface_score": 5
+    },
+    "Fajing\u00a0Sun": {
+      "elo_rank": 232,
+      "age": 29.5,
+      "elo": 1533.7,
+      "hElo": 1507.4,
+      "cElo": 1298.5,
+      "gElo": 1445.8,
+      "atp_rank": 197,
+      "surface_score": 5
+    },
+    "Vitaliy\u00a0Sachko": {
+      "elo_rank": 233,
+      "age": 28.7,
+      "elo": 1531.8,
+      "hElo": 1449.1,
+      "cElo": 1508.3,
+      "gElo": 1412.7,
+      "atp_rank": 193,
+      "surface_score": 2
+    },
+    "Chun\u00a0Hsin\u00a0Tseng": {
+      "elo_rank": 234,
+      "age": 24.6,
+      "elo": 1528.3,
+      "hElo": 1482.1,
+      "cElo": 1524.2,
+      "gElo": 1392.3,
+      "atp_rank": 169,
+      "surface_score": 2
+    },
+    "Li\u00a0Tu": {
+      "elo_rank": 235,
+      "age": 29.8,
+      "elo": 1528.0,
+      "hElo": 1491.1,
+      "cElo": 1436.3,
+      "gElo": 1536.5,
+      "atp_rank": 349,
+      "surface_score": 4
+    },
+    "Alexander\u00a0Ritschard": {
+      "elo_rank": 236,
+      "age": 31.7,
+      "elo": 1528.0,
+      "hElo": 1454.4,
+      "cElo": 1557.1,
+      "gElo": 1469.4,
+      "atp_rank": 574,
+      "surface_score": 1
+    },
+    "Moise\u00a0Kouame": {
+      "elo_rank": 237,
+      "age": 17.1,
+      "elo": 1526.6,
+      "hElo": 1528.5,
+      "cElo": 1337.7,
+      "gElo": 1463.3,
+      "atp_rank": 313,
+      "surface_score": 5
+    },
+    "Rodrigo\u00a0Pacheco\u00a0Mendez": {
+      "elo_rank": 238,
+      "age": 20.9,
+      "elo": 1526.5,
+      "hElo": 1486.9,
+      "cElo": 1459.8,
+      "gElo": 1463.2,
+      "atp_rank": 255,
+      "surface_score": 3
+    },
+    "Oliver\u00a0Tarvet": {
+      "elo_rank": 239,
+      "age": 22.0,
+      "elo": 1526.2,
+      "hElo": 1478.5,
+      "cElo": 1513.1,
+      "gElo": 1594.6,
+      "atp_rank": 338,
+      "surface_score": 3
+    },
+    "Daniel\u00a0Elahi\u00a0Galan": {
+      "elo_rank": 240,
+      "age": 29.8,
+      "elo": 1525.3,
+      "hElo": 1494.7,
+      "cElo": 1486.8,
+      "gElo": 1489.6,
+      "atp_rank": 271,
+      "surface_score": 3
+    },
+    "Andres\u00a0Andrade": {
+      "elo_rank": 241,
+      "age": 27.3,
+      "elo": 1524.4,
+      "hElo": 1452.7,
+      "cElo": 1482.9,
+      "gElo": 1462.2,
+      "atp_rank": 215,
+      "surface_score": 3
+    },
+    "Nikolas\u00a0Sanchez\u00a0Izquierdo": {
+      "elo_rank": 242,
+      "age": 27.0,
+      "elo": 1523.9,
+      "hElo": 1312.9,
+      "cElo": 1502.6,
+      "gElo": 1462.0,
+      "atp_rank": 244,
+      "surface_score": 1
+    },
+    "Christopher\u00a0Eubanks": {
+      "elo_rank": 243,
+      "age": 29.4,
+      "elo": 1523.4,
+      "hElo": 1493.0,
+      "cElo": 1414.6,
+      "gElo": 1524.2,
+      "atp_rank": 600,
+      "surface_score": 4
+    },
+    "Edas\u00a0Butvilas": {
+      "elo_rank": 244,
+      "age": 21.7,
+      "elo": 1520.5,
+      "hElo": 1503.2,
+      "cElo": 1438.7,
+      "gElo": 1444.2,
+      "atp_rank": 256,
+      "surface_score": 4
+    },
+    "Lautaro\u00a0Midon": {
+      "elo_rank": 245,
+      "age": 22.0,
+      "elo": 1518.9,
+      "hElo": 1447.8,
+      "cElo": 1498.3,
+      "gElo": 1459.4,
+      "atp_rank": 216,
+      "surface_score": 2
+    },
+    "Yu\u00a0Hsiou\u00a0Hsu": {
+      "elo_rank": 246,
+      "age": 27.0,
+      "elo": 1517.9,
+      "hElo": 1488.0,
+      "cElo": 1388.9,
+      "gElo": 1360.4,
+      "atp_rank": 212,
+      "surface_score": 4
+    },
+    "Igor\u00a0Ribeiro\u00a0Marcondes": {
+      "elo_rank": 247,
+      "age": 28.7,
+      "elo": 1517.1,
+      "hElo": 1429.3,
+      "cElo": 1504.7,
+      "gElo": 1458.5,
+      "atp_rank": 295,
+      "surface_score": 2
+    },
+    "Marc\u00a0Andrea\u00a0Huesler": {
+      "elo_rank": 248,
+      "age": 29.8,
+      "elo": 1515.6,
+      "hElo": 1495.3,
+      "cElo": 1494.4,
+      "gElo": 1472.4,
+      "atp_rank": 301,
+      "surface_score": 3
+    },
+    "Gonzalo\u00a0Bueno": {
+      "elo_rank": 249,
+      "age": 22.0,
+      "elo": 1515.5,
+      "hElo": 1326.4,
+      "cElo": 1505.7,
+      "gElo": 1457.7,
+      "atp_rank": 184,
+      "surface_score": 1
+    },
+    "Federico\u00a0Cina": {
+      "elo_rank": 250,
+      "age": 19.0,
+      "elo": 1514.9,
+      "hElo": 1525.6,
+      "cElo": 1453.1,
+      "gElo": 1457.5,
+      "atp_rank": 225,
+      "surface_score": 4
+    },
+    "Thiago\u00a0Seyboth\u00a0Wild": {
+      "elo_rank": 251,
+      "age": 26.1,
+      "elo": 1513.4,
+      "hElo": 1506.7,
+      "cElo": 1498.9,
+      "gElo": 1468.8,
+      "atp_rank": 247,
+      "surface_score": 3
+    },
+    "Bernard\u00a0Tomic": {
+      "elo_rank": 252,
+      "age": 33.4,
+      "elo": 1512.5,
+      "hElo": 1469.9,
+      "cElo": 1440.6,
+      "gElo": 1530.9,
+      "atp_rank": 194,
+      "surface_score": 3
+    },
+    "Raul\u00a0Brancaccio": {
+      "elo_rank": 253,
+      "age": 28.9,
+      "elo": 1510.6,
+      "hElo": 1431.0,
+      "cElo": 1494.6,
+      "gElo": 1424.9,
+      "atp_rank": 240,
+      "surface_score": 2
+    },
+    "Shintaro\u00a0Mochizuki": {
+      "elo_rank": 254,
+      "age": 22.7,
+      "elo": 1508.2,
+      "hElo": 1441.7,
+      "cElo": 1480.6,
+      "gElo": 1581.9,
+      "atp_rank": 130,
+      "surface_score": 3
+    },
+    "Zdenek\u00a0Kolar": {
+      "elo_rank": 255,
+      "age": 29.5,
+      "elo": 1507.6,
+      "hElo": 1432.2,
+      "cElo": 1504.2,
+      "gElo": 1450.4,
+      "atp_rank": 165,
+      "surface_score": 2
+    },
+    "Max\u00a0Houkes": {
+      "elo_rank": 256,
+      "age": 25.7,
+      "elo": 1506.8,
+      "hElo": 1328.0,
+      "cElo": 1492.7,
+      "gElo": 1419.5,
+      "atp_rank": 236,
+      "surface_score": 1
+    },
+    "Frederico\u00a0Ferreira\u00a0Silva": {
+      "elo_rank": 257,
+      "age": 31.0,
+      "elo": 1505.7,
+      "hElo": 1497.1,
+      "cElo": 1441.7,
+      "gElo": 1475.2,
+      "atp_rank": 238,
+      "surface_score": 4
+    },
+    "Alvaro\u00a0Guillen\u00a0Meza": {
+      "elo_rank": 258,
+      "age": 23.2,
+      "elo": 1505.5,
+      "hElo": 1289.9,
+      "cElo": 1493.8,
+      "gElo": 1432.7,
+      "atp_rank": 230,
+      "surface_score": 1
+    },
+    "Arthur\u00a0Bouquier": {
+      "elo_rank": 259,
+      "age": 25.1,
+      "elo": 1505.4,
+      "hElo": 1482.0,
+      "cElo": 1332.6,
+      "gElo": 1440.2,
+      "atp_rank": 625,
+      "surface_score": 5
+    },
+    "Tristan\u00a0Boyer": {
+      "elo_rank": 260,
+      "age": 24.8,
+      "elo": 1504.7,
+      "hElo": 1496.9,
+      "cElo": 1462.2,
+      "gElo": 1424.7,
+      "atp_rank": 257,
+      "surface_score": 3
+    },
+    "James\u00a0Mccabe": {
+      "elo_rank": 261,
+      "age": 22.7,
+      "elo": 1504.5,
+      "hElo": 1465.1,
+      "cElo": 1315.7,
+      "gElo": 1501.3,
+      "atp_rank": 233,
+      "surface_score": 5
+    },
+    "Gilles\u00a0Arnaud\u00a0Bailly": {
+      "elo_rank": 262,
+      "age": 20.5,
+      "elo": 1504.3,
+      "hElo": 1471.2,
+      "cElo": 1470.3,
+      "gElo": 1502.2,
+      "atp_rank": 208,
+      "surface_score": 3
+    },
+    "Luka\u00a0Pavlovic": {
+      "elo_rank": 263,
+      "age": 26.0,
+      "elo": 1504.0,
+      "hElo": 1460.6,
+      "cElo": 1463.8,
+      "gElo": 1479.9,
+      "atp_rank": 221,
+      "surface_score": 3
+    },
+    "Diego\u00a0Dedura\u00a0Palomero": {
+      "elo_rank": 264,
+      "age": 18.1,
+      "elo": 1503.7,
+      "hElo": 1327.3,
+      "cElo": 1486.8,
+      "gElo": 1451.9,
+      "atp_rank": 283,
+      "surface_score": 1
+    },
+    "Kilian\u00a0Feldbausch": {
+      "elo_rank": 265,
+      "age": 20.6,
+      "elo": 1502.8,
+      "hElo": 1344.2,
+      "cElo": 1484.6,
+      "gElo": 1451.4,
+      "atp_rank": 355,
+      "surface_score": 1
+    },
+    "Taro\u00a0Daniel": {
+      "elo_rank": 266,
+      "age": 33.2,
+      "elo": 1501.9,
+      "hElo": 1479.2,
+      "cElo": 1467.0,
+      "gElo": 1448.6,
+      "atp_rank": 335,
+      "surface_score": 3
+    },
+    "Manas\u00a0Dhamne": {
+      "elo_rank": 267,
+      "age": 18.3,
+      "elo": 1501.1,
+      "hElo": 1444.5,
+      "cElo": 1479.4,
+      "gElo": 1500.6,
+      "atp_rank": 384,
+      "surface_score": 3
+    },
+    "Mili\u00a0Poljicak": {
+      "elo_rank": 268,
+      "age": 21.7,
+      "elo": 1500.5,
+      "hElo": 1311.3,
+      "cElo": 1475.3,
+      "gElo": 1414.4,
+      "atp_rank": 302,
+      "surface_score": 1
+    },
+    "Marko\u00a0Topo": {
+      "elo_rank": 269,
+      "age": 22.6,
+      "elo": 1499.1,
+      "hElo": 1491.2,
+      "cElo": 1441.6,
+      "gElo": 1458.7,
+      "atp_rank": 251,
+      "surface_score": 4
+    },
+    "Pedro\u00a0Boscardin\u00a0Dias": {
+      "elo_rank": 270,
+      "age": 23.2,
+      "elo": 1497.7,
+      "hElo": 1281.2,
+      "cElo": 1485.9,
+      "gElo": 1448.9,
+      "atp_rank": 229,
+      "surface_score": 1
+    },
+    "Nerman\u00a0Fatic": {
+      "elo_rank": 271,
+      "age": 31.4,
+      "elo": 1497.4,
+      "hElo": 1417.8,
+      "cElo": 1481.7,
+      "gElo": 1467.0,
+      "atp_rank": 235,
+      "surface_score": 2
+    },
+    "Max\u00a0Hans\u00a0Rehberg": {
+      "elo_rank": 272,
+      "age": 22.6,
+      "elo": 1497.1,
+      "hElo": 1483.5,
+      "cElo": 1413.5,
+      "gElo": 1381.5,
+      "atp_rank": 579,
+      "surface_score": 4
+    },
+    "Johannus\u00a0Monday": {
+      "elo_rank": 273,
+      "age": 24.0,
+      "elo": 1497.1,
+      "hElo": 1469.6,
+      "cElo": 1358.5,
+      "gElo": 1398.7,
+      "atp_rank": 284,
+      "surface_score": 5
+    },
+    "Billy\u00a0Harris": {
+      "elo_rank": 274,
+      "age": 31.2,
+      "elo": 1493.7,
+      "hElo": 1465.4,
+      "cElo": 1384.7,
+      "gElo": 1499.2,
+      "atp_rank": 148,
+      "surface_score": 4
+    },
+    "Matej\u00a0Dodig": {
+      "elo_rank": 275,
+      "age": 20.6,
+      "elo": 1493.5,
+      "hElo": 1423.0,
+      "cElo": 1472.7,
+      "gElo": 1446.7,
+      "atp_rank": 201,
+      "surface_score": 2
+    },
+    "Mitchell\u00a0Krueger": {
+      "elo_rank": 276,
+      "age": 32.2,
+      "elo": 1493.1,
+      "hElo": 1464.8,
+      "cElo": 1451.0,
+      "gElo": 1439.7,
+      "atp_rank": 270,
+      "surface_score": 3
+    },
+    "Alibek\u00a0Kachmazov": {
+      "elo_rank": 277,
+      "age": 23.4,
+      "elo": 1490.4,
+      "hElo": 1466.5,
+      "cElo": 1396.4,
+      "gElo": 1449.5,
+      "atp_rank": 702,
+      "surface_score": 4
+    },
+    "Henri\u00a0Squire": {
+      "elo_rank": 278,
+      "age": 25.5,
+      "elo": 1490.4,
+      "hElo": 1449.0,
+      "cElo": 1477.1,
+      "gElo": 1358.6,
+      "atp_rank": 258,
+      "surface_score": 3
+    },
+    "Hamish\u00a0Stewart": {
+      "elo_rank": 279,
+      "age": 26.7,
+      "elo": 1489.6,
+      "hElo": 1451.7,
+      "cElo": 1354.8,
+      "gElo": 1506.0,
+      "atp_rank": 328,
+      "surface_score": 4
+    },
+    "Moez\u00a0Echargui": {
+      "elo_rank": 280,
+      "age": 33.2,
+      "elo": 1489.6,
+      "hElo": 1444.7,
+      "cElo": 1418.4,
+      "gElo": 1444.8,
+      "atp_rank": 140,
+      "surface_score": 3
+    },
+    "Colton\u00a0Smith": {
+      "elo_rank": 281,
+      "age": 23.1,
+      "elo": 1489.0,
+      "hElo": 1496.7,
+      "cElo": 1358.3,
+      "gElo": 1513.4,
+      "atp_rank": 190,
+      "surface_score": 5
+    },
+    "Hyeon\u00a0Chung": {
+      "elo_rank": 282,
+      "age": 29.9,
+      "elo": 1488.4,
+      "hElo": 1459.1,
+      "cElo": 1525.7,
+      "gElo": 1400.1,
+      "atp_rank": 639,
+      "surface_score": 2
+    },
+    "Daniel\u00a0Rincon": {
+      "elo_rank": 283,
+      "age": 23.2,
+      "elo": 1487.4,
+      "hElo": 1496.7,
+      "cElo": 1424.2,
+      "gElo": 1354.0,
+      "atp_rank": 309,
+      "surface_score": 4
+    },
+    "Remy\u00a0Bertola": {
+      "elo_rank": 284,
+      "age": 27.6,
+      "elo": 1485.8,
+      "hElo": 1481.1,
+      "cElo": 1380.2,
+      "gElo": 1442.9,
+      "atp_rank": 211,
+      "surface_score": 5
+    },
+    "Yasutaka\u00a0Uchiyama": {
+      "elo_rank": 285,
+      "age": 33.7,
+      "elo": 1485.7,
+      "hElo": 1454.1,
+      "cElo": 1359.0,
+      "gElo": 1428.8,
+      "atp_rank": 306,
+      "surface_score": 4
+    },
+    "Antoine\u00a0Ghibaudo": {
+      "elo_rank": 286,
+      "age": 21.2,
+      "elo": 1484.9,
+      "hElo": 1407.1,
+      "cElo": 1464.7,
+      "gElo": 1504.7,
+      "atp_rank": 287,
+      "surface_score": 2
+    },
+    "Norbert\u00a0Gombos": {
+      "elo_rank": 287,
+      "age": 35.6,
+      "elo": 1484.8,
+      "hElo": 1458.6,
+      "cElo": 1475.3,
+      "gElo": 1423.9,
+      "atp_rank": 356,
+      "surface_score": 3
+    },
+    "Jay\u00a0Dylan\u00a0Hara\u00a0Friend": {
+      "elo_rank": 288,
+      "age": 22.1,
+      "elo": 1484.6,
+      "hElo": 1462.9,
+      "cElo": 1347.1,
+      "gElo": 1442.3,
+      "atp_rank": 432,
+      "surface_score": 5
+    },
+    "Sumit\u00a0Nagal": {
+      "elo_rank": 289,
+      "age": 28.6,
+      "elo": 1483.6,
+      "hElo": 1446.3,
+      "cElo": 1481.2,
+      "gElo": 1374.3,
+      "atp_rank": 276,
+      "surface_score": 3
+    },
+    "Sergey\u00a0Fomin": {
+      "elo_rank": 290,
+      "age": 25.2,
+      "elo": 1482.9,
+      "hElo": 1400.3,
+      "cElo": 1493.9,
+      "gElo": 1441.4,
+      "atp_rank": 290,
+      "surface_score": 2
+    },
+    "Yi\u00a0Zhou": {
+      "elo_rank": 291,
+      "age": 21.0,
+      "elo": 1480.6,
+      "hElo": 1457.2,
+      "cElo": 1332.1,
+      "gElo": 1440.3,
+      "atp_rank": 220,
+      "surface_score": 5
+    },
+    "Maxim\u00a0Mrva": {
+      "elo_rank": 292,
+      "age": 18.7,
+      "elo": 1479.3,
+      "hElo": 1493.0,
+      "cElo": 1390.9,
+      "gElo": 1489.6,
+      "atp_rank": 312,
+      "surface_score": 5
+    },
+    "Genaro\u00a0Alberto\u00a0Olivieri": {
+      "elo_rank": 293,
+      "age": 27.6,
+      "elo": 1479.1,
+      "hElo": 1348.7,
+      "cElo": 1462.1,
+      "gElo": 1364.5,
+      "atp_rank": 214,
+      "surface_score": 1
+    },
+    "Mees\u00a0Rottgering": {
+      "elo_rank": 294,
+      "age": 18.5,
+      "elo": 1478.6,
+      "hElo": 1454.4,
+      "cElo": 1444.1,
+      "gElo": 1472.7,
+      "atp_rank": 416,
+      "surface_score": 3
+    },
+    "Felipe\u00a0Meligeni\u00a0Alves": {
+      "elo_rank": 295,
+      "age": 28.1,
+      "elo": 1477.4,
+      "hElo": 1421.9,
+      "cElo": 1468.5,
+      "gElo": 1497.2,
+      "atp_rank": 801,
+      "surface_score": 2
+    },
+    "Juan\u00a0Pablo\u00a0Varillas": {
+      "elo_rank": 296,
+      "age": 30.5,
+      "elo": 1475.7,
+      "hElo": 1374.6,
+      "cElo": 1467.2,
+      "gElo": 1366.0,
+      "atp_rank": 300,
+      "surface_score": 2
+    },
+    "Kenta\u00a0Miyoshi": {
+      "elo_rank": 297,
+      "age": 21.6,
+      "elo": 1475.6,
+      "hElo": 1446.7,
+      "cElo": 1347.8,
+      "gElo": 1437.8,
+      "atp_rank": 630,
+      "surface_score": 4
+    },
+    "Mika\u00a0Brunold": {
+      "elo_rank": 298,
+      "age": 21.5,
+      "elo": 1475.3,
+      "hElo": 1448.0,
+      "cElo": 1418.9,
+      "gElo": 1437.7,
+      "atp_rank": 374,
+      "surface_score": 3
+    },
+    "Duje\u00a0Ajdukovic": {
+      "elo_rank": 299,
+      "age": 25.1,
+      "elo": 1475.0,
+      "hElo": 1459.4,
+      "cElo": 1457.2,
+      "gElo": 1351.4,
+      "atp_rank": 288,
+      "surface_score": 3
+    },
+    "Petr\u00a0Brunclik": {
+      "elo_rank": 300,
+      "age": 19.6,
+      "elo": 1474.5,
+      "hElo": 1433.7,
+      "cElo": 1389.3,
+      "gElo": 1437.3,
+      "atp_rank": 350,
+      "surface_score": 4
+    },
+    "Joao\u00a0Lucas\u00a0Reis\u00a0Da\u00a0Silva": {
+      "elo_rank": 301,
+      "age": 26.0,
+      "elo": 1473.8,
+      "hElo": 1353.3,
+      "cElo": 1466.4,
+      "gElo": 1436.9,
+      "atp_rank": 202,
+      "surface_score": 1
+    },
+    "Filippo\u00a0Romano": {
+      "elo_rank": 302,
+      "age": 20.7,
+      "elo": 1473.3,
+      "hElo": 1490.7,
+      "cElo": 1355.7,
+      "gElo": 1436.6,
+      "atp_rank": 364,
+      "surface_score": 5
+    },
+    "Calvin\u00a0Hemery": {
+      "elo_rank": 303,
+      "age": 31.2,
+      "elo": 1472.8,
+      "hElo": 1425.7,
+      "cElo": 1471.0,
+      "gElo": 1388.5,
+      "atp_rank": 316,
+      "surface_score": 2
+    },
+    "Jozef\u00a0Kovalik": {
+      "elo_rank": 304,
+      "age": 32.8,
+      "elo": 1472.8,
+      "hElo": 1421.1,
+      "cElo": 1465.6,
+      "gElo": 1374.3,
+      "atp_rank": 792,
+      "surface_score": 2
+    },
+    "Matias\u00a0Soto": {
+      "elo_rank": 305,
+      "age": 26.9,
+      "elo": 1471.5,
+      "hElo": 1347.6,
+      "cElo": 1467.4,
+      "gElo": 1435.7,
+      "atp_rank": 291,
+      "surface_score": 1
+    },
+    "Andrej\u00a0Martin": {
+      "elo_rank": 306,
+      "age": 36.4,
+      "elo": 1470.3,
+      "hElo": 1372.9,
+      "cElo": 1444.9,
+      "gElo": 1347.5,
+      "atp_rank": 423,
+      "surface_score": 2
+    },
+    "Blake\u00a0Ellis": {
+      "elo_rank": 307,
+      "age": 27.2,
+      "elo": 1468.5,
+      "hElo": 1441.4,
+      "cElo": 1344.2,
+      "gElo": 1434.2,
+      "atp_rank": 491,
+      "surface_score": 4
+    },
+    "Alexander\u00a0Vasilev": {
+      "elo_rank": 308,
+      "age": 18.9,
+      "elo": 1467.4,
+      "hElo": 1343.7,
+      "cElo": 1415.2,
+      "gElo": 1433.7,
+      "atp_rank": 898,
+      "surface_score": 2
+    },
+    "Mert\u00a0Alkaya": {
+      "elo_rank": 309,
+      "age": 25.8,
+      "elo": 1467.1,
+      "hElo": 1443.3,
+      "cElo": 1376.1,
+      "gElo": 1433.5,
+      "atp_rank": 324,
+      "surface_score": 4
+    },
+    "Felix\u00a0Gill": {
+      "elo_rank": 310,
+      "age": 23.8,
+      "elo": 1464.9,
+      "hElo": 1486.6,
+      "cElo": 1380.4,
+      "gElo": 1344.5,
+      "atp_rank": 234,
+      "surface_score": 5
+    },
+    "Franco\u00a0Agamenone": {
+      "elo_rank": 311,
+      "age": 32.9,
+      "elo": 1461.3,
+      "hElo": 1350.3,
+      "cElo": 1442.1,
+      "gElo": 1359.6,
+      "atp_rank": 273,
+      "surface_score": 2
+    },
+    "Guy\u00a0Den\u00a0Ouden": {
+      "elo_rank": 312,
+      "age": 24.0,
+      "elo": 1459.7,
+      "hElo": 1320.7,
+      "cElo": 1474.9,
+      "gElo": 1390.2,
+      "atp_rank": 195,
+      "surface_score": 1
+    },
+    "Alex\u00a0Barrena": {
+      "elo_rank": 313,
+      "age": 23.5,
+      "elo": 1459.0,
+      "hElo": 1297.6,
+      "cElo": 1449.9,
+      "gElo": 1429.5,
+      "atp_rank": 189,
+      "surface_score": 1
+    },
+    "Christoph\u00a0Negritu": {
+      "elo_rank": 314,
+      "age": 31.9,
+      "elo": 1458.7,
+      "hElo": 1423.4,
+      "cElo": 1428.7,
+      "gElo": 1429.3,
+      "atp_rank": 394,
+      "surface_score": 3
+    },
+    "Hynek\u00a0Barton": {
+      "elo_rank": 315,
+      "age": 22.0,
+      "elo": 1457.7,
+      "hElo": 1453.1,
+      "cElo": 1405.7,
+      "gElo": 1428.8,
+      "atp_rank": 285,
+      "surface_score": 4
+    },
+    "Javier\u00a0Barranco\u00a0Cosano": {
+      "elo_rank": 316,
+      "age": 27.2,
+      "elo": 1457.4,
+      "hElo": 1398.9,
+      "cElo": 1441.3,
+      "gElo": 1432.7,
+      "atp_rank": 399,
+      "surface_score": 2
+    },
+    "Beibit\u00a0Zhukayev": {
+      "elo_rank": 317,
+      "age": 25.5,
+      "elo": 1455.4,
+      "hElo": 1401.7,
+      "cElo": 1378.6,
+      "gElo": 1509.7,
+      "atp_rank": 297,
+      "surface_score": 3
+    },
+    "Miguel\u00a0Damas": {
+      "elo_rank": 318,
+      "age": 26.3,
+      "elo": 1454.9,
+      "hElo": 1357.2,
+      "cElo": 1426.1,
+      "gElo": 1427.5,
+      "atp_rank": 260,
+      "surface_score": 2
+    },
+    "Lilian\u00a0Marmousez": {
+      "elo_rank": 319,
+      "age": 24.0,
+      "elo": 1454.4,
+      "hElo": 1397.6,
+      "cElo": 1428.3,
+      "gElo": 1427.2,
+      "atp_rank": 314,
+      "surface_score": 3
+    },
+    "Marat\u00a0Sharipov": {
+      "elo_rank": 320,
+      "age": 23.5,
+      "elo": 1454.3,
+      "hElo": 1430.6,
+      "cElo": 1403.5,
+      "gElo": 1427.2,
+      "atp_rank": 363,
+      "surface_score": 3
+    },
+    "Mats\u00a0Rosenkranz": {
+      "elo_rank": 321,
+      "age": 27.4,
+      "elo": 1453.5,
+      "hElo": 1424.3,
+      "cElo": 1320.2,
+      "gElo": 1398.4,
+      "atp_rank": 336,
+      "surface_score": 5
+    },
+    "Enrico\u00a0Dalla\u00a0Valle": {
+      "elo_rank": 322,
+      "age": 28.0,
+      "elo": 1453.3,
+      "hElo": 1380.8,
+      "cElo": 1429.8,
+      "gElo": 1426.6,
+      "atp_rank": 479,
+      "surface_score": 2
+    },
+    "Dimitar\u00a0Kuzmanov": {
+      "elo_rank": 323,
+      "age": 32.7,
+      "elo": 1452.8,
+      "hElo": 1435.4,
+      "cElo": 1417.6,
+      "gElo": 1421.3,
+      "atp_rank": 315,
+      "surface_score": 3
+    },
+    "Andrew\u00a0Paulson": {
+      "elo_rank": 324,
+      "age": 24.3,
+      "elo": 1452.4,
+      "hElo": 1355.8,
+      "cElo": 1426.8,
+      "gElo": 1426.2,
+      "atp_rank": 582,
+      "surface_score": 2
+    },
+    "George\u00a0Loffhagen": {
+      "elo_rank": 325,
+      "age": 25.0,
+      "elo": 1451.8,
+      "hElo": 1439.8,
+      "cElo": 1301.0,
+      "gElo": 1408.2,
+      "atp_rank": 250,
+      "surface_score": 5
+    },
+    "Oriol\u00a0Roca\u00a0Batalla": {
+      "elo_rank": 326,
+      "age": 32.9,
+      "elo": 1449.3,
+      "hElo": 1379.6,
+      "cElo": 1424.1,
+      "gElo": 1385.8,
+      "atp_rank": 396,
+      "surface_score": 2
+    },
+    "Juan\u00a0Pablo\u00a0Ficovich": {
+      "elo_rank": 327,
+      "age": 29.1,
+      "elo": 1448.5,
+      "hElo": 1435.4,
+      "cElo": 1411.7,
+      "gElo": 1435.5,
+      "atp_rank": 203,
+      "surface_score": 3
+    },
+    "Lorenzo\u00a0Giustino": {
+      "elo_rank": 328,
+      "age": 34.5,
+      "elo": 1448.4,
+      "hElo": 1439.8,
+      "cElo": 1383.2,
+      "gElo": 1330.0,
+      "atp_rank": 205,
+      "surface_score": 4
+    },
+    "Marc\u00a0Polmans": {
+      "elo_rank": 329,
+      "age": 28.9,
+      "elo": 1448.3,
+      "hElo": 1413.7,
+      "cElo": 1407.4,
+      "gElo": 1459.8,
+      "atp_rank": 347,
+      "surface_score": 3
+    },
+    "Murphy\u00a0Cassone": {
+      "elo_rank": 330,
+      "age": 23.6,
+      "elo": 1448.2,
+      "hElo": 1417.5,
+      "cElo": 1328.2,
+      "gElo": 1408.2,
+      "atp_rank": 264,
+      "surface_score": 4
+    },
+    "Gastao\u00a0Elias": {
+      "elo_rank": 331,
+      "age": 35.3,
+      "elo": 1447.2,
+      "hElo": 1419.2,
+      "cElo": 1424.8,
+      "gElo": 1372.0,
+      "atp_rank": 589,
+      "surface_score": 3
+    },
+    "Guido\u00a0Ivan\u00a0Justo": {
+      "elo_rank": 332,
+      "age": 28.3,
+      "elo": 1447.0,
+      "hElo": 1309.1,
+      "cElo": 1438.7,
+      "gElo": 1423.5,
+      "atp_rank": 263,
+      "surface_score": 1
+    },
+    "Inaki\u00a0Montes\u00a0De\u00a0La\u00a0Torre": {
+      "elo_rank": 333,
+      "age": 23.4,
+      "elo": 1446.9,
+      "hElo": 1452.6,
+      "cElo": 1321.4,
+      "gElo": 1423.4,
+      "atp_rank": 329,
+      "surface_score": 5
+    },
+    "Charles\u00a0Broom": {
+      "elo_rank": 334,
+      "age": 27.9,
+      "elo": 1446.9,
+      "hElo": 1415.2,
+      "cElo": 1333.5,
+      "gElo": 1425.9,
+      "atp_rank": 241,
+      "surface_score": 4
+    },
+    "Karue\u00a0Sell": {
+      "elo_rank": 335,
+      "age": 31.7,
+      "elo": 1446.2,
+      "hElo": 1413.5,
+      "cElo": 1411.8,
+      "gElo": 1423.1,
+      "atp_rank": 650,
+      "surface_score": 3
+    },
+    "Federico\u00a0Agustin\u00a0Gomez": {
+      "elo_rank": 336,
+      "age": 29.3,
+      "elo": 1446.2,
+      "hElo": 1403.3,
+      "cElo": 1414.4,
+      "gElo": 1431.1,
+      "atp_rank": 186,
+      "surface_score": 3
+    },
+    "Andrej\u00a0Nedic": {
+      "elo_rank": 337,
+      "age": 21.5,
+      "elo": 1445.5,
+      "hElo": 1397.4,
+      "cElo": 1443.6,
+      "gElo": 1472.8,
+      "atp_rank": 267,
+      "surface_score": 2
+    },
+    "Justin\u00a0Engel": {
+      "elo_rank": 338,
+      "age": 18.5,
+      "elo": 1444.6,
+      "hElo": 1427.1,
+      "cElo": 1347.2,
+      "gElo": 1451.3,
+      "atp_rank": 185,
+      "surface_score": 4
+    },
+    "Dan\u00a0Added": {
+      "elo_rank": 339,
+      "age": 27.0,
+      "elo": 1442.5,
+      "hElo": 1414.2,
+      "cElo": 1304.9,
+      "gElo": 1421.3,
+      "atp_rank": 227,
+      "surface_score": 5
+    },
+    "Radu\u00a0Albot": {
+      "elo_rank": 340,
+      "age": 36.4,
+      "elo": 1442.0,
+      "hElo": 1423.6,
+      "cElo": 1429.8,
+      "gElo": 1489.9,
+      "atp_rank": 450,
+      "surface_score": 3
+    },
+    "Andre\u00a0Ilagan": {
+      "elo_rank": 341,
+      "age": 25.4,
+      "elo": 1441.9,
+      "hElo": 1416.2,
+      "cElo": 1331.0,
+      "gElo": 1421.0,
+      "atp_rank": 332,
+      "surface_score": 4
+    },
+    "Eliakim\u00a0Coulibaly": {
+      "elo_rank": 342,
+      "age": 23.9,
+      "elo": 1441.5,
+      "hElo": 1435.0,
+      "cElo": 1353.4,
+      "gElo": 1420.7,
+      "atp_rank": 319,
+      "surface_score": 4
+    },
+    "Ryan\u00a0Peniston": {
+      "elo_rank": 343,
+      "age": 30.2,
+      "elo": 1441.0,
+      "hElo": 1402.0,
+      "cElo": 1356.5,
+      "gElo": 1440.0,
+      "atp_rank": 299,
+      "surface_score": 4
+    },
+    "Abedallah\u00a0Shelbayh": {
+      "elo_rank": 344,
+      "age": 22.3,
+      "elo": 1440.1,
+      "hElo": 1447.1,
+      "cElo": 1326.5,
+      "gElo": 1437.7,
+      "atp_rank": 303,
+      "surface_score": 5
+    },
+    "Oliver\u00a0Crawford": {
+      "elo_rank": 345,
+      "age": 26.9,
+      "elo": 1438.5,
+      "hElo": 1409.8,
+      "cElo": 1373.0,
+      "gElo": 1457.4,
+      "atp_rank": 231,
+      "surface_score": 3
+    },
+    "Laurent\u00a0Lokoli": {
+      "elo_rank": 346,
+      "age": 31.4,
+      "elo": 1438.3,
+      "hElo": 1398.5,
+      "cElo": 1440.3,
+      "gElo": 1452.5,
+      "atp_rank": 437,
+      "surface_score": 2
+    },
+    "Franco\u00a0Roncadelli": {
+      "elo_rank": 347,
+      "age": 26.2,
+      "elo": 1436.7,
+      "hElo": 1347.3,
+      "cElo": 1407.5,
+      "gElo": 1418.4,
+      "atp_rank": 274,
+      "surface_score": 2
+    },
+    "Andrea\u00a0Collarini": {
+      "elo_rank": 348,
+      "age": 34.1,
+      "elo": 1436.7,
+      "hElo": 1327.4,
+      "cElo": 1421.6,
+      "gElo": 1338.7,
+      "atp_rank": 268,
+      "surface_score": 2
+    },
+    "Antoine\u00a0Escoffier": {
+      "elo_rank": 349,
+      "age": 33.6,
+      "elo": 1435.7,
+      "hElo": 1413.4,
+      "cElo": 1258.4,
+      "gElo": 1360.8,
+      "atp_rank": 502,
+      "surface_score": 5
+    },
+    "Tung\u00a0Lin\u00a0Wu": {
+      "elo_rank": 350,
+      "age": 27.9,
+      "elo": 1434.8,
+      "hElo": 1405.3,
+      "cElo": 1435.5,
+      "gElo": 1376.8,
+      "atp_rank": 323,
+      "surface_score": 3
+    },
+    "Jacopo\u00a0Vasami": {
+      "elo_rank": 351,
+      "age": 18.3,
+      "elo": 1434.8,
+      "hElo": 1291.1,
+      "cElo": 1433.1,
+      "gElo": 1417.4,
+      "atp_rank": 464,
+      "surface_score": 1
+    },
+    "Stuart\u00a0Parker": {
+      "elo_rank": 352,
+      "age": 28.2,
+      "elo": 1434.0,
+      "hElo": 1412.2,
+      "cElo": 1327.0,
+      "gElo": 1324.7,
+      "atp_rank": 644,
+      "surface_score": 4
+    },
+    "Facundo\u00a0Mena": {
+      "elo_rank": 353,
+      "age": 33.5,
+      "elo": 1434.0,
+      "hElo": 1358.0,
+      "cElo": 1412.5,
+      "gElo": 1381.7,
+      "atp_rank": 296,
+      "surface_score": 2
+    },
+    "Jay\u00a0Clarke": {
+      "elo_rank": 354,
+      "age": 27.7,
+      "elo": 1431.8,
+      "hElo": 1407.5,
+      "cElo": 1397.0,
+      "gElo": 1337.6,
+      "atp_rank": 207,
+      "surface_score": 3
+    },
+    "Oleg\u00a0Prihodko": {
+      "elo_rank": 355,
+      "age": 28.5,
+      "elo": 1431.7,
+      "hElo": 1421.4,
+      "cElo": 1367.2,
+      "gElo": 1415.9,
+      "atp_rank": 379,
+      "surface_score": 4
+    },
+    "Sascha\u00a0Gueymard\u00a0Wayenburg": {
+      "elo_rank": 356,
+      "age": 22.7,
+      "elo": 1430.9,
+      "hElo": 1402.6,
+      "cElo": 1394.4,
+      "gElo": 1379.9,
+      "atp_rank": 259,
+      "surface_score": 3
+    },
+    "Cezar\u00a0Cretu": {
+      "elo_rank": 357,
+      "age": 24.9,
+      "elo": 1430.4,
+      "hElo": 1400.6,
+      "cElo": 1392.7,
+      "gElo": 1415.2,
+      "atp_rank": 343,
+      "surface_score": 3
+    },
+    "Ivan\u00a0Gakhov": {
+      "elo_rank": 358,
+      "age": 29.4,
+      "elo": 1430.2,
+      "hElo": 1386.6,
+      "cElo": 1384.3,
+      "gElo": 1386.6,
+      "atp_rank": 269,
+      "surface_score": 3
+    },
+    "Stefan\u00a0Kozlov": {
+      "elo_rank": 359,
+      "age": 28.2,
+      "elo": 1429.0,
+      "hElo": 1408.3,
+      "cElo": 1397.2,
+      "gElo": 1414.4,
+      "atp_rank": 265,
+      "surface_score": 3
+    },
+    "Yuta\u00a0Shimizu": {
+      "elo_rank": 360,
+      "age": 26.8,
+      "elo": 1427.8,
+      "hElo": 1396.8,
+      "cElo": 1299.9,
+      "gElo": 1420.5,
+      "atp_rank": 353,
+      "surface_score": 4
+    },
+    "Filip\u00a0Cristian\u00a0Jianu": {
+      "elo_rank": 361,
+      "age": 24.5,
+      "elo": 1427.7,
+      "hElo": 1325.7,
+      "cElo": 1402.1,
+      "gElo": 1405.1,
+      "atp_rank": 272,
+      "surface_score": 2
+    },
+    "Benjamin\u00a0Hassan": {
+      "elo_rank": 362,
+      "age": 31.1,
+      "elo": 1427.1,
+      "hElo": 1386.0,
+      "cElo": 1434.0,
+      "gElo": 1410.3,
+      "atp_rank": 339,
+      "surface_score": 2
+    },
+    "Jonas\u00a0Forejtek": {
+      "elo_rank": 363,
+      "age": 25.1,
+      "elo": 1426.9,
+      "hElo": 1352.9,
+      "cElo": 1414.2,
+      "gElo": 1396.4,
+      "atp_rank": 286,
+      "surface_score": 2
+    },
+    "Paul\u00a0Jubb": {
+      "elo_rank": 364,
+      "age": 26.4,
+      "elo": 1425.8,
+      "hElo": 1403.3,
+      "cElo": 1338.0,
+      "gElo": 1445.2,
+      "atp_rank": 275,
+      "surface_score": 4
+    },
+    "Geoffrey\u00a0Blancaneaux": {
+      "elo_rank": 365,
+      "age": 27.6,
+      "elo": 1424.7,
+      "hElo": 1393.6,
+      "cElo": 1420.6,
+      "gElo": 1340.4,
+      "atp_rank": 362,
+      "surface_score": 3
+    },
+    "Eduardo\u00a0Ribeiro": {
+      "elo_rank": 366,
+      "age": 28.0,
+      "elo": 1423.4,
+      "hElo": 1290.2,
+      "cElo": 1415.8,
+      "gElo": 1411.7,
+      "atp_rank": 407,
+      "surface_score": 1
+    },
+    "Maks\u00a0Kasnikowski": {
+      "elo_rank": 367,
+      "age": 22.7,
+      "elo": 1422.3,
+      "hElo": 1379.8,
+      "cElo": 1464.3,
+      "gElo": 1461.2,
+      "atp_rank": 308,
+      "surface_score": 2
+    },
+    "Alex\u00a0Martinez": {
+      "elo_rank": 368,
+      "age": 25.0,
+      "elo": 1421.8,
+      "hElo": 1364.9,
+      "cElo": 1401.3,
+      "gElo": 1410.9,
+      "atp_rank": 318,
+      "surface_score": 3
+    },
+    "Matteo\u00a0Martineau": {
+      "elo_rank": 369,
+      "age": 27.2,
+      "elo": 1418.0,
+      "hElo": 1398.8,
+      "cElo": 1355.7,
+      "gElo": 1391.3,
+      "atp_rank": 327,
+      "surface_score": 4
+    },
+    "Bernabe\u00a0Zapata\u00a0Miralles": {
+      "elo_rank": 370,
+      "age": 29.0,
+      "elo": 1416.1,
+      "hElo": 1367.7,
+      "cElo": 1411.3,
+      "gElo": 1425.0,
+      "atp_rank": 834,
+      "surface_score": 2
+    },
+    "Alexey\u00a0Vatutin": {
+      "elo_rank": 371,
+      "age": 33.0,
+      "elo": 1415.2,
+      "hElo": 1382.0,
+      "cElo": 1373.8,
+      "gElo": 1371.6,
+      "atp_rank": 521,
+      "surface_score": 3
+    },
+    "James\u00a0Trotter": {
+      "elo_rank": 372,
+      "age": 26.7,
+      "elo": 1414.2,
+      "hElo": 1380.4,
+      "cElo": 1356.3,
+      "gElo": 1384.9,
+      "atp_rank": 340,
+      "surface_score": 3
+    },
+    "Daniel\u00a0Masur": {
+      "elo_rank": 373,
+      "age": 31.4,
+      "elo": 1413.4,
+      "hElo": 1382.5,
+      "cElo": 1387.3,
+      "gElo": 1402.2,
+      "atp_rank": 365,
+      "surface_score": 3
+    },
+    "Juan\u00a0Bautista\u00a0Torres": {
+      "elo_rank": 374,
+      "age": 24.0,
+      "elo": 1413.2,
+      "hElo": 1308.6,
+      "cElo": 1401.1,
+      "gElo": 1406.6,
+      "atp_rank": 325,
+      "surface_score": 2
+    },
+    "Hady\u00a0Habib": {
+      "elo_rank": 375,
+      "age": 27.4,
+      "elo": 1411.6,
+      "hElo": 1364.1,
+      "cElo": 1435.4,
+      "gElo": 1431.0,
+      "atp_rank": 465,
+      "surface_score": 2
+    },
+    "Marek\u00a0Gengel": {
+      "elo_rank": 376,
+      "age": 30.3,
+      "elo": 1410.6,
+      "hElo": 1377.3,
+      "cElo": 1260.0,
+      "gElo": 1364.9,
+      "atp_rank": 371,
+      "surface_score": 5
+    },
+    "Tom\u00a0Paris": {
+      "elo_rank": 377,
+      "age": 23.5,
+      "elo": 1409.9,
+      "hElo": 1372.2,
+      "cElo": 1358.3,
+      "gElo": 1405.0,
+      "atp_rank": 368,
+      "surface_score": 3
+    },
+    "Henry\u00a0Bernet": {
+      "elo_rank": 378,
+      "age": 19.2,
+      "elo": 1409.9,
+      "hElo": 1335.0,
+      "cElo": 1401.9,
+      "gElo": 1404.9,
+      "atp_rank": 480,
+      "surface_score": 2
+    },
+    "Tibo\u00a0Colson": {
+      "elo_rank": 379,
+      "age": 25.7,
+      "elo": 1408.7,
+      "hElo": 1351.6,
+      "cElo": 1352.5,
+      "gElo": 1404.4,
+      "atp_rank": 424,
+      "surface_score": 3
+    },
+    "Michael\u00a0Geerts": {
+      "elo_rank": 380,
+      "age": 31.2,
+      "elo": 1408.1,
+      "hElo": 1387.2,
+      "cElo": 1352.0,
+      "gElo": 1347.7,
+      "atp_rank": 305,
+      "surface_score": 3
+    },
+    "Denis\u00a0Yevseyev": {
+      "elo_rank": 381,
+      "age": 32.9,
+      "elo": 1403.7,
+      "hElo": 1387.4,
+      "cElo": 1371.9,
+      "gElo": 1411.7,
+      "atp_rank": 440,
+      "surface_score": 3
+    },
+    "Dali\u00a0Blanch": {
+      "elo_rank": 382,
+      "age": 23.1,
+      "elo": 1403.2,
+      "hElo": 1218.7,
+      "cElo": 1416.4,
+      "gElo": 1401.6,
+      "atp_rank": 369,
+      "surface_score": 1
+    },
+    "Hernan\u00a0Casanova": {
+      "elo_rank": 383,
+      "age": 32.1,
+      "elo": 1402.4,
+      "hElo": 1267.4,
+      "cElo": 1386.2,
+      "gElo": 1370.4,
+      "atp_rank": 420,
+      "surface_score": 1
+    },
+    "Alastair\u00a0Gray": {
+      "elo_rank": 384,
+      "age": 27.8,
+      "elo": 1401.2,
+      "hElo": 1365.3,
+      "cElo": 1310.6,
+      "gElo": 1369.2,
+      "atp_rank": 293,
+      "surface_score": 4
+    },
+    "Daniel\u00a0Michalski": {
+      "elo_rank": 385,
+      "age": 26.2,
+      "elo": 1399.4,
+      "hElo": 1408.0,
+      "cElo": 1343.3,
+      "gElo": 1449.7,
+      "atp_rank": 294,
+      "surface_score": 4
+    },
+    "Hayato\u00a0Matsuoka": {
+      "elo_rank": 386,
+      "age": 21.2,
+      "elo": 1397.6,
+      "hElo": 1369.3,
+      "cElo": 1308.8,
+      "gElo": 1398.8,
+      "atp_rank": 360,
+      "surface_score": 4
+    },
+    "Quinn\u00a0Vandecasteele": {
+      "elo_rank": 387,
+      "age": 23.5,
+      "elo": 1397.2,
+      "hElo": 1375.1,
+      "cElo": 1308.6,
+      "gElo": 1381.7,
+      "atp_rank": 459,
+      "surface_score": 4
+    },
+    "Florent\u00a0Bax": {
+      "elo_rank": 388,
+      "age": 26.8,
+      "elo": 1396.9,
+      "hElo": 1385.9,
+      "cElo": 1328.4,
+      "gElo": 1398.4,
+      "atp_rank": 254,
+      "surface_score": 4
+    },
+    "Robin\u00a0Bertrand": {
+      "elo_rank": 389,
+      "age": 22.9,
+      "elo": 1393.4,
+      "hElo": 1366.9,
+      "cElo": 1299.5,
+      "gElo": 1396.7,
+      "atp_rank": 278,
+      "surface_score": 4
+    },
+    "Tyler\u00a0Zink": {
+      "elo_rank": 390,
+      "age": 25.2,
+      "elo": 1392.4,
+      "hElo": 1362.3,
+      "cElo": 1312.4,
+      "gElo": 1411.0,
+      "atp_rank": 298,
+      "surface_score": 4
+    },
+    "Jakub\u00a0Paul": {
+      "elo_rank": 391,
+      "age": 27.0,
+      "elo": 1389.2,
+      "hElo": 1340.1,
+      "cElo": 1347.6,
+      "gElo": 1394.6,
+      "atp_rank": 533,
+      "surface_score": 3
+    },
+    "Ioannis\u00a0Xilas": {
+      "elo_rank": 392,
+      "age": 24.9,
+      "elo": 1388.6,
+      "hElo": 1362.3,
+      "cElo": 1444.3,
+      "gElo": 1444.3,
+      "atp_rank": 358,
+      "surface_score": 2
+    },
+    "Petr\u00a0Bar\u00a0Biryukov": {
+      "elo_rank": 393,
+      "age": 24.1,
+      "elo": 1387.9,
+      "hElo": 1370.3,
+      "cElo": 1329.4,
+      "gElo": 1393.9,
+      "atp_rank": 337,
+      "surface_score": 4
+    },
+    "Milos\u00a0Karol": {
+      "elo_rank": 394,
+      "age": 23.0,
+      "elo": 1387.8,
+      "hElo": 1330.6,
+      "cElo": 1353.4,
+      "gElo": 1393.9,
+      "atp_rank": 409,
+      "surface_score": 3
+    },
+    "Rudolf\u00a0Molleker": {
+      "elo_rank": 395,
+      "age": 25.4,
+      "elo": 1386.8,
+      "hElo": 1340.8,
+      "cElo": 1381.9,
+      "gElo": 1362.7,
+      "atp_rank": 400,
+      "surface_score": 2
+    },
+    "Sergio\u00a0Callejon\u00a0Hernando": {
+      "elo_rank": 396,
+      "age": 21.5,
+      "elo": 1386.2,
+      "hElo": 1327.3,
+      "cElo": 1364.2,
+      "gElo": 1393.1,
+      "atp_rank": 438,
+      "surface_score": 3
+    },
+    "Philip\u00a0Henning": {
+      "elo_rank": 397,
+      "age": 25.3,
+      "elo": 1385.7,
+      "hElo": 1364.9,
+      "cElo": 1350.4,
+      "gElo": 1442.9,
+      "atp_rank": 307,
+      "surface_score": 3
+    },
+    "Dmitry\u00a0Popko": {
+      "elo_rank": 398,
+      "age": 29.4,
+      "elo": 1385.2,
+      "hElo": 1399.6,
+      "cElo": 1334.0,
+      "gElo": 1322.8,
+      "atp_rank": 618,
+      "surface_score": 4
+    },
+    "Giles\u00a0Hussey": {
+      "elo_rank": 399,
+      "age": 28.9,
+      "elo": 1384.1,
+      "hElo": 1349.9,
+      "cElo": 1302.0,
+      "gElo": 1354.1,
+      "atp_rank": 342,
+      "surface_score": 4
+    },
+    "Samir\u00a0Banerjee": {
+      "elo_rank": 400,
+      "age": 22.1,
+      "elo": 1383.9,
+      "hElo": 1361.0,
+      "cElo": 1302.0,
+      "gElo": 1392.0,
+      "atp_rank": 408,
+      "surface_score": 4
+    },
+    "Akira\u00a0Santillan": {
+      "elo_rank": 401,
+      "age": 28.9,
+      "elo": 1383.1,
+      "hElo": 1342.9,
+      "cElo": 1353.0,
+      "gElo": 1350.2,
+      "atp_rank": 320,
+      "surface_score": 3
+    },
+    "Edward\u00a0Winter": {
+      "elo_rank": 402,
+      "age": 21.4,
+      "elo": 1381.4,
+      "hElo": 1345.4,
+      "cElo": 1300.7,
+      "gElo": 1418.2,
+      "atp_rank": 454,
+      "surface_score": 4
+    },
+    "Khumoun\u00a0Sultanov": {
+      "elo_rank": 403,
+      "age": 27.4,
+      "elo": 1379.1,
+      "hElo": 1367.1,
+      "cElo": 1277.7,
+      "gElo": 1400.2,
+      "atp_rank": null,
+      "surface_score": 4
+    },
+    "Patrick\u00a0Zahraj": {
+      "elo_rank": 404,
+      "age": 26.7,
+      "elo": 1377.2,
+      "hElo": 1376.1,
+      "cElo": 1281.8,
+      "gElo": 1399.0,
+      "atp_rank": 402,
+      "surface_score": 4
+    },
+    "Murkel\u00a0Alejandro\u00a0Dellien\u00a0Velasco": {
+      "elo_rank": 405,
+      "age": 28.5,
+      "elo": 1376.7,
+      "hElo": 1356.3,
+      "cElo": 1366.5,
+      "gElo": 1367.2,
+      "atp_rank": 317,
+      "surface_score": 3
+    },
+    "Alfredo\u00a0Perez": {
+      "elo_rank": 406,
+      "age": 28.4,
+      "elo": 1371.6,
+      "hElo": 1333.4,
+      "cElo": 1379.7,
+      "gElo": 1385.8,
+      "atp_rank": 570,
+      "surface_score": 2
+    },
+    "Kaichi\u00a0Uchida": {
+      "elo_rank": 407,
+      "age": 31.6,
+      "elo": 1370.5,
+      "hElo": 1340.8,
+      "cElo": 1318.7,
+      "gElo": 1397.9,
+      "atp_rank": 243,
+      "surface_score": 3
+    },
+    "Matheus\u00a0Pucinelli\u00a0De\u00a0Almeida": {
+      "elo_rank": 408,
+      "age": 24.8,
+      "elo": 1370.4,
+      "hElo": 1249.5,
+      "cElo": 1365.6,
+      "gElo": 1386.1,
+      "atp_rank": 410,
+      "surface_score": 1
+    },
+    "Stefan\u00a0Palosi": {
+      "elo_rank": 409,
+      "age": 26.1,
+      "elo": 1368.8,
+      "hElo": 1294.4,
+      "cElo": 1354.7,
+      "gElo": 1384.4,
+      "atp_rank": 405,
+      "surface_score": 2
+    },
+    "Alexander\u00a0Donski": {
+      "elo_rank": 410,
+      "age": 27.5,
+      "elo": 1368.1,
+      "hElo": 1372.7,
+      "cElo": 1351.8,
+      "gElo": 1434.0,
+      "atp_rank": 682,
+      "surface_score": 3
+    },
+    "Hiroki\u00a0Moriya": {
+      "elo_rank": 411,
+      "age": 35.4,
+      "elo": 1367.3,
+      "hElo": 1334.4,
+      "cElo": 1262.1,
+      "gElo": 1360.9,
+      "atp_rank": 421,
+      "surface_score": 4
+    },
+    "Sandro\u00a0Kopp": {
+      "elo_rank": 412,
+      "age": 25.9,
+      "elo": 1365.4,
+      "hElo": 1293.0,
+      "cElo": 1371.7,
+      "gElo": 1382.7,
+      "atp_rank": 331,
+      "surface_score": 2
+    },
+    "Aidan\u00a0Mayo": {
+      "elo_rank": 413,
+      "age": 22.9,
+      "elo": 1365.2,
+      "hElo": 1345.6,
+      "cElo": 1305.4,
+      "gElo": 1388.8,
+      "atp_rank": 567,
+      "surface_score": 4
+    },
+    "Juan\u00a0Manuel\u00a0La\u00a0Serna": {
+      "elo_rank": 414,
+      "age": 22.1,
+      "elo": 1364.6,
+      "hElo": 1322.8,
+      "cElo": 1352.4,
+      "gElo": 1382.3,
+      "atp_rank": 367,
+      "surface_score": 3
+    },
+    "Federico\u00a0Arnaboldi": {
+      "elo_rank": 415,
+      "age": 25.8,
+      "elo": 1363.6,
+      "hElo": 1317.7,
+      "cElo": 1322.1,
+      "gElo": 1351.3,
+      "atp_rank": 412,
+      "surface_score": 3
+    },
+    "Martin\u00a0Krumich": {
+      "elo_rank": 416,
+      "age": 23.3,
+      "elo": 1362.6,
+      "hElo": 1312.2,
+      "cElo": 1323.9,
+      "gElo": 1381.3,
+      "atp_rank": 310,
+      "surface_score": 3
+    },
+    "Niels\u00a0Visker": {
+      "elo_rank": 417,
+      "age": 24.5,
+      "elo": 1362.1,
+      "hElo": 1360.2,
+      "cElo": 1271.0,
+      "gElo": 1381.0,
+      "atp_rank": 458,
+      "surface_score": 4
+    },
+    "Benoit\u00a0Paire": {
+      "elo_rank": 418,
+      "age": 36.7,
+      "elo": 1361.8,
+      "hElo": 1335.7,
+      "cElo": 1385.4,
+      "gElo": 1412.0,
+      "atp_rank": 1096,
+      "surface_score": 2
+    },
+    "Gabi\u00a0Adrian\u00a0Boitan": {
+      "elo_rank": 419,
+      "age": 26.7,
+      "elo": 1360.0,
+      "hElo": 1340.4,
+      "cElo": 1341.3,
+      "gElo": 1430.0,
+      "atp_rank": 334,
+      "surface_score": 3
+    },
+    "Daniel\u00a0Milavsky": {
+      "elo_rank": 420,
+      "age": 24.5,
+      "elo": 1357.1,
+      "hElo": 1351.0,
+      "cElo": 1271.8,
+      "gElo": 1359.3,
+      "atp_rank": 372,
+      "surface_score": 4
+    },
+    "Keegan\u00a0Smith": {
+      "elo_rank": 421,
+      "age": 27.8,
+      "elo": 1354.0,
+      "hElo": 1325.1,
+      "cElo": 1220.1,
+      "gElo": 1377.0,
+      "atp_rank": 289,
+      "surface_score": 5
+    },
+    "Luca\u00a0Potenza": {
+      "elo_rank": 422,
+      "age": 25.7,
+      "elo": 1352.0,
+      "hElo": 1322.3,
+      "cElo": 1307.5,
+      "gElo": 1376.0,
+      "atp_rank": 449,
+      "surface_score": 3
+    },
+    "Alex\u00a0Rybakov": {
+      "elo_rank": 423,
+      "age": 29.2,
+      "elo": 1351.7,
+      "hElo": 1309.8,
+      "cElo": 1310.5,
+      "gElo": 1397.0,
+      "atp_rank": 341,
+      "surface_score": 3
+    },
+    "Andres\u00a0Martin": {
+      "elo_rank": 424,
+      "age": 24.7,
+      "elo": 1351.1,
+      "hElo": 1338.9,
+      "cElo": 1329.0,
+      "gElo": 1425.6,
+      "atp_rank": 277,
+      "surface_score": 3
+    },
+    "Maximus\u00a0Jones": {
+      "elo_rank": 425,
+      "age": 21.6,
+      "elo": 1351.1,
+      "hElo": 1325.8,
+      "cElo": 1318.0,
+      "gElo": 1375.5,
+      "atp_rank": 442,
+      "surface_score": 3
+    },
+    "Nicolas\u00a0Kicker": {
+      "elo_rank": 426,
+      "age": 33.6,
+      "elo": 1350.0,
+      "hElo": 1327.8,
+      "cElo": 1340.7,
+      "gElo": 1324.5,
+      "atp_rank": 348,
+      "surface_score": 3
+    },
+    "Giovanni\u00a0Fonio": {
+      "elo_rank": 427,
+      "age": 27.7,
+      "elo": 1349.0,
+      "hElo": 1349.5,
+      "cElo": 1319.4,
+      "gElo": 1374.5,
+      "atp_rank": 686,
+      "surface_score": 3
+    },
+    "James\u00a0Watt": {
+      "elo_rank": 428,
+      "age": 25.6,
+      "elo": 1348.4,
+      "hElo": 1331.9,
+      "cElo": 1248.9,
+      "gElo": 1406.7,
+      "atp_rank": 693,
+      "surface_score": 4
+    },
+    "Alexandr\u00a0Binda": {
+      "elo_rank": 429,
+      "age": 24.5,
+      "elo": 1346.0,
+      "hElo": 1287.0,
+      "cElo": 1331.8,
+      "gElo": 1373.0,
+      "atp_rank": 451,
+      "surface_score": 2
+    },
+    "Philip\u00a0Sekulic": {
+      "elo_rank": 430,
+      "age": 22.6,
+      "elo": 1345.5,
+      "hElo": 1315.3,
+      "cElo": 1251.5,
+      "gElo": 1334.6,
+      "atp_rank": 357,
+      "surface_score": 4
+    },
+    "Tai\u00a0Sach": {
+      "elo_rank": 431,
+      "age": 23.5,
+      "elo": 1343.4,
+      "hElo": 1321.9,
+      "cElo": 1281.7,
+      "gElo": 1371.7,
+      "atp_rank": 511,
+      "surface_score": 4
+    },
+    "David\u00a0Jorda\u00a0Sanchis": {
+      "elo_rank": 432,
+      "age": 31.8,
+      "elo": 1343.4,
+      "hElo": 1233.4,
+      "cElo": 1371.1,
+      "gElo": 1332.8,
+      "atp_rank": 351,
+      "surface_score": 1
+    },
+    "Viktor\u00a0Durasovic": {
+      "elo_rank": 433,
+      "age": 29.0,
+      "elo": 1342.7,
+      "hElo": 1340.5,
+      "cElo": 1285.9,
+      "gElo": 1315.0,
+      "atp_rank": 434,
+      "surface_score": 4
+    },
+    "Cannon\u00a0Kingsley": {
+      "elo_rank": 434,
+      "age": 24.9,
+      "elo": 1342.3,
+      "hElo": 1344.5,
+      "cElo": 1262.4,
+      "gElo": 1371.1,
+      "atp_rank": 415,
+      "surface_score": 4
+    },
+    "Carlo\u00a0Alberto\u00a0Caniato": {
+      "elo_rank": 435,
+      "age": 20.4,
+      "elo": 1341.2,
+      "hElo": 1258.5,
+      "cElo": 1359.9,
+      "gElo": 1370.6,
+      "atp_rank": null,
+      "surface_score": 1
+    },
+    "Daniel\u00a0Dutra\u00a0Da\u00a0Silva": {
+      "elo_rank": 436,
+      "age": 37.7,
+      "elo": 1340.5,
+      "hElo": 1248.9,
+      "cElo": 1324.2,
+      "gElo": 1356.4,
+      "atp_rank": 385,
+      "surface_score": 2
+    },
+    "Henry\u00a0Searle": {
+      "elo_rank": 437,
+      "age": 19.7,
+      "elo": 1339.6,
+      "hElo": 1303.9,
+      "cElo": 1287.9,
+      "gElo": 1346.2,
+      "atp_rank": 381,
+      "surface_score": 3
+    },
+    "Pietro\u00a0Fellin": {
+      "elo_rank": 438,
+      "age": 24.6,
+      "elo": 1338.7,
+      "hElo": 1312.4,
+      "cElo": 1264.8,
+      "gElo": 1369.4,
+      "atp_rank": 493,
+      "surface_score": 4
+    },
+    "Olaf\u00a0Pieczkowski": {
+      "elo_rank": 439,
+      "age": 21.8,
+      "elo": 1338.4,
+      "hElo": 1331.4,
+      "cElo": 1329.4,
+      "gElo": 1419.2,
+      "atp_rank": 545,
+      "surface_score": 3
+    },
+    "Mathys\u00a0Erhard": {
+      "elo_rank": 440,
+      "age": 24.4,
+      "elo": 1338.1,
+      "hElo": 1326.5,
+      "cElo": 1315.5,
+      "gElo": 1369.1,
+      "atp_rank": 397,
+      "surface_score": 3
+    },
+    "Santiago\u00a0Fa\u00a0Rodriguez\u00a0Taverna": {
+      "elo_rank": 441,
+      "age": 26.7,
+      "elo": 1337.5,
+      "hElo": 1289.5,
+      "cElo": 1329.2,
+      "gElo": 1355.5,
+      "atp_rank": 359,
+      "surface_score": 3
+    },
+    "Mae\u00a0Malige": {
+      "elo_rank": 442,
+      "age": 19.9,
+      "elo": 1336.9,
+      "hElo": 1308.6,
+      "cElo": 1229.1,
+      "gElo": 1368.4,
+      "atp_rank": 539,
+      "surface_score": 4
+    },
+    "Garrett\u00a0Johns": {
+      "elo_rank": 443,
+      "age": 25.3,
+      "elo": 1336.2,
+      "hElo": 1323.4,
+      "cElo": 1291.1,
+      "gElo": 1368.1,
+      "atp_rank": 361,
+      "surface_score": 3
+    },
+    "Francesco\u00a0Forti": {
+      "elo_rank": 444,
+      "age": 26.6,
+      "elo": 1333.4,
+      "hElo": 1291.1,
+      "cElo": 1301.6,
+      "gElo": 1366.7,
+      "atp_rank": 414,
+      "surface_score": 3
+    },
+    "Eero\u00a0Vasa": {
+      "elo_rank": 445,
+      "age": 29.0,
+      "elo": 1331.4,
+      "hElo": 1309.8,
+      "cElo": 1303.0,
+      "gElo": 1415.7,
+      "atp_rank": 430,
+      "surface_score": 3
+    },
+    "Corentin\u00a0Denolly": {
+      "elo_rank": 446,
+      "age": 28.8,
+      "elo": 1331.3,
+      "hElo": 1271.4,
+      "cElo": 1292.5,
+      "gElo": 1352.3,
+      "atp_rank": 436,
+      "surface_score": 3
+    },
+    "Nicolas\u00a0Alvarez\u00a0Varona": {
+      "elo_rank": 447,
+      "age": 24.8,
+      "elo": 1330.9,
+      "hElo": 1370.7,
+      "cElo": 1274.4,
+      "gElo": 1365.5,
+      "atp_rank": 469,
+      "surface_score": 4
+    },
+    "Conner\u00a0Huertas\u00a0Del\u00a0Pino": {
+      "elo_rank": 448,
+      "age": 30.2,
+      "elo": 1329.1,
+      "hElo": 1307.0,
+      "cElo": 1306.4,
+      "gElo": 1364.5,
+      "atp_rank": 777,
+      "surface_score": 3
+    },
+    "Jacopo\u00a0Berrettini": {
+      "elo_rank": 449,
+      "age": 27.2,
+      "elo": 1325.4,
+      "hElo": 1257.8,
+      "cElo": 1335.8,
+      "gElo": 1362.7,
+      "atp_rank": 326,
+      "surface_score": 2
+    },
+    "Andrea\u00a0Picchione": {
+      "elo_rank": 450,
+      "age": 27.2,
+      "elo": 1324.4,
+      "hElo": 1266.5,
+      "cElo": 1305.2,
+      "gElo": 1362.2,
+      "atp_rank": 435,
+      "surface_score": 3
+    },
+    "Lucas\u00a0Poullain": {
+      "elo_rank": 451,
+      "age": 30.2,
+      "elo": 1323.0,
+      "hElo": 1299.9,
+      "cElo": 1258.7,
+      "gElo": 1361.5,
+      "atp_rank": 417,
+      "surface_score": 4
+    },
+    "Omar\u00a0Jasika": {
+      "elo_rank": 452,
+      "age": 28.9,
+      "elo": 1321.2,
+      "hElo": 1298.1,
+      "cElo": 1257.5,
+      "gElo": 1255.1,
+      "atp_rank": 518,
+      "surface_score": 4
+    },
+    "Patrick\u00a0Maloney": {
+      "elo_rank": 453,
+      "age": 25.6,
+      "elo": 1320.7,
+      "hElo": 1273.3,
+      "cElo": 1322.0,
+      "gElo": 1370.7,
+      "atp_rank": 636,
+      "surface_score": 2
+    },
+    "Thomas\u00a0Faurel": {
+      "elo_rank": 454,
+      "age": 20.2,
+      "elo": 1320.5,
+      "hElo": 1284.2,
+      "cElo": 1278.8,
+      "gElo": 1360.3,
+      "atp_rank": 375,
+      "surface_score": 3
+    },
+    "Neil\u00a0Oberleitner": {
+      "elo_rank": 455,
+      "age": 26.4,
+      "elo": 1319.6,
+      "hElo": 1286.4,
+      "cElo": 1271.8,
+      "gElo": 1359.8,
+      "atp_rank": 529,
+      "surface_score": 3
+    },
+    "Olle\u00a0Wallin": {
+      "elo_rank": 456,
+      "age": 24.2,
+      "elo": 1319.3,
+      "hElo": 1287.9,
+      "cElo": 1311.9,
+      "gElo": 1359.7,
+      "atp_rank": 429,
+      "surface_score": 3
+    },
+    "Valerio\u00a0Aboian": {
+      "elo_rank": 457,
+      "age": 23.8,
+      "elo": 1319.3,
+      "hElo": 1219.6,
+      "cElo": 1311.9,
+      "gElo": 1359.6,
+      "atp_rank": 494,
+      "surface_score": 2
+    },
+    "Johan\u00a0Nikles": {
+      "elo_rank": 458,
+      "age": 29.0,
+      "elo": 1318.7,
+      "hElo": 1273.0,
+      "cElo": 1306.1,
+      "gElo": 1359.3,
+      "atp_rank": 466,
+      "surface_score": 3
+    },
+    "Max\u00a0Alcala\u00a0Gurri": {
+      "elo_rank": 459,
+      "age": 23.5,
+      "elo": 1317.7,
+      "hElo": 1256.2,
+      "cElo": 1298.2,
+      "gElo": 1358.9,
+      "atp_rank": 387,
+      "surface_score": 2
+    },
+    "Maxime\u00a0Janvier": {
+      "elo_rank": 460,
+      "age": 29.4,
+      "elo": 1317.0,
+      "hElo": 1291.4,
+      "cElo": 1283.1,
+      "gElo": 1356.8,
+      "atp_rank": 578,
+      "surface_score": 3
+    },
+    "Federico\u00a0Bondioli": {
+      "elo_rank": 461,
+      "age": 20.9,
+      "elo": 1317.0,
+      "hElo": 1211.5,
+      "cElo": 1319.7,
+      "gElo": 1358.5,
+      "atp_rank": 344,
+      "surface_score": 1
+    },
+    "Jelle\u00a0Sels": {
+      "elo_rank": 462,
+      "age": 30.6,
+      "elo": 1316.1,
+      "hElo": 1334.8,
+      "cElo": 1288.4,
+      "gElo": 1254.4,
+      "atp_rank": 445,
+      "surface_score": 4
+    },
+    "Carlos\u00a0Sanchez\u00a0Jover": {
+      "elo_rank": 463,
+      "age": 25.7,
+      "elo": 1313.6,
+      "hElo": 1227.1,
+      "cElo": 1295.2,
+      "gElo": 1356.8,
+      "atp_rank": 366,
+      "surface_score": 2
+    },
+    "Dan\u00a0Martin": {
+      "elo_rank": 464,
+      "age": 26.9,
+      "elo": 1313.2,
+      "hElo": 1276.1,
+      "cElo": 1274.7,
+      "gElo": 1328.7,
+      "atp_rank": 441,
+      "surface_score": 3
+    },
+    "Cruz\u00a0Hewitt": {
+      "elo_rank": 465,
+      "age": 17.1,
+      "elo": 1310.7,
+      "hElo": 1292.5,
+      "cElo": 1265.3,
+      "gElo": 1355.3,
+      "atp_rank": 653,
+      "surface_score": 3
+    },
+    "Tsung\u00a0Hao\u00a0Huang": {
+      "elo_rank": 466,
+      "age": 26.2,
+      "elo": 1308.8,
+      "hElo": 1279.6,
+      "cElo": 1264.4,
+      "gElo": 1354.4,
+      "atp_rank": 541,
+      "surface_score": 3
+    },
+    "Pedro\u00a0Sakamoto": {
+      "elo_rank": 467,
+      "age": 32.7,
+      "elo": 1308.4,
+      "hElo": 1268.0,
+      "cElo": 1297.4,
+      "gElo": 1354.2,
+      "atp_rank": 426,
+      "surface_score": 3
+    },
+    "Masamichi\u00a0Imamura": {
+      "elo_rank": 468,
+      "age": 27.3,
+      "elo": 1308.0,
+      "hElo": 1276.0,
+      "cElo": 1264.0,
+      "gElo": 1354.0,
+      "atp_rank": 460,
+      "surface_score": 3
+    },
+    "Blaise\u00a0Bicknell": {
+      "elo_rank": 469,
+      "age": 24.3,
+      "elo": 1303.2,
+      "hElo": 1287.2,
+      "cElo": 1252.8,
+      "gElo": 1401.6,
+      "atp_rank": 322,
+      "surface_score": 3
+    },
+    "Gabriele\u00a0Piraino": {
+      "elo_rank": 470,
+      "age": 22.3,
+      "elo": 1303.2,
+      "hElo": 1226.6,
+      "cElo": 1298.3,
+      "gElo": 1351.6,
+      "atp_rank": 425,
+      "surface_score": 2
+    },
+    "Miguel\u00a0Tobon": {
+      "elo_rank": 471,
+      "age": 19.7,
+      "elo": 1302.4,
+      "hElo": 1287.8,
+      "cElo": 1285.0,
+      "gElo": 1362.1,
+      "atp_rank": 501,
+      "surface_score": 3
+    },
+    "Kaylan\u00a0Bigun": {
+      "elo_rank": 472,
+      "age": 19.8,
+      "elo": 1301.7,
+      "hElo": 1274.9,
+      "cElo": 1239.8,
+      "gElo": 1350.9,
+      "atp_rank": 662,
+      "surface_score": 3
+    },
+    "Michele\u00a0Ribecai": {
+      "elo_rank": 473,
+      "age": 23.1,
+      "elo": 1298.2,
+      "hElo": 1251.4,
+      "cElo": 1261.6,
+      "gElo": 1349.1,
+      "atp_rank": 282,
+      "surface_score": 3
+    },
+    "Juan\u00a0Alejandro\u00a0Hernandez\u00a0Serrano": {
+      "elo_rank": 474,
+      "age": 26.7,
+      "elo": 1297.6,
+      "hElo": 1269.0,
+      "cElo": 1257.6,
+      "gElo": 1348.8,
+      "atp_rank": 444,
+      "surface_score": 3
+    },
+    "Jie\u00a0Cui": {
+      "elo_rank": 475,
+      "age": 28.2,
+      "elo": 1295.5,
+      "hElo": 1266.2,
+      "cElo": 1205.6,
+      "gElo": 1347.7,
+      "atp_rank": 380,
+      "surface_score": 4
+    },
+    "Maxime\u00a0Chazal": {
+      "elo_rank": 476,
+      "age": 32.9,
+      "elo": 1294.0,
+      "hElo": 1240.7,
+      "cElo": 1262.1,
+      "gElo": 1347.0,
+      "atp_rank": 478,
+      "surface_score": 3
+    },
+    "Gonzalo\u00a0Villanueva": {
+      "elo_rank": 477,
+      "age": 31.2,
+      "elo": 1293.3,
+      "hElo": 1210.0,
+      "cElo": 1279.6,
+      "gElo": 1346.7,
+      "atp_rank": 376,
+      "surface_score": 2
+    },
+    "Carl\u00a0Emil\u00a0Overbeck": {
+      "elo_rank": 478,
+      "age": 24.6,
+      "elo": 1292.9,
+      "hElo": 1271.2,
+      "cElo": 1256.5,
+      "gElo": 1346.5,
+      "atp_rank": 427,
+      "surface_score": 3
+    },
+    "Naoki\u00a0Nakagawa": {
+      "elo_rank": 479,
+      "age": 29.2,
+      "elo": 1289.2,
+      "hElo": 1270.8,
+      "cElo": 1148.8,
+      "gElo": 1344.6,
+      "atp_rank": 694,
+      "surface_score": 5
+    },
+    "Luciano\u00a0Emanuel\u00a0Ambrogi": {
+      "elo_rank": 480,
+      "age": 22.3,
+      "elo": 1289.1,
+      "hElo": 1195.7,
+      "cElo": 1282.3,
+      "gElo": 1344.6,
+      "atp_rank": 383,
+      "surface_score": 2
+    },
+    "Kasidit\u00a0Samrej": {
+      "elo_rank": 481,
+      "age": 25.2,
+      "elo": 1285.4,
+      "hElo": 1259.8,
+      "cElo": 1356.9,
+      "gElo": 1392.7,
+      "atp_rank": 411,
+      "surface_score": 2
+    },
+    "Olukayode\u00a0Alafia\u00a0Damina\u00a0Ayeni": {
+      "elo_rank": 482,
+      "age": 26.6,
+      "elo": 1285.2,
+      "hElo": 1277.2,
+      "cElo": 1186.4,
+      "gElo": 1298.9,
+      "atp_rank": 486,
+      "surface_score": 4
+    },
+    "Paulo\u00a0Andre\u00a0Saraiva\u00a0Dos\u00a0Santos": {
+      "elo_rank": 483,
+      "age": 25.7,
+      "elo": 1284.5,
+      "hElo": 1231.4,
+      "cElo": 1282.0,
+      "gElo": 1342.2,
+      "atp_rank": 499,
+      "surface_score": 2
+    },
+    "Taha\u00a0Baadi": {
+      "elo_rank": 484,
+      "age": 24.6,
+      "elo": 1282.1,
+      "hElo": 1249.6,
+      "cElo": 1279.8,
+      "gElo": 1305.3,
+      "atp_rank": 496,
+      "surface_score": 3
+    },
+    "Adria\u00a0Soriano\u00a0Barrera": {
+      "elo_rank": 485,
+      "age": 26.7,
+      "elo": 1279.6,
+      "hElo": 1280.9,
+      "cElo": 1225.5,
+      "gElo": 1339.8,
+      "atp_rank": 386,
+      "surface_score": 4
+    },
+    "Alan\u00a0Magadan": {
+      "elo_rank": 486,
+      "age": 24.8,
+      "elo": 1274.1,
+      "hElo": 1275.1,
+      "cElo": 1237.7,
+      "gElo": 1337.1,
+      "atp_rank": 689,
+      "surface_score": 3
+    },
+    "Max\u00a0Wiskandt": {
+      "elo_rank": 487,
+      "age": 24.2,
+      "elo": 1274.0,
+      "hElo": 1231.8,
+      "cElo": 1267.8,
+      "gElo": 1309.8,
+      "atp_rank": 628,
+      "surface_score": 3
+    },
+    "Yusuke\u00a0Takahashi": {
+      "elo_rank": 488,
+      "age": 28.4,
+      "elo": 1272.8,
+      "hElo": 1248.0,
+      "cElo": 1265.0,
+      "gElo": 1336.4,
+      "atp_rank": 592,
+      "surface_score": 3
+    },
+    "Luca\u00a0Castelnuovo": {
+      "elo_rank": 489,
+      "age": 29.0,
+      "elo": 1269.8,
+      "hElo": 1251.9,
+      "cElo": 1218.7,
+      "gElo": 1334.9,
+      "atp_rank": 345,
+      "surface_score": 3
+    },
+    "Aristotelis\u00a0Thanos": {
+      "elo_rank": 490,
+      "age": 24.6,
+      "elo": 1267.4,
+      "hElo": 1254.6,
+      "cElo": 1328.2,
+      "gElo": 1383.7,
+      "atp_rank": 492,
+      "surface_score": 2
+    },
+    "Christian\u00a0Langmo": {
+      "elo_rank": 491,
+      "age": 29.8,
+      "elo": 1266.5,
+      "hElo": 1254.0,
+      "cElo": 1140.8,
+      "gElo": 1333.2,
+      "atp_rank": 471,
+      "surface_score": 5
+    },
+    "San\u00a0Hui\u00a0Sin": {
+      "elo_rank": 492,
+      "age": 29.0,
+      "elo": 1265.1,
+      "hElo": 1242.2,
+      "cElo": 1242.6,
+      "gElo": 1332.6,
+      "atp_rank": 391,
+      "surface_score": 3
+    },
+    "Robert\u00a0Strombachs": {
+      "elo_rank": 493,
+      "age": 26.5,
+      "elo": 1261.0,
+      "hElo": 1257.8,
+      "cElo": 1239.1,
+      "gElo": 1330.5,
+      "atp_rank": 455,
+      "surface_score": 3
+    },
+    "Mateus\u00a0Alves": {
+      "elo_rank": 494,
+      "age": 25.1,
+      "elo": 1256.3,
+      "hElo": 1152.1,
+      "cElo": 1260.1,
+      "gElo": 1328.2,
+      "atp_rank": 548,
+      "surface_score": 1
+    },
+    "Joaquin\u00a0\u00a0Aguilar\u00a0Cardozo": {
+      "elo_rank": 495,
+      "age": 20.9,
+      "elo": 1243.1,
+      "hElo": 1283.3,
+      "cElo": 1255.0,
+      "gElo": 1371.5,
+      "atp_rank": null,
+      "surface_score": 3
+    },
+    "Justin\u00a0Boulais": {
+      "elo_rank": 496,
+      "age": 24.4,
+      "elo": 1239.3,
+      "hElo": 1213.9,
+      "cElo": 1229.6,
+      "gElo": 1319.6,
+      "atp_rank": 422,
+      "surface_score": 3
+    },
+    "Juan\u00a0Sebastian\u00a0Gomez": {
+      "elo_rank": 497,
+      "age": 34.0,
+      "elo": 1237.6,
+      "hElo": 1209.7,
+      "cElo": 1228.2,
+      "gElo": 1318.8,
+      "atp_rank": 580,
+      "surface_score": 3
+    },
+    "Aryan\u00a0Shah": {
+      "elo_rank": 498,
+      "age": 20.3,
+      "elo": 1235.2,
+      "hElo": 1227.9,
+      "cElo": 1226.1,
+      "gElo": 1317.6,
+      "atp_rank": 516,
+      "surface_score": 3
+    },
+    "Andrew\u00a0Fenty": {
+      "elo_rank": 499,
+      "age": 26.1,
+      "elo": 1231.5,
+      "hElo": 1213.5,
+      "cElo": 1214.0,
+      "gElo": 1315.8,
+      "atp_rank": 388,
+      "surface_score": 3
+    },
+    "Renta\u00a0Tokuda": {
+      "elo_rank": 500,
+      "age": 28.0,
+      "elo": 1229.0,
+      "hElo": 1202.3,
+      "cElo": 1175.7,
+      "gElo": 1314.5,
+      "atp_rank": 330,
+      "surface_score": 3
+    },
+    "Saba\u00a0Purtseladze": {
+      "elo_rank": 501,
+      "age": 24.6,
+      "elo": 1226.1,
+      "hElo": 1254.7,
+      "cElo": 1115.8,
+      "gElo": 1291.2,
+      "atp_rank": 446,
+      "surface_score": 5
+    },
+    "Vadym\u00a0Ursu": {
+      "elo_rank": 502,
+      "age": 29.2,
+      "elo": 1222.7,
+      "hElo": 1195.6,
+      "cElo": 1167.6,
+      "gElo": 1290.3,
+      "atp_rank": 476,
+      "surface_score": 3
+    },
+    "Moerani\u00a0Bouzige": {
+      "elo_rank": 503,
+      "age": 26.7,
+      "elo": 1210.6,
+      "hElo": 1179.6,
+      "cElo": 1215.3,
+      "gElo": 1305.3,
+      "atp_rank": 453,
+      "surface_score": 3
+    },
+    "Kokoro\u00a0Isomura": {
+      "elo_rank": 504,
+      "age": 23.1,
+      "elo": 1209.7,
+      "hElo": 1180.5,
+      "cElo": 1214.9,
+      "gElo": 1304.9,
+      "atp_rank": 543,
+      "surface_score": 3
+    },
+    "Pierluigi\u00a0Basile": {
+      "elo_rank": 505,
+      "age": 19.0,
+      "elo": 1205.3,
+      "hElo": 1155.2,
+      "cElo": 1240.4,
+      "gElo": 1302.7,
+      "atp_rank": 677,
+      "surface_score": 2
+    },
+    "Karan\u00a0Singh": {
+      "elo_rank": 506,
+      "age": 22.8,
+      "elo": 1200.8,
+      "hElo": 1167.3,
+      "cElo": 1247.3,
+      "gElo": 1300.4,
+      "atp_rank": 413,
+      "surface_score": 2
+    },
+    "Mariano\u00a0Kestelboim": {
+      "elo_rank": 507,
+      "age": 30.1,
+      "elo": 1198.4,
+      "hElo": 1170.6,
+      "cElo": 1189.0,
+      "gElo": 1299.2,
+      "atp_rank": 671,
+      "surface_score": 3
+    },
+    "Bruno\u00a0Kuzuhara": {
+      "elo_rank": 508,
+      "age": 22.0,
+      "elo": 1190.9,
+      "hElo": 1182.7,
+      "cElo": 1156.6,
+      "gElo": 1295.4,
+      "atp_rank": 562,
+      "surface_score": 3
+    },
+    "Lorenzo\u00a0Joaquin\u00a0Rodriguez": {
+      "elo_rank": 509,
+      "age": 26.5,
+      "elo": 1186.4,
+      "hElo": 1169.4,
+      "cElo": 1176.0,
+      "gElo": 1293.2,
+      "atp_rank": 462,
+      "surface_score": 3
+    },
+    "Carlos\u00a0Maria\u00a0Zarate": {
+      "elo_rank": 510,
+      "age": null,
+      "elo": 1186.0,
+      "hElo": 1205.3,
+      "cElo": 1171.6,
+      "gElo": 1293.0,
+      "atp_rank": 528,
+      "surface_score": 3
+    },
+    "Karl\u00a0Poling": {
+      "elo_rank": 511,
+      "age": 26.6,
+      "elo": 1184.4,
+      "hElo": 1198.5,
+      "cElo": 1151.7,
+      "gElo": 1250.5,
+      "atp_rank": 573,
+      "surface_score": 4
+    },
+    "Juan\u00a0Estevez": {
+      "elo_rank": 512,
+      "age": 20.5,
+      "elo": 1170.5,
+      "hElo": 1195.2,
+      "cElo": 1162.6,
+      "gElo": 1285.2,
+      "atp_rank": 401,
+      "surface_score": 3
+    },
+    "Lorenzo\u00a0Carboni": {
+      "elo_rank": 513,
+      "age": 20.1,
+      "elo": 1155.9,
+      "hElo": 1121.1,
+      "cElo": 1171.8,
+      "gElo": 1278.0,
+      "atp_rank": 452,
+      "surface_score": 2
+    },
+    "Tiago\u00a0Pereira": {
+      "elo_rank": 514,
+      "age": 21.8,
+      "elo": 1150.1,
+      "hElo": 1128.0,
+      "cElo": 1172.6,
+      "gElo": 1275.1,
+      "atp_rank": 304,
+      "surface_score": 2
+    },
+    "Joao\u00a0Eduardo\u00a0Schiessl": {
+      "elo_rank": 515,
+      "age": 21.6,
+      "elo": 1135.6,
+      "hElo": 1141.0,
+      "cElo": 1138.9,
+      "gElo": 1267.8,
+      "atp_rank": 448,
+      "surface_score": 3
+    },
+    "Sebastian\u00a0Gima": {
+      "elo_rank": 516,
+      "age": 23.9,
+      "elo": 1133.1,
+      "hElo": 1120.2,
+      "cElo": 1139.2,
+      "gElo": 1266.5,
+      "atp_rank": 509,
+      "surface_score": 3
+    },
+    "Jake\u00a0Delaney": {
+      "elo_rank": 517,
+      "age": 28.9,
+      "elo": 1103.0,
+      "hElo": 1088.3,
+      "cElo": 1131.7,
+      "gElo": 1251.5,
+      "atp_rank": 490,
+      "surface_score": 2
+    },
+    "Tristan\u00a0Mccormick": {
+      "elo_rank": 518,
+      "age": 26.8,
+      "elo": 1085.7,
+      "hElo": 1098.7,
+      "cElo": 1084.3,
+      "gElo": 1212.3,
+      "atp_rank": 555,
+      "surface_score": 3
+    }
+  }
+}

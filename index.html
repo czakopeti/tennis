@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0b1525">
+  <title>ATP Value Bet</title>
+  <style>
+    :root{--bg:#0b1525;--bg2:#111d30;--bg3:#162038;--bd:#1e3050;--tx:#e2e8f0;--mu:#64748b;--ac:#3b82f6;--cy:#38bdf8;--gr:#22c55e;--rd:#ef4444;--ye:#eab308}
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    body{background:var(--bg);color:var(--tx);font-family:-apple-system,'SF Pro Display',system-ui,sans-serif;font-size:14px;line-height:1.5;min-height:100vh}
+
+    /* ── Header ── */
+    header{background:linear-gradient(135deg,#091220,#162038);border-bottom:1px solid var(--bd);padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+    .logo{font-size:1.1rem;font-weight:700;letter-spacing:-.3px}.logo span{color:var(--ac)}
+    .hmeta{display:flex;gap:.3rem;flex-wrap:wrap}
+    .hb{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:#1e3050;border:1px solid var(--bd);color:var(--mu)}
+
+    /* ── Layout ── */
+    main{max-width:600px;margin:0 auto;padding:.75rem .75rem 5rem}
+    .sec{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mu);border-bottom:1px solid var(--bd);padding-bottom:.35rem;margin:.75rem 0 .5rem}
+    .sec:first-child{margin-top:.1rem}
+
+    /* ── Stats bar ── */
+    .statbar{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.25rem;margin-bottom:.15rem;scrollbar-width:none}
+    .statbar::-webkit-scrollbar{display:none}
+    .stat{background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:.5rem .75rem;flex-shrink:0;min-width:90px}
+    .sl{font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.8px}
+    .sv{font-size:1.15rem;font-weight:700;margin-top:1px}
+
+    /* ── Cards ── */
+    .cards{display:flex;flex-direction:column;gap:.5rem}
+    .card{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+    .ctop{display:flex;justify-content:space-between;align-items:center;padding:.45rem .75rem .2rem;flex-wrap:wrap;gap:.25rem}
+    .tags{display:flex;gap:.3rem;align-items:center;flex-wrap:wrap}
+    .surf-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.8px;border:1px solid}
+    .cat-tag{font-size:9px;color:var(--mu);padding:2px 6px;border:1px solid var(--bd);border-radius:4px}
+    .t-tag{font-size:10px;color:var(--mu)}
+
+    .cbody{padding:.5rem .75rem .7rem}
+
+    /* ── Players ── */
+    .prow-names{display:grid;grid-template-columns:1fr auto 1fr;gap:.3rem;align-items:start;margin-bottom:.55rem}
+    .pinfo{min-width:0}
+    .pname{font-weight:600;font-size:.88rem;line-height:1.25;word-break:break-word}
+    .pmeta{font-size:9px;color:var(--cy);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .vs{font-size:9px;font-weight:700;color:var(--mu);padding:.3rem .1rem 0;white-space:nowrap}
+
+    /* ── Odds ── */
+    .odds-row{display:grid;grid-template-columns:1fr auto 1fr;gap:.3rem;align-items:center;margin-bottom:.45rem}
+    .obox{background:var(--bg3);border:1px solid var(--bd);border-radius:7px;padding:.4rem .5rem;display:flex;align-items:center;gap:.35rem}
+    .odec{font-size:1.35rem;font-weight:800;line-height:1}
+    .oinfo{font-size:10px;line-height:1.4}
+    .odelta{font-size:9px;color:var(--mu);text-align:center;white-space:nowrap}
+
+    /* ── Bar ── */
+    .bar-row{display:flex;align-items:center;gap:.35rem}
+    .bar-pct{font-size:10px;font-weight:700;min-width:36px}
+    .bar-out{flex:1;height:5px;background:#1e3050;border-radius:4px;overflow:hidden}
+    .bar-in{height:100%;border-radius:4px}
+
+    /* ── Legend ── */
+    .legend{background:var(--bg2);border:1px solid var(--bd);border-radius:9px;padding:.6rem .75rem;font-size:11px;color:var(--mu);line-height:1.7;margin-bottom:.25rem}
+
+    /* ── Footer ── */
+    footer{border-top:1px solid var(--bd);padding:.75rem 1rem;color:var(--mu);font-size:10px;text-align:center}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+    /* ── iOS safe area ── */
+    @supports(padding:max(0px)){
+      main{padding-bottom:max(5rem,calc(5rem + env(safe-area-inset-bottom)))}
+      footer{padding-bottom:max(.75rem,calc(.75rem + env(safe-area-inset-bottom)))}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">ATP <span>Value</span> Bet</div>
+  <div class="hmeta">
+    <span class="hb">🔄 2026-05-11 13:21 UTC</span>
+    <span class="hb">Elo: 2026-05-11</span>
+  </div>
+</header>
+<main>
+
+<div class="sec" style="margin-top:.1rem">Összesítő</div>
+<div class="statbar">
+  <div class="stat"><div class="sl">Meccsek</div><div class="sv" style="color:var(--ac)">0</div></div>
+  <div class="stat"><div class="sl">Élő</div><div class="sv" style="color:var(--ye)">0</div></div>
+  <div class="stat"><div class="sl">Elo OK</div><div class="sv" style="color:var(--gr)">0/0</div></div>
+  <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:var(--gr)">+0.0%</div></div>
+  <div class="stat"><div class="sl">P&L</div><div class="sv" style="color:var(--gr)">$+0</div></div>
+</div>
+
+<div class="legend">
+  <strong style="color:var(--tx)">Surface score:</strong> &nbsp;
+  🧱🧱 Salak spec. (1) &nbsp;·&nbsp; 🧱 Salak-hajlam (2) &nbsp;·&nbsp; ⚖ All-rounder (3) &nbsp;·&nbsp; 💙 Kemény-hajlam (4) &nbsp;·&nbsp; 💙💙 Kemény spec. (5)<br>
+  <strong style="color:var(--tx)">Odds</strong> = 1/P(Elo), margin nélkül.
+</div>
+
+
+
+
+</main>
+<footer>Forrás: tennisabstract.com · cElo/hElo · Fair odds · Nem befektetési tanácsadás.</footer>
+</body>
+</html>
