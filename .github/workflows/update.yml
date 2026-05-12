@@ -22,16 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ hashFiles('requirements.txt') }}-v4
-
+          key: pip-${{ hashFiles('requirements.txt') }}-v5
       - run: pip install -r requirements.txt
 
       - name: Heti Elo (ATP + WTA)
@@ -49,17 +46,33 @@ jobs:
           else
             python main.py --bankroll "$BANKROLL" 2>&1 | tee /tmp/run_output.txt
           fi
-
-          # Összefoglaló számok kinyerése a logból
-          ATP_MATCHES=$(grep -oP 'ATP: \K\d+(?= meccs)' /tmp/run_output.txt || echo "?")
-          WTA_MATCHES=$(grep -oP 'WTA: \K\d+(?= meccs)' /tmp/run_output.txt || echo "?")
-          VALUE_COUNT=$(grep -c "VALUE" /tmp/run_output.txt || echo "0")
-          ADV_COUNT=$(grep -c "felületi előny" /tmp/run_output.txt || echo "0")
-
-          echo "atp_matches=$ATP_MATCHES"   >> $GITHUB_OUTPUT
-          echo "wta_matches=$WTA_MATCHES"   >> $GITHUB_OUTPUT
-          echo "value_count=$VALUE_COUNT"   >> $GITHUB_OUTPUT
-          echo "adv_count=$ADV_COUNT"       >> $GITHUB_OUTPUT
+          # Összefoglaló — grep -c sosem üres, mert || echo "0" mindig stringet ad
+          ATP_M=$(python3 -c "
+import re,sys
+txt=open('/tmp/run_output.txt').read()
+m=re.search(r'ATP: (\d+) meccs',txt)
+print(m.group(1) if m else '0')
+")
+          WTA_M=$(python3 -c "
+import re,sys
+txt=open('/tmp/run_output.txt').read()
+m=re.search(r'WTA: (\d+) meccs',txt)
+print(m.group(1) if m else '0')
+")
+          VALUE_M=$(python3 -c "
+import re,sys
+txt=open('/tmp/run_output.txt').read()
+print(str(txt.count('VALUE')))
+")
+          ADV_M=$(python3 -c "
+import re,sys
+txt=open('/tmp/run_output.txt').read()
+print(str(txt.count('felületi előny')))
+")
+          echo "atp_matches=${ATP_M}" >> "$GITHUB_OUTPUT"
+          echo "wta_matches=${WTA_M}" >> "$GITHUB_OUTPUT"
+          echo "value_count=${VALUE_M}" >> "$GITHUB_OUTPUT"
+          echo "adv_count=${ADV_M}"    >> "$GITHUB_OUTPUT"
 
       - name: Commit & push
         run: |
@@ -69,7 +82,7 @@ jobs:
           git diff --staged --quiet || git commit -m "🎾 $(date -u '+%Y-%m-%d %H:%M') UTC"
           git push
 
-      - name: 📲 ntfy értesítés
+      - name: ntfy értesítés
         if: always()
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
@@ -79,19 +92,13 @@ jobs:
           WTA="${{ steps.run.outputs.wta_matches }}"
           VALUE="${{ steps.run.outputs.value_count }}"
           ADV="${{ steps.run.outputs.adv_count }}"
-
-          MSG="ATP: ${ATP:-?} meccs | WTA: ${WTA:-?} meccs"
-          if [ "$VALUE" != "0" ] && [ -n "$VALUE" ]; then
-            MSG="$MSG | 🎯 ${VALUE} value bet"
-          fi
-          if [ "$ADV" != "0" ] && [ -n "$ADV" ]; then
-            MSG="$MSG | ⚡ ${ADV} felületi előny"
-          fi
-
+          MSG="ATP: ${ATP:-0} | WTA: ${WTA:-0} meccs"
+          [ "${VALUE:-0}" != "0" ] && MSG="$MSG | 🎯 ${VALUE} value"
+          [ "${ADV:-0}"   != "0" ] && MSG="$MSG | ⚡ ${ADV} felületi"
           curl -s \
             -H "Title: 🎾 Value Bet frissült" \
             -H "Priority: default" \
-            -H "Tags: tennis,chart_with_upwards_trend" \
+            -H "Tags: tennis" \
             -H "Click: https://czakopeti.github.io/tennis/" \
             -d "$MSG — $DATE" \
-            "https://ntfy.sh/${NTFY_TOPIC}" || echo "ntfy küldés sikertelen (nem blokkolja a deploy-t)"
+            "https://ntfy.sh/${NTFY_TOPIC}" || true
