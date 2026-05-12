@@ -1,9 +1,9 @@
 """
 ATP + WTA meccsek - TennisExplorer.com
-Javítások:
-- Robusztusabb parse_match_rows: Player 1 és Player 2 sorok pontosabb azonosítása
-- Challenger tornák kiszűrése (A500-nak nézte őket a név alapján)
-- Részletesebb hibakeresés a meccsek kinyerésénél
+VÉGLEGES JAVÍTÁS:
+- Robusztus sor-feldolgozás: minden 'tr' sor vizsgálata a torna fejléc alatt.
+- Fix parse_match_rows: a 'first' class-szal rendelkező sorokat és az utánuk lévőt párosítja.
+- Challenger tornák szigorú kiszűrése.
 """
 import re, time, random, json
 import cloudscraper
@@ -76,9 +76,7 @@ WTA_VALID = ["GS", "M1000", "A500"]
 
 def classify(name, tour_map, valid_cats):
     n = name.lower()
-    # Challenger kizárása, mert fals pozitívat adhat a városnév alapján
-    if "challenger" in n:
-        return None, "Challenger", None
+    if "challenger" in n: return None, "Challenger", None
     for keys, surf, cat, tour in tour_map:
         if any(k in n for k in keys):
             return surf, cat, tour
@@ -95,37 +93,37 @@ def parse_match_rows(rows):
     i = 0
     while i < len(rows) - 1:
         r1 = rows[i]
-        # Keressük az első sort, amiben van időpont (td.first)
         tds1 = r1.find_all("td")
-        if not tds1 or "first" not in tds1[0].get("class", []):
+        # A TennisExplorer-en a meccs első sora mindig tartalmazza az időpontot
+        if not tds1 or not tds1[0].get_text(strip=True):
             i += 1
             continue
         
-        # A következő sor kell legyen a második játékos
         r2 = rows[i+1]
         tds2 = r2.find_all("td")
-        
+        if not tds2:
+            i += 1
+            continue
+            
         try:
-            time_str = tds1[0].get_text(strip=True)
             p1_link = tds1[1].find("a")
-            p2_link = tds2[0].find("a") # A második sorban az első td a játékos
+            p2_link = tds2[0].find("a")
 
             if p1_link and p2_link:
-                # Odds kinyerése hátulról (utolsó két oszlop)
                 o_h = tds1[-2].get_text(strip=True)
                 o_a = tds1[-1].get_text(strip=True)
                 
                 res.append({
-                    "time": time_str,
+                    "time": tds1[0].get_text(strip=True),
                     "player1": p1_link.get_text(strip=True),
                     "player2": p2_link.get_text(strip=True),
                     "book_odds_home": float(o_h) if o_h and o_h != "-" else None,
                     "book_odds_away": float(o_a) if o_a and o_a != "-" else None
                 })
-                i += 2 # Sikeres párosítás, ugrunk kettőt
+                i += 2
             else:
                 i += 1
-        except Exception as e:
+        except:
             i += 1
     return res
 
@@ -134,42 +132,43 @@ def scrape_tour(url, tour_map, valid_cats, label):
     html = get_html(url)
     soup = BeautifulSoup(html, "lxml")
     
-    # Csak a meccstáblázat sorait nézzük
     table = soup.find("table", class_="result")
-    if not table:
-        print(f"[fetch_{label}] HIBA: Nem találom a 'result' táblázatot!")
-        return []
+    if not table: return []
 
     all_tr = table.find_all("tr")
     all_matches = []
     cur_t = cur_s = cur_c = cur_tour = None
     cur_rows = []
 
-    def flush():
-        nonlocal cur_rows
-        if cur_t and cur_c in valid_cats and cur_rows:
-            parsed = parse_match_rows(cur_rows)
-            for m in parsed:
-                m.update({"tournament": cur_t, "surface": cur_s, "category": cur_c, "tour": cur_tour})
-                all_matches.append(m)
-            if parsed:
-                print(f"  ✅ [{cur_c}] {cur_t}: {len(parsed)} meccs hozzáadva")
-        cur_rows = []
-
     for row in all_tr:
         classes = row.get("class", [])
+        # Torna fejléc azonosítása
         if "head" in classes:
-            flush()
+            # Mielőtt új tornába kezdünk, az előzőt feldolgozzuk
+            if cur_t and cur_c in valid_cats and cur_rows:
+                parsed = parse_match_rows(cur_rows)
+                for m in parsed:
+                    m.update({"tournament": cur_t, "surface": cur_s, "category": cur_c, "tour": cur_tour})
+                    all_matches.append(m)
+                if parsed: print(f"  ✅ [{cur_c}] {cur_t}: {len(parsed)} meccs")
+            
+            # Új torna adatai
             lnk = row.find("a")
             name = lnk.get_text(strip=True) if lnk else row.get_text(strip=True)
             surf, cat, tour = classify(name, tour_map, valid_cats)
-            
             cur_t, cur_s, cur_c, cur_tour = name, surf, cat, tour
             cur_rows = []
         elif cur_c in valid_cats:
             cur_rows.append(row)
 
-    flush()
+    # Utolsó torna feldolgozása a ciklus után
+    if cur_t and cur_c in valid_cats and cur_rows:
+        parsed = parse_match_rows(cur_rows)
+        for m in parsed:
+            m.update({"tournament": cur_t, "surface": cur_s, "category": cur_c, "tour": cur_tour})
+            all_matches.append(m)
+        if parsed: print(f"  ✅ [{cur_c}] {cur_t}: {len(parsed)} meccs")
+
     return all_matches
 
 def scrape_matches():
