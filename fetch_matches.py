@@ -1,7 +1,3 @@
-"""
-ATP + WTA meccsek - TennisExplorer.com
-P�rosítás: 'bott' osztály = player1 sora (nem az idő, ami live/kész meccsnél üres)
-"""
 import re, time, random, json
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone
@@ -10,65 +6,65 @@ from pathlib import Path
 OUTPUT_PATH = Path(__file__).parent / "data" / "todays_matches.json"
 
 ATP_MAP = [
-    (["australian open","melbourne"],           "hard",  "GS",    "ATP"),
-    (["roland garros","french open"],           "clay",  "GS",    "ATP"),
-    (["wimbledon"],                             "grass", "GS",    "ATP"),
-    (["us open","flushing"],                    "hard",  "GS",    "ATP"),
-    (["indian wells"],                          "hard",  "M1000", "ATP"),
-    (["miami"],                                 "hard",  "M1000", "ATP"),
-    (["monte carlo","monte-carlo"],             "clay",  "M1000", "ATP"),
-    (["madrid"],                                "clay",  "M1000", "ATP"),
-    (["rome","italian open","internazionali"],  "clay",  "M1000", "ATP"),
-    (["canada","toronto","montreal"],           "hard",  "M1000", "ATP"),
-    (["cincinnati"],                            "hard",  "M1000", "ATP"),
-    (["shanghai"],                              "hard",  "M1000", "ATP"),
-    (["paris masters","paris-bercy"],           "hard",  "M1000", "ATP"),
-    (["nitto","atp finals","turin"],            "hard",  "M1000", "ATP"),
-    (["rotterdam"],                             "hard",  "A500",  "ATP"),
-    (["qatar open","doha"],                     "hard",  "A500",  "ATP"),
-    (["dubai"],                                 "hard",  "A500",  "ATP"),
-    (["rio open","rio de janeiro"],             "clay",  "A500",  "ATP"),
-    (["acapulco","abierto mexicano","mexican open"], "hard","A500","ATP"),
-    (["barcelona"],                             "clay",  "A500",  "ATP"),
-    (["munich","bmw open"],                     "clay",  "A500",  "ATP"),
-    (["hamburg"],                               "clay",  "A500",  "ATP"),
-    (["halle","terra wortmann"],                "grass", "A500",  "ATP"),
-    (["queens","queen's"],                      "grass", "A500",  "ATP"),
-    (["washington","citi open"],                "hard",  "A500",  "ATP"),
-    (["beijing","china open"],                  "hard",  "A500",  "ATP"),
-    (["tokyo","rakuten"],                       "hard",  "A500",  "ATP"),
-    (["vienna","erste bank"],                   "hard",  "A500",  "ATP"),
-    (["basel"],                                 "hard",  "A500",  "ATP"),
-    (["astana"],                                "hard",  "A500",  "ATP"),
-    (["dallas"],                                "hard",  "A500",  "ATP"),
-    (["lyon"],                                  "clay",  "A500",  "ATP"),
+    (["australian open","melbourne"],          "hard",  "GS",    "ATP"),
+    (["roland garros","french open"],          "clay",  "GS",    "ATP"),
+    (["wimbledon"],                            "grass", "GS",    "ATP"),
+    (["us open","flushing"],                   "hard",  "GS",    "ATP"),
+    (["indian wells"],                         "hard",  "M1000", "ATP"),
+    (["miami"],                                "hard",  "M1000", "ATP"),
+    (["monte carlo","monte-carlo"],            "clay",  "M1000", "ATP"),
+    (["madrid"],                               "clay",  "M1000", "ATP"),
+    (["rome","italian open","internazionali"], "clay",  "M1000", "ATP"),
+    (["canada","toronto","montreal"],          "hard",  "M1000", "ATP"),
+    (["cincinnati"],                           "hard",  "M1000", "ATP"),
+    (["shanghai"],                             "hard",  "M1000", "ATP"),
+    (["paris masters","paris-bercy"],          "hard",  "M1000", "ATP"),
+    (["nitto","atp finals","turin"],           "hard",  "M1000", "ATP"),
+    (["rotterdam"],                            "hard",  "A500",  "ATP"),
+    (["qatar open","doha"],                    "hard",  "A500",  "ATP"),
+    (["dubai"],                                "hard",  "A500",  "ATP"),
+    (["rio open","rio de janeiro"],            "clay",  "A500",  "ATP"),
+    (["acapulco","abierto mexicano"],          "hard",  "A500",  "ATP"),
+    (["barcelona"],                            "clay",  "A500",  "ATP"),
+    (["munich","bmw open"],                    "clay",  "A500",  "ATP"),
+    (["hamburg"],                              "clay",  "A500",  "ATP"),
+    (["halle","terra wortmann"],               "grass", "A500",  "ATP"),
+    (["queens","queen's"],                     "grass", "A500",  "ATP"),
+    (["washington","citi open"],               "hard",  "A500",  "ATP"),
+    (["beijing","china open"],                 "hard",  "A500",  "ATP"),
+    (["tokyo","rakuten"],                      "hard",  "A500",  "ATP"),
+    (["vienna","erste bank"],                  "hard",  "A500",  "ATP"),
+    (["basel"],                                "hard",  "A500",  "ATP"),
+    (["astana"],                               "hard",  "A500",  "ATP"),
+    (["dallas"],                               "hard",  "A500",  "ATP"),
+    (["lyon"],                                 "clay",  "A500",  "ATP"),
 ]
 
 WTA_MAP = [
-    (["australian open","melbourne"],           "hard",  "GS",    "WTA"),
-    (["roland garros","french open"],           "clay",  "GS",    "WTA"),
-    (["wimbledon"],                             "grass", "GS",    "WTA"),
-    (["us open","flushing"],                    "hard",  "GS",    "WTA"),
-    (["qatar open","doha"],                     "hard",  "W1000", "WTA"),
-    (["dubai tennis"],                          "hard",  "W1000", "WTA"),
-    (["indian wells"],                          "hard",  "W1000", "WTA"),
-    (["miami"],                                 "hard",  "W1000", "WTA"),
-    (["madrid"],                                "clay",  "W1000", "WTA"),
-    (["rome","italian open","internazionali"],  "clay",  "W1000", "WTA"),
-    (["canada","toronto","montreal"],           "hard",  "W1000", "WTA"),
-    (["cincinnati"],                            "hard",  "W1000", "WTA"),
-    (["china open","beijing"],                  "hard",  "W1000", "WTA"),
-    (["wuhan"],                                 "hard",  "W1000", "WTA"),
-    (["brisbane"],                              "hard",  "W500",  "WTA"),
-    (["abu dhabi"],                             "hard",  "W500",  "WTA"),
-    (["charleston"],                            "clay",  "W500",  "WTA"),
-    (["stuttgart"],                             "clay",  "W500",  "WTA"),
-    (["berlin"],                                "grass", "W500",  "WTA"),
-    (["bad homburg"],                           "grass", "W500",  "WTA"),
-    (["hamburg"],                               "clay",  "W500",  "WTA"),
-    (["washington"],                            "hard",  "W500",  "WTA"),
-    (["linz"],                                  "hard",  "W500",  "WTA"),
-    (["guadalajara"],                           "hard",  "W500",  "WTA"),
+    (["australian open","melbourne"],          "hard",  "GS",    "WTA"),
+    (["roland garros","french open"],          "clay",  "GS",    "WTA"),
+    (["wimbledon"],                            "grass", "GS",    "WTA"),
+    (["us open","flushing"],                   "hard",  "GS",    "WTA"),
+    (["qatar open","doha"],                    "hard",  "W1000", "WTA"),
+    (["dubai tennis"],                         "hard",  "W1000", "WTA"),
+    (["indian wells"],                         "hard",  "W1000", "WTA"),
+    (["miami"],                                "hard",  "W1000", "WTA"),
+    (["madrid"],                               "clay",  "W1000", "WTA"),
+    (["rome","italian open","internazionali"], "clay",  "W1000", "WTA"),
+    (["canada","toronto","montreal"],          "hard",  "W1000", "WTA"),
+    (["cincinnati"],                           "hard",  "W1000", "WTA"),
+    (["china open","beijing"],                 "hard",  "W1000", "WTA"),
+    (["wuhan"],                                "hard",  "W1000", "WTA"),
+    (["brisbane"],                             "hard",  "W500",  "WTA"),
+    (["abu dhabi"],                            "hard",  "W500",  "WTA"),
+    (["charleston"],                           "clay",  "W500",  "WTA"),
+    (["stuttgart"],                            "clay",  "W500",  "WTA"),
+    (["berlin"],                               "grass", "W500",  "WTA"),
+    (["bad homburg"],                          "grass", "W500",  "WTA"),
+    (["hamburg"],                              "clay",  "W500",  "WTA"),
+    (["washington"],                           "hard",  "W500",  "WTA"),
+    (["linz"],                                 "hard",  "W500",  "WTA"),
+    (["guadalajara"],                          "hard",  "W500",  "WTA"),
 ]
 
 ATP_VALID = {"GS", "M1000", "A500"}
@@ -95,10 +91,10 @@ def get_html(url):
         time.sleep(random.uniform(2.0, 4.0))
         r = s.get(url, timeout=30)
         if r.status_code == 200 and len(r.text) > 2000:
-            print(f"[fetch] cloudscraper OK ({len(r.text):,} kar)")
+            print("[fetch] cloudscraper OK (%d kar)" % len(r.text))
             return r.text
     except Exception as e:
-        print(f"[fetch] cloudscraper: {e}")
+        print("[fetch] cloudscraper: %s" % e)
     import requests
     h = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0.0.0 Safari/537.36",
@@ -111,18 +107,16 @@ def get_html(url):
 
 
 def get_player_link(row):
-    """Játékos neve a /player/ linkből."""
+    bad = ["live stream","bet365","unibet","1xbet","bwin","sky sports","bein","eurosport"]
     for a in row.find_all("a"):
         if "/player/" in a.get("href", ""):
             n = re.sub(r'\s+', ' ', a.get_text(strip=True)).strip()
-            bad = ["live stream","bet365","unibet","1xbet","bwin","sky sports","bein","eurosport"]
             if n and len(n) > 3 and not any(b in n.lower() for b in bad):
                 return n
     return None
 
 
 def get_time(row):
-    """HH:MM idő a sorból. Live/befejezett meccseknél üres lehet."""
     for cell in row.find_all("td"):
         txt = cell.get_text(strip=True)
         if re.match(r'^\d{1,2}:\d{2}$', txt):
@@ -149,47 +143,41 @@ def extract_odds(row):
 
 
 def parse_match_rows(rows):
-    """
-    Párosítás a 'bott' CSS osztály alapján:
-    - 'bott' a classes-ben → ez a player1 sora (az idő itt van, ha van)
-    - következő player-linkes sor (nincs 'bott') → player2
-    
-    Ez a megközelítés működik upcoming, live ÉS befejezett meccsek esetén is,
-    mert a 'bott' osztály mindig jelen van, az időpont néha nem.
-    """
+    # Pairing by 'bott' CSS class:
+    # 'bott' in classes = player1 row (works for upcoming, live, finished)
+    # next row with player link = player2 row
     matches = []
     i = 0
     while i < len(rows):
         row = rows[i]
         classes = set(row.get("class", []))
 
-        # Kihagyás: head, month, flags
         if classes & {"head", "month", "flags"}:
             i += 1
             continue
 
-        # player1 sor: 'bott' osztályú
         if "bott" in classes:
             p1 = get_player_link(row)
             if not p1:
                 i += 1
                 continue
 
-            match_time = get_time(row) or ""  # live meccsnél üres
+            match_time = get_time(row) or ""
             h_o, a_o   = extract_odds(row)
+            seed1      = get_seed(row)
 
-            # player2: következő sor amiben van player link
-            p2 = None
-            j  = i + 1
+            p2    = None
+            seed2 = None
+            j     = i + 1
             while j < min(i + 5, len(rows)):
-                candidate_cls = set(rows[j].get("class", []))
-                if candidate_cls & {"head", "month", "flags"}:
+                cj = set(rows[j].get("class", []))
+                if cj & {"head", "month", "flags"}:
                     break
-                p2_candidate = get_player_link(rows[j])
-                if p2_candidate:
-                    p2 = p2_candidate
+                p2c = get_player_link(rows[j])
+                if p2c:
+                    p2    = p2c
                     seed2 = get_seed(rows[j])
-                    i = j + 1
+                    i     = j + 1
                     break
                 j += 1
             else:
@@ -198,11 +186,11 @@ def parse_match_rows(rows):
 
             if p2:
                 matches.append({
-                    "time":    match_time,
-                    "player1": p1,
-                    "player2": p2,
-                    "seed1":   get_seed(row),
-                    "seed2":   seed2,
+                    "time":           match_time,
+                    "player1":        p1,
+                    "player2":        p2,
+                    "seed1":          seed1,
+                    "seed2":          seed2,
                     "book_odds_home": h_o,
                     "book_odds_away": a_o,
                 })
@@ -213,11 +201,11 @@ def parse_match_rows(rows):
 
 
 def scrape_tour(url, tour_map, valid_cats, label):
-    print(f"\n[fetch_{label}] {url}")
+    print("\n[fetch_%s] %s" % (label, url))
     try:
         html = get_html(url)
     except Exception as e:
-        print(f"[fetch_{label}] HIBA: {e}")
+        print("[fetch_%s] ERROR: %s" % (label, e))
         return []
 
     soup = BeautifulSoup(html, "lxml")
@@ -233,11 +221,11 @@ def scrape_tour(url, tour_map, valid_cats, label):
                 m.update({"tournament":cur_t,"surface":cur_s,
                           "category":cur_c,"tour":cur_tour})
                 all_matches.append(m)
-            print(f"  ✅ [{cur_c}|{cur_s}] {cur_t}: {len(parsed)} meccs")
+            print("  OK [%s|%s] %s: %d match" % (cur_c, cur_s, cur_t, len(parsed)))
             for m in parsed:
-                o = f" {m['book_odds_home']}/{m['book_odds_away']}" if m.get('book_odds_home') else ""
+                o = " %s/%s" % (m['book_odds_home'], m['book_odds_away']) if m.get('book_odds_home') else ""
                 t = m['time'] or "live"
-                print(f"    {t} {m['player1']} vs {m['player2']}{o}")
+                print("    %s %s vs %s%s" % (t, m['player1'], m['player2'], o))
         cur_rows = []
 
     for row in soup.find_all("tr"):
@@ -253,14 +241,15 @@ def scrape_tour(url, tour_map, valid_cats, label):
             surf, cat, tour = classify(name, tour_map, valid_cats)
             cur_t, cur_s, cur_c, cur_tour = name, surf, cat, tour
             cur_rows = []
-            print(f"  {'✅' if cat in valid_cats else '⏭'} [{cat}|{surf}] {name}")
+            status = "OK" if cat in valid_cats else "skip"
+            print("  %s [%s|%s] %s" % (status, cat, surf, name))
         elif "month" in classes:
             continue
         else:
             cur_rows.append(row)
 
     flush()
-    print(f"[fetch_{label}] {len(all_matches)} meccs összesen")
+    print("[fetch_%s] %d matches total" % (label, len(all_matches)))
     return all_matches
 
 
@@ -277,7 +266,7 @@ def scrape_matches():
 def save_matches(matches):
     OUTPUT_PATH.parent.mkdir(exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(matches, indent=2))
-    print(f"\n[fetch_matches] Mentve -> {OUTPUT_PATH} ({len(matches)} meccs)")
+    print("\n[fetch_matches] Saved -> %s (%d matches)" % (OUTPUT_PATH, len(matches)))
 
 
 if __name__ == "__main__":
