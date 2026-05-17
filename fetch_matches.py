@@ -60,6 +60,7 @@ WTA_MAP = [
     (["charleston"],                           "clay",  "W500",  "WTA"),
     (["stuttgart"],                            "clay",  "W500",  "WTA"),
     (["berlin"],                               "grass", "W500",  "WTA"),
+    (["strasbourg","internationaux de strasbourg"], "clay", "W500", "WTA"),
     (["bad homburg"],                          "grass", "W500",  "WTA"),
     (["hamburg"],                              "clay",  "W500",  "WTA"),
     (["washington"],                           "hard",  "W500",  "WTA"),
