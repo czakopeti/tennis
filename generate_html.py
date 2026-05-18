@@ -77,7 +77,7 @@ def sm_badge(sm, player_num, surface):
     return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
             'background:#a855f718;border:1px solid #a855f740;'
             'font-size:9px;font-weight:700;color:#c084fc">'
-            '🎯 SURFACE MATCH — erősebb %s, piac aluláraz</div>') % sl
+            '🎯 SURFACE MATCH — erősebb %s, boritas-kompatibilis, piac aluláraz</div>') % sl
 
 
 def render_card(m):
@@ -349,7 +349,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 </div>
 <div class="legend">
   <strong style="color:var(--tx)">⚡ Felületi előny</strong>: jobb ezen a borításon + ez az ő jobb borítása + ellenfélnél fordítva<br>
-  <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb + legalább annyira "otthon" + piac aluláraz ≥3%%<br>
+  <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + piac aluláraz ≥3%%<br>
   🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5) · Value = edge ≥ 4%%
 </div>
 %s%s%s

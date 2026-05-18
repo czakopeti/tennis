@@ -7,10 +7,20 @@ MAX_BET_PCT    = 0.03
 
 SS_META = {
     1:{"icon":"🧱🧱","label":"Salakos spec.", "col":"#fb923c"},
-    2:{"icon":"🧱",  "label":"Salak-hajlam", "col":"#fbbf24"},
-    3:{"icon":"⚖",   "label":"All-rounder",  "col":"#94a3b8"},
-    4:{"icon":"💙",  "label":"Kemeny-hajlam","col":"#60a5fa"},
-    5:{"icon":"💙💙","label":"Kemeny spec.",  "col":"#818cf8"},
+    2:{"icon":"🧱",  "label":"Salak-hajlam",  "col":"#fbbf24"},
+    3:{"icon":"⚖",   "label":"All-rounder",   "col":"#94a3b8"},
+    4:{"icon":"💙",  "label":"Kemeny-hajlam",  "col":"#60a5fa"},
+    5:{"icon":"💙💙","label":"Kemeny spec.",    "col":"#818cf8"},
+}
+
+# Surface score korlat tornaboritas szerint:
+# clay  → csak ss 1,2,3 (keménypályások kiesnek)
+# hard  → csak ss 3,4,5 (salakspecialisták kiesnek)
+# grass → csak ss 2,3,4 (extrém specialisták kiesnek)
+SURFACE_SS_ALLOWED = {
+    "clay":  {1, 2, 3},
+    "hard":  {3, 4, 5},
+    "grass": {2, 3, 4},
 }
 
 
@@ -19,18 +29,18 @@ def normalize_name(name):
 
 
 def find_player_in_elo_db(player_name, elo_db, threshold=0.75):
-    name  = player_name.strip().rstrip('.')
+    name  = player_name.strip().rstrip(".")
     parts = name.split()
     if len(parts) >= 2:
-        last = parts[-1].replace('.', '')
+        last = parts[-1].replace(".", "")
         if len(last) == 1:
             initial     = last.upper()
-            te_lastname = ' '.join(parts[:-1]).lower()
+            te_lastname = " ".join(parts[:-1]).lower()
             for canonical, data in elo_db.items():
                 cparts = canonical.split()
                 if len(cparts) < 2 or cparts[0][0].upper() != initial:
                     continue
-                if ' '.join(cparts[1:]).lower() == te_lastname:
+                if " ".join(cparts[1:]).lower() == te_lastname:
                     return canonical, data
                 if cparts[-1].lower() == te_lastname:
                     return canonical, data
@@ -53,12 +63,13 @@ def elo_win_prob(elo_a, elo_b):
 
 
 def get_surface_elo(record, surface):
-    key = {"clay":"cElo","grass":"gElo","hard":"hElo"}.get(surface, "elo")
+    key = {"clay": "cElo", "grass": "gElo", "hard": "hElo"}.get(surface, "elo")
     return record.get(key) or record.get("elo")
 
 
 def prob_to_decimal_odds(prob):
-    if prob <= 0: return 999.0
+    if prob <= 0:
+        return 999.0
     return round(1.0 / prob, 2)
 
 
@@ -79,15 +90,16 @@ def kelly_stake(edge, decimal_odds, bankroll):
 def surface_advantage(r1, r2, surface):
     """
     Original 3-condition surface advantage flag.
-    Player 1 flagged if:
+    Player 1 if:
       (1) surface_elo1 > surface_elo2
-      (2) surface_elo1 > other_elo1  (this IS their better surface)
-      (3) other_elo2 > surface_elo2  (opponent is better on other surface)
+      (2) surface_elo1 > other_elo1
+      (3) other_elo2 > surface_elo2
     """
     c1 = r1.get("cElo") or 0; h1 = r1.get("hElo") or 0
     c2 = r2.get("cElo") or 0; h2 = r2.get("hElo") or 0
     g1 = r1.get("gElo") or 0; g2 = r2.get("gElo") or 0
-    if not all([c1, h1, c2, h2]): return None
+    if not all([c1, h1, c2, h2]):
+        return None
     if surface == "clay":
         if c1 > c2 and c1 > h1 and h2 > c2: return 1
         if c2 > c1 and c2 > h2 and h1 > c1: return 2
@@ -104,22 +116,26 @@ def surface_advantage(r1, r2, surface):
 
 def surface_match(r1, r2, surface, edge1, edge2):
     """
-    NEW: Surface Match signal — all 3 conditions must hold simultaneously:
+    Surface Match signal — all 5 conditions must hold simultaneously:
 
-    Condition 1: surface_elo(player) > surface_elo(opponent)
+    Condition 1: surface_elo(player) > surface_elo(opponent)  [min +15 pt]
       -> player is stronger on this specific surface
+      -> difference must be at least 15 Elo points
 
     Condition 2: surface_score(player) <= surface_score(opponent)
-      -> player is at least as "at home" on this surface
-      -> lower score = better fit (1=clay spec on clay, 5=hard spec on clay=bad)
-      -> equal score also counts (same comfort level but Elo still higher)
+      -> player at least as comfortable on this surface
+      -> lower score = better fit for clay (1=clay spec, 5=hard spec)
 
-    Condition 3: edge < -0.03
-      -> bookmaker UNDERPRICES the player by at least 3%
-      -> book_odds < fair_odds  (market thinks player is even stronger)
-      -> this is the "reverse value" signal: market knows something extra
+    Condition 3: surface_score(player) is in allowed set for this surface
+      -> clay:  only ss 1,2,3 (hard-leaning ss=4,5 excluded)
+      -> hard:  only ss 3,4,5 (clay-leaning ss=1,2 excluded)
+      -> grass: only ss 2,3,4 (extreme specialists excluded)
 
-    Returns: 1 if player1 flagged, 2 if player2 flagged, None if neither
+    Condition 4: edge < -0.03
+      -> bookmaker underprices player by at least 3%
+      -> this is the reverse-value signal
+
+    Returns 1 if player1 flagged, 2 if player2 flagged, None if neither.
     """
     sc1 = r1.get("surface_score", 3)
     sc2 = r2.get("surface_score", 3)
@@ -130,20 +146,26 @@ def surface_match(r1, r2, surface, edge1, edge2):
     if not se1 or not se2:
         return None
 
-    # Check player 1
-    cond1_p1 = se1 > se2                    # stronger on surface
-    cond2_p1 = sc1 <= sc2                   # at least as comfortable on surface
-    cond3_p1 = (edge1 is not None and edge1 < -0.03)  # market underprices
+    allowed = SURFACE_SS_ALLOWED.get(surface, {1, 2, 3, 4, 5})
 
-    if cond1_p1 and cond2_p1 and cond3_p1:
+    # Check player 1
+    delta1     = se1 - se2
+    cond1_p1   = delta1 >= 15                                # min +15 Elo
+    cond2_p1   = sc1 <= sc2                                  # at least as comfortable
+    cond3_p1   = sc1 in allowed                              # right surface type
+    cond4_p1   = (edge1 is not None and edge1 < -0.03)       # market underprices
+
+    if cond1_p1 and cond2_p1 and cond3_p1 and cond4_p1:
         return 1
 
     # Check player 2
-    cond1_p2 = se2 > se1
-    cond2_p2 = sc2 <= sc1
-    cond3_p2 = (edge2 is not None and edge2 < -0.03)
+    delta2     = se2 - se1
+    cond1_p2   = delta2 >= 15
+    cond2_p2   = sc2 <= sc1
+    cond3_p2   = sc2 in allowed
+    cond4_p2   = (edge2 is not None and edge2 < -0.03)
 
-    if cond1_p2 and cond2_p2 and cond3_p2:
+    if cond1_p2 and cond2_p2 and cond3_p2 and cond4_p2:
         return 2
 
     return None
