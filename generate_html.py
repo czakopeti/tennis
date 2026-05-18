@@ -45,7 +45,7 @@ def ss_dots(score, align="left"):
         if score<=2:   filled=i<=(3-score); col="#fb923c" if filled else "#1e3a5f"
         elif score>=4: filled=i>(3-(5-score)); col="#60a5fa" if filled else "#1e3a5f"
         else:          filled=i==3; col="#94a3b8" if filled else "#1e3a5f"
-        dots += '<span style="width:7px;height:7px;border-radius:50%;display:inline-block;margin:0 1px;background:%s"></span>' % col
+        dots += '<span style="width:7px;height:7px;border-radius:50%%;display:inline-block;margin:0 1px;background:%s"></span>' % col
     lbl = '<span style="font-size:9px;color:%s;margin-%s:3px">%s</span>' % (m["col"], "left" if align=="left" else "right", m["icon"])
     if align=="left":
         return '<div style="display:flex;align-items:center;gap:1px">%s%s</div>' % (lbl, dots)
@@ -322,7 +322,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     .bar-row{display:flex;align-items:center;gap:.35rem;margin-top:.4rem}
     .bar-pct{font-size:10px;font-weight:700;min-width:36px}
     .bar-out{flex:1;height:5px;background:#1e3050;border-radius:4px;overflow:hidden}
-    .bar-in{height:100%;border-radius:4px}
+    .bar-in{height:100%%;border-radius:4px}
     footer{border-top:1px solid var(--bd);padding:.75rem 1rem;color:var(--mu);font-size:10px;text-align:center}
     @keyframes pulse{0%%,100%%{opacity:1}50%%{opacity:.5}}
     @supports(padding:max(0px)){main{padding-bottom:max(5rem,calc(5rem + env(safe-area-inset-bottom)))}}
