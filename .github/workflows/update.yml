@@ -4,14 +4,14 @@ on:
   schedule:
     - cron: '0 7 * * *'
     - cron: '0 11 * * *'
-    - cron: '0 6 * * 1'
+    - cron: '0 9 * * 1'
   workflow_dispatch:
     inputs:
       bankroll:
         description: 'Bankroll (USD)'
         default: '1000'
       force_elo:
-        description: 'Elo frissítés? (yes/no)'
+        description: 'Elo frissites? (yes/no)'
         default: 'no'
 
 permissions:
@@ -22,11 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -35,8 +33,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Heti Elo frissítés
-        if: github.event.schedule == '0 6 * * 1' || github.event.inputs.force_elo == 'yes'
+      - name: Heti Elo frissites (hetfo 09:00 UTC = 11:00 magyar)
+        if: github.event.schedule == '0 9 * * 1' || github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
       - name: Napi meccsek + HTML
@@ -47,21 +45,21 @@ jobs:
             python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}"
           fi
 
-      - name: Commit és push
+      - name: Commit es push
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git add index.html data/ || true
-          git diff --staged --quiet || git commit -m "🎾 $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git diff --staged --quiet || git commit -m "$(date -u '+%Y-%m-%d %H:%M') UTC"
           git push
 
-      - name: ntfy értesítés
+      - name: ntfy ertesites
         if: always()
         run: |
           curl -s \
-            -H "Title: 🎾 Value Bet frissült" \
+            -H "Title: ATP WTA Value Bet frissult" \
             -H "Priority: default" \
             -H "Tags: tennis" \
             -H "Click: https://czakopeti.github.io/tennis/" \
-            -d "Napi frissítés kész — $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            -d "Napi frissites kesz - $(date -u '+%Y-%m-%d %H:%M UTC')" \
             "https://ntfy.sh/${{ secrets.NTFY_TOPIC }}" || true
