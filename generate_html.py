@@ -212,13 +212,13 @@ def render_card(m):
       <div class="pinfo">
         <div class="pname">{s1}{p1s}</div>
         <div class="pmeta">#{r1rank} · c{c1:.0f} · h{h1:.0f}</div>
-        {dots1}{adv1}{sm1}
+        {dots1}{adv1}{sm1}{b1p1}{b2p1}{b3p1}
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">{p2s}{s2}</div>
         <div class="pmeta">#{r2rank} · c{c2:.0f} · h{h2:.0f}</div>
-        {dots2}{adv2}{sm2}
+        {dots2}{adv2}{sm2}{b1p2}{b2p2}{b3p2}
       </div>
     </div>
     <div class="odds-row">
@@ -246,6 +246,12 @@ def render_card(m):
         sm1=sm_badge(sm,1,surf),
         esigs1=m.get("esigs1",set()),
         esigs2=m.get("esigs2",set()),
+        b1p1=b1_badge(m.get("esigs1",set()),1,surf),
+        b2p1=b2_badge(m.get("esigs1",set()),1,surf),
+        b3p1=b3_badge(m.get("esigs1",set()),1),
+        b1p2=b1_badge(m.get("esigs2",set()),2,surf),
+        b2p2=b2_badge(m.get("esigs2",set()),2,surf),
+        b3p2=b3_badge(m.get("esigs2",set()),2),
         s2=s2,p2s=p2s,r2rank=r2.get("atp_rank","?"),c2=c2,h2=h2,
         dots2=ss_dots(sc2,"right"),
         adv2=adv_badge(adv,2,surf),
@@ -284,7 +290,8 @@ def analyze_matches(matches, elo_players):
         edge2=compute_edge(1-p1,    bo2) if bo2 else None
 
         adv = surface_advantage(r1, r2, surf)
-        sm  = surface_match(r1, r2, surf, edge1, edge2)  # NEW
+        sm  = surface_match(r1, r2, surf, edge1, edge2)
+        esigs1, esigs2 = extra_signals(r1, r2, surf, edge1, edge2, p1, 1-p1)
 
         results.append({**m,
             "name1":n1,"name2":n2,"r1":r1,"r2":r2,
@@ -298,6 +305,7 @@ def analyze_matches(matches, elo_players):
             "edge1":edge1,"edge2":edge2,
             "surface_advantage":adv,
             "surface_match":sm,
+            "esigs1":esigs1,"esigs2":esigs2,
             "elo_found":True,"error":None,
             "status":m.get("status","upcoming")})
     return results
