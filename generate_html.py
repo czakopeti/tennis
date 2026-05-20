@@ -286,11 +286,6 @@ def analyze_matches(matches, elo_players):
         adv = surface_advantage(r1, r2, surf)
         sm  = surface_match(r1, r2, surf, edge1, edge2)  # NEW
 
-        rank1 = r1.get("atp_rank")
-        rank2 = r2.get("atp_rank")
-        from value_calc import value_signals
-        vsig1, vsig2 = value_signals(p1, 1-p1, edge1, edge2, rank1, rank2)
-
         results.append({**m,
             "name1":n1,"name2":n2,"r1":r1,"r2":r2,
             "c_elo1":c1,"h_elo1":h1,"c_elo2":c2,"h_elo2":h2,
@@ -303,7 +298,6 @@ def analyze_matches(matches, elo_players):
             "edge1":edge1,"edge2":edge2,
             "surface_advantage":adv,
             "surface_match":sm,
-            "vsig1":vsig1,"vsig2":vsig2,
             "elo_found":True,"error":None,
             "status":m.get("status","upcoming")})
     return results
