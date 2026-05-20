@@ -46,6 +46,8 @@
     "edge2": -0.0079,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -97,6 +99,8 @@
     "edge2": 0.0029,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -148,6 +152,8 @@
     "edge2": 0.0191,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "{'b1'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -199,6 +205,8 @@
     "edge2": -0.1122,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -250,6 +258,8 @@
     "edge2": -0.009,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -301,6 +311,8 @@
     "edge2": 0.0384,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -352,6 +364,8 @@
     "edge2": -0.0021,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -403,6 +417,8 @@
     "edge2": 0.0848,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "{'b2'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -454,6 +470,8 @@
     "edge2": 0.0301,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -521,6 +539,8 @@
     "edge2": 0.0438,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -572,6 +592,8 @@
     "edge2": -0.0002,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -623,6 +645,8 @@
     "edge2": -0.0294,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -674,6 +698,8 @@
     "edge2": 0.0276,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -725,6 +751,8 @@
     "edge2": -0.0246,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -776,6 +804,8 @@
     "edge2": 0.2349,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -827,6 +857,8 @@
     "edge2": -0.0545,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -878,6 +910,8 @@
     "edge2": 0.1603,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -929,6 +963,8 @@
     "edge2": -0.0309,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -996,6 +1032,8 @@
     "edge2": 0.1042,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "{'b2'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1047,6 +1085,8 @@
     "edge2": -0.0529,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1098,6 +1138,8 @@
     "edge2": -0.0808,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "{'b1'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1149,6 +1191,8 @@
     "edge2": -0.0448,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1200,6 +1244,8 @@
     "edge2": -0.0402,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1251,6 +1297,8 @@
     "edge2": -0.1068,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "{'b1'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1302,6 +1350,8 @@
     "edge2": -0.1785,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "{'b3'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1353,6 +1403,8 @@
     "edge2": 0.0862,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1404,6 +1456,8 @@
     "edge2": -0.0661,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1455,6 +1509,8 @@
     "edge2": -0.0742,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1506,6 +1562,8 @@
     "edge2": -0.0641,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1573,6 +1631,8 @@
     "edge2": 0.0104,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1624,6 +1684,8 @@
     "edge2": -0.1065,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1675,6 +1737,8 @@
     "edge2": -0.1314,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1726,6 +1790,8 @@
     "edge2": -0.0545,
     "surface_advantage": null,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1777,6 +1843,8 @@
     "edge2": -0.0164,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1828,6 +1896,8 @@
     "edge2": -0.0339,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1879,6 +1949,8 @@
     "edge2": 0.0752,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "{'b1'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1930,6 +2002,8 @@
     "edge2": -0.0133,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -1981,6 +2055,8 @@
     "edge2": 0.1033,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2032,6 +2108,8 @@
     "edge2": -0.0915,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "{'b1'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2083,6 +2161,8 @@
     "edge2": -0.1098,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2134,6 +2214,8 @@
     "edge2": 0.1192,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "{'b2'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2185,6 +2267,8 @@
     "edge2": 0.0602,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2236,6 +2320,8 @@
     "edge2": 0.0546,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2287,6 +2373,8 @@
     "edge2": 0.0865,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2338,6 +2426,8 @@
     "edge2": 0.2535,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2389,6 +2479,8 @@
     "edge2": -0.0622,
     "surface_advantage": 1,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2440,6 +2532,8 @@
     "edge2": -0.1612,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "{'b3'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2491,6 +2585,8 @@
     "edge2": -0.2136,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2542,6 +2638,8 @@
     "edge2": -0.1927,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "{'b3'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2593,6 +2691,8 @@
     "edge2": 0.031,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2644,6 +2744,8 @@
     "edge2": 0.0117,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2695,6 +2797,8 @@
     "edge2": -0.0245,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2746,6 +2850,8 @@
     "edge2": 0.0223,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2797,6 +2903,8 @@
     "edge2": 0.0153,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2848,6 +2956,8 @@
     "edge2": -0.0704,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2899,6 +3009,8 @@
     "edge2": 0.1121,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -2950,6 +3062,8 @@
     "edge2": 0.2093,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3001,6 +3115,8 @@
     "edge2": -0.059,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3052,6 +3168,8 @@
     "edge2": 0.0391,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3103,6 +3221,8 @@
     "edge2": -0.1374,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3154,6 +3274,8 @@
     "edge2": -0.1802,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3205,6 +3327,8 @@
     "edge2": 0.1157,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3256,6 +3380,8 @@
     "edge2": 0.0988,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3307,6 +3433,8 @@
     "edge2": 0.0252,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3358,6 +3486,8 @@
     "edge2": -0.0238,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3409,6 +3539,8 @@
     "edge2": 0.0465,
     "surface_advantage": null,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "{'b3'}",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3460,6 +3592,8 @@
     "edge2": -0.0581,
     "surface_advantage": null,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3511,6 +3645,8 @@
     "edge2": 0.0641,
     "surface_advantage": 2,
     "surface_match": null,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3562,6 +3698,8 @@
     "edge2": -0.0412,
     "surface_advantage": 2,
     "surface_match": 2,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3613,6 +3751,8 @@
     "edge2": 0.0605,
     "surface_advantage": 1,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3664,6 +3804,8 @@
     "edge2": 0.0506,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "{'b1'}",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
@@ -3715,6 +3857,8 @@
     "edge2": 0.0427,
     "surface_advantage": null,
     "surface_match": 1,
+    "esigs1": "set()",
+    "esigs2": "set()",
     "elo_found": true,
     "error": null,
     "status": "upcoming"
