@@ -13,10 +13,6 @@ SS_META = {
     5:{"icon":"💙💙","label":"Kemeny spec.",    "col":"#818cf8"},
 }
 
-# Surface score korlat tornaboritas szerint:
-# clay  → csak ss 1,2,3 (keménypályások kiesnek)
-# hard  → csak ss 3,4,5 (salakspecialisták kiesnek)
-# grass → csak ss 2,3,4 (extrém specialisták kiesnek)
 SURFACE_SS_ALLOWED = {
     "clay":  {1, 2, 3},
     "hard":  {3, 4, 5},
@@ -88,18 +84,11 @@ def kelly_stake(edge, decimal_odds, bankroll):
 
 
 def surface_advantage(r1, r2, surface):
-    """
-    Original 3-condition surface advantage flag.
-    Player 1 if:
-      (1) surface_elo1 > surface_elo2
-      (2) surface_elo1 > other_elo1
-      (3) other_elo2 > surface_elo2
-    """
+    """Original 3-condition surface advantage flag."""
     c1 = r1.get("cElo") or 0; h1 = r1.get("hElo") or 0
     c2 = r2.get("cElo") or 0; h2 = r2.get("hElo") or 0
     g1 = r1.get("gElo") or 0; g2 = r2.get("gElo") or 0
-    if not all([c1, h1, c2, h2]):
-        return None
+    if not all([c1, h1, c2, h2]): return None
     if surface == "clay":
         if c1 > c2 and c1 > h1 and h2 > c2: return 1
         if c2 > c1 and c2 > h2 and h1 > c1: return 2
@@ -116,56 +105,103 @@ def surface_advantage(r1, r2, surface):
 
 def surface_match(r1, r2, surface, edge1, edge2):
     """
-    Surface Match signal — all 5 conditions must hold simultaneously:
-
-    Condition 1: surface_elo(player) > surface_elo(opponent)  [min +15 pt]
-      -> player is stronger on this specific surface
-      -> difference must be at least 15 Elo points
-
-    Condition 2: surface_score(player) <= surface_score(opponent)
-      -> player at least as comfortable on this surface
-      -> lower score = better fit for clay (1=clay spec, 5=hard spec)
-
-    Condition 3: surface_score(player) is in allowed set for this surface
-      -> clay:  only ss 1,2,3 (hard-leaning ss=4,5 excluded)
-      -> hard:  only ss 3,4,5 (clay-leaning ss=1,2 excluded)
-      -> grass: only ss 2,3,4 (extreme specialists excluded)
-
-    Condition 4: edge < -0.03
-      -> bookmaker underprices player by at least 3%
-      -> this is the reverse-value signal
-
-    Returns 1 if player1 flagged, 2 if player2 flagged, None if neither.
+    Surface Match: 4 conditions simultaneously for Player 1:
+      1. surface_elo1 - surface_elo2 >= 15
+      2. surface_score1 <= surface_score2
+      3. surface_score1 in allowed set for surface
+      4. edge1 < -0.03  (book underprices player1 by >=3%)
     """
     sc1 = r1.get("surface_score", 3)
     sc2 = r2.get("surface_score", 3)
-
     se1 = get_surface_elo(r1, surface) or 0
     se2 = get_surface_elo(r2, surface) or 0
+    if not se1 or not se2: return None
+    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
 
-    if not se1 or not se2:
-        return None
-
-    allowed = SURFACE_SS_ALLOWED.get(surface, {1, 2, 3, 4, 5})
-
-    # Check player 1
-    delta1     = se1 - se2
-    cond1_p1   = delta1 >= 15                                # min +15 Elo
-    cond2_p1   = sc1 <= sc2                                  # at least as comfortable
-    cond3_p1   = sc1 in allowed                              # right surface type
-    cond4_p1   = (edge1 is not None and edge1 < -0.03)       # market underprices
-
-    if cond1_p1 and cond2_p1 and cond3_p1 and cond4_p1:
+    if (se1 - se2 >= 15 and sc1 <= sc2 and
+            sc1 in allowed and edge1 is not None and edge1 < -0.03):
         return 1
-
-    # Check player 2
-    delta2     = se2 - se1
-    cond1_p2   = delta2 >= 15
-    cond2_p2   = sc2 <= sc1
-    cond3_p2   = sc2 in allowed
-    cond4_p2   = (edge2 is not None and edge2 < -0.03)
-
-    if cond1_p2 and cond2_p2 and cond3_p2 and cond4_p2:
+    if (se2 - se1 >= 15 and sc2 <= sc1 and
+            sc2 in allowed and edge2 is not None and edge2 < -0.03):
         return 2
-
     return None
+
+
+def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
+    """
+    3 new signals — returned as (sig1, sig2) tuple per signal.
+    Each sig can be: None | "b1" | "b2" | "b3"
+
+    BADGE 1 — for player P:
+      surface_elo(P) > surface_elo(opponent) by >=1 pt
+      ss(P) in allowed set for this surface
+      P's ranking is WORSE (higher number) than opponent
+      opponent's edge > 0%   (book underprices opponent)
+
+    BADGE 2 — for player P:
+      surface_elo(P) > surface_elo(opponent) by >=1 pt
+      ss(P) in allowed set for this surface
+      P's ranking is BETTER (lower number) than opponent
+      opponent's edge > +7%  (book underprices opponent by >7%)
+
+    BADGE 3 — for player P:
+      P's ranking is WORSE (higher number) than opponent
+      Elo says P is favorite  (prob > 50%)
+      P's own edge > 0%       (book underprices P)
+
+    Returns: (signal_for_p1, signal_for_p2)
+      Each element is a set of badge names that apply, e.g. {"b1","b3"}
+    """
+    rank1 = r1.get("atp_rank")
+    rank2 = r2.get("atp_rank")
+    se1   = get_surface_elo(r1, surface) or 0
+    se2   = get_surface_elo(r2, surface) or 0
+    sc1   = r1.get("surface_score", 3)
+    sc2   = r2.get("surface_score", 3)
+    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
+
+    sigs1, sigs2 = set(), set()
+
+    if rank1 is None or rank2 is None:
+        return sigs1, sigs2
+
+    # ── Badge 1 checks ─────────────────────────────────────────────────
+    # Player 1 gets B1 if:
+    #   surface Elo better by >=1, ss ok, rank WORSE, opp edge > 0
+    if (se1 - se2 >= 1 and sc1 in allowed and
+            rank1 > rank2 and
+            edge2 is not None and edge2 > 0):
+        sigs1.add("b1")
+    # Player 2 gets B1
+    if (se2 - se1 >= 1 and sc2 in allowed and
+            rank2 > rank1 and
+            edge1 is not None and edge1 > 0):
+        sigs2.add("b1")
+
+    # ── Badge 2 checks ─────────────────────────────────────────────────
+    # Player 1 gets B2 if:
+    #   surface Elo better by >=1, ss ok, rank BETTER, opp edge > 7%
+    if (se1 - se2 >= 1 and sc1 in allowed and
+            rank1 < rank2 and
+            edge2 is not None and edge2 > 0.07):
+        sigs1.add("b2")
+    # Player 2 gets B2
+    if (se2 - se1 >= 1 and sc2 in allowed and
+            rank2 < rank1 and
+            edge1 is not None and edge1 > 0.07):
+        sigs2.add("b2")
+
+    # ── Badge 3 checks ─────────────────────────────────────────────────
+    # Player 1 gets B3 if:
+    #   rank WORSE, Elo favorite, own edge > 0
+    if (rank1 > rank2 and
+            prob1 > 0.50 and
+            edge1 is not None and edge1 > 0):
+        sigs1.add("b3")
+    # Player 2 gets B3
+    if (rank2 > rank1 and
+            prob2 > 0.50 and
+            edge2 is not None and edge2 > 0):
+        sigs2.add("b3")
+
+    return sigs1, sigs2

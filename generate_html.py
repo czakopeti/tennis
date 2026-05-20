@@ -80,6 +80,56 @@ def sm_badge(sm, player_num, surface):
             '🎯 SURFACE MATCH — erősebb %s, boritas-kompatibilis, piac aluláraz</div>') % sl
 
 
+def b1_badge(sigs, player_num, surface):
+    """B1: surface jobb + rosszabb rangú + ellenfél value>0%"""
+    if player_num == 1 and "b1" not in (sigs or set()): return ""
+    if player_num == 2 and "b1" not in (sigs or set()): return ""
+    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            'background:#f9731618;border:1px solid #f9731640;'
+            'font-size:9px;font-weight:700;color:#fb923c">'
+            '🟠 SURFACE+ — Elo jobb %s, rosszabb rangú, piac alulárazza az ellenfelet</div>') % sl
+
+
+def b2_badge(sigs, player_num, surface):
+    """B2: surface jobb + jobb rangú + ellenfél value>7%"""
+    if player_num == 1 and "b2" not in (sigs or set()): return ""
+    if player_num == 2 and "b2" not in (sigs or set()): return ""
+    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            'background:#06b6d418;border:1px solid #06b6d440;'
+            'font-size:9px;font-weight:700;color:#22d3ee">'
+            '💎 KOMBÓ — Elo jobb %s + jobb rangú + piac erősen (>7%%) alulárazza az ellenfelet</div>') % sl
+
+
+def b3_badge(sigs, player_num):
+    """B3: rosszabb rangú + Elo favorit + own value>0%"""
+    if player_num == 1 and "b3" not in (sigs or set()): return ""
+    if player_num == 2 and "b3" not in (sigs or set()): return ""
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            'background:#a78bfa18;border:1px solid #a78bfa40;'
+            'font-size:9px;font-weight:700;color:#a78bfa">'
+            '🏆 ELO UNDERDOG — rosszabb rangú de Elo favorit és piac alulárazza</div>')
+
+
+def suspicious_value_badge(sig, player_num):
+    if sig != player_num: return ""
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            'background:#f9731618;border:1px solid #f9731640;'
+            'font-size:9px;font-weight:700;color:#fb923c">'
+            '⚠️ GYANÚS VALUE — piac alulárazza, ranglista ellentmond</div>')
+
+
+def confirmed_value_badge(sig, player_num):
+    if sig != player_num: return ""
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            'background:#06b6d418;border:1px solid #06b6d440;'
+            'font-size:9px;font-weight:700;color:#22d3ee">'
+            '💎 IGAZI VALUE — Elo + ranglista + piac egybevág</div>')
+
+
+
+
 def render_card(m):
     surf = m.get("surface","hard")
     sm_s = SURFACE_META.get(surf, SURFACE_META["hard"])
@@ -194,6 +244,8 @@ def render_card(m):
         dots1=ss_dots(sc1),
         adv1=adv_badge(adv,1,surf),
         sm1=sm_badge(sm,1,surf),
+        esigs1=m.get("esigs1",set()),
+        esigs2=m.get("esigs2",set()),
         s2=s2,p2s=p2s,r2rank=r2.get("atp_rank","?"),c2=c2,h2=h2,
         dots2=ss_dots(sc2,"right"),
         adv2=adv_badge(adv,2,surf),
@@ -209,7 +261,8 @@ def analyze_matches(matches, elo_players):
     sys.path.insert(0, str(Path(__file__).parent))
     from value_calc import (find_player_in_elo_db, elo_win_prob,
                             get_surface_elo, prob_to_decimal_odds,
-                            surface_advantage, compute_edge, surface_match)
+                            surface_advantage, compute_edge, surface_match,
+                            extra_signals)
     results = []
     for m in matches:
         surf = m.get("surface","hard")
@@ -233,6 +286,11 @@ def analyze_matches(matches, elo_players):
         adv = surface_advantage(r1, r2, surf)
         sm  = surface_match(r1, r2, surf, edge1, edge2)  # NEW
 
+        rank1 = r1.get("atp_rank")
+        rank2 = r2.get("atp_rank")
+        from value_calc import value_signals
+        vsig1, vsig2 = value_signals(p1, 1-p1, edge1, edge2, rank1, rank2)
+
         results.append({**m,
             "name1":n1,"name2":n2,"r1":r1,"r2":r2,
             "c_elo1":c1,"h_elo1":h1,"c_elo2":c2,"h_elo2":h2,
@@ -244,7 +302,8 @@ def analyze_matches(matches, elo_players):
             "book_odds_home":bo1,"book_odds_away":bo2,
             "edge1":edge1,"edge2":edge2,
             "surface_advantage":adv,
-            "surface_match":sm,          # NEW
+            "surface_match":sm,
+            "vsig1":vsig1,"vsig2":vsig2,
             "elo_found":True,"error":None,
             "status":m.get("status","upcoming")})
     return results
@@ -350,6 +409,9 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 <div class="legend">
   <strong style="color:var(--tx)">⚡ Felületi előny</strong>: jobb ezen a borításon + ez az ő jobb borítása + ellenfélnél fordítva<br>
   <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + piac aluláraz ≥3%%<br>
+  <strong style="color:#22d3ee">💎 Kombó</strong>: Elo jobb + jobb rangú + opp value >7%% ·
+  <strong style="color:#fb923c">🟠 Surface+</strong>: Elo jobb + rosszabb rangú + opp value >0%% ·
+  <strong style="color:#a78bfa">🏆 Elo Underdog</strong>: rosszabb rangú + Elo fav + own value >0%%<br>
   🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5) · Value = edge ≥ 4%%
 </div>
 %s%s%s
