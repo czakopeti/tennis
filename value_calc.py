@@ -119,10 +119,10 @@ def surface_match(r1, r2, surface, edge1, edge2):
     allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
 
     if (se1 - se2 >= 15 and sc1 <= sc2 and
-            sc1 in allowed and edge1 is not None and edge1 < -0.03):
+            sc1 in allowed and edge2 is not None and edge2 > 0.06):
         return 1
     if (se2 - se1 >= 15 and sc2 <= sc1 and
-            sc2 in allowed and edge2 is not None and edge2 < -0.03):
+            sc2 in allowed and edge1 is not None and edge1 > 0.06):
         return 2
     return None
 
@@ -165,22 +165,9 @@ def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
     if rank1 is None or rank2 is None:
         return sigs1, sigs2
 
-    # ── Badge 1 checks ─────────────────────────────────────────────────
-    # Player 1 gets B1 if:
-    #   surface Elo better by >=1, ss ok, rank WORSE, opp edge > 0
-    if (se1 - se2 >= 1 and sc1 in allowed and
-            rank1 > rank2 and
-            edge2 is not None and edge2 > 0):
-        sigs1.add("b1")
-    # Player 2 gets B1
-    if (se2 - se1 >= 1 and sc2 in allowed and
-            rank2 > rank1 and
-            edge1 is not None and edge1 > 0):
-        sigs2.add("b1")
-
     # ── Badge 2 checks ─────────────────────────────────────────────────
     # Player 1 gets B2 if:
-    #   surface Elo better by >=1, ss ok, rank BETTER, opp edge > 7%
+    #   surface Elo better by >=1, ss ok, rank BETTER (lower number), opp edge > 7%
     if (se1 - se2 >= 1 and sc1 in allowed and
             rank1 < rank2 and
             edge2 is not None and edge2 > 0.07):
@@ -192,16 +179,18 @@ def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
         sigs2.add("b2")
 
     # ── Badge 3 checks ─────────────────────────────────────────────────
-    # Player 1 gets B3 if:
-    #   rank WORSE, Elo favorite, own edge > 0
+    # B3 conditions identify player X: rank WORSE, Elo fav, own value > 0
+    # Badge goes on OPPONENT (player Y) — Y is the one the market overvalues
+    # (Y has better ranking but Elo says X is the real favorite → bet on X)
+    # So: if Player 1 meets conditions → badge on Player 2 (sigs2)
     if (rank1 > rank2 and
             prob1 > 0.50 and
             edge1 is not None and edge1 > 0):
-        sigs1.add("b3")
-    # Player 2 gets B3
+        sigs2.add("b3")   # badge on opponent (Player 2)
+    # If Player 2 meets conditions → badge on Player 1 (sigs1)
     if (rank2 > rank1 and
             prob2 > 0.50 and
             edge2 is not None and edge2 > 0):
-        sigs2.add("b3")
+        sigs1.add("b3")   # badge on opponent (Player 1)
 
     return sigs1, sigs2

@@ -80,17 +80,6 @@ def sm_badge(sm, player_num, surface):
             '🎯 SURFACE MATCH — erősebb %s, boritas-kompatibilis, piac aluláraz</div>') % sl
 
 
-def b1_badge(sigs, player_num, surface):
-    """B1: surface jobb + rosszabb rangú + ellenfél value>0%"""
-    if player_num == 1 and "b1" not in (sigs or set()): return ""
-    if player_num == 2 and "b1" not in (sigs or set()): return ""
-    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#f9731618;border:1px solid #f9731640;'
-            'font-size:9px;font-weight:700;color:#fb923c">'
-            '🟠 SURFACE+ — Elo jobb %s, rosszabb rangú, piac alulárazza az ellenfelet</div>') % sl
-
-
 def b2_badge(sigs, player_num, surface):
     """B2: surface jobb + jobb rangú + ellenfél value>7%"""
     if player_num == 1 and "b2" not in (sigs or set()): return ""
@@ -103,13 +92,16 @@ def b2_badge(sigs, player_num, surface):
 
 
 def b3_badge(sigs, player_num):
-    """B3: rosszabb rangú + Elo favorit + own value>0%"""
+    """B3: az ellenfél rosszabb rangú, Elo-n mégis favorit, piac alulárazza
+       → erre a játékosra kell fogadni (ő az Elo underdog akit a piac alulértékel)
+       A badge ERRE a játékosra kerül (az ellenfélre a B3 feltételek szemszögéből)"""
     if player_num == 1 and "b3" not in (sigs or set()): return ""
     if player_num == 2 and "b3" not in (sigs or set()): return ""
     return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
             'background:#a78bfa18;border:1px solid #a78bfa40;'
             'font-size:9px;font-weight:700;color:#a78bfa">'
-            '🏆 ELO UNDERDOG — rosszabb rangú de Elo favorit és piac alulárazza</div>')
+            '🏆 RANGLISTÁS FAVORIT — ellenfele Elo-n jobb de rosszabb rangú, '
+            'fogadj ERRE</div>')
 
 
 def suspicious_value_badge(sig, player_num):
@@ -212,13 +204,13 @@ def render_card(m):
       <div class="pinfo">
         <div class="pname">{s1}{p1s}</div>
         <div class="pmeta">#{r1rank} · c{c1:.0f} · h{h1:.0f}</div>
-        {dots1}{adv1}{sm1}{b1p1}{b2p1}{b3p1}
+        {dots1}{adv1}{sm1}{b2p1}{b3p1}
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">{p2s}{s2}</div>
         <div class="pmeta">#{r2rank} · c{c2:.0f} · h{h2:.0f}</div>
-        {dots2}{adv2}{sm2}{b1p2}{b2p2}{b3p2}
+        {dots2}{adv2}{sm2}{b2p2}{b3p2}
       </div>
     </div>
     <div class="odds-row">
@@ -246,10 +238,8 @@ def render_card(m):
         sm1=sm_badge(sm,1,surf),
         esigs1=m.get("esigs1",set()),
         esigs2=m.get("esigs2",set()),
-        b1p1=b1_badge(m.get("esigs1",set()),1,surf),
         b2p1=b2_badge(m.get("esigs1",set()),1,surf),
         b3p1=b3_badge(m.get("esigs1",set()),1),
-        b1p2=b1_badge(m.get("esigs2",set()),2,surf),
         b2p2=b2_badge(m.get("esigs2",set()),2,surf),
         b3p2=b3_badge(m.get("esigs2",set()),2),
         s2=s2,p2s=p2s,r2rank=r2.get("atp_rank","?"),c2=c2,h2=h2,
@@ -410,10 +400,9 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 </div>
 <div class="legend">
   <strong style="color:var(--tx)">⚡ Felületi előny</strong>: jobb ezen a borításon + ez az ő jobb borítása + ellenfélnél fordítva<br>
-  <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + piac aluláraz ≥3%%<br>
-  <strong style="color:#22d3ee">💎 Kombó</strong>: Elo jobb + jobb rangú + opp value >7%% ·
-  <strong style="color:#fb923c">🟠 Surface+</strong>: Elo jobb + rosszabb rangú + opp value >0%% ·
-  <strong style="color:#a78bfa">🏆 Elo Underdog</strong>: rosszabb rangú + Elo fav + own value >0%%<br>
+  <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + ellenfél value >6%%<br>
+  <strong style="color:#22d3ee">💎 Kombó</strong>: Elo jobb borításon + jobb rangú + ellenfél value >7%% ·
+  <strong style="color:#a78bfa">🏆 Ranglistás Favorit</strong>: ellenfele Elo-n jobb de rosszabb rangú → fogadj ERRE<br>
   🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5) · Value = edge ≥ 4%%
 </div>
 %s%s%s
