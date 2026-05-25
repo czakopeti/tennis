@@ -104,6 +104,26 @@ def b3_badge(sigs, player_num):
             'fogadj ERRE</div>')
 
 
+def composite_badge(cscore, cdetail, threshold=None):
+    """Composite score badge — only shown if score >= threshold."""
+    from value_calc import COMPOSITE_THRESHOLD
+    thr = threshold or COMPOSITE_THRESHOLD
+    if cscore is None or cscore < thr:
+        return ""
+    stars = int(cscore // 2)
+    star_str = "★" * min(stars, 5)
+    col = "#22c55e" if cscore >= 5.0 else ("#eab308" if cscore >= 3.0 else "#94a3b8")
+    bg  = "#22c55e18" if cscore >= 5.0 else ("#eab30818" if cscore >= 3.0 else "#94a3b818")
+    bd  = "#22c55e40" if cscore >= 5.0 else ("#eab30840" if cscore >= 3.0 else "#94a3b840")
+    det = ""
+    if isinstance(cdetail, dict):
+        det = f" · SS:{cdetail['ss_pt']:.1f} Elo:{cdetail['elo_pt']:.1f} Edg:{cdetail['edge_pt']:.1f}"
+    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
+            f'background:{bg};border:1px solid {bd};'
+            'font-size:9px;font-weight:700;'
+            f'color:{col}">⭐ KOMPOZIT {cscore:.2f}pt {star_str}{det}</div>')
+
+
 def suspicious_value_badge(sig, player_num):
     if sig != player_num: return ""
     return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
@@ -204,13 +224,13 @@ def render_card(m):
       <div class="pinfo">
         <div class="pname">{s1}{p1s}</div>
         <div class="pmeta">#{r1rank} · c{c1:.0f} · h{h1:.0f}</div>
-        {dots1}{adv1}{sm1}{b2p1}{b3p1}
+        {dots1}{adv1}{sm1}{b2p1}{b3p1}{csc1}
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">{p2s}{s2}</div>
         <div class="pmeta">#{r2rank} · c{c2:.0f} · h{h2:.0f}</div>
-        {dots2}{adv2}{sm2}{b2p2}{b3p2}
+        {dots2}{adv2}{sm2}{b2p2}{b3p2}{csc2}
       </div>
     </div>
     <div class="odds-row">
@@ -242,6 +262,8 @@ def render_card(m):
         b3p1=b3_badge(m.get("esigs1",set()),1),
         b2p2=b2_badge(m.get("esigs2",set()),2,surf),
         b3p2=b3_badge(m.get("esigs2",set()),2),
+        csc1=composite_badge(m.get("cscore1"), m.get("cdetail1")),
+        csc2=composite_badge(m.get("cscore2"), m.get("cdetail2")),
         s2=s2,p2s=p2s,r2rank=r2.get("atp_rank","?"),c2=c2,h2=h2,
         dots2=ss_dots(sc2,"right"),
         adv2=adv_badge(adv,2,surf),
@@ -258,7 +280,7 @@ def analyze_matches(matches, elo_players):
     from value_calc import (find_player_in_elo_db, elo_win_prob,
                             get_surface_elo, prob_to_decimal_odds,
                             surface_advantage, compute_edge, surface_match,
-                            extra_signals)
+                            extra_signals, composite_score, COMPOSITE_THRESHOLD)
     results = []
     for m in matches:
         surf = m.get("surface","hard")
@@ -283,6 +305,11 @@ def analyze_matches(matches, elo_players):
         sm  = surface_match(r1, r2, surf, edge1, edge2)
         esigs1, esigs2 = extra_signals(r1, r2, surf, edge1, edge2, p1, 1-p1)
 
+        se1 = get_surface_elo(r1, surf) or 0
+        se2 = get_surface_elo(r2, surf) or 0
+        cscore1, cdetail1 = composite_score(r1.get('surface_score',3), r2.get('surface_score',3), se1, se2, edge1, surf)
+        cscore2, cdetail2 = composite_score(r2.get('surface_score',3), r1.get('surface_score',3), se2, se1, edge2, surf)
+
         results.append({**m,
             "name1":n1,"name2":n2,"r1":r1,"r2":r2,
             "c_elo1":c1,"h_elo1":h1,"c_elo2":c2,"h_elo2":h2,
@@ -296,6 +323,8 @@ def analyze_matches(matches, elo_players):
             "surface_advantage":adv,
             "surface_match":sm,
             "esigs1":esigs1,"esigs2":esigs2,
+            "cscore1":cscore1,"cdetail1":cdetail1,
+            "cscore2":cscore2,"cdetail2":cdetail2,
             "elo_found":True,"error":None,
             "status":m.get("status","upcoming")})
     return results
@@ -403,6 +432,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + ellenfél value >6%%<br>
   <strong style="color:#22d3ee">💎 Kombó</strong>: Elo jobb borításon + jobb rangú + ellenfél value >7%% ·
   <strong style="color:#a78bfa">🏆 Ranglistás Favorit</strong>: ellenfele Elo-n jobb de rosszabb rangú → fogadj ERRE<br>
+  <strong style="color:#22c55e">⭐ Kompozit</strong>: SS(max 5) + Elo(max 4) + Edge(max 1) ≥ 1.8pt szükséges · zöld ≥5.0 · sárga ≥3.0<br>
   🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5) · Value = edge ≥ 4%%
 </div>
 %s%s%s

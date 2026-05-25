@@ -19,6 +19,9 @@ SURFACE_SS_ALLOWED = {
     "grass": {2, 3, 4},
 }
 
+# Composite score küszöb
+COMPOSITE_THRESHOLD = 1.8
+
 
 def normalize_name(name):
     return re.sub(r"[^a-z]", "", name.lower())
@@ -46,9 +49,9 @@ def find_player_in_elo_db(player_name, elo_db, threshold=0.75):
             return canonical, data
     best_key, best_score = None, 0.0
     for canonical, data in elo_db.items():
-        score = SequenceMatcher(None, norm, normalize_name(canonical)).ratio()
-        if score > best_score:
-            best_score, best_key = score, canonical
+        s = SequenceMatcher(None, norm, normalize_name(canonical)).ratio()
+        if s > best_score:
+            best_score, best_key = s, canonical
     if best_score >= threshold:
         return best_key, elo_db[best_key]
     return None, None
@@ -105,11 +108,11 @@ def surface_advantage(r1, r2, surface):
 
 def surface_match(r1, r2, surface, edge1, edge2):
     """
-    Surface Match: 4 conditions simultaneously for Player 1:
+    Surface Match: 4 conditions for Player 1:
       1. surface_elo1 - surface_elo2 >= 15
       2. surface_score1 <= surface_score2
       3. surface_score1 in allowed set for surface
-      4. edge1 < -0.03  (book underprices player1 by >=3%)
+      4. opponent's edge > +6%  (book underprices opponent)
     """
     sc1 = r1.get("surface_score", 3)
     sc2 = r2.get("surface_score", 3)
@@ -127,30 +130,54 @@ def surface_match(r1, r2, surface, edge1, edge2):
     return None
 
 
+def composite_score(my_ss, opp_ss, my_celo, opp_celo, my_edge, surface="clay"):
+    """
+    Composite scoring system (0–10 scale):
+      SS component:   max 5pt  (surface score advantage)
+      Elo component:  max 4pt  (Elo delta on this surface)
+      Edge component: max 1pt  (bookmaker underprices = negative edge)
+
+    Exclusions:
+      - clay: ss > 3 (hard-leaning players excluded)
+      - clay: my_ss > opp_ss (opponent better suited)
+      - ΔElo < 5 (too close to call)
+
+    Returns: (score, detail_dict) or (None, reason_string)
+    """
+    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
+
+    if surface in ("clay", "hard", "grass"):
+        if my_ss not in allowed:
+            return None, f"ss={my_ss} nem kompatibilis"
+        if my_ss > opp_ss:
+            return None, f"ss rosszabb mint ellenfél"
+
+    elo_delta = my_celo - opp_celo
+    if elo_delta < 5:
+        return None, f"ΔElo={elo_delta}<5"
+
+    ss_delta  = opp_ss - my_ss
+    ss_pt     = (min(ss_delta, 4) / 4) * 5.0
+    elo_pt    = max(0, min(elo_delta / 300, 1)) * 4.0
+    edge_pt   = max(0, min(-(my_edge or 0) / 0.20, 1)) * 1.0
+
+    total = round(ss_pt + elo_pt + edge_pt, 2)
+    detail = {
+        "ss_delta":  ss_delta,
+        "ss_pt":     round(ss_pt, 2),
+        "elo_delta": elo_delta,
+        "elo_pt":    round(elo_pt, 2),
+        "edge_pct":  round((my_edge or 0) * 100, 1),
+        "edge_pt":   round(edge_pt, 2),
+        "total":     total,
+    }
+    return total, detail
+
+
 def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
     """
-    3 new signals — returned as (sig1, sig2) tuple per signal.
-    Each sig can be: None | "b1" | "b2" | "b3"
-
-    BADGE 1 — for player P:
-      surface_elo(P) > surface_elo(opponent) by >=1 pt
-      ss(P) in allowed set for this surface
-      P's ranking is WORSE (higher number) than opponent
-      opponent's edge > 0%   (book underprices opponent)
-
-    BADGE 2 — for player P:
-      surface_elo(P) > surface_elo(opponent) by >=1 pt
-      ss(P) in allowed set for this surface
-      P's ranking is BETTER (lower number) than opponent
-      opponent's edge > +7%  (book underprices opponent by >7%)
-
-    BADGE 3 — for player P:
-      P's ranking is WORSE (higher number) than opponent
-      Elo says P is favorite  (prob > 50%)
-      P's own edge > 0%       (book underprices P)
-
-    Returns: (signal_for_p1, signal_for_p2)
-      Each element is a set of badge names that apply, e.g. {"b1","b3"}
+    B2: surface Elo better >=1, ss compatible, rank BETTER, opp edge >7%
+    B3: rank WORSE, Elo favorite, own edge >0  → badge on OPPONENT
     """
     rank1 = r1.get("atp_rank")
     rank2 = r2.get("atp_rank")
@@ -161,36 +188,24 @@ def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
     allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
 
     sigs1, sigs2 = set(), set()
-
     if rank1 is None or rank2 is None:
         return sigs1, sigs2
 
-    # ── Badge 2 checks ─────────────────────────────────────────────────
-    # Player 1 gets B2 if:
-    #   surface Elo better by >=1, ss ok, rank BETTER (lower number), opp edge > 7%
+    # B2 — Player 1
     if (se1 - se2 >= 1 and sc1 in allowed and
-            rank1 < rank2 and
-            edge2 is not None and edge2 > 0.07):
+            rank1 < rank2 and edge2 is not None and edge2 > 0.07):
         sigs1.add("b2")
-    # Player 2 gets B2
+    # B2 — Player 2
     if (se2 - se1 >= 1 and sc2 in allowed and
-            rank2 < rank1 and
-            edge1 is not None and edge1 > 0.07):
+            rank2 < rank1 and edge1 is not None and edge1 > 0.07):
         sigs2.add("b2")
 
-    # ── Badge 3 checks ─────────────────────────────────────────────────
-    # B3 conditions identify player X: rank WORSE, Elo fav, own value > 0
-    # Badge goes on OPPONENT (player Y) — Y is the one the market overvalues
-    # (Y has better ranking but Elo says X is the real favorite → bet on X)
-    # So: if Player 1 meets conditions → badge on Player 2 (sigs2)
-    if (rank1 > rank2 and
-            prob1 > 0.50 and
+    # B3 — badge goes on OPPONENT
+    if (rank1 > rank2 and prob1 > 0.50 and
             edge1 is not None and edge1 > 0):
-        sigs2.add("b3")   # badge on opponent (Player 2)
-    # If Player 2 meets conditions → badge on Player 1 (sigs1)
-    if (rank2 > rank1 and
-            prob2 > 0.50 and
+        sigs2.add("b3")
+    if (rank2 > rank1 and prob2 > 0.50 and
             edge2 is not None and edge2 > 0):
-        sigs1.add("b3")   # badge on opponent (Player 1)
+        sigs1.add("b3")
 
     return sigs1, sigs2
