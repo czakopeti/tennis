@@ -1,28 +1,15 @@
 [
   {
     "time": "",
-    "player1": "Mensik J.",
-    "player2": "Zverev A.",
-    "seed1": 26,
-    "seed2": 2,
-    "book_odds_home": 3.78,
-    "book_odds_away": 1.27,
-    "tournament": "French Open",
-    "surface": "clay",
-    "category": "GS",
-    "tour": "ATP"
-  },
-  {
-    "time": "",
-    "player1": "Arnaldi M.",
-    "player2": "Cobolli F.",
+    "player1": "Chwalinska M.",
+    "player2": "Andreeva M.",
     "seed1": null,
-    "seed2": 10,
-    "book_odds_home": 2.98,
-    "book_odds_away": 1.4,
+    "seed2": 8,
+    "book_odds_home": 3.92,
+    "book_odds_away": 1.26,
     "tournament": "French Open",
     "surface": "clay",
     "category": "GS",
-    "tour": "ATP"
+    "tour": "WTA"
   }
 ]
