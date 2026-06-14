@@ -187,13 +187,13 @@ def render_card(m: dict) -> str:
       <div class="pinfo">
         <div class="pname">{s1}{p1s}</div>
         <div class="pmeta">#{r1.get("atp_rank","?")} · c{c1:.0f} · h{h1:.0f}</div>
-        <div style="margin-top:3px">{ss9_display(ss1)} <span style="font-size:9px;color:{SS9[ss1]["col"]}">{SS9_LABEL[ss1]}</span></div>
+        <div style="margin-top:3px">{ss9_display(ss1)} <span style="font-size:9px;color:{SS9[ss1]["col"]}">{ss1} · {SS9_LABEL[ss1]}</span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">{p2s}{s2}</div>
         <div class="pmeta">#{r2.get("atp_rank","?")} · c{c2:.0f} · h{h2:.0f}</div>
-        <div style="margin-top:3px"><span style="font-size:9px;color:{SS9[ss2]["col"]}">{SS9_LABEL[ss2]}</span> {ss9_display(ss2)}</div>
+        <div style="margin-top:3px"><span style="font-size:9px;color:{SS9[ss2]["col"]}">{SS9_LABEL[ss2]} · {ss2}</span> {ss9_display(ss2)}</div>
       </div>
     </div>
     <div class="odds-row">

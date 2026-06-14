@@ -91,27 +91,16 @@ def get_court_cpi(tournament_name: str, surface: str) -> float:
     return COURT_CPI["default_hard"]
 
 
-def player_ss9(record: dict, surface: str) -> int:
+def player_ss9(record: dict, surface: str = "clay") -> int:
     """
     Játékos 1-9 borítás-preferencia pontszáma.
-    cElo - hElo különbség alapján (pozitív = salakos, negatív = gyors).
-    Fűre: ha gElo >> cElo/hElo, akkor gyors specialista (8-9).
+    Mindig cElo − hElo különbség alapján — torna borítástól független.
+    Pozitív = salakos (1-4), közel 0 = all-rounder (5), negatív = gyors (6-9).
+    Ez mutatja a játékos valódi profilját: pl. salakos játékos fűre = 2-3
+    ami azonnal jelzi hogy "otthonán kívül" van.
     """
-    celo = record.get("cElo") or 1500
-    helo = record.get("hElo") or 1500
-    gelo = record.get("gElo") or 0
-
-    if surface == "grass" and gelo > 0:
-        # Fűre: gElo vs átlag alapján
-        avg = (celo + helo) / 2
-        delta = gelo - avg
-        if delta > 100:  return 9
-        if delta > 50:   return 8
-        if delta > 20:   return 7
-        if delta > -20:  return 6
-        return 5
-
-    # Clay/hard: cElo - hElo különbség
+    celo  = record.get("cElo") or 1500
+    helo  = record.get("hElo") or 1500
     delta = celo - helo
     if delta > 150:   return 1
     if delta > 80:    return 2
