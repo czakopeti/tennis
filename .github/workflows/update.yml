@@ -2,16 +2,20 @@ name: ATP · WTA Value Bet
 
 on:
   schedule:
-    - cron: '0 7 * * *'
-    - cron: '0 11 * * *'
-    - cron: '0 9 * * 1'
+    - cron: '0 7 * * *'      # napi 07:00 UTC
+    - cron: '0 11 * * *'     # napi 11:00 UTC
+    - cron: '0 9 * * 1'      # hétfő 09:00 UTC — Elo frissítés
+    - cron: '0 6 1 1 *'      # január 1. 06:00 UTC — CPI éves frissítés
   workflow_dispatch:
     inputs:
       bankroll:
-        description: 'Bankroll (USD)'
+        description: 'Bankroll'
         default: '1000'
       force_elo:
-        description: 'Elo frissites? (yes/no)'
+        description: 'Elo frissítés? (yes/no)'
+        default: 'no'
+      force_cpi:
+        description: 'CPI frissítés? (yes/no)'
         default: 'no'
 
 permissions:
@@ -28,24 +32,30 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ hashFiles('requirements.txt') }}-v5
+          key: pip-${{ hashFiles('requirements.txt') }}-v6
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Heti Elo frissites (hetfo 09:00 UTC = 11:00 magyar)
-        if: github.event.schedule == '0 9 * * 1' || github.event.inputs.force_elo == 'yes'
+      - name: Éves CPI frissítés (jan. 1.)
+        if: >
+          github.event.schedule == '0 6 1 1 *' ||
+          github.event.inputs.force_cpi == 'yes'
+        run: python fetch_cpi.py
+
+      - name: Heti Elo frissítés (hétfő 09:00 UTC)
+        if: >
+          github.event.schedule == '0 9 * * 1' ||
+          github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
       - name: Napi meccsek + HTML
         run: |
-          if [ -f "data/elo_ratings_atp.json" ] && [ -f "data/elo_ratings_wta.json" ]; then
-            python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}" --skip-elo
-          else
-            python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}"
-          fi
+          SKIP=""
+          [ -f "data/elo_ratings_atp.json" ] && [ -f "data/elo_ratings_wta.json" ] && SKIP="--skip-elo"
+          python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}" $SKIP
 
-      - name: Commit es push
+      - name: Commit és push
         run: |
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
@@ -53,13 +63,13 @@ jobs:
           git diff --staged --quiet || git commit -m "$(date -u '+%Y-%m-%d %H:%M') UTC"
           git push
 
-      - name: ntfy ertesites
+      - name: ntfy értesítés
         if: always()
         run: |
           curl -s \
-            -H "Title: ATP WTA Value Bet frissult" \
+            -H "Title: ATP WTA Value Bet frissült" \
             -H "Priority: default" \
             -H "Tags: tennis" \
             -H "Click: https://czakopeti.github.io/tennis/" \
-            -d "Napi frissites kesz - $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            -d "Frissítés kész — $(date -u '+%Y-%m-%d %H:%M UTC')" \
             "https://ntfy.sh/${{ secrets.NTFY_TOPIC }}" || true
