@@ -4,274 +4,214 @@ from pathlib import Path
 
 OUTPUT_HTML  = Path(__file__).parent / "index.html"
 RESULTS_PATH = Path(__file__).parent / "data" / "results.json"
+CPI_PATH     = Path(__file__).parent / "data" / "court_cpi.json"
 
 SURFACE_META = {
-    "clay":  {"icon":"🧱","label":"Salak",  "col":"#fb923c","bg":"#ea580c1a","bd":"#ea580c40"},
-    "hard":  {"icon":"💙","label":"Kemeny", "col":"#60a5fa","bg":"#3b82f61a","bd":"#3b82f640"},
-    "grass": {"icon":"🌿","label":"Fu",     "col":"#4ade80","bg":"#22c55e1a","bd":"#22c55e40"},
-}
-SS_META = {
-    1:{"icon":"🧱🧱","col":"#fb923c"},
-    2:{"icon":"🧱",  "col":"#fbbf24"},
-    3:{"icon":"⚖",   "col":"#94a3b8"},
-    4:{"icon":"💙",  "col":"#60a5fa"},
-    5:{"icon":"💙💙","col":"#818cf8"},
+    "clay":  {"icon": "🧱", "label": "Salak",  "col": "#fb923c", "bg": "#ea580c1a", "bd": "#ea580c40"},
+    "hard":  {"icon": "💙", "label": "Kemény", "col": "#60a5fa", "bg": "#3b82f61a", "bd": "#3b82f640"},
+    "grass": {"icon": "🌿", "label": "Fű",     "col": "#4ade80", "bg": "#22c55e1a", "bd": "#22c55e40"},
 }
 TOUR_META = {
-    "ATP": {"label":"ATP","col":"#3b82f6","bg":"#3b82f618","bd":"#3b82f640"},
-    "WTA": {"label":"WTA","col":"#ec4899","bg":"#ec489918","bd":"#ec489940"},
+    "ATP": {"col": "#3b82f6", "bg": "#3b82f618", "bd": "#3b82f640"},
+    "WTA": {"col": "#ec4899", "bg": "#ec489918", "bd": "#ec489940"},
 }
+
+# SS9 ikonok + színek
+SS9 = {
+    1: {"icon": "🧱🧱🧱", "col": "#c2410c"},
+    2: {"icon": "🧱🧱",   "col": "#ea580c"},
+    3: {"icon": "🧱",     "col": "#f97316"},
+    4: {"icon": "🔸",     "col": "#fbbf24"},
+    5: {"icon": "⚖",      "col": "#94a3b8"},
+    6: {"icon": "🔹",     "col": "#60a5fa"},
+    7: {"icon": "💙",     "col": "#3b82f6"},
+    8: {"icon": "💙💙",   "col": "#2563eb"},
+    9: {"icon": "💙💙💙", "col": "#1d4ed8"},
+}
+
+SS9_LABEL = {
+    1:"Extrém salak",2:"Erős salakos",3:"Salak-hajlam",4:"Enyhe salak",
+    5:"All-rounder",6:"Enyhe gyors",7:"Gyors-hajlam",8:"Erős gyors",9:"Extrém gyors"
+}
+
+
+def load_cpi() -> dict:
+    if CPI_PATH.exists():
+        return json.loads(CPI_PATH.read_text())
+    return {}
 
 
 def load_results():
     if RESULTS_PATH.exists():
-        with open(RESULTS_PATH) as f: return json.load(f)
+        return json.load(open(RESULTS_PATH))
     return []
+
 
 def compute_stats(results):
     bets = [r for r in results if r.get("settled")]
-    if not bets: return {"total":0,"roi":0.0,"profit":0.0}
-    staked = sum(b.get("stake",0) for b in bets)
-    profit = sum(b.get("profit",0) for b in bets)
-    return {"total":len(bets),
-            "roi":round(profit/staked*100,1) if staked else 0,
-            "profit":round(profit,2)}
+    if not bets:
+        return {"total": 0, "roi": 0.0, "profit": 0.0}
+    staked = sum(b.get("stake", 0) for b in bets)
+    profit = sum(b.get("profit", 0) for b in bets)
+    return {"total": len(bets),
+            "roi": round(profit / staked * 100, 1) if staked else 0,
+            "profit": round(profit, 2)}
 
 
-def ss_dots(score, align="left"):
-    m = SS_META.get(score, SS_META[3])
-    dots = ""
-    for i in range(1,6):
-        if score<=2:   filled=i<=(3-score); col="#fb923c" if filled else "#1e3a5f"
-        elif score>=4: filled=i>(3-(5-score)); col="#60a5fa" if filled else "#1e3a5f"
-        else:          filled=i==3; col="#94a3b8" if filled else "#1e3a5f"
-        dots += '<span style="width:7px;height:7px;border-radius:50%%;display:inline-block;margin:0 1px;background:%s"></span>' % col
-    lbl = '<span style="font-size:9px;color:%s;margin-%s:3px">%s</span>' % (m["col"], "left" if align=="left" else "right", m["icon"])
-    if align=="left":
-        return '<div style="display:flex;align-items:center;gap:1px">%s%s</div>' % (lbl, dots)
-    return '<div style="display:flex;align-items:center;gap:1px;justify-content:flex-end">%s%s</div>' % (dots, lbl)
+def ss9_display(ss: int) -> str:
+    m = SS9.get(ss, SS9[5])
+    return (f'<span style="font-size:11px;font-weight:700;color:{m["col"]}">'
+            f'{m["icon"]}</span>')
 
 
-def edge_badge(edge):
-    if edge is None: return ""
-    col = "#22c55e" if edge>=0.04 else ("#94a3b8" if edge>=0 else "#ef4444")
-    bg  = "#22c55e18" if edge>=0.04 else "#1e3050"
-    bd  = "#22c55e40" if edge>=0.04 else "#1e3050"
-    lbl = " VALUE" if edge>=0.04 else ""
-    return '<span style="font-size:9px;font-weight:700;padding:2px 5px;border-radius:4px;background:%s;border:1px solid %s;color:%s">%+.1f%%%s</span>' % (bg, bd, col, edge*100, lbl)
+def cpi_badge(cpi: float) -> str:
+    if cpi < 30:
+        col, lbl = "#f97316", "Lassú"
+    elif cpi < 35:
+        col, lbl = "#fbbf24", "Köz-lassú"
+    elif cpi < 40:
+        col, lbl = "#94a3b8", "Közepes"
+    elif cpi < 45:
+        col, lbl = "#60a5fa", "Köz-gyors"
+    else:
+        col, lbl = "#818cf8", "Gyors"
+    return (f'<span style="font-size:9px;font-weight:700;padding:1px 5px;'
+            f'border-radius:3px;background:{col}18;border:1px solid {col}40;color:{col}">'
+            f'CPI {cpi:.0f} · {lbl}</span>')
 
 
-def adv_badge(adv, player_num, surface):
-    if adv != player_num: return ""
-    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#f59e0b15;border:1px solid #f59e0b35;'
-            'font-size:9px;font-weight:700;color:#f59e0b">'
-            '⚡ Felületi előny — jobb %s</div>') % sl
-
-
-def sm_badge(sm, player_num, surface):
-    """Surface Match: all 3 conditions met."""
-    if sm != player_num: return ""
-    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#a855f718;border:1px solid #a855f740;'
-            'font-size:9px;font-weight:700;color:#c084fc">'
-            '🎯 SURFACE MATCH — erősebb %s, boritas-kompatibilis, piac aluláraz</div>') % sl
-
-
-def b2_badge(sigs, player_num, surface):
-    """B2: surface jobb + jobb rangú + ellenfél value>7%"""
-    if player_num == 1 and "b2" not in (sigs or set()): return ""
-    if player_num == 2 and "b2" not in (sigs or set()): return ""
-    sl = {"clay":"salakon","hard":"keményen","grass":"füvön"}.get(surface, surface)
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#06b6d418;border:1px solid #06b6d440;'
-            'font-size:9px;font-weight:700;color:#22d3ee">'
-            '💎 KOMBÓ — Elo jobb %s + jobb rangú + piac erősen (>7%%) alulárazza az ellenfelet</div>') % sl
-
-
-def b3_badge(sigs, player_num):
-    """B3: az ellenfél rosszabb rangú, Elo-n mégis favorit, piac alulárazza
-       → erre a játékosra kell fogadni (ő az Elo underdog akit a piac alulértékel)
-       A badge ERRE a játékosra kerül (az ellenfélre a B3 feltételek szemszögéből)"""
-    if player_num == 1 and "b3" not in (sigs or set()): return ""
-    if player_num == 2 and "b3" not in (sigs or set()): return ""
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#a78bfa18;border:1px solid #a78bfa40;'
-            'font-size:9px;font-weight:700;color:#a78bfa">'
-            '🏆 RANGLISTÁS FAVORIT — ellenfele Elo-n jobb de rosszabb rangú, '
-            'fogadj ERRE</div>')
-
-
-def composite_badge(cscore, cdetail, threshold=None):
-    """Composite score badge — only shown if score >= threshold."""
-    from value_calc import COMPOSITE_THRESHOLD
-    thr = threshold or COMPOSITE_THRESHOLD
-    if cscore is None or cscore < thr:
+def edge_badge(edge) -> str:
+    if edge is None:
         return ""
-    stars = int(cscore // 2)
-    star_str = "★" * min(stars, 5)
-    col = "#22c55e" if cscore >= 5.0 else ("#eab308" if cscore >= 3.0 else "#94a3b8")
-    bg  = "#22c55e18" if cscore >= 5.0 else ("#eab30818" if cscore >= 3.0 else "#94a3b818")
-    bd  = "#22c55e40" if cscore >= 5.0 else ("#eab30840" if cscore >= 3.0 else "#94a3b840")
-    det = ""
-    if isinstance(cdetail, dict):
-        det = f" · SS:{cdetail['ss_pt']:.1f} Elo:{cdetail['elo_pt']:.1f} Edg:{cdetail['edge_pt']:.1f}"
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            f'background:{bg};border:1px solid {bd};'
-            'font-size:9px;font-weight:700;'
-            f'color:{col}">⭐ KOMPOZIT {cscore:.2f}pt {star_str}{det}</div>')
+    col = "#22c55e" if edge >= 0.04 else ("#94a3b8" if edge >= 0 else "#ef4444")
+    bg  = "#22c55e18" if edge >= 0.04 else "#1e3050"
+    bd  = "#22c55e40" if edge >= 0.04 else "#1e3050"
+    lbl = " VALUE" if edge >= 0.04 else ""
+    return (f'<span style="font-size:9px;font-weight:700;padding:2px 5px;'
+            f'border-radius:4px;background:{bg};border:1px solid {bd};color:{col}">'
+            f'{edge*100:+.1f}%%{lbl}</span>')
 
 
-def suspicious_value_badge(sig, player_num):
-    if sig != player_num: return ""
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#f9731618;border:1px solid #f9731640;'
-            'font-size:9px;font-weight:700;color:#fb923c">'
-            '⚠️ GYANÚS VALUE — piac alulárazza, ranglista ellentmond</div>')
-
-
-def confirmed_value_badge(sig, player_num):
-    if sig != player_num: return ""
-    return ('<div style="margin-top:3px;padding:2px 6px;border-radius:4px;'
-            'background:#06b6d418;border:1px solid #06b6d440;'
-            'font-size:9px;font-weight:700;color:#22d3ee">'
-            '💎 IGAZI VALUE — Elo + ranglista + piac egybevág</div>')
-
-
-
-
-def render_card(m):
-    surf = m.get("surface","hard")
+def render_card(m: dict) -> str:
+    surf = m.get("surface", "hard")
     sm_s = SURFACE_META.get(surf, SURFACE_META["hard"])
-    cat  = m.get("category","ATP")
-    tour = m.get("tour","ATP")
+    tour = m.get("tour", "ATP")
     tm   = TOUR_META.get(tour, TOUR_META["ATP"])
+    cat  = m.get("category", "")
+    tourn = m.get("tournament", "")
+    cpi  = m.get("court_cpi", 0)
 
     pill = ('<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;'
-            'background:#eab30818;border:1px solid #eab30840;color:#eab308;animation:pulse 2s infinite">● LIVE</span>'
-            if m.get("status")=="live" else
+            'background:#eab30818;border:1px solid #eab30840;color:#eab308;animation:pulse 2s infinite">'
+            '● LIVE</span>'
+            if m.get("status") == "live" else
             '<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;'
             'background:#3b82f618;border:1px solid #3b82f640;color:#3b82f6">Upcoming</span>')
 
+    # Helyszín + torna sor
+    tourn_str = f'<span style="font-size:10px;color:#64748b">{tourn}</span> ' if tourn else ""
+    cpi_str   = cpi_badge(cpi) if cpi else ""
+
     if not m.get("elo_found"):
-        return ('<div class="card" style="opacity:.5"><div class="ctop">'
-                '<div class="tags"><span class="surf-tag" style="background:%s;border-color:%s;color:%s">%s %s</span>'
-                '<span class="cat-tag" style="color:%s;border-color:%s">%s %s</span>'
-                '<span class="t-tag">%s</span></div>%s</div>'
-                '<div class="cbody"><div style="font-weight:600">%s <span style="color:#64748b">vs</span> %s</div>'
-                '<div style="font-size:11px;color:#ef4444;margin-top:.3rem">⚠ %s</div></div></div>') % (
-            sm_s["bg"],sm_s["bd"],sm_s["col"],sm_s["icon"],sm_s["label"],
-            tm["col"],tm["bd"],tour,cat,
-            m.get("time",""), pill,
-            m["player1"],m["player2"],m.get("error","Elo N/A"))
+        return (f'<div class="card" style="opacity:.5"><div class="ctop">'
+                f'<div class="tags">'
+                f'<span class="surf-tag" style="background:{sm_s["bg"]};border-color:{sm_s["bd"]};color:{sm_s["col"]}">'
+                f'{sm_s["icon"]} {sm_s["label"]}</span>'
+                f'<span class="cat-tag" style="color:{tm["col"]};border-color:{tm["bd"]}">{tour} {cat}</span>'
+                f'<span class="t-tag">{m.get("time","")}</span></div>{pill}</div>'
+                f'<div style="padding:.4rem .75rem;font-size:11px">{tourn_str}{cpi_str}</div>'
+                f'<div class="cbody"><div style="font-weight:600">'
+                f'{m["player1"]} <span style="color:#64748b">vs</span> {m["player2"]}</div>'
+                f'<div style="font-size:11px;color:#ef4444;margin-top:.3rem">⚠ {m.get("error","Elo N/A")}'
+                f'</div></div></div>')
 
-    p1,p2   = m["name1"],m["name2"]
-    r1,r2   = m["r1"],m["r2"]
-    c1,h1   = m["c_elo1"],m["h_elo1"]
-    c2,h2   = m["c_elo2"],m["h_elo2"]
-    sc1,sc2 = m["surf_score1"],m["surf_score2"]
-    prob1   = m["prob1"]; prob2=1-prob1
-    o1=m["odds1"]; o2=m["odds2"]
-    bo1=m.get("book_odds_home"); bo2=m.get("book_odds_away")
-    e1=m.get("edge1"); e2=m.get("edge2")
-    adv=m.get("surface_advantage")
-    sm =m.get("surface_match")       # NEW
-    delta=(c1-c2) if surf=="clay" else (h1-h2)
+    p1, p2     = m["name1"], m["name2"]
+    r1, r2     = m["r1"], m["r2"]
+    c1, h1     = m["c_elo1"], m["h_elo1"]
+    c2, h2     = m["c_elo2"], m["h_elo2"]
+    ss1, ss2   = m["ss1"], m["ss2"]
+    prob1      = m["prob1"]; prob2 = 1 - prob1
+    o1, o2     = m["odds1"], m["odds2"]
+    bo1, bo2   = m.get("book_odds_home"), m.get("book_odds_away")
+    e1, e2     = m.get("edge1"), m.get("edge2")
+    delta      = (c1 - c2) if surf == "clay" else (h1 - h2)
 
-    oc1="#22c55e" if prob1>=prob2 else "#e2e8f0"
-    oc2="#22c55e" if prob1<prob2  else "#e2e8f0"
-    bw="%s" % round(prob1*100,1)
-    bcol=("linear-gradient(90deg,#15803d,#22c55e)" if prob1>0.65 else
-          "linear-gradient(90deg,#92400e,#d97706)" if prob1<0.40 else
-          "linear-gradient(90deg,#1d4ed8,#38bdf8)")
+    oc1 = "#22c55e" if prob1 >= prob2 else "#e2e8f0"
+    oc2 = "#22c55e" if prob1 < prob2  else "#e2e8f0"
+    bw  = f"{round(prob1*100,1)}"
+    bcol = ("linear-gradient(90deg,#15803d,#22c55e)" if prob1 > 0.65
+            else "linear-gradient(90deg,#92400e,#d97706)" if prob1 < 0.40
+            else "linear-gradient(90deg,#1d4ed8,#38bdf8)")
 
     def short(n):
-        pts=n.split()
-        return "%s. %s" % (pts[0][0], ' '.join(pts[1:])) if len(pts)>2 and len(n)>20 else n
-    p1s,p2s=short(p1),short(p2)
-    s1="[%s] " % m["seed1"] if m.get("seed1") else ""
-    s2=" [%s]" % m["seed2"] if m.get("seed2") else ""
+        pts = n.split()
+        return f"{pts[0][0]}. {' '.join(pts[1:])}" if len(pts) > 2 and len(n) > 20 else n
 
-    book_row=""
+    p1s, p2s = short(p1), short(p2)
+    s1 = f"[{m['seed1']}] " if m.get("seed1") else ""
+    s2 = f" [{m['seed2']}]" if m.get("seed2") else ""
+
+    book_row = ""
     if bo1 or bo2:
-        book_row=('<div style="display:flex;align-items:center;justify-content:space-between;'
-                  'background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;margin-top:.35rem;gap:.3rem">'
-                  '<div style="display:flex;align-items:center;gap:.35rem">'
-                  '<span style="font-size:9px;color:#64748b">Bukmeker</span>'
-                  '<span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">%s</span>%s</div>'
-                  '<span style="font-size:9px;color:#64748b">TE odds</span>'
-                  '<div style="display:flex;align-items:center;gap:.35rem">%s'
-                  '<span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">%s</span></div></div>') % (
-            bo1 or "—", edge_badge(e1),
-            edge_badge(e2), bo2 or "—")
+        book_row = (
+            '<div style="display:flex;align-items:center;justify-content:space-between;'
+            'background:#0d1e35;border:1px solid #1e3050;border-radius:7px;padding:.35rem .6rem;'
+            'margin-top:.35rem;gap:.3rem">'
+            '<div style="display:flex;align-items:center;gap:.35rem">'
+            '<span style="font-size:9px;color:#64748b">Bukméker</span>'
+            f'<span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">{bo1 or "—"}</span>'
+            f'{edge_badge(e1)}</div>'
+            '<span style="font-size:9px;color:#64748b">TE odds</span>'
+            f'<div style="display:flex;align-items:center;gap:.35rem">{edge_badge(e2)}'
+            f'<span style="font-size:1.1rem;font-weight:800;color:#e2e8f0">{bo2 or "—"}</span>'
+            '</div></div>')
 
-    coin=('<div style="font-size:10px;color:#eab308;text-align:center;margin-top:.3rem;'
-          'padding:2px .5rem;background:#eab30810;border-radius:4px">⚠ Nyilt meccs — ΔElo &lt; 10</div>'
-          if abs(delta)<10 else "")
+    coin = ('<div style="font-size:10px;color:#eab308;text-align:center;margin-top:.3rem;'
+            'padding:2px .5rem;background:#eab30810;border-radius:4px">'
+            '⚠ Nyílt meccs — ΔElo &lt; 10</div>'
+            if abs(delta) < 10 else "")
 
-    return """<div class="card">
+    return f"""<div class="card">
   <div class="ctop">
     <div class="tags">
-      <span class="surf-tag" style="background:{sbg};border-color:{sbd};color:{scol}">{sicon} {slabel}</span>
-      <span class="cat-tag" style="color:{tcol};border-color:{tbd}">{tour} {cat}</span>
-      <span class="t-tag">{time} UTC+1</span>
+      <span class="surf-tag" style="background:{sm_s["bg"]};border-color:{sm_s["bd"]};color:{sm_s["col"]}">{sm_s["icon"]} {sm_s["label"]}</span>
+      <span class="cat-tag" style="color:{tm["col"]};border-color:{tm["bd"]}">{tour} {cat}</span>
+      <span class="t-tag">{m.get("time","")} UTC+1</span>
     </div>{pill}
+  </div>
+  <div style="padding:2px .75rem 4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+    {tourn_str}{cpi_str}
   </div>
   <div class="cbody">
     <div class="prow">
       <div class="pinfo">
         <div class="pname">{s1}{p1s}</div>
-        <div class="pmeta">#{r1rank} · c{c1:.0f} · h{h1:.0f}</div>
-        {dots1}{adv1}{sm1}{b2p1}{b3p1}{csc1}
+        <div class="pmeta">#{r1.get("atp_rank","?")} · c{c1:.0f} · h{h1:.0f}</div>
+        <div style="margin-top:3px">{ss9_display(ss1)} <span style="font-size:9px;color:{SS9[ss1]["col"]}">{SS9_LABEL[ss1]}</span></div>
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">{p2s}{s2}</div>
-        <div class="pmeta">#{r2rank} · c{c2:.0f} · h{h2:.0f}</div>
-        {dots2}{adv2}{sm2}{b2p2}{b3p2}{csc2}
+        <div class="pmeta">#{r2.get("atp_rank","?")} · c{c2:.0f} · h{h2:.0f}</div>
+        <div style="margin-top:3px"><span style="font-size:9px;color:{SS9[ss2]["col"]}">{SS9_LABEL[ss2]}</span> {ss9_display(ss2)}</div>
       </div>
     </div>
     <div class="odds-row">
       <div class="obox"><div class="odec" style="color:{oc1}">{o1}</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>{p1last}<br><span style="color:#64748b">{prob1:.1f}%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>{p1s.split()[-1]}<br><span style="color:#64748b">{prob1*100:.1f}%%</span></div></div>
       <div class="odelta">Δ {delta:+.0f}</div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:{oc2}">{o2}</div>
-        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>{p2last}<br><span style="color:#64748b">{prob2:.1f}%</span></div></div>
+        <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>{p2s.split()[-1]}<br><span style="color:#64748b">{prob2*100:.1f}%%</span></div></div>
     </div>
     {book_row}{coin}
     <div class="bar-row">
-      <span class="bar-pct">{prob1:.1f}%</span>
-      <div class="bar-out"><div class="bar-in" style="width:{bw}%;background:{bcol}"></div></div>
-      <span class="bar-pct" style="text-align:right">{prob2:.1f}%</span>
+      <span class="bar-pct">{prob1*100:.1f}%%</span>
+      <div class="bar-out"><div class="bar-in" style="width:{bw}%%;background:{bcol}"></div></div>
+      <span class="bar-pct" style="text-align:right">{prob2*100:.1f}%%</span>
     </div>
   </div>
-</div>""".format(
-        sbg=sm_s["bg"],sbd=sm_s["bd"],scol=sm_s["col"],sicon=sm_s["icon"],slabel=sm_s["label"],
-        tcol=tm["col"],tbd=tm["bd"],tour=tour,cat=cat,
-        time=m.get("time",""),pill=pill,
-        s1=s1,p1s=p1s,r1rank=r1.get("atp_rank","?"),c1=c1,h1=h1,
-        dots1=ss_dots(sc1),
-        adv1=adv_badge(adv,1,surf),
-        sm1=sm_badge(sm,1,surf),
-        esigs1=m.get("esigs1",set()),
-        esigs2=m.get("esigs2",set()),
-        b2p1=b2_badge(m.get("esigs1",set()),1,surf),
-        b3p1=b3_badge(m.get("esigs1",set()),1),
-        b2p2=b2_badge(m.get("esigs2",set()),2,surf),
-        b3p2=b3_badge(m.get("esigs2",set()),2),
-        csc1=composite_badge(m.get("cscore1"), m.get("cdetail1")),
-        csc2=composite_badge(m.get("cscore2"), m.get("cdetail2")),
-        s2=s2,p2s=p2s,r2rank=r2.get("atp_rank","?"),c2=c2,h2=h2,
-        dots2=ss_dots(sc2,"right"),
-        adv2=adv_badge(adv,2,surf),
-        sm2=sm_badge(sm,2,surf),
-        oc1=oc1,o1=o1,p1last=p1s.split()[-1],prob1=prob1*100,
-        delta=delta,
-        oc2=oc2,o2=o2,p2last=p2s.split()[-1],prob2=prob2*100,
-        book_row=book_row,coin=coin,bw=bw,bcol=bcol)
+</div>"""
 
 
 def analyze_matches(matches, elo_players):
@@ -279,54 +219,56 @@ def analyze_matches(matches, elo_players):
     sys.path.insert(0, str(Path(__file__).parent))
     from value_calc import (find_player_in_elo_db, elo_win_prob,
                             get_surface_elo, prob_to_decimal_odds,
-                            surface_advantage, compute_edge, surface_match,
-                            extra_signals, composite_score, COMPOSITE_THRESHOLD)
+                            compute_edge, player_ss9, get_court_cpi)
+    cpi_db = load_cpi()
     results = []
     for m in matches:
-        surf = m.get("surface","hard")
-        n1,r1 = find_player_in_elo_db(m["player1"], elo_players)
-        n2,r2 = find_player_in_elo_db(m["player2"], elo_players)
+        surf  = m.get("surface", "hard")
+        tourn = m.get("tournament", "")
+        n1, r1 = find_player_in_elo_db(m["player1"], elo_players)
+        n2, r2 = find_player_in_elo_db(m["player2"], elo_players)
         if not (r1 and r2):
             miss = m["player1"] if not r1 else m["player2"]
-            results.append({**m,"elo_found":False,
-                            "error":"N/A: %s" % miss,
-                            "status":m.get("status","upcoming")}); continue
+            results.append({**m, "elo_found": False,
+                            "error": f"N/A: {miss}",
+                            "status": m.get("status", "upcoming")})
+            continue
 
-        c1=get_surface_elo(r1,"clay"); h1=r1.get("hElo") or c1
-        c2=get_surface_elo(r2,"clay"); h2=r2.get("hElo") or c2
-        e1=get_surface_elo(r1,surf);   e2=get_surface_elo(r2,surf)
-        p1=elo_win_prob(e1,e2)
+        c1 = get_surface_elo(r1, "clay");  h1 = r1.get("hElo") or c1
+        c2 = get_surface_elo(r2, "clay");  h2 = r2.get("hElo") or c2
+        e1 = get_surface_elo(r1, surf);    e2 = get_surface_elo(r2, surf)
+        p1 = elo_win_prob(e1, e2)
 
-        bo1=m.get("book_odds_home"); bo2=m.get("book_odds_away")
-        edge1=compute_edge(p1,      bo1) if bo1 else None
-        edge2=compute_edge(1-p1,    bo2) if bo2 else None
+        bo1 = m.get("book_odds_home"); bo2 = m.get("book_odds_away")
+        edge1 = compute_edge(p1,     bo1) if bo1 else None
+        edge2 = compute_edge(1 - p1, bo2) if bo2 else None
 
-        adv = surface_advantage(r1, r2, surf)
-        sm  = surface_match(r1, r2, surf, edge1, edge2)
-        esigs1, esigs2 = extra_signals(r1, r2, surf, edge1, edge2, p1, 1-p1)
+        ss1 = player_ss9(r1, surf)
+        ss2 = player_ss9(r2, surf)
 
-        se1 = get_surface_elo(r1, surf) or 0
-        se2 = get_surface_elo(r2, surf) or 0
-        cscore1, cdetail1 = composite_score(r1.get('surface_score',3), r2.get('surface_score',3), se1, se2, edge1, surf)
-        cscore2, cdetail2 = composite_score(r2.get('surface_score',3), r1.get('surface_score',3), se2, se1, edge2, surf)
+        # CPI: előbb a betöltött JSON-ból, fallback a value_calc-ból
+        cpi_val = None
+        if cpi_db:
+            tl = tourn.lower()
+            for k, v in cpi_db.items():
+                if not k.startswith("default_") and (k in tl or tl in k):
+                    cpi_val = v; break
+        if cpi_val is None:
+            cpi_val = get_court_cpi(tourn, surf)
 
         results.append({**m,
-            "name1":n1,"name2":n2,"r1":r1,"r2":r2,
-            "c_elo1":c1,"h_elo1":h1,"c_elo2":c2,"h_elo2":h2,
-            "surf_score1":r1.get("surface_score",3),
-            "surf_score2":r2.get("surface_score",3),
-            "prob1":p1,
-            "odds1":prob_to_decimal_odds(p1),
-            "odds2":prob_to_decimal_odds(1-p1),
-            "book_odds_home":bo1,"book_odds_away":bo2,
-            "edge1":edge1,"edge2":edge2,
-            "surface_advantage":adv,
-            "surface_match":sm,
-            "esigs1":esigs1,"esigs2":esigs2,
-            "cscore1":cscore1,"cdetail1":cdetail1,
-            "cscore2":cscore2,"cdetail2":cdetail2,
-            "elo_found":True,"error":None,
-            "status":m.get("status","upcoming")})
+            "name1": n1, "name2": n2, "r1": r1, "r2": r2,
+            "c_elo1": c1, "h_elo1": h1, "c_elo2": c2, "h_elo2": h2,
+            "ss1": ss1, "ss2": ss2,
+            "prob1": p1,
+            "odds1": prob_to_decimal_odds(p1),
+            "odds2": prob_to_decimal_odds(1 - p1),
+            "book_odds_home": bo1, "book_odds_away": bo2,
+            "edge1": edge1, "edge2": edge2,
+            "court_cpi": cpi_val,
+            "tournament": tourn,
+            "elo_found": True, "error": None,
+            "status": m.get("status", "upcoming")})
     return results
 
 
@@ -334,27 +276,25 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     wta_analyses = wta_analyses or []
     stats   = compute_stats(load_results())
     updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    scraped = (elo_meta or {}).get("scraped_at","?")[:10]
+    scraped = (elo_meta or {}).get("scraped_at", "?")[:10]
 
-    all_live = [m for m in atp_analyses+wta_analyses if m.get("status")=="live"]
-    all_rest_atp = [m for m in atp_analyses if m.get("status")!="live"]
-    all_rest_wta = [m for m in wta_analyses if m.get("status")!="live"]
-
-    def count(lst, key): return sum(1 for m in lst if m.get(key))
-    atp_sm = count(atp_analyses,"surface_match")
-    wta_sm = count(wta_analyses,"surface_match")
-    total_sm = atp_sm + wta_sm
-    total_adv = count(atp_analyses+wta_analyses,"surface_advantage")
-    total_val = sum(1 for m in atp_analyses+wta_analyses
-                    if (m.get("edge1") or 0)>=0.04 or (m.get("edge2") or 0)>=0.04)
+    all_live    = [m for m in atp_analyses + wta_analyses if m.get("status") == "live"]
+    rest_atp    = [m for m in atp_analyses if m.get("status") != "live"]
+    rest_wta    = [m for m in wta_analyses if m.get("status") != "live"]
 
     def cards(lst):
-        if not lst: return '<p style="color:#64748b;padding:.5rem 0;font-size:12px">Nincs meccs.</p>'
+        if not lst:
+            return '<p style="color:#64748b;padding:.5rem 0;font-size:12px">Nincs meccs.</p>'
         return "".join(render_card(m) for m in lst)
 
     def section(title, lst, color="#94a3b8"):
-        if not lst: return ""
-        return '<div class="sec" style="color:%s">%s</div><div class="cards">%s</div>' % (color, title, cards(lst))
+        if not lst:
+            return ""
+        return (f'<div class="sec" style="color:{color}">{title}</div>'
+                f'<div class="cards">{cards(lst)}</div>')
+
+    total_val = sum(1 for m in atp_analyses + wta_analyses
+                    if (m.get("edge1") or 0) >= 0.04 or (m.get("edge2") or 0) >= 0.04)
 
     HTML = """<!DOCTYPE html>
 <html lang="hu">
@@ -374,8 +314,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     .hb{font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:#1e3050;border:1px solid var(--bd);color:var(--mu)}
     main{max-width:600px;margin:0 auto;padding:.75rem .75rem 5rem}
     .sec{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid var(--bd);padding-bottom:.35rem;margin:.75rem 0 .5rem}
-    .sec:first-child{margin-top:.1rem}
-    .statbar{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.25rem;margin-bottom:.15rem;scrollbar-width:none}
+    .statbar{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.25rem;margin-bottom:.25rem;scrollbar-width:none}
     .statbar::-webkit-scrollbar{display:none}
     .stat{background:var(--bg2);border:1px solid var(--bd);border-radius:8px;padding:.5rem .75rem;flex-shrink:0;min-width:82px}
     .sl{font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:.8px}
@@ -422,35 +361,30 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <div class="stat"><div class="sl">ATP</div><div class="sv" style="color:var(--ac)">%d</div></div>
   <div class="stat"><div class="sl">WTA</div><div class="sv" style="color:var(--pink)">%d</div></div>
   <div class="stat"><div class="sl">Élő</div><div class="sv" style="color:var(--ye)">%d</div></div>
-  <div class="stat"><div class="sl">⚡ Felületi</div><div class="sv" style="color:#f59e0b">%d</div></div>
-  <div class="stat"><div class="sl">🎯 SM</div><div class="sv" style="color:#c084fc">%d</div></div>
   <div class="stat"><div class="sl">Value</div><div class="sv" style="color:var(--gr)">%d</div></div>
   <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:%s">%+.1f%%</div></div>
 </div>
 <div class="legend">
-  <strong style="color:var(--tx)">⚡ Felületi előny</strong>: jobb ezen a borításon + ez az ő jobb borítása + ellenfélnél fordítva<br>
-  <strong style="color:#c084fc">🎯 Surface Match</strong>: borításon erősebb (≥15 Elo) + borítás-kompatibilis ss(1-3 clay) + ellenfél value >6%%<br>
-  <strong style="color:#22d3ee">💎 Kombó</strong>: Elo jobb borításon + jobb rangú + ellenfél value >7%% ·
-  <strong style="color:#a78bfa">🏆 Ranglistás Favorit</strong>: ellenfele Elo-n jobb de rosszabb rangú → fogadj ERRE<br>
-  <strong style="color:#22c55e">⭐ Kompozit</strong>: SS(max 5) + Elo(max 4) + Edge(max 1) ≥ 1.8pt szükséges · zöld ≥5.0 · sárga ≥3.0<br>
-  🧱🧱(1) 🧱(2) ⚖(3) 💙(4) 💙💙(5) · Value = edge ≥ 4%%
+  🧱🧱🧱(1) 🧱🧱(2) 🧱(3) 🔸(4) ⚖(5) 🔹(6) 💙(7) 💙💙(8) 💙💙💙(9) — borítás preferencia<br>
+  CPI = Court Pace Index (ITF) · &lt;30 lassú · 30-34 köz-lassú · 35-39 közepes · 40-44 köz-gyors · &gt;44 gyors<br>
+  Value = Elo alapú fair odds vs bukméker odds, edge ≥ 4%%
 </div>
 %s%s%s
 </main>
-<footer>tennisabstract.com Elo (ATP+WTA) · TennisExplorer odds · Nem befektetési tanácsos.</footer>
+<footer>tennisabstract.com Elo (ATP+WTA) · TennisExplorer odds · CPI: courtspeed.com · Nem befektetési tanácsos.</footer>
 </body>
 </html>""" % (
         updated, scraped,
-        len(atp_analyses), len(wta_analyses), len(all_live),
-        total_adv, total_sm, total_val,
-        'var(--gr)' if stats['roi']>=0 else 'var(--rd)', stats['roi'],
-        ('<div class="sec" style="color:var(--ye)">● Élő</div><div class="cards">%s</div>' % cards(all_live)) if all_live else "",
-        section("ATP — Mai meccsek", all_rest_atp, "var(--ac)"),
-        section("WTA — Mai meccsek", all_rest_wta, "var(--pink)")
+        len(atp_analyses), len(wta_analyses), len(all_live), total_val,
+        "var(--gr)" if stats["roi"] >= 0 else "var(--rd)", stats["roi"],
+        (f'<div class="sec" style="color:var(--ye)">● Élő</div>'
+         f'<div class="cards">{cards(all_live)}</div>') if all_live else "",
+        section("ATP — Mai meccsek", rest_atp, "var(--ac)"),
+        section("WTA — Mai meccsek", rest_wta, "var(--pink)"),
     )
 
     OUTPUT_HTML.write_text(HTML, encoding="utf-8")
-    print("[generate_html] -> %s" % OUTPUT_HTML)
+    print(f"[generate_html] → {OUTPUT_HTML}")
 
 
 if __name__ == "__main__":

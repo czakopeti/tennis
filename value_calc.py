@@ -5,23 +5,126 @@ MINIMUM_EDGE   = 0.04
 KELLY_FRACTION = 0.25
 MAX_BET_PCT    = 0.03
 
-SS_META = {
-    1:{"icon":"🧱🧱","label":"Salakos spec.", "col":"#fb923c"},
-    2:{"icon":"🧱",  "label":"Salak-hajlam",  "col":"#fbbf24"},
-    3:{"icon":"⚖",   "label":"All-rounder",   "col":"#94a3b8"},
-    4:{"icon":"💙",  "label":"Kemeny-hajlam",  "col":"#60a5fa"},
-    5:{"icon":"💙💙","label":"Kemeny spec.",    "col":"#818cf8"},
+# ── Surface Score 1-9 ─────────────────────────────────────────────────────
+# Based on cElo − hElo difference (player surface preference)
+# 1 = extreme clay specialist  …  9 = extreme fast-court specialist
+SS9_META = {
+    1: {"icon": "🧱🧱🧱", "label": "Extrém salak",    "col": "#c2410c"},
+    2: {"icon": "🧱🧱",   "label": "Erős salakos",    "col": "#ea580c"},
+    3: {"icon": "🧱",     "label": "Salak-hajlam",    "col": "#f97316"},
+    4: {"icon": "🔸",     "label": "Enyhe salak",     "col": "#fbbf24"},
+    5: {"icon": "⚖",      "label": "All-rounder",     "col": "#94a3b8"},
+    6: {"icon": "🔹",     "label": "Enyhe gyors",     "col": "#60a5fa"},
+    7: {"icon": "💙",     "label": "Gyors-hajlam",    "col": "#3b82f6"},
+    8: {"icon": "💙💙",   "label": "Erős gyors",      "col": "#2563eb"},
+    9: {"icon": "💙💙💙", "label": "Extrém gyors",    "col": "#1d4ed8"},
 }
 
-SURFACE_SS_ALLOWED = {
-    "clay":  {1, 2, 3},
-    "hard":  {3, 4, 5},
-    "grass": {2, 3, 4},
+# ── CPI adatbázis (courtspeed.com 3 éves átlag) ──────────────────────────
+# Évente egyszer frissül automatikusan (fetch_cpi.py)
+# Skála: <30 lassú · 30-34 közepes-lassú · 35-39 közepes · 40-44 közepes-gyors · >44 gyors
+COURT_CPI = {
+    # Grand Slam
+    "french open":              21,
+    "roland garros":            21,
+    "wimbledon":                37,
+    "us open":                  43,
+    "australian open":          43,
+    # Masters 1000 clay
+    "monte carlo":              29,
+    "madrid":                   28,
+    "rome":                     28,
+    "italian open":             28,
+    # Masters 1000 hard
+    "indian wells":             36,
+    "miami":                    39,
+    "canada":                   41,
+    "montreal":                 41,
+    "toronto":                  41,
+    "cincinnati":               40,
+    "western & southern":       40,
+    "shanghai":                 38,
+    "paris":                    40,
+    "paris masters":            40,
+    # ATP Finals
+    "atp finals":               41,
+    "nitto atp finals":         41,
+    # Grass A500
+    "halle":                    38,
+    "queens":                   38,
+    "london":                   38,
+    "eastbourne":               37,
+    "s-hertogenbosch":          37,
+    # Default ha nincs adat
+    "default_clay":             27,
+    "default_hard":             37,
+    "default_indoor":           41,
+    "default_grass":            37,
 }
 
-# Composite score küszöb
-COMPOSITE_THRESHOLD = 1.8
+# CPI → 1-9 konverzió (ITF kategóriák alapján)
+def cpi_to_ss9(cpi: float) -> int:
+    if cpi < 22:  return 1
+    if cpi < 25:  return 2
+    if cpi < 28:  return 3
+    if cpi < 31:  return 4
+    if cpi < 35:  return 5
+    if cpi < 38:  return 6
+    if cpi < 41:  return 7
+    if cpi < 45:  return 8
+    return 9
 
+
+def get_court_cpi(tournament_name: str, surface: str) -> float:
+    """Visszaadja a torna CPI értékét. Ha nincs mérve, borítás szerint default."""
+    name = (tournament_name or "").lower().strip()
+    for key, cpi in COURT_CPI.items():
+        if key.startswith("default_"):
+            continue
+        if key in name or name in key:
+            return cpi
+    # Default borítás szerint
+    surf = surface.lower()
+    if surf == "clay":    return COURT_CPI["default_clay"]
+    if surf == "grass":   return COURT_CPI["default_grass"]
+    if "indoor" in name:  return COURT_CPI["default_indoor"]
+    return COURT_CPI["default_hard"]
+
+
+def player_ss9(record: dict, surface: str) -> int:
+    """
+    Játékos 1-9 borítás-preferencia pontszáma.
+    cElo - hElo különbség alapján (pozitív = salakos, negatív = gyors).
+    Fűre: ha gElo >> cElo/hElo, akkor gyors specialista (8-9).
+    """
+    celo = record.get("cElo") or 1500
+    helo = record.get("hElo") or 1500
+    gelo = record.get("gElo") or 0
+
+    if surface == "grass" and gelo > 0:
+        # Fűre: gElo vs átlag alapján
+        avg = (celo + helo) / 2
+        delta = gelo - avg
+        if delta > 100:  return 9
+        if delta > 50:   return 8
+        if delta > 20:   return 7
+        if delta > -20:  return 6
+        return 5
+
+    # Clay/hard: cElo - hElo különbség
+    delta = celo - helo
+    if delta > 150:   return 1
+    if delta > 80:    return 2
+    if delta > 30:    return 3
+    if delta > 10:    return 4
+    if delta > -10:   return 5
+    if delta > -30:   return 6
+    if delta > -80:   return 7
+    if delta > -150:  return 8
+    return 9
+
+
+# ── Core functions ─────────────────────────────────────────────────────────
 
 def normalize_name(name):
     return re.sub(r"[^a-z]", "", name.lower())
@@ -84,128 +187,3 @@ def kelly_stake(edge, decimal_odds, bankroll):
     b = decimal_odds - 1.0
     f = min((edge / b) * KELLY_FRACTION, MAX_BET_PCT)
     return round(f * bankroll, 2)
-
-
-def surface_advantage(r1, r2, surface):
-    """Original 3-condition surface advantage flag."""
-    c1 = r1.get("cElo") or 0; h1 = r1.get("hElo") or 0
-    c2 = r2.get("cElo") or 0; h2 = r2.get("hElo") or 0
-    g1 = r1.get("gElo") or 0; g2 = r2.get("gElo") or 0
-    if not all([c1, h1, c2, h2]): return None
-    if surface == "clay":
-        if c1 > c2 and c1 > h1 and h2 > c2: return 1
-        if c2 > c1 and c2 > h2 and h1 > c1: return 2
-    elif surface == "hard":
-        if h1 > h2 and h1 > c1 and c2 > h2: return 1
-        if h2 > h1 and h2 > c2 and c1 > h1: return 2
-    elif surface == "grass":
-        o1 = max(c1, h1); o2 = max(c2, h2)
-        if g1 and g2:
-            if g1 > g2 and g1 > o1 and o2 > g2: return 1
-            if g2 > g1 and g2 > o2 and o1 > g1: return 2
-    return None
-
-
-def surface_match(r1, r2, surface, edge1, edge2):
-    """
-    Surface Match: 4 conditions for Player 1:
-      1. surface_elo1 - surface_elo2 >= 15
-      2. surface_score1 <= surface_score2
-      3. surface_score1 in allowed set for surface
-      4. opponent's edge > +6%  (book underprices opponent)
-    """
-    sc1 = r1.get("surface_score", 3)
-    sc2 = r2.get("surface_score", 3)
-    se1 = get_surface_elo(r1, surface) or 0
-    se2 = get_surface_elo(r2, surface) or 0
-    if not se1 or not se2: return None
-    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
-
-    if (se1 - se2 >= 15 and sc1 <= sc2 and
-            sc1 in allowed and edge2 is not None and edge2 > 0.06):
-        return 1
-    if (se2 - se1 >= 15 and sc2 <= sc1 and
-            sc2 in allowed and edge1 is not None and edge1 > 0.06):
-        return 2
-    return None
-
-
-def composite_score(my_ss, opp_ss, my_celo, opp_celo, my_edge, surface="clay"):
-    """
-    Composite scoring system (0–10 scale):
-      SS component:   max 5pt  (surface score advantage)
-      Elo component:  max 4pt  (Elo delta on this surface)
-      Edge component: max 1pt  (bookmaker underprices = negative edge)
-
-    Exclusions:
-      - clay: ss > 3 (hard-leaning players excluded)
-      - clay: my_ss > opp_ss (opponent better suited)
-      - ΔElo < 5 (too close to call)
-
-    Returns: (score, detail_dict) or (None, reason_string)
-    """
-    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
-
-    if surface in ("clay", "hard", "grass"):
-        if my_ss not in allowed:
-            return None, f"ss={my_ss} nem kompatibilis"
-        if my_ss > opp_ss:
-            return None, f"ss rosszabb mint ellenfél"
-
-    elo_delta = my_celo - opp_celo
-    if elo_delta < 5:
-        return None, f"ΔElo={elo_delta}<5"
-
-    ss_delta  = opp_ss - my_ss
-    ss_pt     = (min(ss_delta, 4) / 4) * 5.0
-    elo_pt    = max(0, min(elo_delta / 300, 1)) * 4.0
-    edge_pt   = max(0, min(-(my_edge or 0) / 0.20, 1)) * 1.0
-
-    total = round(ss_pt + elo_pt + edge_pt, 2)
-    detail = {
-        "ss_delta":  ss_delta,
-        "ss_pt":     round(ss_pt, 2),
-        "elo_delta": elo_delta,
-        "elo_pt":    round(elo_pt, 2),
-        "edge_pct":  round((my_edge or 0) * 100, 1),
-        "edge_pt":   round(edge_pt, 2),
-        "total":     total,
-    }
-    return total, detail
-
-
-def extra_signals(r1, r2, surface, edge1, edge2, prob1, prob2):
-    """
-    B2: surface Elo better >=1, ss compatible, rank BETTER, opp edge >7%
-    B3: rank WORSE, Elo favorite, own edge >0  → badge on OPPONENT
-    """
-    rank1 = r1.get("atp_rank")
-    rank2 = r2.get("atp_rank")
-    se1   = get_surface_elo(r1, surface) or 0
-    se2   = get_surface_elo(r2, surface) or 0
-    sc1   = r1.get("surface_score", 3)
-    sc2   = r2.get("surface_score", 3)
-    allowed = SURFACE_SS_ALLOWED.get(surface, {1,2,3,4,5})
-
-    sigs1, sigs2 = set(), set()
-    if rank1 is None or rank2 is None:
-        return sigs1, sigs2
-
-    # B2 — Player 1
-    if (se1 - se2 >= 1 and sc1 in allowed and
-            rank1 < rank2 and edge2 is not None and edge2 > 0.07):
-        sigs1.add("b2")
-    # B2 — Player 2
-    if (se2 - se1 >= 1 and sc2 in allowed and
-            rank2 < rank1 and edge1 is not None and edge1 > 0.07):
-        sigs2.add("b2")
-
-    # B3 — badge goes on OPPONENT
-    if (rank1 > rank2 and prob1 > 0.50 and
-            edge1 is not None and edge1 > 0):
-        sigs2.add("b3")
-    if (rank2 > rank1 and prob2 > 0.50 and
-            edge2 is not None and edge2 > 0):
-        sigs1.add("b3")
-
-    return sigs1, sigs2
