@@ -1,32 +1,19 @@
 [
   {
-    "time": "15:30",
+    "time": "16:30",
     "player1": "Bautista-Agut R.",
-    "player2": "Mpetshi Perricard G.",
+    "player2": "Carreno-Busta P.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 2.61,
-    "book_odds_away": 1.46,
+    "book_odds_home": null,
+    "book_odds_away": null,
     "tournament": "Boodles Tennis Challenge",
     "surface": "grass",
     "category": "A500",
     "tour": "ATP"
   },
   {
-    "time": "17:00",
-    "player1": "Tsitsipas S.",
-    "player2": "Prizmic D.",
-    "seed1": null,
-    "seed2": null,
-    "book_odds_home": 1.64,
-    "book_odds_away": 2.17,
-    "tournament": "Boodles Tennis Challenge",
-    "surface": "grass",
-    "category": "A500",
-    "tour": "ATP"
-  },
-  {
-    "time": "",
+    "time": "11:10",
     "player1": "Muchova K.",
     "player2": "Osaka N.",
     "seed1": 4,
