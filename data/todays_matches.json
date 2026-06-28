@@ -11,18 +11,5 @@
     "surface": "grass",
     "category": "A500",
     "tour": "ATP"
-  },
-  {
-    "time": "11:10",
-    "player1": "Muchova K.",
-    "player2": "Osaka N.",
-    "seed1": 4,
-    "seed2": 6,
-    "book_odds_home": 2.35,
-    "book_odds_away": 1.59,
-    "tournament": "Bad Homburg WTA",
-    "surface": "grass",
-    "category": "W500",
-    "tour": "WTA"
   }
 ]
