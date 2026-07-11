@@ -1,28 +1,15 @@
 [
   {
     "time": "",
-    "player1": "Fery A.",
-    "player2": "Zverev A.",
-    "seed1": null,
-    "seed2": 2,
-    "book_odds_home": 5.81,
-    "book_odds_away": 1.14,
+    "player1": "Muchova K.",
+    "player2": "Noskova L.",
+    "seed1": 10,
+    "seed2": 9,
+    "book_odds_home": 1.77,
+    "book_odds_away": 2.07,
     "tournament": "Wimbledon",
     "surface": "grass",
     "category": "GS",
-    "tour": "ATP"
-  },
-  {
-    "time": "",
-    "player1": "Sinner J.",
-    "player2": "Djokovic N.",
-    "seed1": 1,
-    "seed2": 7,
-    "book_odds_home": 1.21,
-    "book_odds_away": 4.45,
-    "tournament": "Wimbledon",
-    "surface": "grass",
-    "category": "GS",
-    "tour": "ATP"
+    "tour": "WTA"
   }
 ]
