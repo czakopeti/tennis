@@ -30,7 +30,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "17:00",
     "player1": "Jodar R.",
     "player2": "Cobolli F.",
     "seed1": 12,
@@ -45,7 +45,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "18:30",
     "player1": "Tirante T.",
     "player2": "Mensik J.",
     "seed1": null,
@@ -60,7 +60,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "19:00",
     "player1": "Zverev A.",
     "player2": "Paul T.",
     "seed1": 1,
@@ -75,7 +75,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "20:00",
     "player1": "Fils A.",
     "player2": "De Minaur A.",
     "seed1": 21,
@@ -90,7 +90,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "21:30",
     "player1": "Borges N.",
     "player2": "Nakashima B.",
     "seed1": null,
@@ -105,12 +105,12 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "23:00",
     "player1": "Faria J.",
     "player2": "Musetti L.",
     "seed1": null,
     "seed2": 10,
-    "book_odds_home": 3.31,
+    "book_odds_home": 3.3,
     "book_odds_away": 1.34,
     "tournament": "Cincinnati",
     "surface": "hard",
@@ -150,13 +150,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "17:00",
     "player1": "Swiatek I.",
     "player2": "Parry D.",
     "seed1": 7,
     "seed2": null,
     "book_odds_home": 1.03,
-    "book_odds_away": 14.49,
+    "book_odds_away": 14.1,
     "tournament": "Cincinnati WTA",
     "surface": "hard",
     "category": "W1000",
@@ -165,7 +165,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "18:30",
     "player1": "Cirstea S.",
     "player2": "Pegula J.",
     "seed1": 15,
@@ -180,7 +180,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "19:00",
     "player1": "Kostyuk M.",
     "player2": "Andreeva M.",
     "seed1": 10,
@@ -195,7 +195,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "20:00",
     "player1": "Shnaider D.",
     "player2": "Rybakina E.",
     "seed1": 14,
@@ -210,7 +210,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "20:30",
     "player1": "Noskova L.",
     "player2": "Anisimova A.",
     "seed1": 6,
@@ -225,7 +225,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "",
+    "time": "21:00",
     "player1": "Gauff C.",
     "player2": "Bouzkova M.",
     "seed1": 4,
@@ -238,5 +238,69 @@
     "tour": "WTA",
     "match_date": "2026-08-19",
     "is_tomorrow": false
+  },
+  {
+    "time": "01:00",
+    "player1": "Fritz T.",
+    "player2": "O'Connell C.",
+    "seed1": 6,
+    "seed2": null,
+    "book_odds_home": 1.08,
+    "book_odds_away": 7.74,
+    "tournament": "Cincinnati",
+    "surface": "hard",
+    "category": "M1000",
+    "tour": "ATP",
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-08-20"
+  },
+  {
+    "time": "02:30",
+    "player1": "Tiafoe F.",
+    "player2": "Auger Aliassime F.",
+    "seed1": 17,
+    "seed2": 2,
+    "book_odds_home": 2.71,
+    "book_odds_away": 1.46,
+    "tournament": "Cincinnati",
+    "surface": "hard",
+    "category": "M1000",
+    "tour": "ATP",
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-08-20"
+  },
+  {
+    "time": "01:00",
+    "player1": "Keys M.",
+    "player2": "Wang X.",
+    "seed1": 20,
+    "seed2": null,
+    "book_odds_home": 1.23,
+    "book_odds_away": 4.17,
+    "tournament": "Cincinnati WTA",
+    "surface": "hard",
+    "category": "W1000",
+    "tour": "WTA",
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-08-20"
+  },
+  {
+    "time": "02:30",
+    "player1": "Sabalenka A.",
+    "player2": "Bejlek S.",
+    "seed1": 1,
+    "seed2": null,
+    "book_odds_home": 1.12,
+    "book_odds_away": 6.46,
+    "tournament": "Cincinnati WTA",
+    "surface": "hard",
+    "category": "W1000",
+    "tour": "WTA",
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-08-20"
   }
 ]
