@@ -1,9 +1,12 @@
 import re, time, random, json
 from bs4 import BeautifulSoup
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 OUTPUT_PATH = Path(__file__).parent / "data" / "todays_matches.json"
+
+# Holnapi meccsek eddig az orain szamitanak "hajnalinak" (helyi ido, TE megjelenites)
+EARLY_CUTOFF_HOUR = 6
 
 ATP_MAP = [
     (["australian open","melbourne"],          "hard",  "GS",    "ATP"),
@@ -72,6 +75,13 @@ ATP_VALID = {"GS", "M1000", "A500"}
 WTA_VALID = {"GS", "W1000", "W500"}
 EXCLUDE   = ["challenger","futures","utr","itf","satellite","125","doubles",
              "h2h","main tournaments","lower level","motuwethfr","wta elite"]
+
+BASE = "https://www.tennisexplorer.com/matches/"
+
+
+def hungarian_now():
+    """Magyar helyi ido (UTC+2 nyar / UTC+1 tel — kozelites nyari idore)."""
+    return datetime.now(timezone.utc) + timedelta(hours=2)
 
 
 def classify(name, tour_map, valid_cats):
@@ -144,32 +154,24 @@ def extract_odds(row):
 
 
 def parse_match_rows(rows):
-    # Pairing by 'bott' CSS class:
-    # 'bott' in classes = player1 row (works for upcoming, live, finished)
-    # next row with player link = player2 row
     matches = []
     i = 0
     while i < len(rows):
         row = rows[i]
         classes = set(row.get("class", []))
-
         if classes & {"head", "month", "flags"}:
             i += 1
             continue
-
         if "bott" in classes:
             p1 = get_player_link(row)
             if not p1:
                 i += 1
                 continue
-
             match_time = get_time(row) or ""
             h_o, a_o   = extract_odds(row)
             seed1      = get_seed(row)
-
-            p2    = None
-            seed2 = None
-            j     = i + 1
+            p2, seed2  = None, None
+            j = i + 1
             while j < min(i + 5, len(rows)):
                 cj = set(rows[j].get("class", []))
                 if cj & {"head", "month", "flags"}:
@@ -184,7 +186,6 @@ def parse_match_rows(rows):
             else:
                 i += 1
                 continue
-
             if p2:
                 matches.append({
                     "time":           match_time,
@@ -197,7 +198,6 @@ def parse_match_rows(rows):
                 })
         else:
             i += 1
-
     return matches
 
 
@@ -231,7 +231,6 @@ def scrape_tour(url, tour_map, valid_cats, label):
 
     for row in soup.find_all("tr"):
         classes = row.get("class", [])
-
         if "head" in classes and "flags" in classes:
             flush()
             lnk  = row.find("a")
@@ -254,14 +253,41 @@ def scrape_tour(url, tour_map, valid_cats, label):
     return all_matches
 
 
-def scrape_matches():
-    atp = scrape_tour(
-        "https://www.tennisexplorer.com/matches/?type=atp-single",
-        ATP_MAP, ATP_VALID, "ATP")
-    wta = scrape_tour(
-        "https://www.tennisexplorer.com/matches/?type=wta-single",
-        WTA_MAP, WTA_VALID, "WTA")
-    return atp + wta
+def _is_early(time_str):
+    """Igaz, ha a meccs idopontja hajnali (00:00 - EARLY_CUTOFF_HOUR:00)."""
+    if not time_str or not re.match(r'^\d{1,2}:\d{2}$', time_str):
+        return False
+    return int(time_str.split(":")[0]) < EARLY_CUTOFF_HOUR
+
+
+def scrape_matches(include_tomorrow_early=True):
+    atp = scrape_tour(BASE + "?type=atp-single", ATP_MAP, ATP_VALID, "ATP")
+    wta = scrape_tour(BASE + "?type=wta-single", WTA_MAP, WTA_VALID, "WTA")
+    out = atp + wta
+
+    if include_tomorrow_early:
+        tm  = hungarian_now() + timedelta(days=1)
+        qs  = "year=%d&month=%02d&day=%02d" % (tm.year, tm.month, tm.day)
+        print("\n=== Holnap hajnali meccsek (%s, <%02d:00) ===" %
+              (tm.strftime("%Y-%m-%d"), EARLY_CUTOFF_HOUR))
+        t_atp = scrape_tour(BASE + "?type=atp-single&" + qs,
+                            ATP_MAP, ATP_VALID, "ATP-holnap")
+        t_wta = scrape_tour(BASE + "?type=wta-single&" + qs,
+                            WTA_MAP, WTA_VALID, "WTA-holnap")
+        added = 0
+        for m in t_atp + t_wta:
+            if _is_early(m.get("time")):
+                m["is_tomorrow"] = True
+                m["match_date"]  = tm.strftime("%Y-%m-%d")
+                out.append(m)
+                added += 1
+        print("[holnap] %d hajnali meccs hozzaadva" % added)
+
+    today = hungarian_now().strftime("%Y-%m-%d")
+    for m in out:
+        m.setdefault("match_date", today)
+        m.setdefault("is_tomorrow", False)
+    return out
 
 
 def save_matches(matches):
