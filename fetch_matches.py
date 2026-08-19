@@ -76,7 +76,10 @@ WTA_VALID = {"GS", "W1000", "W500"}
 EXCLUDE   = ["challenger","futures","utr","itf","satellite","125","doubles",
              "h2h","main tournaments","lower level","motuwethfr","wta elite"]
 
-BASE = "https://www.tennisexplorer.com/matches/"
+# A /matches/ vegpont a jovobeli datumot FIGYELMEN KIVUL hagyja (mai napra iranyit at).
+# Jovobeli napokra a TennisExplorer sajat navigacioja a /next/ vegpontot hasznalja.
+BASE      = "https://www.tennisexplorer.com/matches/"
+BASE_NEXT = "https://www.tennisexplorer.com/next/"
 
 
 def hungarian_now():
@@ -253,6 +256,11 @@ def scrape_tour(url, tour_map, valid_cats, label):
     return all_matches
 
 
+def _match_key(m):
+    """Egyedi meccs-kulcs duplikatum-szureshez."""
+    return (m.get("player1"), m.get("player2"), m.get("time"))
+
+
 def _is_early(time_str):
     """Igaz, ha a meccs idopontja hajnali (00:00 - EARLY_CUTOFF_HOUR:00)."""
     if not time_str or not re.match(r'^\d{1,2}:\d{2}$', time_str):
@@ -270,18 +278,30 @@ def scrape_matches(include_tomorrow_early=True):
         qs  = "year=%d&month=%02d&day=%02d" % (tm.year, tm.month, tm.day)
         print("\n=== Holnap hajnali meccsek (%s, <%02d:00) ===" %
               (tm.strftime("%Y-%m-%d"), EARLY_CUTOFF_HOUR))
-        t_atp = scrape_tour(BASE + "?type=atp-single&" + qs,
+
+        t_atp = scrape_tour(BASE_NEXT + "?type=atp-single&" + qs,
                             ATP_MAP, ATP_VALID, "ATP-holnap")
-        t_wta = scrape_tour(BASE + "?type=wta-single&" + qs,
+        t_wta = scrape_tour(BASE_NEXT + "?type=wta-single&" + qs,
                             WTA_MAP, WTA_VALID, "WTA-holnap")
-        added = 0
+
+        # Vedelem: ha a vegpont megis a mai napot adja vissza, ne duplikaljunk.
+        seen = {_match_key(m) for m in out}
+        added = dup = 0
         for m in t_atp + t_wta:
-            if _is_early(m.get("time")):
-                m["is_tomorrow"] = True
-                m["match_date"]  = tm.strftime("%Y-%m-%d")
-                out.append(m)
-                added += 1
-        print("[holnap] %d hajnali meccs hozzaadva" % added)
+            if not _is_early(m.get("time")):
+                continue
+            if _match_key(m) in seen:
+                dup += 1
+                continue
+            seen.add(_match_key(m))
+            m["is_tomorrow"] = True
+            m["match_date"]  = tm.strftime("%Y-%m-%d")
+            out.append(m)
+            added += 1
+        print("[holnap] %d hajnali meccs hozzaadva%s"
+              % (added, (" (%d duplikatum kiszurve)" % dup) if dup else ""))
+        if added == 0 and dup > 0:
+            print("[holnap] FIGYELEM: a vegpont a mai napot adta vissza.")
 
     today = hungarian_now().strftime("%Y-%m-%d")
     for m in out:
