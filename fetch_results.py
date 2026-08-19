@@ -193,6 +193,15 @@ def merge_into_history(date_str):
         print("[merge] Ures pillanatkep")
         return False
 
+    # Ha mar minden meccsnek van eredmenye, ne terheljuk a szervert.
+    pending = [m for m in rows
+               if m.get("winner") is None and not m.get("retired")]
+    if not pending:
+        print("[merge] %s — mar teljes (%d meccs), kihagyva" % (date_str, len(rows)))
+        return True
+
+    print("[merge] %s — %d/%d meccs var eredmenyre"
+          % (date_str, len(pending), len(rows)))
     results = fetch_day(date_str)
     if not results:
         print("[merge] Nincs eredmeny adat")
@@ -307,8 +316,8 @@ def summary():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="YYYY-MM-DD (alap: tegnap)")
-    ap.add_argument("--days", type=int, default=1,
-                    help="hany napra visszamenoleg (alap: 1)")
+    ap.add_argument("--days", type=int, default=7,
+                    help="hany napra visszamenoleg (alap: 7 — automatikus potlas)")
     ap.add_argument("--summary", action="store_true",
                     help="csak osszesito statisztika")
     args = ap.parse_args()

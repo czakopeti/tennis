@@ -131,10 +131,23 @@ def get_player_link(row):
 
 
 def get_time(row):
+    """
+    Idopont kinyerese. A TE tobbfele formatumot hasznal:
+      "17:00"            — napi listaoldal, mai meccs
+      "TOMORROW, 01:00"  — /next/ oldal, holnapi meccs
+      "TODAY, 23:00"     — /next/ oldal, mai kesoi meccs
+    Ezert a cellan BELUL keressuk a HH:MM mintat, nem teljes egyezeskent.
+    (Az odds cellak nem tartalmaznak kettospontot, igy nincs utkozes.)
+    """
     for cell in row.find_all("td"):
-        txt = cell.get_text(strip=True)
-        if re.match(r'^\d{1,2}:\d{2}$', txt):
-            return txt
+        txt = cell.get_text(" ", strip=True)
+        if not txt or "." in txt:          # odds cella kihagyasa
+            continue
+        m = re.search(r'\b(\d{1,2}:\d{2})\b', txt)
+        if m:
+            hh, mm = m.group(1).split(":")
+            if 0 <= int(hh) <= 23 and 0 <= int(mm) <= 59:
+                return "%02d:%s" % (int(hh), mm)
     return None
 
 
@@ -261,11 +274,20 @@ def _match_key(m):
     return (m.get("player1"), m.get("player2"), m.get("time"))
 
 
-def _is_early(time_str):
-    """Igaz, ha a meccs idopontja hajnali (00:00 - EARLY_CUTOFF_HOUR:00)."""
+def _early_status(time_str):
+    """
+    Holnapi meccs besorolasa idopont alapjan.
+      "early"   -> hajnali (00:00 - EARLY_CUTOFF_HOUR:00)  -> bekerul
+      "unknown" -> a TE meg nem adott ki idopontot          -> bekerul
+      "late"    -> reggeli/napkozbeni                       -> kimarad
+
+    Az "unknown" azert kerul be, mert a TennisExplorer az order of play-t
+    altalaban csak a meccs napjan teszi ki. Amint megjelenik az idopont,
+    a kovetkezo futas mar helyesen szurni fogja.
+    """
     if not time_str or not re.match(r'^\d{1,2}:\d{2}$', time_str):
-        return False
-    return int(time_str.split(":")[0]) < EARLY_CUTOFF_HOUR
+        return "unknown"
+    return "early" if int(time_str.split(":")[0]) < EARLY_CUTOFF_HOUR else "late"
 
 
 def scrape_matches(include_tomorrow_early=True):
@@ -286,20 +308,30 @@ def scrape_matches(include_tomorrow_early=True):
 
         # Vedelem: ha a vegpont megis a mai napot adja vissza, ne duplikaljunk.
         seen = {_match_key(m) for m in out}
-        added = dup = 0
+        added = dup = late = 0
+        n_unknown = 0
         for m in t_atp + t_wta:
-            if not _is_early(m.get("time")):
+            st = _early_status(m.get("time"))
+            if st == "late":
+                late += 1
                 continue
             if _match_key(m) in seen:
                 dup += 1
                 continue
             seen.add(_match_key(m))
-            m["is_tomorrow"] = True
-            m["match_date"]  = tm.strftime("%Y-%m-%d")
+            m["is_tomorrow"]   = True
+            m["time_unknown"]  = (st == "unknown")
+            m["match_date"]    = tm.strftime("%Y-%m-%d")
             out.append(m)
             added += 1
-        print("[holnap] %d hajnali meccs hozzaadva%s"
-              % (added, (" (%d duplikatum kiszurve)" % dup) if dup else ""))
+            if st == "unknown":
+                n_unknown += 1
+        print("[holnap] %d meccs hozzaadva (%d hajnali, %d idopont nelkul)"
+              % (added, added - n_unknown, n_unknown))
+        if late:
+            print("[holnap] %d kesobbi meccs kihagyva" % late)
+        if dup:
+            print("[holnap] %d duplikatum kiszurve" % dup)
         if added == 0 and dup > 0:
             print("[holnap] FIGYELEM: a vegpont a mai napot adta vissza.")
 
