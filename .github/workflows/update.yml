@@ -20,7 +20,7 @@ on:
         description: 'CPI frissites? (yes/no)'
         default: 'no'
       backfill_days:
-        description: 'Eredmenyek visszatoltese N napra (0 = csak a mai futas)'
+        description: 'Extra visszatoltes N napra (0 = nem kell, az auto-potlas 7 napot fed)'
         default: '0'
 
 permissions:
@@ -55,12 +55,15 @@ jobs:
         run: python fetch_elo.py
 
       # ── Elozo napi eredmenyek rogzitese ────────────────────────────
-      - name: Eredmenyek rogzitese (tegnap)
+      # 7 napra visszamenoleg fut: ha egy nap kimaradt (Actions hiba,
+      # keso eredmeny), a kovetkezo futas automatikusan potolja.
+      # A mar teljes napokat kihagyja, igy nem terheli feleslegesen a szervert.
+      - name: Eredmenyek rogzitese (auto, 7 napra visszamenoleg)
         if: github.event.schedule == '30 5 * * *'
-        run: python fetch_results.py --days 1
+        run: python fetch_results.py --days 7
         continue-on-error: true
 
-      - name: Eredmenyek visszatoltese (manualis)
+      - name: Eredmenyek visszatoltese (extra, kezi inditasnal)
         if: >
           github.event_name == 'workflow_dispatch' &&
           github.event.inputs.backfill_days != '0' &&
