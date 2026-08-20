@@ -1,6 +1,6 @@
 {
   "date": "2026-08-20",
-  "saved_at": "2026-08-20T11:19:02.403088+00:00",
+  "saved_at": "2026-08-20T17:27:04.120333+00:00",
   "matches": [
     {
       "match_date": "2026-08-20",
@@ -194,14 +194,12 @@
       "prob1": 0.5906581206027268,
       "odds1": 1.69,
       "odds2": 2.44,
-      "book_odds_home": 1.63,
-      "book_odds_away": 2.29,
-      "edge1": -0.0228,
-      "edge2": -0.0273,
+      "book_odds_home": 1.61,
+      "book_odds_away": 2.33,
+      "edge1": -0.0305,
+      "edge2": -0.0198,
       "sigs1": [],
-      "sigs2": [
-        "A"
-      ],
+      "sigs2": [],
       "court_cpi": 40,
       "elo_found": true,
       "error": null,
@@ -333,7 +331,7 @@
     {
       "match_date": "2026-08-20",
       "is_tomorrow": false,
-      "time": "19:00",
+      "time": "19:10",
       "tournament": "Cincinnati WTA",
       "surface": "hard",
       "category": "W1000",
@@ -358,10 +356,10 @@
       "prob1": 0.27477295822313497,
       "odds1": 3.64,
       "odds2": 1.38,
-      "book_odds_home": 2.03,
-      "book_odds_away": 1.79,
-      "edge1": -0.2178,
-      "edge2": 0.1666,
+      "book_odds_home": 2.12,
+      "book_odds_away": 1.72,
+      "edge1": -0.1969,
+      "edge2": 0.1438,
       "sigs1": [
         "B"
       ],
