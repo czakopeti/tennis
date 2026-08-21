@@ -1,6 +1,6 @@
 {
   "date": "2026-08-21",
-  "saved_at": "2026-08-21T11:17:55.724792+00:00",
+  "saved_at": "2026-08-21T17:26:25.937373+00:00",
   "matches": [
     {
       "match_date": "2026-08-21",
@@ -70,10 +70,10 @@
       "prob1": 0.5340542381151939,
       "odds1": 1.87,
       "odds2": 2.15,
-      "book_odds_home": 1.53,
-      "book_odds_away": 2.52,
-      "edge1": -0.1195,
-      "edge2": 0.0691,
+      "book_odds_home": 1.52,
+      "book_odds_away": 2.53,
+      "edge1": -0.1238,
+      "edge2": 0.0707,
       "sigs1": [
         "A"
       ],
@@ -154,10 +154,10 @@
       "prob1": 0.3057008437870854,
       "odds1": 3.27,
       "odds2": 1.44,
-      "book_odds_home": 2.74,
-      "book_odds_away": 1.45,
-      "edge1": -0.0593,
-      "edge2": 0.0046,
+      "book_odds_home": 2.67,
+      "book_odds_away": 1.47,
+      "edge1": -0.0688,
+      "edge2": 0.014,
       "sigs1": [],
       "sigs2": [],
       "court_cpi": 40,
