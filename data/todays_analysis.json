@@ -64,8 +64,8 @@
     "player2": "Tiafoe F.",
     "seed1": 21,
     "seed2": 17,
-    "book_odds_home": 1.47,
-    "book_odds_away": 2.69,
+    "book_odds_home": 1.46,
+    "book_odds_away": 2.74,
     "tournament": "Cincinnati",
     "surface": "hard",
     "category": "M1000",
@@ -108,8 +108,8 @@
     "prob1": 0.629925484795491,
     "odds1": 1.59,
     "odds2": 2.7,
-    "edge1": -0.0503,
-    "edge2": -0.0017,
+    "edge1": -0.055,
+    "edge2": 0.0051,
     "sigs1": [
       "A"
     ],
@@ -184,8 +184,8 @@
     "player2": "Pegula J.",
     "seed1": 4,
     "seed2": 3,
-    "book_odds_home": 1.65,
-    "book_odds_away": 2.25,
+    "book_odds_home": 1.63,
+    "book_odds_away": 2.27,
     "tournament": "Cincinnati WTA",
     "surface": "hard",
     "category": "W1000",
@@ -229,8 +229,8 @@
     "prob1": 0.49942435398108603,
     "odds1": 2.0,
     "odds2": 2.0,
-    "edge1": -0.1066,
-    "edge2": 0.0561,
+    "edge1": -0.1141,
+    "edge2": 0.06,
     "sigs1": [
       "B"
     ],
