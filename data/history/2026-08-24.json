@@ -1,0 +1,48 @@
+{
+  "date": "2026-08-24",
+  "saved_at": "2026-08-23T07:37:08.442845+00:00",
+  "matches": [
+    {
+      "match_date": "2026-08-24",
+      "is_tomorrow": true,
+      "time": "01:00",
+      "tournament": "Cincinnati WTA",
+      "surface": "hard",
+      "category": "W1000",
+      "tour": "WTA",
+      "player1": "Gauff C.",
+      "player2": "Pegula J.",
+      "name1": "Coco Gauff",
+      "name2": "Jessica Pegula",
+      "seed1": 4,
+      "seed2": 3,
+      "rank1": 4,
+      "rank2": 3,
+      "c_elo1": 2026.8,
+      "h_elo1": 2045.5,
+      "c_elo2": 1936.3,
+      "h_elo2": 2045.9,
+      "surf_elo1": 2045.5,
+      "surf_elo2": 2045.9,
+      "surf_delta": -0.40000000000009095,
+      "ss1": 6,
+      "ss2": 8,
+      "prob1": 0.49942435398108603,
+      "odds1": 2.0,
+      "odds2": 2.0,
+      "book_odds_home": 1.67,
+      "book_odds_away": 2.21,
+      "edge1": -0.0994,
+      "edge2": 0.0481,
+      "sigs1": [
+        "B"
+      ],
+      "sigs2": [],
+      "court_cpi": 40,
+      "elo_found": true,
+      "error": null,
+      "winner": null,
+      "score": null
+    }
+  ]
+}
