@@ -20,8 +20,11 @@ on:
         description: 'CPI frissites? (yes/no)'
         default: 'no'
       backfill_days:
-        description: 'Extra visszatoltes N napra (0 = nem kell, az auto-potlas 7 napot fed)'
+        description: 'Extra eredmeny-visszatoltes N napra (0 = nem kell)'
         default: '0'
+      print_csv:
+        description: 'Teljes CSV kiirasa a logba? (yes/no)'
+        default: 'no'
 
 permissions:
   contents: write
@@ -63,13 +66,9 @@ jobs:
         run: python fetch_results.py --days 7
         continue-on-error: true
 
-      # Osszesito + CSV export minden hajnali futas utan.
-      # A statisztika a logban jelenik meg, a CSV a data/ mappaba kerul.
-      - name: Osszesito + CSV export
+      - name: Osszesito statisztika (hajnali futas)
         if: github.event.schedule == '30 5 * * *'
-        run: |
-          python fetch_results.py --summary
-          python export_history.py --quiet
+        run: python fetch_results.py --summary
         continue-on-error: true
 
       - name: Eredmenyek visszatoltese (extra, kezi inditasnal)
@@ -77,9 +76,7 @@ jobs:
           github.event_name == 'workflow_dispatch' &&
           github.event.inputs.backfill_days != '0' &&
           github.event.inputs.backfill_days != ''
-        run: |
-          python fetch_results.py --days ${{ github.event.inputs.backfill_days }}
-          python export_history.py
+        run: python fetch_results.py --days ${{ github.event.inputs.backfill_days }}
         continue-on-error: true
 
       # ── Napi meccsek + HTML ────────────────────────────────────────
@@ -89,6 +86,18 @@ jobs:
           SKIP=""
           [ -f "data/elo_ratings_atp.json" ] && [ -f "data/elo_ratings_wta.json" ] && SKIP="--skip-elo"
           python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}" $SKIP
+
+      # A CSV export MINDEN futasnal lefut — halozati keres nelkul,
+      # a data/history/ OSSZES fajljabol. Mindig teljes.
+      - name: CSV export (data/history_export.csv)
+        run: python export_history.py --quiet
+        continue-on-error: true
+
+      # Kezi inditasnal, ha keri: a teljes CSV a logba is kikerul.
+      - name: CSV kiiratasa a logba
+        if: github.event.inputs.print_csv == 'yes'
+        run: python export_history.py
+        continue-on-error: true
 
       - name: Commit es push
         run: |
