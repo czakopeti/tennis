@@ -87,9 +87,10 @@ jobs:
           [ -f "data/elo_ratings_atp.json" ] && [ -f "data/elo_ratings_wta.json" ] && SKIP="--skip-elo"
           python main.py --bankroll "${{ github.event.inputs.bankroll || '1000' }}" $SKIP
 
-      # A CSV export MINDEN futasnal lefut — halozati keres nelkul,
-      # a data/history/ OSSZES fajljabol. Mindig teljes.
+      # A CSV export CSAK kezi inditasnal fut. A forras (data/history/)
+      # naponta frissul, igy az export barmikor lekerheto es mindig teljes.
       - name: CSV export (data/history_export.csv)
+        if: github.event_name == 'workflow_dispatch'
         run: python export_history.py --quiet
         continue-on-error: true
 
