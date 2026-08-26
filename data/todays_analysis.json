@@ -1894,7 +1894,7 @@
     "seed1": null,
     "seed2": null,
     "book_odds_home": 1.56,
-    "book_odds_away": 2.21,
+    "book_odds_away": 2.22,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -2396,7 +2396,7 @@
     "seed1": null,
     "seed2": null,
     "book_odds_home": 1.76,
-    "book_odds_away": 2.0,
+    "book_odds_away": 2.01,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -2440,7 +2440,7 @@
     "odds1": 2.24,
     "odds2": 1.81,
     "edge1": -0.1212,
-    "edge2": 0.053,
+    "edge2": 0.0555,
     "sigs1": [
       "A"
     ],
