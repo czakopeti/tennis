@@ -20,8 +20,8 @@ on:
         description: 'CPI frissites? (yes/no)'
         default: 'no'
       backfill_days:
-        description: 'Extra eredmeny-visszatoltes N napra (0 = nem kell)'
-        default: '0'
+        description: 'Eredmeny-visszatoltes N napra (0 = kihagyas)'
+        default: '3'
       print_csv:
         description: 'Teljes CSV kiirasa a logba? (yes/no)'
         default: 'no'
@@ -62,12 +62,16 @@ jobs:
       # keso eredmeny), a kovetkezo futas automatikusan potolja.
       # A mar teljes napokat kihagyja, igy nem terheli feleslegesen a szervert.
       - name: Eredmenyek rogzitese (auto, 7 napra visszamenoleg)
-        if: github.event.schedule == '30 5 * * *'
+        if: >
+          github.event.schedule == '30 5 * * *' ||
+          github.event.schedule == '0 11 * * *'
         run: python fetch_results.py --days 7
         continue-on-error: true
 
-      - name: Osszesito statisztika (hajnali futas)
-        if: github.event.schedule == '30 5 * * *'
+      - name: Osszesito statisztika
+        if: >
+          github.event.schedule == '30 5 * * *' ||
+          github.event.schedule == '0 11 * * *'
         run: python fetch_results.py --summary
         continue-on-error: true
 
