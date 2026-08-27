@@ -51,9 +51,7 @@
     "odds2": 2.72,
     "edge1": -0.0474,
     "edge2": -0.016,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -112,9 +110,7 @@
     "odds2": 2.43,
     "edge1": -0.2443,
     "edge2": 0.1811,
-    "sigs1": [
-      "B"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -192,9 +188,7 @@
     "edge1": -0.0363,
     "edge2": -0.0277,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -252,9 +246,7 @@
     "odds2": 2.82,
     "edge1": -0.0788,
     "edge2": 0.0128,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -267,8 +259,8 @@
     "player2": "Barrios Vera M.",
     "seed1": null,
     "seed2": 31,
-    "book_odds_home": 2.15,
-    "book_odds_away": 1.66,
+    "book_odds_home": 2.14,
+    "book_odds_away": 1.67,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -311,12 +303,12 @@
     "prob1": 0.5496294438142594,
     "odds1": 1.82,
     "odds2": 2.22,
-    "edge1": 0.0845,
-    "edge2": -0.152,
-    "sigs1": [],
-    "sigs2": [
-      "A"
+    "edge1": 0.0823,
+    "edge2": -0.1484,
+    "sigs1": [
+      "alap"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -328,8 +320,8 @@
     "player2": "Guerrieri A.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 1.75,
-    "book_odds_away": 2.0,
+    "book_odds_home": 1.74,
+    "book_odds_away": 2.02,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -372,12 +364,12 @@
     "prob1": 0.3800586409554767,
     "odds1": 2.63,
     "odds2": 1.61,
-    "edge1": -0.1914,
-    "edge2": 0.1199,
-    "sigs1": [
-      "B"
+    "edge1": -0.1947,
+    "edge2": 0.1249,
+    "sigs1": [],
+    "sigs2": [
+      "eros"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -435,9 +427,7 @@
     "odds2": 2.49,
     "edge1": -0.0966,
     "edge2": 0.0262,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -450,8 +440,8 @@
     "player2": "Garin C.",
     "seed1": 7,
     "seed2": 24,
-    "book_odds_home": 1.41,
-    "book_odds_away": 2.78,
+    "book_odds_home": 1.42,
+    "book_odds_away": 2.72,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -494,9 +484,11 @@
     "prob1": 0.7233878694391705,
     "odds1": 1.38,
     "odds2": 3.62,
-    "edge1": 0.0142,
-    "edge2": -0.0831,
-    "sigs1": [],
+    "edge1": 0.0192,
+    "edge2": -0.091,
+    "sigs1": [
+      "eros"
+    ],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -510,7 +502,7 @@
     "seed1": 14,
     "seed2": null,
     "book_odds_home": 1.72,
-    "book_odds_away": 2.05,
+    "book_odds_away": 2.06,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -554,10 +546,8 @@
     "odds1": 1.82,
     "odds2": 2.22,
     "edge1": -0.0312,
-    "edge2": -0.038,
-    "sigs1": [
-      "A"
-    ],
+    "edge2": -0.0356,
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -570,8 +560,8 @@
     "player2": "Dimitrov G.",
     "seed1": 9,
     "seed2": 25,
-    "book_odds_home": 3.4,
-    "book_odds_away": 1.3,
+    "book_odds_home": 3.2,
+    "book_odds_away": 1.33,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -614,12 +604,10 @@
     "prob1": 0.36432295128874337,
     "odds1": 2.74,
     "odds2": 1.57,
-    "edge1": 0.0702,
-    "edge2": -0.1336,
+    "edge1": 0.0518,
+    "edge2": -0.1162,
     "sigs1": [],
-    "sigs2": [
-      "B"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -631,8 +619,8 @@
     "player2": "McDonald M.",
     "seed1": 8,
     "seed2": 28,
-    "book_odds_home": 1.72,
-    "book_odds_away": 2.03,
+    "book_odds_home": 1.7,
+    "book_odds_away": 2.08,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -675,11 +663,9 @@
     "prob1": 0.5202803985173055,
     "odds1": 1.92,
     "odds2": 2.08,
-    "edge1": -0.0611,
-    "edge2": -0.0129,
-    "sigs1": [
-      "A"
-    ],
+    "edge1": -0.068,
+    "edge2": -0.001,
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -738,10 +724,10 @@
     "odds2": 2.84,
     "edge1": 0.0666,
     "edge2": -0.1334,
-    "sigs1": [],
-    "sigs2": [
-      "B"
+    "sigs1": [
+      "eros"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -754,7 +740,7 @@
     "seed1": 6,
     "seed2": null,
     "book_odds_home": 1.83,
-    "book_odds_away": 1.92,
+    "book_odds_away": 1.93,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -798,11 +784,11 @@
     "odds1": 2.34,
     "odds2": 1.74,
     "edge1": -0.1197,
-    "edge2": 0.0525,
-    "sigs1": [
-      "A"
+    "edge2": 0.0552,
+    "sigs1": [],
+    "sigs2": [
+      "kozepes"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -815,7 +801,7 @@
     "seed1": 12,
     "seed2": 17,
     "book_odds_home": 2.27,
-    "book_odds_away": 1.59,
+    "book_odds_away": 1.6,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -859,11 +845,9 @@
     "odds1": 2.21,
     "odds2": 1.82,
     "edge1": 0.0111,
-    "edge2": -0.0806,
+    "edge2": -0.0767,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -875,8 +859,8 @@
     "player2": "Llamas Ruiz P.",
     "seed1": null,
     "seed2": 18,
-    "book_odds_home": 1.66,
-    "book_odds_away": 2.11,
+    "book_odds_home": 1.61,
+    "book_odds_away": 2.2,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -919,12 +903,12 @@
     "prob1": 0.6761756375351277,
     "odds1": 1.48,
     "odds2": 3.09,
-    "edge1": 0.0738,
-    "edge2": -0.1501,
-    "sigs1": [],
-    "sigs2": [
-      "A"
+    "edge1": 0.0551,
+    "edge2": -0.1307,
+    "sigs1": [
+      "eros"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -936,8 +920,8 @@
     "player2": "Sakamoto R.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 2.3,
-    "book_odds_away": 1.58,
+    "book_odds_home": 2.28,
+    "book_odds_away": 1.59,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -980,12 +964,12 @@
     "prob1": 0.617496996581112,
     "odds1": 1.62,
     "odds2": 2.61,
-    "edge1": 0.1827,
-    "edge2": -0.2504,
-    "sigs1": [],
-    "sigs2": [
-      "A"
+    "edge1": 0.1789,
+    "edge2": -0.2464,
+    "sigs1": [
+      "eros"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1043,10 +1027,10 @@
     "odds2": 2.29,
     "edge1": 0.0133,
     "edge2": -0.0835,
-    "sigs1": [],
-    "sigs2": [
-      "A"
+    "sigs1": [
+      "kozepes"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1059,7 +1043,7 @@
     "seed1": 3,
     "seed2": null,
     "book_odds_home": 1.73,
-    "book_odds_away": 2.03,
+    "book_odds_away": 2.04,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -1103,11 +1087,11 @@
     "odds1": 1.43,
     "odds2": 3.35,
     "edge1": 0.1231,
-    "edge2": -0.1937,
-    "sigs1": [],
-    "sigs2": [
-      "B"
+    "edge2": -0.1913,
+    "sigs1": [
+      "eros"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1165,7 +1149,9 @@
     "odds2": 2.77,
     "edge1": 0.0139,
     "edge2": -0.0853,
-    "sigs1": [],
+    "sigs1": [
+      "eros"
+    ],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -1224,10 +1210,10 @@
     "odds2": 3.48,
     "edge1": 0.088,
     "edge2": -0.1575,
-    "sigs1": [],
-    "sigs2": [
-      "B"
+    "sigs1": [
+      "eros"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1344,7 +1330,9 @@
     "odds2": 7.63,
     "edge1": 0.0752,
     "edge2": -0.1348,
-    "sigs1": [],
+    "sigs1": [
+      "eros"
+    ],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -1403,9 +1391,7 @@
     "odds2": 2.06,
     "edge1": -0.0338,
     "edge2": -0.0311,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -1465,9 +1451,7 @@
     "edge1": 0.0185,
     "edge2": -0.0842,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1525,10 +1509,10 @@
     "odds2": 2.17,
     "edge1": 0.1544,
     "edge2": -0.2193,
-    "sigs1": [],
-    "sigs2": [
-      "B"
+    "sigs1": [
+      "alap"
     ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1587,9 +1571,7 @@
     "edge1": 0.0022,
     "edge2": -0.0691,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1602,7 +1584,7 @@
     "seed1": null,
     "seed2": 31,
     "book_odds_home": 1.67,
-    "book_odds_away": 2.11,
+    "book_odds_away": 2.12,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -1646,7 +1628,7 @@
     "odds1": 1.91,
     "odds2": 2.1,
     "edge1": -0.0744,
-    "edge2": 0.0016,
+    "edge2": 0.0039,
     "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
@@ -1661,7 +1643,7 @@
     "seed1": 14,
     "seed2": null,
     "book_odds_home": 1.22,
-    "book_odds_away": 4.03,
+    "book_odds_away": 4.06,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -1705,8 +1687,10 @@
     "odds1": 1.19,
     "odds2": 6.39,
     "edge1": 0.0238,
-    "edge2": -0.0916,
-    "sigs1": [],
+    "edge2": -0.0898,
+    "sigs1": [
+      "eros"
+    ],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -1719,7 +1703,7 @@
     "player2": "Koevermans A.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 2.26,
+    "book_odds_home": 2.29,
     "book_odds_away": 1.58,
     "tournament": "US Open",
     "surface": "hard",
@@ -1763,12 +1747,10 @@
     "prob1": 0.449800646746463,
     "odds1": 2.22,
     "odds2": 1.82,
-    "edge1": 0.0073,
+    "edge1": 0.0131,
     "edge2": -0.0827,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1826,9 +1808,7 @@
     "odds2": 2.14,
     "edge1": -0.2198,
     "edge2": 0.1464,
-    "sigs1": [
-      "B"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -1841,8 +1821,8 @@
     "player2": "Stefanini L.",
     "seed1": null,
     "seed2": 28,
-    "book_odds_home": 1.66,
-    "book_odds_away": 2.13,
+    "book_odds_home": 1.65,
+    "book_odds_away": 2.15,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -1885,12 +1865,12 @@
     "prob1": 0.46136495707782876,
     "odds1": 2.17,
     "odds2": 1.86,
-    "edge1": -0.141,
-    "edge2": 0.0692,
-    "sigs1": [
-      "B"
+    "edge1": -0.1447,
+    "edge2": 0.0735,
+    "sigs1": [],
+    "sigs2": [
+      "alap"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -1948,9 +1928,7 @@
     "odds2": 2.24,
     "edge1": -0.1411,
     "edge2": 0.0664,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -2009,10 +1987,10 @@
     "odds2": 1.46,
     "edge1": -0.1212,
     "edge2": 0.0495,
-    "sigs1": [
-      "B"
+    "sigs1": [],
+    "sigs2": [
+      "eros"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2070,10 +2048,10 @@
     "odds2": 1.86,
     "edge1": -0.0933,
     "edge2": 0.0196,
-    "sigs1": [
-      "A"
+    "sigs1": [],
+    "sigs2": [
+      "alap"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2085,7 +2063,7 @@
     "player2": "Andreescu B.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 3.68,
+    "book_odds_home": 3.66,
     "book_odds_away": 1.26,
     "tournament": "US Open",
     "surface": "hard",
@@ -2129,12 +2107,10 @@
     "prob1": 0.36592422472693026,
     "odds1": 2.73,
     "odds2": 1.58,
-    "edge1": 0.0942,
+    "edge1": 0.0927,
     "edge2": -0.1596,
     "sigs1": [],
-    "sigs2": [
-      "B"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2193,9 +2169,7 @@
     "edge1": 0.0541,
     "edge2": -0.1261,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2207,8 +2181,8 @@
     "player2": "Dart H.",
     "seed1": null,
     "seed2": 29,
-    "book_odds_home": 2.17,
-    "book_odds_away": 1.63,
+    "book_odds_home": 2.22,
+    "book_odds_away": 1.61,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -2251,12 +2225,10 @@
     "prob1": 0.4446775652567235,
     "odds1": 2.25,
     "odds2": 1.8,
-    "edge1": -0.0162,
-    "edge2": -0.0582,
+    "edge1": -0.0058,
+    "edge2": -0.0658,
     "sigs1": [],
-    "sigs2": [
-      "A"
-    ],
+    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2314,9 +2286,7 @@
     "odds2": 2.51,
     "edge1": -0.1071,
     "edge2": 0.0329,
-    "sigs1": [
-      "A"
-    ],
+    "sigs1": [],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -2330,7 +2300,7 @@
     "seed1": 16,
     "seed2": null,
     "book_odds_home": 1.36,
-    "book_odds_away": 2.91,
+    "book_odds_away": 3.02,
     "tournament": "US Open",
     "surface": "hard",
     "category": "GS",
@@ -2374,8 +2344,10 @@
     "odds1": 1.34,
     "odds2": 3.9,
     "edge1": 0.0083,
-    "edge2": -0.0873,
-    "sigs1": [],
+    "edge2": -0.0748,
+    "sigs1": [
+      "eros"
+    ],
     "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
@@ -2434,10 +2406,10 @@
     "odds2": 1.46,
     "edge1": -0.0844,
     "edge2": 0.0117,
-    "sigs1": [
-      "A"
+    "sigs1": [],
+    "sigs2": [
+      "eros"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
@@ -2449,7 +2421,7 @@
     "player2": "Valdmannova V.",
     "seed1": 8,
     "seed2": null,
-    "book_odds_home": 2.01,
+    "book_odds_home": 2.0,
     "book_odds_away": 1.74,
     "tournament": "US Open",
     "surface": "hard",
@@ -2493,12 +2465,12 @@
     "prob1": 0.3534626971865426,
     "odds1": 2.83,
     "odds2": 1.55,
-    "edge1": -0.144,
+    "edge1": -0.1465,
     "edge2": 0.0718,
-    "sigs1": [
-      "A"
+    "sigs1": [],
+    "sigs2": [
+      "eros"
     ],
-    "sigs2": [],
     "court_cpi": 43,
     "elo_found": true,
     "error": null,
