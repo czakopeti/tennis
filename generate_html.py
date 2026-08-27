@@ -88,22 +88,36 @@ def edge_badge(edge):
             '%+.1f%%%s</span>') % (bg, bd, col, edge * 100, lbl)
 
 
-def badge_a(sigs):
-    if "A" not in (sigs or set()):
-        return ""
-    return ('<div style="margin-top:4px;padding:3px 7px;border-radius:5px;'
-            'background:#22c55e1f;border:1px solid #22c55e55;'
-            'font-size:10px;font-weight:800;color:#4ade80;letter-spacing:.3px">'
-            '🎯 A JELOLT — jobb rangu, piac erosebbnek latja</div>')
+TIER_STYLE = {
+    "eros":    {"icon": "💎", "name": "EROS",    "min": 60,
+                "col": "#22c55e", "bg": "#22c55e1f", "bd": "#22c55e60"},
+    "kozepes": {"icon": "🔷", "name": "KOZEPES", "min": 55,
+                "col": "#38bdf8", "bg": "#38bdf81c", "bd": "#38bdf850"},
+    "alap":    {"icon": "🔹", "name": "ALAP",    "min": 50,
+                "col": "#94a3b8", "bg": "#94a3b818", "bd": "#94a3b840"},
+}
+TIER_ORDER = ["eros", "kozepes", "alap"]
 
 
-def badge_b(sigs):
-    if "B" not in (sigs or set()):
+def tier_of(sigs):
+    """A legerosebb ervenyes szint (a szintek egymasba agyazottak)."""
+    sset = set(sigs or [])
+    for t in TIER_ORDER:
+        if t in sset:
+            return t
+    return None
+
+
+def value_badge(sigs):
+    t = tier_of(sigs)
+    if not t:
         return ""
+    st = TIER_STYLE[t]
     return ('<div style="margin-top:4px;padding:3px 7px;border-radius:5px;'
-            'background:#a855f71f;border:1px solid #a855f755;'
-            'font-size:10px;font-weight:800;color:#c084fc;letter-spacing:.3px">'
-            '🔮 B JELOLT — rosszabb rangu, ellenfelen VALUE</div>')
+            'background:%s;border:1px solid %s;font-size:10px;font-weight:800;'
+            'color:%s;letter-spacing:.3px">%s %s VALUE — modell %d%%+, '
+            'piac aluláraz</div>') % (st["bg"], st["bd"], st["col"],
+                                      st["icon"], st["name"], st["min"])
 
 
 def render_card(m):
@@ -120,9 +134,10 @@ def render_card(m):
                 'border-radius:4px;background:#eab30818;border:1px solid #eab30840;'
                 'color:#eab308;animation:pulse 2s infinite">● LIVE</span>')
     elif m.get("is_tomorrow"):
+        lbl = "⏳ Holnap" if m.get("time_unknown") else "🌙 Hajnal"
         pill = ('<span style="font-size:10px;font-weight:700;padding:2px 8px;'
                 'border-radius:4px;background:#8b5cf618;border:1px solid #8b5cf640;'
-                'color:#a78bfa">🌙 Hajnal</span>')
+                'color:#a78bfa">%s</span>') % lbl
     else:
         pill = ('<span style="font-size:10px;font-weight:700;padding:2px 8px;'
                 'border-radius:4px;background:#3b82f618;border:1px solid #3b82f640;'
@@ -212,14 +227,14 @@ def render_card(m):
         <div class="pname">%s%s</div>
         <div class="pmeta"><span class="prank">#%s</span> · c%.0f · h%.0f</div>
         <div style="margin-top:3px">%s <span style="font-size:9px;color:%s">%d · %s</span></div>
-        %s%s
+        %s
       </div>
       <div class="vs">VS</div>
       <div class="pinfo" style="text-align:right">
         <div class="pname">%s%s</div>
         <div class="pmeta"><span class="prank">#%s</span> · c%.0f · h%.0f</div>
         <div style="margin-top:3px"><span style="font-size:9px;color:%s">%s · %d</span> %s</div>
-        %s%s
+        %s
       </div>
     </div>
     <div class="odds-row">
@@ -244,10 +259,10 @@ def render_card(m):
         tm["col"], tm["bd"], tour, cat, m.get("time", ""), pill, meta_row,
         s1, p1s, rk1, c1, h1,
         ss9_display(ss1), SS9[ss1]["col"], ss1, SS9_LABEL[ss1],
-        badge_a(sg1), badge_b(sg1),
+        value_badge(sg1),
         p2s, s2, rk2, c2, h2,
         SS9[ss2]["col"], SS9_LABEL[ss2], ss2, ss9_display(ss2),
-        badge_a(sg2), badge_b(sg2),
+        value_badge(sg2),
         oc1, o1, p1s.split()[-1], prob1 * 100,
         delta,
         oc2, o2, p2s.split()[-1], prob2 * 100,
@@ -287,7 +302,10 @@ def analyze_matches(matches, elo_players):
         edge1 = compute_edge(p1, bo1) if bo1 else None
         edge2 = compute_edge(1 - p1, bo2) if bo2 else None
 
-        sigs1, sigs2 = bet_signals(r1, r2, edge1, edge2, bo1, bo2)
+        fair1 = prob_to_decimal_odds(p1)
+        fair2 = prob_to_decimal_odds(1 - p1)
+        sigs1, sigs2 = bet_signals(r1, r2, edge1, edge2, bo1, bo2,
+                                   prob1=p1, fair1=fair1, fair2=fair2)
 
         cpi_val = None
         if cpi_db:
@@ -328,8 +346,10 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     rest_atp = [m for m in atp_analyses if m.get("status") != "live"]
     rest_wta = [m for m in wta_analyses if m.get("status") != "live"]
 
-    n_a = sum(1 for m in allm if "A" in (m.get("sigs1") or []) or "A" in (m.get("sigs2") or []))
-    n_b = sum(1 for m in allm if "B" in (m.get("sigs1") or []) or "B" in (m.get("sigs2") or []))
+    def _cnt(tier):
+        return sum(1 for m in allm
+                   if tier_of(m.get("sigs1")) == tier or tier_of(m.get("sigs2")) == tier)
+    n_eros, n_koz, n_alap = _cnt("eros"), _cnt("kozepes"), _cnt("alap")
     n_v = sum(1 for m in allm
               if (m.get("edge1") or 0) >= 0.04 or (m.get("edge2") or 0) >= 0.04)
 
@@ -410,14 +430,17 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <div class="stat"><div class="sl">ATP</div><div class="sv" style="color:var(--ac)">%d</div></div>
   <div class="stat"><div class="sl">WTA</div><div class="sv" style="color:var(--pink)">%d</div></div>
   <div class="stat"><div class="sl">Elo</div><div class="sv" style="color:var(--ye)">%d</div></div>
-  <div class="stat"><div class="sl">🎯 A</div><div class="sv" style="color:#4ade80">%d</div></div>
-  <div class="stat"><div class="sl">🔮 B</div><div class="sv" style="color:#c084fc">%d</div></div>
+  <div class="stat"><div class="sl">💎 Eros</div><div class="sv" style="color:#22c55e">%d</div></div>
+  <div class="stat"><div class="sl">🔷 Kozepes</div><div class="sv" style="color:#38bdf8">%d</div></div>
+  <div class="stat"><div class="sl">🔹 Alap</div><div class="sv" style="color:#94a3b8">%d</div></div>
   <div class="stat"><div class="sl">Value</div><div class="sv" style="color:var(--gr)">%d</div></div>
   <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:%s">%+.1f%%</div></div>
 </div>
 <div class="legend">
-  <strong style="color:#4ade80">🎯 A jelolt</strong>: jobb ranglistas hely + sajat edge &le; -2.6%% (a piac erosebbnek latja)<br>
-  <strong style="color:#c084fc">🔮 B jelolt</strong>: rosszabb ranglistas hely + odds &le; 3.00 + ellenfelen zold VALUE<br>
+  <strong>Value-jeloltek</strong> — kozos feltetel: a kapott odds &ge; a sajat fair oddsunk.<br>
+  <strong style="color:#22c55e">💎 Eros</strong>: modell &gt;60%% &middot;
+  <strong style="color:#38bdf8">🔷 Kozepes</strong>: modell &gt;55%% &middot;
+  <strong style="color:#94a3b8">🔹 Alap</strong>: modell &gt;50%%<br>
   🧱🧱🧱(1) 🧱🧱(2) 🧱(3) 🔸(4) ⚖(5) 🔹(6) 💙(7) 💙💙(8) 💙💙💙(9) — boritas preferencia<br>
   CPI = Court Pace Index · &lt;30 lassu · 35-39 kozepes · &gt;44 gyors · 🌙 = holnap hajnali meccs
 </div>
@@ -428,7 +451,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 </html>""" % (
         updated, scraped,
         len(atp_analyses), len(wta_analyses), len(all_live),
-        n_a, n_b, n_v,
+        n_eros, n_koz, n_alap, n_v,
         "var(--gr)" if stats["roi"] >= 0 else "var(--rd)", stats["roi"],
         ('<div class="sec" style="color:var(--ye)">● Elo</div><div class="cards">%s</div>'
          % cards(all_live)) if all_live else "",

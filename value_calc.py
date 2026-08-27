@@ -6,10 +6,19 @@ MINIMUM_EDGE   = 0.04     # zold VALUE kuszob
 KELLY_FRACTION = 0.25
 MAX_BET_PCT    = 0.03
 
-# ── Badge kuszobok ────────────────────────────────────────────────────────
-BADGE_A_EDGE_MAX  = -0.026   # A: sajat edge <= ez
-BADGE_B_ODDS_MAX  = 3.00     # B: sajat bukmekeri odds <= ez
-BADGE_B_OPP_VALUE = 0.04     # B: ellenfel edge >= ez (zold VALUE)
+# ── Value-jelolt kuszobok ─────────────────────────────────────────────────
+# Ket fuggetlen prospektiv teszten (aug 25-26) validalt szabalyok.
+# Kozos feltetel MINDHAROMNAL: a kapott odds >= a sajat fair oddsunk.
+# A harom szint egymasba agyazott: EROS ⊂ KOZEPES ⊂ ALAP.
+TIER_STRONG = 0.60   # 💎 EROS    — teszt: 21/25 = 84.0%, ROI +28.8%, p=4.0%
+TIER_MEDIUM = 0.55   # 🔷 KOZEPES — teszt: 25/31 = 80.6%, ROI +29.5%, p=2.6%
+TIER_BASE   = 0.50   # 🔹 ALAP    — teszt: 30/42 = 71.4%, ROI +22.4%, p=4.8%
+
+TIER_META = {
+    "eros":    {"icon": "💎", "label": "EROS",    "min": TIER_STRONG},
+    "kozepes": {"icon": "🔷", "label": "KOZEPES", "min": TIER_MEDIUM},
+    "alap":    {"icon": "🔹", "label": "ALAP",    "min": TIER_BASE},
+}
 
 SS9_META = {
     1: {"icon": "🧱🧱🧱", "label": "Extrem salak"},
@@ -188,43 +197,43 @@ def player_ss9(record, surface="clay"):
 
 # ══ Badge logika ═════════════════════════════════════════════════════════
 
-def bet_signals(r1, r2, edge1, edge2, book1, book2):
+def value_tier(prob, book_odds, fair_odds):
     """
-    Ket fuggetlen badge, jatekosonkent kiertekelve.
+    Egyetlen jatekos value-szintje.
 
-    BADGE A  ("A jelolt"):
-        - sajat ranking JOBB (kisebb szam) mint az ellenfele
-        - sajat edge <= BADGE_A_EDGE_MAX (-2.6%)
-          -> a piac erosebbnek latja, mint a mi modellunk
+    Kozos feltetel: a kapott bukmekeri odds >= a modellbol szamolt fair odds.
+    (Azaz a piac legalabb annyit fizet, amennyit a modell indokolna.)
 
-    BADGE B  ("B jelolt"):
-        - sajat ranking ROSSZABB (nagyobb szam) mint az ellenfele
-        - sajat bukmekeri odds <= BADGE_B_ODDS_MAX (3.00)
-        - ellenfel edge >= BADGE_B_OPP_VALUE (+4%, zold VALUE)
+    Ezen belul a modell magabiztossaga szerint harom szint:
+        prob > 60%  -> "eros"
+        prob > 55%  -> "kozepes"
+        prob > 50%  -> "alap"
 
-    Visszater: (sigs1, sigs2) — halmazok, pl. {"A"} / {"B"} / set()
+    Visszater: "eros" | "kozepes" | "alap" | None
     """
-    rank1 = get_player_rank(r1)
-    rank2 = get_player_rank(r2)
-    sigs1, sigs2 = set(), set()
+    if book_odds is None or fair_odds is None:
+        return None
+    if fair_odds <= 0 or book_odds < fair_odds:
+        return None
+    if prob > TIER_STRONG:
+        return "eros"
+    if prob > TIER_MEDIUM:
+        return "kozepes"
+    if prob > TIER_BASE:
+        return "alap"
+    return None
 
-    if rank1 is None or rank2 is None or rank1 == rank2:
-        return sigs1, sigs2
 
-    # ── BADGE A ──────────────────────────────────────────────────────
-    if rank1 < rank2 and edge1 is not None and edge1 <= BADGE_A_EDGE_MAX:
-        sigs1.add("A")
-    if rank2 < rank1 and edge2 is not None and edge2 <= BADGE_A_EDGE_MAX:
-        sigs2.add("A")
-
-    # ── BADGE B ──────────────────────────────────────────────────────
-    if (rank1 > rank2
-            and book1 is not None and book1 <= BADGE_B_ODDS_MAX
-            and edge2 is not None and edge2 >= BADGE_B_OPP_VALUE):
-        sigs1.add("B")
-    if (rank2 > rank1
-            and book2 is not None and book2 <= BADGE_B_ODDS_MAX
-            and edge1 is not None and edge1 >= BADGE_B_OPP_VALUE):
-        sigs2.add("B")
-
-    return sigs1, sigs2
+def bet_signals(r1, r2, edge1, edge2, book1, book2,
+                prob1=None, fair1=None, fair2=None):
+    """
+    Value-jelolt szintek mindket jatekosra.
+    Visszater: (sigs1, sigs2) — halmazok, pl. {"eros"} vagy ures halmaz.
+    (Halmazkent adjuk vissza, hogy a korabbi history/export formatum
+     valtozatlan maradjon.)
+    """
+    if prob1 is None or fair1 is None or fair2 is None:
+        return set(), set()
+    t1 = value_tier(prob1,     book1, fair1)
+    t2 = value_tier(1 - prob1, book2, fair2)
+    return ({t1} if t1 else set()), ({t2} if t2 else set())
