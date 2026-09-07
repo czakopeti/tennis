@@ -1,6 +1,6 @@
 {
   "date": "2026-09-07",
-  "saved_at": "2026-09-07T13:23:57.268005+00:00",
+  "saved_at": "2026-09-07T14:53:24.777607+00:00",
   "matches": [
     {
       "match_date": "2026-09-07",
@@ -154,9 +154,9 @@
       "prob1": 0.5230095872975623,
       "odds1": 1.91,
       "odds2": 2.1,
-      "book_odds_home": 2.36,
+      "book_odds_home": 2.35,
       "book_odds_away": 1.59,
-      "edge1": 0.0993,
+      "edge1": 0.0975,
       "edge2": -0.1519,
       "sigs1": [
         "alap"
@@ -253,7 +253,7 @@
     {
       "match_date": "2026-09-07",
       "is_tomorrow": false,
-      "time": "17:00",
+      "time": "17:10",
       "tournament": "US Open",
       "surface": "hard",
       "category": "GS",
@@ -278,10 +278,10 @@
       "prob1": 0.7422052705619785,
       "odds1": 1.35,
       "odds2": 3.88,
-      "book_odds_home": 1.16,
-      "book_odds_away": 5.36,
-      "edge1": -0.1199,
-      "edge2": 0.0712,
+      "book_odds_home": 1.15,
+      "book_odds_away": 5.59,
+      "edge1": -0.1274,
+      "edge2": 0.0789,
       "sigs1": [],
       "sigs2": [],
       "court_cpi": 43,
@@ -293,7 +293,7 @@
     {
       "match_date": "2026-09-07",
       "is_tomorrow": false,
-      "time": "17:30",
+      "time": "17:40",
       "tournament": "US Open",
       "surface": "hard",
       "category": "GS",
@@ -318,13 +318,11 @@
       "prob1": 0.8252771116260628,
       "odds1": 1.21,
       "odds2": 5.72,
-      "book_odds_home": 1.21,
-      "book_odds_away": 4.5,
-      "edge1": -0.0012,
-      "edge2": -0.0475,
-      "sigs1": [
-        "eros"
-      ],
+      "book_odds_home": 1.2,
+      "book_odds_away": 4.58,
+      "edge1": -0.0081,
+      "edge2": -0.0436,
+      "sigs1": [],
       "sigs2": [],
       "court_cpi": 43,
       "elo_found": true,
@@ -361,9 +359,9 @@
       "odds1": 3.64,
       "odds2": 1.38,
       "book_odds_home": 2.13,
-      "book_odds_away": 1.71,
+      "book_odds_away": 1.72,
       "edge1": -0.1949,
-      "edge2": 0.1407,
+      "edge2": 0.1441,
       "sigs1": [],
       "sigs2": [
         "eros"
