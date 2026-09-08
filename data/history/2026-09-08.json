@@ -1,6 +1,6 @@
 {
   "date": "2026-09-08",
-  "saved_at": "2026-09-08T14:51:00.904031+00:00",
+  "saved_at": "2026-09-08T19:43:55.843098+00:00",
   "matches": [
     {
       "match_date": "2026-09-08",
@@ -45,7 +45,7 @@
     {
       "match_date": "2026-09-08",
       "is_tomorrow": false,
-      "time": "19:00",
+      "time": "20:25",
       "tournament": "US Open",
       "surface": "hard",
       "category": "GS",
@@ -70,10 +70,10 @@
       "prob1": 0.5807409473370819,
       "odds1": 1.72,
       "odds2": 2.39,
-      "book_odds_home": 1.64,
-      "book_odds_away": 2.27,
-      "edge1": -0.029,
-      "edge2": -0.0213,
+      "book_odds_home": 1.63,
+      "book_odds_away": 2.28,
+      "edge1": -0.0328,
+      "edge2": -0.0193,
       "sigs1": [],
       "sigs2": [],
       "court_cpi": 43,
@@ -127,7 +127,7 @@
     {
       "match_date": "2026-09-08",
       "is_tomorrow": false,
-      "time": "17:30",
+      "time": "17:40",
       "tournament": "US Open",
       "surface": "hard",
       "category": "GS",
@@ -152,10 +152,10 @@
       "prob1": 0.7942998981007596,
       "odds1": 1.26,
       "odds2": 4.86,
-      "book_odds_home": 1.35,
-      "book_odds_away": 3.2,
-      "edge1": 0.0536,
-      "edge2": -0.1068,
+      "book_odds_home": 1.33,
+      "book_odds_away": 3.35,
+      "edge1": 0.0424,
+      "edge2": -0.0928,
       "sigs1": [
         "eros"
       ],
