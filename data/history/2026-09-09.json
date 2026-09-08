@@ -1,6 +1,6 @@
 {
   "date": "2026-09-09",
-  "saved_at": "2026-09-08T12:03:35.128313+00:00",
+  "saved_at": "2026-09-08T14:51:00.904420+00:00",
   "matches": [
     {
       "match_date": "2026-09-09",
@@ -30,9 +30,9 @@
       "prob1": 0.327743968163932,
       "odds1": 3.05,
       "odds2": 1.49,
-      "book_odds_home": 4.0,
+      "book_odds_home": 3.98,
       "book_odds_away": 1.25,
-      "edge1": 0.0777,
+      "edge1": 0.0765,
       "edge2": -0.1277,
       "sigs1": [],
       "sigs2": [],
@@ -70,10 +70,10 @@
       "prob1": 0.8517303905628775,
       "odds1": 1.17,
       "odds2": 6.74,
-      "book_odds_home": 1.25,
-      "book_odds_away": 3.93,
-      "edge1": 0.0517,
-      "edge2": -0.1062,
+      "book_odds_home": 1.26,
+      "book_odds_away": 3.91,
+      "edge1": 0.0581,
+      "edge2": -0.1075,
       "sigs1": [
         "eros"
       ],
