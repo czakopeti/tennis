@@ -1,6 +1,6 @@
 {
   "date": "2026-09-10",
-  "saved_at": "2026-09-09T08:03:19.953390+00:00",
+  "saved_at": "2026-09-09T12:14:16.351524+00:00",
   "matches": [
     {
       "match_date": "2026-09-10",
@@ -31,9 +31,9 @@
       "odds1": 1.2,
       "odds2": 6.11,
       "book_odds_home": 1.1,
-      "book_odds_away": 6.88,
+      "book_odds_away": 6.96,
       "edge1": -0.0729,
-      "edge2": 0.0184,
+      "edge2": 0.0201,
       "sigs1": [],
       "sigs2": [],
       "court_cpi": 43,
