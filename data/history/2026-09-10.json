@@ -39,8 +39,16 @@
       "court_cpi": 43,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-2 7-5 6-1",
+      "sets": [
+        3,
+        0
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-09-11T04:53:30.851686+00:00",
+  "matched": 1,
+  "total": 1
 }
