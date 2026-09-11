@@ -1,11 +1,11 @@
 {
   "date": "2026-09-11",
-  "saved_at": "2026-09-11T14:44:39.020934+00:00",
+  "saved_at": "2026-09-11T19:27:57.298261+00:00",
   "matches": [
     {
       "match_date": "2026-09-11",
       "is_tomorrow": false,
-      "time": "21:00",
+      "time": "21:15",
       "tournament": "US Open",
       "surface": "hard",
       "category": "GS",
@@ -30,10 +30,10 @@
       "prob1": 0.8380065629995791,
       "odds1": 1.19,
       "odds2": 6.17,
-      "book_odds_home": 1.21,
-      "book_odds_away": 4.48,
-      "edge1": 0.0116,
-      "edge2": -0.0612,
+      "book_odds_home": 1.2,
+      "book_odds_away": 4.57,
+      "edge1": 0.0047,
+      "edge2": -0.0568,
       "sigs1": [
         "eros"
       ],
