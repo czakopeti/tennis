@@ -41,8 +41,13 @@
       "court_cpi": 43,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-3 7-6 7-6",
+      "sets": [
+        3,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-09-11",
@@ -81,8 +86,13 @@
       "court_cpi": 43,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "7-5 6-2",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-09-11",
@@ -121,8 +131,16 @@
       "court_cpi": 43,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "3-6 6-4 6-4",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-09-12T04:53:23.882897+00:00",
+  "matched": 3,
+  "total": 3
 }
