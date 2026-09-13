@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-14",
+  "saved_at": "2026-09-13T06:29:36.797365+00:00",
+  "matches": [
+    {
+      "match_date": "2026-09-14",
+      "is_tomorrow": true,
+      "time": "01:00",
+      "tournament": "Guadalajara 2 WTA",
+      "surface": "hard",
+      "category": "W500",
+      "tour": "WTA",
+      "player1": "Bucsa C.",
+      "player2": "Andreescu B.",
+      "name1": "Cristina Bucsa",
+      "name2": "Bianca Andreescu",
+      "seed1": 6,
+      "seed2": null,
+      "rank1": 40,
+      "rank2": 183,
+      "c_elo1": 1552.1,
+      "h_elo1": 1677.0,
+      "c_elo2": 1623.7,
+      "h_elo2": 1674.4,
+      "surf_elo1": 1677.0,
+      "surf_elo2": 1674.4,
+      "surf_delta": 2.599999999999909,
+      "ss1": 8,
+      "ss2": 7,
+      "prob1": 0.5037416309309788,
+      "odds1": 1.99,
+      "odds2": 2.02,
+      "book_odds_home": 2.21,
+      "book_odds_away": 1.63,
+      "edge1": 0.0513,
+      "edge2": -0.1172,
+      "sigs1": [
+        "alap"
+      ],
+      "sigs2": [],
+      "court_cpi": 37,
+      "elo_found": true,
+      "error": null,
+      "winner": null,
+      "score": null
+    }
+  ]
+}
