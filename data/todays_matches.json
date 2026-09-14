@@ -15,13 +15,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "20:00",
+    "time": "20:10",
     "player1": "Kalieva E.",
     "player2": "Day K.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 2.37,
-    "book_odds_away": 1.56,
+    "book_odds_home": 2.34,
+    "book_odds_away": 1.57,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
@@ -30,12 +30,12 @@
     "is_tomorrow": false
   },
   {
-    "time": "21:00",
+    "time": "21:10",
     "player1": "Monnet C.",
     "player2": "Stephens S.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 4.2,
+    "book_odds_home": 4.19,
     "book_odds_away": 1.22,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
@@ -45,13 +45,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "21:30",
+    "time": "23:15",
     "player1": "Maria T.",
     "player2": "Townsend T.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 3.27,
-    "book_odds_away": 1.33,
+    "book_odds_home": 3.36,
+    "book_odds_away": 1.31,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
@@ -60,7 +60,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "22:30",
+    "time": "23:15",
     "player1": "Zarazua R.",
     "player2": "Dolehide C.",
     "seed1": null,
@@ -75,19 +75,20 @@
     "is_tomorrow": false
   },
   {
-    "time": "23:00",
+    "time": "00:15",
     "player1": "Frech M.",
     "player2": "Hibino N.",
     "seed1": 7,
     "seed2": null,
     "book_odds_home": 1.23,
-    "book_odds_away": 4.01,
+    "book_odds_away": 4.06,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
     "tour": "WTA",
-    "match_date": "2026-09-14",
-    "is_tomorrow": false
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-09-15"
   },
   {
     "time": "01:00",
@@ -96,7 +97,7 @@
     "seed1": null,
     "seed2": null,
     "book_odds_home": 1.31,
-    "book_odds_away": 3.36,
+    "book_odds_away": 3.35,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
@@ -111,8 +112,8 @@
     "player2": "Samsonova L.",
     "seed1": null,
     "seed2": 8,
-    "book_odds_home": 4.15,
-    "book_odds_away": 1.22,
+    "book_odds_home": 4.24,
+    "book_odds_away": 1.21,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
