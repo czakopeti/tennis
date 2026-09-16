@@ -1,6 +1,6 @@
 {
   "date": "2026-09-16",
-  "saved_at": "2026-09-16T12:30:36.825264+00:00",
+  "saved_at": "2026-09-16T15:13:39.547906+00:00",
   "matches": [
     {
       "match_date": "2026-09-16",
@@ -87,7 +87,7 @@
     {
       "match_date": "2026-09-16",
       "is_tomorrow": false,
-      "time": "21:00",
+      "time": "21:10",
       "tournament": "Guadalajara 2 WTA",
       "surface": "hard",
       "category": "W500",
@@ -113,9 +113,9 @@
       "odds1": 1.55,
       "odds2": 2.83,
       "book_odds_home": 1.45,
-      "book_odds_away": 2.69,
+      "book_odds_away": 2.7,
       "edge1": -0.0434,
-      "edge2": -0.018,
+      "edge2": -0.0166,
       "sigs1": [],
       "sigs2": [],
       "court_cpi": 37,
@@ -152,9 +152,9 @@
       "prob1": 0.28369326921407284,
       "odds1": 3.52,
       "odds2": 1.4,
-      "book_odds_home": 4.0,
+      "book_odds_home": 3.99,
       "book_odds_away": 1.24,
-      "edge1": 0.0337,
+      "edge1": 0.0331,
       "edge2": -0.0901,
       "sigs1": [],
       "sigs2": [],
