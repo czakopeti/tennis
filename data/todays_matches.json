@@ -1,32 +1,17 @@
 [
   {
-    "time": "01:10",
+    "time": "01:05",
     "player1": "Jovic I.",
-    "player2": "Bucsa C.",
+    "player2": "Stearns P.",
     "seed1": 2,
-    "seed2": 6,
-    "book_odds_home": 1.24,
-    "book_odds_away": 3.93,
+    "seed2": null,
+    "book_odds_home": 1.28,
+    "book_odds_away": 3.66,
     "tournament": "Guadalajara 2 WTA",
     "surface": "hard",
     "category": "W500",
     "tour": "WTA",
-    "match_date": "2026-09-19",
-    "is_tomorrow": false
-  },
-  {
-    "time": "03:00",
-    "player1": "Stearns P.",
-    "player2": "Samsonova L.",
-    "seed1": null,
-    "seed2": 8,
-    "book_odds_home": 2.28,
-    "book_odds_away": 1.61,
-    "tournament": "Guadalajara 2 WTA",
-    "surface": "hard",
-    "category": "W500",
-    "tour": "WTA",
-    "match_date": "2026-09-19",
+    "match_date": "2026-09-20",
     "is_tomorrow": false
   }
 ]
