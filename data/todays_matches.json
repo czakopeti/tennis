@@ -1,17 +1,1 @@
-[
-  {
-    "time": "01:05",
-    "player1": "Jovic I.",
-    "player2": "Stearns P.",
-    "seed1": 2,
-    "seed2": null,
-    "book_odds_home": 1.28,
-    "book_odds_away": 3.66,
-    "tournament": "Guadalajara 2 WTA",
-    "surface": "hard",
-    "category": "W500",
-    "tour": "WTA",
-    "match_date": "2026-09-20",
-    "is_tomorrow": false
-  }
-]
+[]
