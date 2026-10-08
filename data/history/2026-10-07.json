@@ -39,8 +39,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-2 6-4",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -79,8 +84,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-7 6-1 6-2",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -121,8 +131,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-7 6-1 6-4",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -163,8 +178,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-3 2-2",
+      "sets": [
+        1,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -205,8 +225,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "4-6 6-1 6-2",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -247,8 +272,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-7 7-6 7-6",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -289,8 +319,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "1-6 7-6 6-2",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -329,8 +364,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-3 7-5",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -369,8 +409,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "7-5 6-3",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -409,8 +454,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-4 7-6",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -451,8 +501,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-3 7-6",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -493,8 +548,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-4 3-6 7-6",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -535,8 +595,13 @@
       "court_cpi": 38,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "7-6 6-1",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -575,8 +640,13 @@
       "court_cpi": null,
       "elo_found": false,
       "error": "N/A: Rune H.",
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "1-6 7-6 6-4",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -617,8 +687,13 @@
       "court_cpi": 37,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-1 6-3",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -659,8 +734,13 @@
       "court_cpi": 37,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-3 6-3",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -701,8 +781,13 @@
       "court_cpi": 37,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-1 2-6 6-4",
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "match_date": "2026-10-07",
@@ -743,8 +828,16 @@
       "court_cpi": 37,
       "elo_found": true,
       "error": null,
-      "winner": null,
-      "score": null
+      "winner": 1,
+      "score": "6-2 6-3",
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-10-08T12:08:35.692309+00:00",
+  "matched": 18,
+  "total": 18
 }
