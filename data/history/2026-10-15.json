@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "saved_at": "2026-10-14T12:45:46.149468+00:00",
+  "saved_at": "2026-10-14T15:38:45.450475+00:00",
   "matches": [
     {
       "match_date": "2026-10-15",
@@ -30,9 +30,9 @@
       "prob1": 0.270435496678252,
       "odds1": 3.7,
       "odds2": 1.37,
-      "book_odds_home": 2.92,
+      "book_odds_home": 2.9,
       "book_odds_away": 1.4,
-      "edge1": -0.072,
+      "edge1": -0.0744,
       "edge2": 0.0153,
       "sigs1": [],
       "sigs2": [
@@ -73,9 +73,9 @@
       "odds1": 1.7,
       "odds2": 2.42,
       "book_odds_home": 1.76,
-      "book_odds_away": 2.04,
+      "book_odds_away": 2.03,
       "edge1": 0.0193,
-      "edge2": -0.0776,
+      "edge2": -0.0801,
       "sigs1": [
         "kozepes"
       ],
