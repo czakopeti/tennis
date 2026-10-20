@@ -37,6 +37,18 @@ BADGE_META = {
 }
 BADGE_ORDER = ["szuper", "alap"]   # legerosebb elol
 
+# ── Teszt-medence ─────────────────────────────────────────────────────────
+# Az ATP 250-es tornak NEM reszei annak a populacionak, amin a szabaly
+# szuletett (GS / M1000 / 500).  Ott gyengebb a mezony es kevesebb meccsbol
+# keszul a jatekosok Elo-ja, tehat a modellunk varhatoan pontatlanabb.
+# A badge megjelenik rajtuk, de TESZT jelolessel, es kulon merjuk.
+# Amig nincs sajat mintajuk, NEM fogadando.
+TEST_CATEGORIES = {"A250"}
+
+
+def is_test_pool(category):
+    return (category or "") in TEST_CATEGORIES
+
 SS9_META = {
     1: {"icon": "🧱🧱🧱", "label": "Extrem salak"},
     2: {"icon": "🧱🧱",   "label": "Eros salakos"},

@@ -36,11 +36,24 @@ ATP_MAP = [
     (["washington","citi open"],               "hard",  "A500",  "ATP"),
     (["beijing","china open"],                 "hard",  "A500",  "ATP"),
     (["tokyo","rakuten"],                      "hard",  "A500",  "ATP"),
-    (["vienna","erste bank"],                  "hard",  "A500",  "ATP"),
-    (["basel"],                                "hard",  "A500",  "ATP"),
-    (["astana"],                               "hard",  "A500",  "ATP"),
-    (["dallas"],                               "hard",  "A500",  "ATP"),
-    (["lyon"],                                 "clay",  "A500",  "ATP"),
+    (["vienna","erste bank"],                  "hard",  "A500",  "ATP"),   # fedett
+    (["basel"],                                "hard",  "A500",  "ATP"),   # fedett
+    (["dallas"],                               "hard",  "A500",  "ATP"),   # fedett
+
+    # ══ ATP 250 — TESZT MEDENCE ══════════════════════════════════════════
+    # Ezek NEM reszei annak a populacionak, amin a szabalyt mertuk
+    # (az GS / M1000 / 500 volt).  Azert gyujtjuk oket, hogy legyen sajat
+    # mintajuk; a badge rajtuk "TESZT" jelolest kap es KULON merjuk.
+    # Amig nincs eleg adatuk, NEM fogadando.
+    #
+    # A 2026-os szezon hatralevo 250-esei (mind FEDETT KEMENY):
+    (["almaty"],                               "hard",  "A250",  "ATP"),
+    (["lyon","auvergne"],                      "hard",  "A250",  "ATP"),
+    (["brussels","european open"],             "hard",  "A250",  "ATP"),
+    (["stockholm"],                            "hard",  "A250",  "ATP"),
+    # FIGYELEM: a januari szezonkezdes elott ezt a listat frissiteni kell —
+    # a 250-es naptar evente valtozik (lasd Lyon: 2024-ig salak, 2026-tol
+    # fedett kemeny).  Rossz boritas = rossz Elo = rossz badge.
 ]
 
 WTA_MAP = [
@@ -67,14 +80,29 @@ WTA_MAP = [
     (["bad homburg"],                          "grass", "W500",  "WTA"),
     (["hamburg"],                              "clay",  "W500",  "WTA"),
     (["washington"],                           "hard",  "W500",  "WTA"),
-    (["linz"],                                 "hard",  "W500",  "WTA"),
+    (["linz"],                                 "hard",  "W500",  "WTA"),   # fedett
     (["guadalajara"],                          "hard",  "W500",  "WTA"),
+    # Korabban hianyzo WTA 500-asok — ugyanaz a populacio, amin a szabalyt
+    # mertuk, csak eddig kimaradtak a terkeprol (mind szabadteri kemeny):
+    (["tokyo","toray","pan pacific"],          "hard",  "W500",  "WTA"),
+    (["seoul","korea open"],                   "hard",  "W500",  "WTA"),
+    (["ningbo"],                               "hard",  "W500",  "WTA"),
+    (["monterrey"],                            "hard",  "W500",  "WTA"),
+    (["adelaide"],                             "hard",  "W500",  "WTA"),
 ]
 
-ATP_VALID = {"GS", "M1000", "A500"}
+ATP_VALID = {"GS", "M1000", "A500", "A250"}
 WTA_VALID = {"GS", "W1000", "W500"}
+
+# Teszt-medence: ezekre a kategoriakra kulon jeloles kerul, es KULON merjuk.
+# A validalt szabaly NEM ezen a populacion szuletett.
+TEST_CATEGORIES = {"A250"}
 EXCLUDE   = ["challenger","futures","utr","itf","satellite","125","doubles",
-             "h2h","main tournaments","lower level","motuwethfr","wta elite"]
+             "h2h","main tournaments","lower level","motuwethfr","wta elite",
+             # Csapatversenyek: mas dinamika (nincs ranglista-tet, kapitany
+             # valogat, idonkent erdektelen meccsek) — a modell ezekre nem all.
+             "davis cup","united cup","laver cup","billie jean king cup",
+             "hopman cup","atp cup"]
 
 # A /matches/ vegpont a jovobeli datumot FIGYELMEN KIVUL hagyja (mai napra iranyit at).
 # Jovobeli napokra a TennisExplorer sajat navigacioja a /next/ vegpontot hasznalja.
@@ -95,6 +123,29 @@ def classify(name, tour_map, valid_cats):
         if any(k in nl for k in kws):
             return surf, cat, tour
     return None, None, None
+
+
+# Szezonalis esszerusegi ellenorzes.
+# A boritas a TOURNAMENT_MAP-bol jon, ami kezzel karbantartott — ha egy torna
+# boritast valt (pl. Lyon 2026: salak -> fedett kemeny), a terkep csendben
+# elavul, es a modell rossz Elo-val szamol. Ez a figyelmezetes elkapja:
+# salakos torna oktober-januarban, vagy fuves torna junius-julius kivul
+# szinte biztosan hibas bejegyzes.
+PLAUSIBLE_MONTHS = {
+    "clay":  {2, 3, 4, 5, 6, 7},        # del-amerikai + europai salakszezon
+    "grass": {6, 7},                    # rovid fuves szezon
+    "hard":  set(range(1, 13)),         # egesz evben lehet
+}
+
+
+def surface_sanity_warning(name, surf, month):
+    ok = PLAUSIBLE_MONTHS.get(surf)
+    if ok is None or month in ok:
+        return None
+    return ("⚠ GYANUS BORITAS: '%s' -> '%s' a(z) %d. honapban. "
+            "Valtott boritast a torna? Ellenorizd a TOURNAMENT_MAP sorat — "
+            "rossz boritas = rossz Elo = rossz fair odds es badge!"
+            % (name, surf, month))
 
 
 def get_html(url):
@@ -259,6 +310,10 @@ def scrape_tour(url, tour_map, valid_cats, label):
             cur_rows = []
             status = "OK" if cat in valid_cats else "skip"
             print("  %s [%s|%s] %s" % (status, cat, surf, name))
+            if cat in valid_cats:
+                warn = surface_sanity_warning(name, surf, hungarian_now().month)
+                if warn:
+                    print("     " + warn)
         elif "month" in classes:
             continue
         else:

@@ -29,7 +29,7 @@ MAX_LOG_ROWS = 2500
 # adat ertelmezheto maradjon es a ketto ne keveredjen ossze.
 COLS = [
     "date", "tour", "cat", "surf", "cpi", "tourn",
-    "p1", "p2", "rk1", "rk2", "rkr",
+    "p1", "p2", "rk1", "rk2", "rkr", "test",
     "celo1", "helo1", "celo2", "helo2", "selo1", "selo2", "sdelta",
     "ss1", "ss2", "prob1", "fair1", "fair2",
     "book1", "book2", "edge1", "edge2",
@@ -98,6 +98,9 @@ def collect(days=None, include_pending=False):
                 "rk1":   _n(m.get("rank1")),
                 "rk2":   _n(m.get("rank2")),
                 "rkr":   _n(m.get("rank_ratio"), 2),
+                # test=1 -> ATP 250, kulon medence. A validalt szabaly NEM
+                # ezen szuletett; elemzesnel kulon kell venni.
+                "test":  "1" if m.get("test_pool") else "",
                 "celo1": _n(m.get("c_elo1")),
                 "helo1": _n(m.get("h_elo1")),
                 "celo2": _n(m.get("c_elo2")),

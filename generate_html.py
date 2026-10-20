@@ -106,16 +106,25 @@ def badge_of(sigs):
     return None
 
 
-def badge_html(sigs, entry_odds=None, live=True):
+TEST_STYLE = {"col": "#a78bfa", "bg": "#8b5cf618", "bd": "#8b5cf650"}
+
+
+def badge_html(sigs, entry_odds=None, live=True, test=False):
     """
     Badge csik a jatekos ala.
     entry_odds: a bukmekeri odds a badge MEGSZOLALASAKOR (sticky, a historybol).
     live=False: a badge mar nem all fenn a mostani oddson — megmarad, de jelzi.
+    test=True:  ATP 250 — a szabaly NEM ezen a populacion szuletett, kulon
+                merjuk, nem fogadando.  Mas szin + 🧪 jeloles.
     """
     b = badge_of(sigs)
     if not b:
         return ""
-    st = BADGE_STYLE[b]
+    st = dict(BADGE_STYLE[b])
+    if test:
+        st.update(TEST_STYLE)
+        st["name"] = "TESZT · " + st["name"]
+        st["icon"] = "🧪"
     note = ""
     if entry_odds:
         note = (' <span style="font-weight:600;opacity:.85">· %s-nel</span>'
@@ -190,6 +199,7 @@ def render_card(m):
     be2      = m.get("badge2_odds")
     bl1      = m.get("badge1_live", True)    # most is fennall-e a feltetel
     bl2      = m.get("badge2_live", True)
+    btest    = bool(m.get("test_pool"))      # ATP 250 — csak teszt, nem fogadando
     delta    = m.get("surf_delta", 0)
 
     oc1 = "#22c55e" if prob1 >= prob2 else "#e2e8f0"
@@ -274,10 +284,10 @@ def render_card(m):
         tm["col"], tm["bd"], tour, cat, m.get("time", ""), pill, meta_row,
         s1, p1s, rk1, c1, h1,
         ss9_display(ss1), SS9[ss1]["col"], ss1, SS9_LABEL[ss1],
-        badge_html(sg1, be1, bl1),
+        badge_html(sg1, be1, bl1, btest),
         p2s, s2, rk2, c2, h2,
         SS9[ss2]["col"], SS9_LABEL[ss2], ss2, ss9_display(ss2),
-        badge_html(sg2, be2, bl2),
+        badge_html(sg2, be2, bl2, btest),
         oc1, o1, p1s.split()[-1], prob1 * 100,
         delta,
         oc2, o2, p2s.split()[-1], prob2 * 100,
@@ -291,7 +301,7 @@ def analyze_matches(matches, elo_players):
     from value_calc import (find_player_in_elo_db, elo_win_prob, get_surface_elo,
                             prob_to_decimal_odds, compute_edge, player_ss9,
                             get_court_cpi, bet_signals, get_player_rank,
-                            rank_ratio)
+                            rank_ratio, is_test_pool)
     cpi_db  = load_cpi()
     results = []
     for m in matches:
@@ -341,6 +351,7 @@ def analyze_matches(matches, elo_players):
             "name1": n1, "name2": n2, "r1": r1, "r2": r2,
             "rank1": rank1, "rank2": rank2,
             "rank_ratio": round(rkr, 3) if rkr is not None else None,
+            "test_pool": is_test_pool(m.get("category")),
             "c_elo1": c1, "h_elo1": h1, "c_elo2": c2, "h_elo2": h2,
             "surf_elo1": se1, "surf_elo2": se2, "surf_delta": se1 - se2,
             "ss1": player_ss9(r1, surf), "ss2": player_ss9(r2, surf),
@@ -367,16 +378,19 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     rest_atp = [m for m in atp_analyses if m.get("status") != "live"]
     rest_wta = [m for m in wta_analyses if m.get("status") != "live"]
 
-    def _cnt(level):
+    def _cnt(level, test=False):
         """Jelolesek szama (oldalankent, nem meccsenkent — egy meccsen ketto is lehet)."""
         n = 0
         for m in allm:
+            if bool(m.get("test_pool")) != test:
+                continue
             for k in ("sigs1", "sigs2"):
                 if badge_of(m.get(k)) == level:
                     n += 1
         return n
     n_szuper, n_alap = _cnt("szuper"), _cnt("alap")
     n_osszes = n_szuper + n_alap          # SZUPER ⊂ ALAP, igy az osszes jeloles
+    n_teszt  = _cnt("szuper", True) + _cnt("alap", True)   # ATP 250, kulon
     n_v = sum(1 for m in allm
               if (m.get("edge1") or 0) >= 0.04 or (m.get("edge2") or 0) >= 0.04)
 
@@ -460,6 +474,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <div class="stat"><div class="sl">🏆 Szuper</div><div class="sv" style="color:#fbbf24">%d</div></div>
   <div class="stat"><div class="sl">🎯 Alap</div><div class="sv" style="color:#38bdf8">%d</div></div>
   <div class="stat"><div class="sl">Jeloles</div><div class="sv" style="color:var(--tx)">%d</div></div>
+  <div class="stat"><div class="sl">🧪 Teszt</div><div class="sv" style="color:#a78bfa">%d</div></div>
   <div class="stat"><div class="sl">Value</div><div class="sv" style="color:var(--gr)">%d</div></div>
   <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:%s">%+.1f%%</div></div>
 </div>
@@ -473,6 +488,9 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   A badge <u>nem tunik el</u>, ha az odds kesobb elmozdul — a mellette allo szam a
   megszolalaskori bukmekeri odds, ⚓ = mar nem all fenn a mostani aron.<br>
   🧱🧱🧱(1) 🧱🧱(2) 🧱(3) 🔸(4) ⚖(5) 🔹(6) 💙(7) 💙💙(8) 💙💙💙(9) — boritas preferencia<br>
+  <strong style="color:#a78bfa">🧪 TESZT</strong> = ATP 250-es torna. A szabaly NEM ezen
+  a populacion szuletett (GS / M1000 / 500), ott gyengebb a mezony es zajosabb az Elo.
+  Kulon merjuk — <u>amig nincs sajat mintaja, nem fogadando</u>.<br>
   CPI = Court Pace Index · &lt;30 lassu · 35-39 kozepes · &gt;44 gyors · 🌙 = holnap hajnali meccs<br>
   <span style="color:#475569">Realis varhato ROI: +3..+6%%. A mert +18/+27%% visszamert
   szam, nem elvarhato hozam.</span>
@@ -484,7 +502,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 </html>""" % (
         updated, scraped,
         len(atp_analyses), len(wta_analyses), len(all_live),
-        n_szuper, n_alap, n_osszes, n_v,
+        n_szuper, n_alap, n_osszes, n_teszt, n_v,
         "var(--gr)" if stats["roi"] >= 0 else "var(--rd)", stats["roi"],
         ('<div class="sec" style="color:var(--ye)">● Elo</div><div class="cards">%s</div>'
          % cards(all_live)) if all_live else "",

@@ -17,7 +17,8 @@ HIST_DIR = DATA_DIR / "history"
 SNAP_FIELDS = [
     "match_date", "is_tomorrow", "time_unknown", "time", "tournament", "surface", "category",
     "tour", "player1", "player2", "name1", "name2", "seed1", "seed2",
-    "rank1", "rank2", "rank_ratio", "c_elo1", "h_elo1", "c_elo2", "h_elo2",
+    "rank1", "rank2", "rank_ratio", "test_pool",
+    "c_elo1", "h_elo1", "c_elo2", "h_elo2",
     "surf_elo1", "surf_elo2", "surf_delta", "ss1", "ss2",
     "prob1", "odds1", "odds2", "book_odds_home", "book_odds_away",
     "edge1", "edge2", "sigs1", "sigs2", "court_cpi", "elo_found", "error",
