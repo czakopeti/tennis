@@ -19,13 +19,30 @@ ROOT     = Path(__file__).parent
 HIST_DIR = ROOT / "data" / "history"
 OUT_CSV  = ROOT / "data" / "history_export.csv"
 
+# A GitHub Actions log ~4 MB/lepes utan csonkol. Ennel tobb sort
+# nincs ertelme kiirni — a CSV fajl akkor is teljes marad.
+MAX_LOG_ROWS = 2500
+
+# FIGYELEM: a sig1/sig2 oszlop a 2026-10-20 elotti sorokban a REGI
+# jelentest hordozza ("A"/"B", illetve "eros"/"kozepes"/"alap" value-tier).
+# Az uj badge-ek kulon oszlopban vannak (badge1/badge2), hogy a korabbi
+# adat ertelmezheto maradjon es a ketto ne keveredjen ossze.
 COLS = [
     "date", "tour", "cat", "surf", "cpi", "tourn",
-    "p1", "p2", "rk1", "rk2",
+    "p1", "p2", "rk1", "rk2", "rkr",
     "celo1", "helo1", "celo2", "helo2", "selo1", "selo2", "sdelta",
     "ss1", "ss2", "prob1", "fair1", "fair2",
     "book1", "book2", "edge1", "edge2",
-    "sig1", "sig2", "win", "sets", "score", "tomorrow",
+    "sig1", "sig2",
+    # ── Sticky badge ─────────────────────────────────────────────────
+    # badge1/2   : a valaha megszolalt legerosebb badge (szuper|alap)
+    # bodds1/2   : bukmekeri odds az ALAP badge megszolalasakor  <- ezzel merunk
+    # bsodds1/2  : bukmekeri odds a SZUPER badge megszolalasakor <- ezzel merunk
+    # brkr1/2    : ranking-arany a badge megszolalasakor
+    # blive1/2   : 1 = a feltetel a legutobbi futasnal is fennallt
+    "badge1", "bodds1", "bsodds1", "brkr1", "blive1",
+    "badge2", "bodds2", "bsodds2", "brkr2", "blive2",
+    "win", "sets", "score", "tomorrow",
 ]
 
 
@@ -80,6 +97,7 @@ def collect(days=None, include_pending=False):
                 "p2":    m.get("name2") or m.get("player2", ""),
                 "rk1":   _n(m.get("rank1")),
                 "rk2":   _n(m.get("rank2")),
+                "rkr":   _n(m.get("rank_ratio"), 2),
                 "celo1": _n(m.get("c_elo1")),
                 "helo1": _n(m.get("h_elo1")),
                 "celo2": _n(m.get("c_elo2")),
@@ -98,6 +116,16 @@ def collect(days=None, include_pending=False):
                 "edge2": _n(m.get("edge2"), 4),
                 "sig1":  "|".join(m.get("sigs1") or []),
                 "sig2":  "|".join(m.get("sigs2") or []),
+                "badge1":  m.get("badge1") or "",
+                "bodds1":  _n(m.get("badge1_odds"), 2),
+                "bsodds1": _n(m.get("badge1_sodds"), 2),
+                "brkr1":   _n(m.get("badge1_rkr"), 2),
+                "blive1":  "1" if m.get("badge1_live") else "",
+                "badge2":  m.get("badge2") or "",
+                "bodds2":  _n(m.get("badge2_odds"), 2),
+                "bsodds2": _n(m.get("badge2_sodds"), 2),
+                "brkr2":   _n(m.get("badge2_rkr"), 2),
+                "blive2":  "1" if m.get("badge2_live") else "",
                 "win":   "" if win is None else win,
                 "sets":  sets_s,
                 "score": m.get("score") or "",
@@ -138,12 +166,21 @@ def main():
     print("  Fajlmeret:        %.1f KB" % (OUT_CSV.stat().st_size / 1024))
 
     if not args.quiet:
+        shown = rows
+        trunc = False
+        if len(rows) > MAX_LOG_ROWS:
+            shown = rows[-MAX_LOG_ROWS:]      # a legfrissebb sorok
+            trunc = True
         buf = io.StringIO()
         w = csv.DictWriter(buf, fieldnames=COLS)
         w.writeheader()
-        w.writerows(rows)
+        w.writerows(shown)
         print("\n" + "-" * 62)
-        print("CSV (masolhato):")
+        if trunc:
+            print("CSV — UTOLSO %d sor a %d-bol (a log csonkolna)" % (len(shown), len(rows)))
+            print("A teljes adat: data/history_export.csv")
+        else:
+            print("CSV (masolhato):")
         print("-" * 62)
         print(buf.getvalue().rstrip())
 

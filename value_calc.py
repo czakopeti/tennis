@@ -6,19 +6,36 @@ MINIMUM_EDGE   = 0.04     # zold VALUE kuszob
 KELLY_FRACTION = 0.25
 MAX_BET_PCT    = 0.03
 
-# ── Value-jelolt kuszobok ─────────────────────────────────────────────────
-# Ket fuggetlen prospektiv teszten (aug 25-26) validalt szabalyok.
-# Kozos feltetel MINDHAROMNAL: a kapott odds >= a sajat fair oddsunk.
-# A harom szint egymasba agyazott: EROS ⊂ KOZEPES ⊂ ALAP.
-TIER_STRONG = 0.60   # 💎 EROS    — teszt: 21/25 = 84.0%, ROI +28.8%, p=4.0%
-TIER_MEDIUM = 0.55   # 🔷 KOZEPES — teszt: 25/31 = 80.6%, ROI +29.5%, p=2.6%
-TIER_BASE   = 0.50   # 🔹 ALAP    — teszt: 30/42 = 71.4%, ROI +22.4%, p=4.8%
+# ── Badge kuszobok ────────────────────────────────────────────────────────
+# A 916 soros sajat adatbazison (2026-08-19 .. 10-16) mert szabaly.
+#
+# ALAPBADGE   — rosszabb ranglistas helyezes
+#             + a kapott bukmekeri odds >= a sajat fair oddsunk
+#             + a bukmekeri odds <= 3.25
+#             169 fogadas, 49.7% talalat (43.3% kellett), ROI +18.3%, p=5.2%
+#
+# SZUPERBADGE — ugyanaz + a ket helyezes aranya >= 1.5x
+#             95 fogadas, 51.6% talalat (41.3% kellett), ROI +27.5%, p=2.3%
+#             aug +41.9% / szept-okt +16.6%  (ATP +20.5% / +20.4%)
+#
+# A szuperbadge indoklasa nem a hozambol, hanem AR-MERESBOL jon: a piac a
+# ranking-szakadek novekedesevel rendszeresen elhajlitja az arat a rosszabb
+# rangsoru ellen (logit-regresszio: -0.068 / ln(arany), t=-3.64, ATP es WTA
+# kulon is szignifikans). A kizart resz (arany < 1.5x) mindket felidoben
+# negativ volt: szept-okt -28.8%.
+#
+# A ket szint EGYMASBA AGYAZOTT: SZUPER ⊂ ALAP.
+# Realis varhato ROI: +3..+6%, NEM a mert +18/+27%.
+BADGE_MAX_ODDS   = 3.25   # bukmekeri odds felso hatara (mindket badge)
+BADGE_RANK_RATIO = 1.5    # szuperbadge: rosszabb helyezes / jobb helyezes
 
-TIER_META = {
-    "eros":    {"icon": "💎", "label": "EROS",    "min": TIER_STRONG},
-    "kozepes": {"icon": "🔷", "label": "KOZEPES", "min": TIER_MEDIUM},
-    "alap":    {"icon": "🔹", "label": "ALAP",    "min": TIER_BASE},
+BADGE_META = {
+    "szuper": {"icon": "🏆", "label": "SZUPER",
+               "desc": "rosszabb ranking + value + odds &le;3.25 + ranking-arany &ge;1.5x"},
+    "alap":   {"icon": "🎯", "label": "ALAP",
+               "desc": "rosszabb ranking + value + odds &le;3.25"},
 }
+BADGE_ORDER = ["szuper", "alap"]   # legerosebb elol
 
 SS9_META = {
     1: {"icon": "🧱🧱🧱", "label": "Extrem salak"},
@@ -197,43 +214,65 @@ def player_ss9(record, surface="clay"):
 
 # ══ Badge logika ═════════════════════════════════════════════════════════
 
-def value_tier(prob, book_odds, fair_odds):
+def rank_ratio(rank_a, rank_b):
     """
-    Egyetlen jatekos value-szintje.
+    A ket ranglistas helyezes aranya: a rosszabb (nagyobb szam) / a jobb.
+    Mindig >= 1.0.  Pl. 60. vs 50. -> 1.20;  170. vs 20. -> 8.50.
+    None, ha valamelyik helyezes hianyzik.
+    """
+    try:
+        a, b = int(rank_a), int(rank_b)
+    except (TypeError, ValueError):
+        return None
+    if a <= 0 or b <= 0:
+        return None
+    return max(a, b) / float(min(a, b))
 
-    Kozos feltetel: a kapott bukmekeri odds >= a modellbol szamolt fair odds.
-    (Azaz a piac legalabb annyit fizet, amennyit a modell indokolna.)
 
-    Ezen belul a modell magabiztossaga szerint harom szint:
-        prob > 60%  -> "eros"
-        prob > 55%  -> "kozepes"
-        prob > 50%  -> "alap"
+def player_badge(rank_self, rank_opp, book_odds, fair_odds):
+    """
+    Egyetlen jatekos badge-szintje.
 
-    Visszater: "eros" | "kozepes" | "alap" | None
+    Feltetelek (mindket badge):
+      1. a jatekos ranglistas helyezese ROSSZABB (nagyobb szam) az ellenfeleenel
+      2. a kapott bukmekeri odds >= a modellbol szamolt fair odds
+      3. a bukmekeri odds <= BADGE_MAX_ODDS (3.25)
+
+    Szuperbadge: a fentiek + rank_ratio >= BADGE_RANK_RATIO (1.5x)
+
+    Visszater: "szuper" | "alap" | None
     """
     if book_odds is None or fair_odds is None:
         return None
-    if fair_odds <= 0 or book_odds < fair_odds:
+    if rank_self is None or rank_opp is None:
         return None
-    if prob > TIER_STRONG:
-        return "eros"
-    if prob > TIER_MEDIUM:
-        return "kozepes"
-    if prob > TIER_BASE:
-        return "alap"
-    return None
+    try:
+        rs, ro = int(rank_self), int(rank_opp)
+    except (TypeError, ValueError):
+        return None
+    if rs <= 0 or ro <= 0 or rs <= ro:          # 1. rosszabb ranking kell
+        return None
+    if fair_odds <= 0 or book_odds < fair_odds:  # 2. value kell
+        return None
+    if book_odds > BADGE_MAX_ODDS:               # 3. odds-plafon
+        return None
+    rr = rank_ratio(rs, ro)
+    if rr is not None and rr >= BADGE_RANK_RATIO:
+        return "szuper"
+    return "alap"
 
 
 def bet_signals(r1, r2, edge1, edge2, book1, book2,
-                prob1=None, fair1=None, fair2=None):
+                prob1=None, fair1=None, fair2=None,
+                rank1=None, rank2=None):
     """
-    Value-jelolt szintek mindket jatekosra.
-    Visszater: (sigs1, sigs2) — halmazok, pl. {"eros"} vagy ures halmaz.
-    (Halmazkent adjuk vissza, hogy a korabbi history/export formatum
-     valtozatlan maradjon.)
+    Badge-szintek mindket jatekosra.
+    Visszater: (sigs1, sigs2) — halmazok, pl. {"szuper"} vagy ures halmaz.
+    (Halmazkent adjuk vissza, hogy a history/export formatum valtozatlan
+     maradjon; a regi "eros"/"kozepes"/"alap" tierek megszuntek.)
     """
-    if prob1 is None or fair1 is None or fair2 is None:
+    if fair1 is None or fair2 is None:
         return set(), set()
-    t1 = value_tier(prob1,     book1, fair1)
-    t2 = value_tier(1 - prob1, book2, fair2)
-    return ({t1} if t1 else set()), ({t2} if t2 else set())
+    b1 = player_badge(rank1, rank2, book1, fair1)
+    b2 = player_badge(rank2, rank1, book2, fair2)
+    return ({b1} if b1 else set()), ({b2} if b2 else set())
