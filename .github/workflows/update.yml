@@ -2,17 +2,24 @@ name: ATP · WTA Value Bet
 
 on:
   schedule:
-    # A GitHub Actions cron CSAK UTC-ben tud es nem ismeri a teli/nyari
-    # idoszamitast. Az alabbi negy futas MAGYAR TELI IDO (CET, UTC+1)
-    # szerint 07:00 / 10:00 / 14:00 / 18:00.
-    # Nyari idoben (CEST, UTC+2, marc. vege - okt. vege) egy orat kesobb:
-    # 08:00 / 11:00 / 15:00 / 19:00.
-    - cron: '0 6 * * *'      # 07:00 magyar — reggeli lista + elozo napi eredmenyek
-    - cron: '0 9 * * *'      # 10:00 magyar — napi frissites
-    - cron: '0 13 * * *'     # 14:00 magyar — napi frissites + eredmenyek
-    - cron: '0 17 * * *'     # 18:00 magyar — esti frissites (hajnali meccsek oddsa)
-    - cron: '0 8 * * 1'      # hetfo 09:00 magyar — Elo frissites
-    - cron: '0 5 1 1 *'      # jan 1. — CPI eves frissites
+    # ── FONTOS: a cron az INDITAS ideje, nem a kesz eredmenye ──────────
+    # A GitHub ingyenes utemezoje nem garantal idozitest. 36 futas merese
+    # alapjan ennel a reponal a keses MEDIANJA 2 ora 46 perc (16 perc es
+    # 5 ora 17 perc kozott szort).  Ezert az alabbi idopontok ~2h45m-mel
+    # KORABBRA vannak teve annal, amikor a kesz listat latni szeretnenk,
+    # es :13 percre (a teljes ora a legzsufoltabb, azt terheli a GitHub
+    # a legjobban — sajat ajanlasuk paratlan percet hasznalni).
+    #
+    # Celzott KESZ idopont magyar teli ido szerint: 07 / 11 / 15 / 20 ora.
+    # Nyari idoben (marc. vege - okt. vege) mindegyik egy oraval kesobb.
+    # Ha egy futas nagyon keslekedik, a kovetkezo ugyis potolja —
+    # a sticky badge miatt a mar rogzitett jelolesek nem vesznek el.
+    - cron: '13 3 * * *'     # ~07:00-ra kesz — reggeli lista + elozo napi eredmenyek
+    - cron: '13 7 * * *'     # ~11:00-ra kesz — napi frissites + eredmenyek
+    - cron: '13 11 * * *'    # ~15:00-ra kesz — napi frissites
+    - cron: '13 16 * * *'    # ~20:00-ra kesz — esti frissites (hajnali meccsek oddsa)
+    - cron: '13 5 * * 1'     # hetfo — Elo frissites
+    - cron: '13 2 1 1 *'     # jan 1. — CPI eves frissites
   workflow_dispatch:
     inputs:
       bankroll:
@@ -52,13 +59,13 @@ jobs:
 
       - name: Eves CPI frissites
         if: >
-          github.event.schedule == '0 5 1 1 *' ||
+          github.event.schedule == '13 2 1 1 *' ||
           github.event.inputs.force_cpi == 'yes'
         run: python fetch_cpi.py
 
       - name: Heti Elo frissites
         if: >
-          github.event.schedule == '0 8 * * 1' ||
+          github.event.schedule == '13 5 * * 1' ||
           github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
@@ -68,15 +75,15 @@ jobs:
       # A mar teljes napokat kihagyja, igy nem terheli feleslegesen a szervert.
       - name: Eredmenyek rogzitese (auto, 7 napra visszamenoleg)
         if: >
-          github.event.schedule == '0 6 * * *' ||
-          github.event.schedule == '0 13 * * *'
+          github.event.schedule == '13 3 * * *' ||
+          github.event.schedule == '13 7 * * *'
         run: python fetch_results.py --days 7
         continue-on-error: true
 
       - name: Osszesito statisztika
         if: >
-          github.event.schedule == '0 6 * * *' ||
-          github.event.schedule == '0 13 * * *'
+          github.event.schedule == '13 3 * * *' ||
+          github.event.schedule == '13 7 * * *'
         run: python fetch_results.py --summary
         continue-on-error: true
 
