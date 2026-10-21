@@ -38,7 +38,7 @@
       "rank1": 32,
       "rank2": 64,
       "rank_ratio": 2.0,
-      "score": null,
+      "score": "4-6 6-3 6-3",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -54,7 +54,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -93,7 +98,7 @@
       "rank1": 13,
       "rank2": 66,
       "rank_ratio": 5.077,
-      "score": null,
+      "score": "7-5 7-6",
       "seed1": 6,
       "seed2": null,
       "sigs1": [],
@@ -109,7 +114,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -148,7 +158,7 @@
       "rank1": 109,
       "rank2": 70,
       "rank_ratio": 1.557,
-      "score": null,
+      "score": "6-7 6-4 6-4",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -164,7 +174,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -203,7 +218,7 @@
       "rank1": 98,
       "rank2": 86,
       "rank_ratio": 1.14,
-      "score": null,
+      "score": "7-6 6-2",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -219,7 +234,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -258,7 +278,7 @@
       "rank1": 105,
       "rank2": 38,
       "rank_ratio": 2.763,
-      "score": null,
+      "score": "7-6 6-2",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -274,7 +294,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -313,7 +338,7 @@
       "rank1": 35,
       "rank2": 51,
       "rank_ratio": 1.457,
-      "score": null,
+      "score": "6-2 7-5",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -329,7 +354,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -368,7 +398,7 @@
       "rank1": 39,
       "rank2": 82,
       "rank_ratio": 2.103,
-      "score": null,
+      "score": "7-6 3-6 6-3",
       "seed1": 7,
       "seed2": null,
       "sigs1": [],
@@ -384,7 +414,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -423,7 +458,7 @@
       "rank1": 60,
       "rank2": 302,
       "rank_ratio": 5.033,
-      "score": null,
+      "score": "7-6 6-7 7-5",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -439,7 +474,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -478,7 +518,7 @@
       "rank1": 45,
       "rank2": 53,
       "rank_ratio": 1.178,
-      "score": null,
+      "score": "7-6 6-2",
       "seed1": 8,
       "seed2": null,
       "sigs1": [],
@@ -496,7 +536,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -535,7 +580,7 @@
       "rank1": 14,
       "rank2": 24,
       "rank_ratio": 1.714,
-      "score": null,
+      "score": "6-3 1-1",
       "seed1": 5,
       "seed2": null,
       "sigs1": [],
@@ -551,7 +596,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        1,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -590,7 +640,7 @@
       "rank1": 290,
       "rank2": 49,
       "rank_ratio": 5.918,
-      "score": null,
+      "score": "6-3 6-4",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -606,7 +656,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -645,7 +700,7 @@
       "rank1": 64,
       "rank2": 201,
       "rank_ratio": 3.141,
-      "score": null,
+      "score": "7-5 7-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -661,7 +716,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -700,7 +760,7 @@
       "rank1": 128,
       "rank2": 40,
       "rank_ratio": 3.2,
-      "score": null,
+      "score": "1-6 6-2 6-4",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -716,7 +776,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -755,7 +820,7 @@
       "rank1": 33,
       "rank2": 189,
       "rank_ratio": 5.727,
-      "score": null,
+      "score": "6-2 6-3",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -771,7 +836,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -810,7 +880,7 @@
       "rank1": 189,
       "rank2": 33,
       "rank_ratio": 5.727,
-      "score": null,
+      "score": "2-6 3-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -826,7 +896,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -865,7 +940,7 @@
       "rank1": 58,
       "rank2": 88,
       "rank_ratio": 1.517,
-      "score": null,
+      "score": "7-6 7-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -883,7 +958,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -922,7 +1002,7 @@
       "rank1": 34,
       "rank2": 148,
       "rank_ratio": 4.353,
-      "score": null,
+      "score": "3-6 6-7",
       "seed1": 8,
       "seed2": null,
       "sigs1": [],
@@ -940,7 +1020,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": "szuper",
@@ -979,7 +1064,7 @@
       "rank1": 148,
       "rank2": 34,
       "rank_ratio": 4.353,
-      "score": null,
+      "score": "6-3 7-6",
       "seed1": null,
       "seed2": 8,
       "sigs1": [
@@ -997,7 +1082,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1036,7 +1126,7 @@
       "rank1": 152,
       "rank2": 38,
       "rank_ratio": 4.0,
-      "score": null,
+      "score": "6-1 6-4",
       "seed1": null,
       "seed2": 7,
       "sigs1": [],
@@ -1052,7 +1142,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1091,7 +1186,7 @@
       "rank1": 35,
       "rank2": 94,
       "rank_ratio": 2.686,
-      "score": null,
+      "score": "2-6 7-6 6-7",
       "seed1": 7,
       "seed2": null,
       "sigs1": [],
@@ -1107,7 +1202,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        1,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1146,7 +1246,7 @@
       "rank1": 94,
       "rank2": 35,
       "rank_ratio": 2.686,
-      "score": null,
+      "score": "6-2 6-7 7-6",
       "seed1": null,
       "seed2": 7,
       "sigs1": [],
@@ -1162,7 +1262,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1201,7 +1306,7 @@
       "rank1": 38,
       "rank2": 152,
       "rank_ratio": 4.0,
-      "score": null,
+      "score": "1-6 4-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1217,7 +1322,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1256,7 +1366,7 @@
       "rank1": 65,
       "rank2": 69,
       "rank_ratio": 1.062,
-      "score": null,
+      "score": "5-7 7-6 7-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1274,7 +1384,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1313,7 +1428,7 @@
       "rank1": 87,
       "rank2": 93,
       "rank_ratio": 1.069,
-      "score": null,
+      "score": "6-3 6-0",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1331,7 +1446,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1370,7 +1490,7 @@
       "rank1": 124,
       "rank2": 25,
       "rank_ratio": 4.96,
-      "score": null,
+      "score": "2-6 4-6",
       "seed1": null,
       "seed2": 5,
       "sigs1": [],
@@ -1386,7 +1506,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1425,7 +1550,7 @@
       "rank1": 25,
       "rank2": 124,
       "rank_ratio": 4.96,
-      "score": null,
+      "score": "6-2 6-4",
       "seed1": 5,
       "seed2": null,
       "sigs1": [],
@@ -1441,7 +1566,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1480,7 +1610,7 @@
       "rank1": 100,
       "rank2": 40,
       "rank_ratio": 2.5,
-      "score": null,
+      "score": "6-3 3-6 6-3",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1496,7 +1626,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": "szuper",
@@ -1535,7 +1670,7 @@
       "rank1": 96,
       "rank2": 41,
       "rank_ratio": 2.341,
-      "score": null,
+      "score": "3-6 6-7",
       "seed1": null,
       "seed2": null,
       "sigs1": [
@@ -1553,7 +1688,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1592,7 +1732,7 @@
       "rank1": 41,
       "rank2": 96,
       "rank_ratio": 2.341,
-      "score": null,
+      "score": "6-3 7-6",
       "seed1": 6,
       "seed2": null,
       "sigs1": [],
@@ -1610,7 +1750,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1649,7 +1794,7 @@
       "rank1": 48,
       "rank2": 158,
       "rank_ratio": 3.292,
-      "score": null,
+      "score": "7-6 6-3",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1665,7 +1810,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1704,7 +1854,7 @@
       "rank1": 134,
       "rank2": 55,
       "rank_ratio": 2.436,
-      "score": null,
+      "score": "6-3 3-6 4-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1720,7 +1870,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        1,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1759,7 +1914,7 @@
       "rank1": 43,
       "rank2": 85,
       "rank_ratio": 1.977,
-      "score": null,
+      "score": "6-7 5-7",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1775,7 +1930,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -1814,7 +1974,7 @@
       "rank1": 85,
       "rank2": 43,
       "rank_ratio": 1.977,
-      "score": null,
+      "score": "7-6 7-5",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -1830,7 +1990,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": "szuper",
@@ -1869,7 +2034,7 @@
       "rank1": 76,
       "rank2": 17,
       "rank_ratio": 4.471,
-      "score": null,
+      "score": "6-7 7-6 2-6",
       "seed1": null,
       "seed2": 5,
       "sigs1": [
@@ -1887,7 +2052,15 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        1,
+        2
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-10-21T07:00:37.783954+00:00",
+  "matched": 34,
+  "total": 34
 }
