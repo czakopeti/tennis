@@ -30,7 +30,7 @@
     "is_tomorrow": false
   },
   {
-    "time": "17:55",
+    "time": "18:00",
     "player1": "Zverev A.",
     "player2": "Fery A.",
     "seed1": 1,
@@ -45,13 +45,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "20:00",
+    "time": "20:20",
     "player1": "Berrettini M.",
     "player2": "De Minaur A.",
     "seed1": null,
     "seed2": 5,
-    "book_odds_home": 2.85,
-    "book_odds_away": 1.42,
+    "book_odds_home": 2.87,
+    "book_odds_away": 1.41,
     "tournament": "Vienna",
     "surface": "hard",
     "category": "A500",
@@ -90,13 +90,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "18:00",
-    "player1": "Kym J.",
-    "player2": "Lehecka J.",
-    "seed1": null,
-    "seed2": 8,
-    "book_odds_home": 3.4,
-    "book_odds_away": 1.32,
+    "time": "18:10",
+    "player1": "Lehecka J.",
+    "player2": "Kym J.",
+    "seed1": 8,
+    "seed2": null,
+    "book_odds_home": 1.32,
+    "book_odds_away": 3.4,
     "tournament": "Basel",
     "surface": "hard",
     "category": "A500",
@@ -105,13 +105,13 @@
     "is_tomorrow": false
   },
   {
-    "time": "19:30",
+    "time": "20:00",
     "player1": "Struff J.",
     "player2": "Borges N.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 1.79,
-    "book_odds_away": 2.01,
+    "book_odds_home": 1.78,
+    "book_odds_away": 2.02,
     "tournament": "Basel",
     "surface": "hard",
     "category": "A500",
