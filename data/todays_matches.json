@@ -6,7 +6,7 @@
     "seed1": 3,
     "seed2": 2,
     "book_odds_home": 2.73,
-    "book_odds_away": 1.46,
+    "book_odds_away": 1.44,
     "tournament": "Vienna",
     "surface": "hard",
     "category": "A500",
@@ -51,7 +51,7 @@
     "seed1": 8,
     "seed2": null,
     "book_odds_home": 1.45,
-    "book_odds_away": 2.72,
+    "book_odds_away": 2.73,
     "tournament": "Basel",
     "surface": "hard",
     "category": "A500",
@@ -88,5 +88,21 @@
     "tour": "WTA",
     "match_date": "2026-10-31",
     "is_tomorrow": false
+  },
+  {
+    "time": "04:00",
+    "player1": "Fernandez L.",
+    "player2": "Shnaider D.",
+    "seed1": null,
+    "seed2": 3,
+    "book_odds_home": 2.3,
+    "book_odds_away": 1.59,
+    "tournament": "Tokyo",
+    "surface": "hard",
+    "category": "W500",
+    "tour": "WTA",
+    "is_tomorrow": true,
+    "time_unknown": false,
+    "match_date": "2026-11-01"
   }
 ]
