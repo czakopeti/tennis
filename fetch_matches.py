@@ -21,7 +21,14 @@ ATP_MAP = [
     (["canada","toronto","montreal"],          "hard",  "M1000", "ATP"),
     (["cincinnati"],                           "hard",  "M1000", "ATP"),
     (["shanghai"],                             "hard",  "M1000", "ATP"),
-    (["paris masters","paris-bercy"],          "hard",  "M1000", "ATP"),
+    # FIGYELEM: a TennisExplorer a varos NEVET hasznalja ("Paris", "Vienna",
+    # "Basel", "Shanghai"...), nem a hivatalos tornacimet. A "paris masters"
+    # es "paris-bercy" kulcsszo ezert SOHA nem illeszkedett, es a Paris
+    # Masters teljes hete kimaradt a listabol.
+    # A puszta "paris" biztonsagos, mert a Roland Garros a terkepen ELOBB
+    # szerepel ("roland garros" / "french open"), es a classify() az elso
+    # talalatot adja vissza — a salakos GS tehat nem eshet ide.
+    (["paris","paris-bercy"],                  "hard",  "M1000", "ATP"),
     (["nitto","atp finals","turin"],           "hard",  "M1000", "ATP"),
     (["rotterdam"],                            "hard",  "A500",  "ATP"),
     (["qatar open","doha"],                    "hard",  "A500",  "ATP"),
@@ -131,6 +138,12 @@ def classify(name, tour_map, valid_cats):
 # elavul, es a modell rossz Elo-val szamol. Ez a figyelmezetes elkapja:
 # salakos torna oktober-januarban, vagy fuves torna junius-julius kivul
 # szinte biztosan hibas bejegyzes.
+# Azok a tornanevek, amiket a scrape latott, de a TOURNAMENT_MAP nem ismer
+# es nem is az EXCLUDE miatt estek ki. Ezeket a dashboard kiirja, hogy egy
+# uj/atnevezett torna ne tudjon csendben kimaradni.
+SKIPPED_UNKNOWN = set()
+
+
 PLAUSIBLE_MONTHS = {
     "clay":  {2, 3, 4, 5, 6, 7},        # del-amerikai + europai salakszezon
     "grass": {6, 7},                    # rovid fuves szezon
@@ -314,6 +327,13 @@ def scrape_tour(url, tour_map, valid_cats, label):
                 warn = surface_sanity_warning(name, surf, hungarian_now().month)
                 if warn:
                     print("     " + warn)
+            elif not any(x in name.lower() for x in EXCLUDE):
+                # Ismeretlen torna, amit NEM szandekosan zartunk ki.
+                # Lehet uj vagy atnevezett esemeny, amit a TOURNAMENT_MAP nem
+                # ismer — igy esett ki a Paris Masters egy teljes hetre (a
+                # TennisExplorer "Paris"-nak hivja, a terkep meg a hosszu
+                # "paris masters" cimet kereste).
+                SKIPPED_UNKNOWN.add(name)
         elif "month" in classes:
             continue
         else:

@@ -394,6 +394,31 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
     n_v = sum(1 for m in allm
               if (m.get("edge1") or 0) >= 0.04 or (m.get("edge2") or 0) >= 0.04)
 
+    # ── Figyelmeztetes: ismeretlen torna / ures nap ──────────────────
+    # Egy uj vagy atnevezett torna eddig CSENDBEN kiesett a listabol
+    # (a Paris Masters igy maradt ki egy teljes hetre). Ezert ha a scrape
+    # olyan tornat latott, amit a TOURNAMENT_MAP nem ismer, azt kiirjuk.
+    notice = ""
+    try:
+        from fetch_matches import SKIPPED_UNKNOWN
+        unknown = sorted(SKIPPED_UNKNOWN)
+    except Exception:
+        unknown = []
+    if not allm:
+        notice += ('<div style="background:#7f1d1d33;border:1px solid #ef444480;'
+                   'border-radius:9px;padding:.6rem .75rem;font-size:12px;'
+                   'color:#fca5a5;margin-bottom:.4rem"><strong>⚠ Ma egyetlen meccs '
+                   'sincs a listan.</strong> Ez lehet valodi szunet, de lehet az is, '
+                   'hogy egy torna neve nem szerepel a TOURNAMENT_MAP-ben.</div>')
+    if unknown:
+        notice += ('<div style="background:#78350f33;border:1px solid #f59e0b80;'
+                   'border-radius:9px;padding:.6rem .75rem;font-size:11px;'
+                   'color:#fcd34d;margin-bottom:.4rem">⚠ <strong>Ismeretlen torna '
+                   '(kihagyva):</strong> %s<br><span style="color:#a16207">Ha ez '
+                   'tour-szintu esemeny, fel kell venni a TOURNAMENT_MAP-be — '
+                   'boritassal es kategoriaval egyutt.</span></div>'
+                   % ", ".join(unknown[:12]))
+
     def cards(lst):
         if not lst:
             return '<p style="color:#64748b;padding:.5rem 0;font-size:12px">Nincs meccs.</p>'
@@ -495,7 +520,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <span style="color:#475569">Realis varhato ROI: +3..+6%%. A mert +18/+27%% visszamert
   szam, nem elvarhato hozam.</span>
 </div>
-%s%s%s
+%s%s%s%s
 </main>
 <footer>tennisabstract.com Elo · TennisExplorer odds · CPI: courtspeed.com · Nem befektetesi tanacs.</footer>
 </body>
@@ -504,6 +529,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
         len(atp_analyses), len(wta_analyses), len(all_live),
         n_szuper, n_alap, n_osszes, n_teszt, n_v,
         "var(--gr)" if stats["roi"] >= 0 else "var(--rd)", stats["roi"],
+        notice,
         ('<div class="sec" style="color:var(--ye)">● Elo</div><div class="cards">%s</div>'
          % cards(all_live)) if all_live else "",
         section("ATP — Mai meccsek", rest_atp, "var(--ac)"),
