@@ -14,12 +14,21 @@ on:
     # Nyari idoben (marc. vege - okt. vege) mindegyik egy oraval kesobb.
     # Ha egy futas nagyon keslekedik, a kovetkezo ugyis potolja —
     # a sticky badge miatt a mar rogzitett jelolesek nem vesznek el.
-    - cron: '13 3 * * *'     # ~07:00-ra kesz — reggeli lista + elozo napi eredmenyek
-    - cron: '13 7 * * *'     # ~11:00-ra kesz — napi frissites + eredmenyek
-    - cron: '13 11 * * *'    # ~15:00-ra kesz — napi frissites
-    - cron: '13 16 * * *'    # ~20:00-ra kesz — esti frissites (hajnali meccsek oddsa)
-    - cron: '13 5 * * 1'     # hetfo — Elo frissites
-    - cron: '13 2 1 1 *'     # jan 1. — CPI eves frissites
+    # REGGELI HANGSULY. A GitHub utemezoje merten 2-7 orat keslekedik
+    # (median ~3,5 ora), ezert az indulasok ennyivel korabban vannak, mint
+    # amikor a kesz listat latni szeretnenk.
+    #
+    # NEM megyunk 02:00 UTC ala: a badge a LEGELSO futasnal rogziti a
+    # belepesi arat, es egy hajnalban feljegyzett odds olyan ar lenne,
+    # amit a gyakorlatban nem lehetne megkapni — az elrontana a merest.
+    #
+    # Celzott KESZ idopont magyar teli ido szerint:
+    - cron: '17 2 * * *'     # ~06:45 — reggeli lista + elozo napi eredmenyek
+    - cron: '17 4 * * *'     # ~08:45 — reggeli frissites
+    - cron: '17 6 * * *'     # ~10:45 — delelotti frissites + eredmenyek
+    - cron: '17 14 * * *'    # ~18:45 — esti (a holnap hajnali meccsek oddsa)
+    - cron: '17 4 * * 1'     # hetfo — Elo frissites
+    - cron: '17 1 1 1 *'     # jan 1. — CPI eves frissites
   workflow_dispatch:
     inputs:
       bankroll:
@@ -59,13 +68,13 @@ jobs:
 
       - name: Eves CPI frissites
         if: >
-          github.event.schedule == '13 2 1 1 *' ||
+          github.event.schedule == '17 1 1 1 *' ||
           github.event.inputs.force_cpi == 'yes'
         run: python fetch_cpi.py
 
       - name: Heti Elo frissites
         if: >
-          github.event.schedule == '13 5 * * 1' ||
+          github.event.schedule == '17 4 * * 1' ||
           github.event.inputs.force_elo == 'yes'
         run: python fetch_elo.py
 
@@ -75,15 +84,15 @@ jobs:
       # A mar teljes napokat kihagyja, igy nem terheli feleslegesen a szervert.
       - name: Eredmenyek rogzitese (auto, 7 napra visszamenoleg)
         if: >
-          github.event.schedule == '13 3 * * *' ||
-          github.event.schedule == '13 7 * * *'
+          github.event.schedule == '17 2 * * *' ||
+          github.event.schedule == '17 6 * * *'
         run: python fetch_results.py --days 7
         continue-on-error: true
 
       - name: Osszesito statisztika
         if: >
-          github.event.schedule == '13 3 * * *' ||
-          github.event.schedule == '13 7 * * *'
+          github.event.schedule == '17 2 * * *' ||
+          github.event.schedule == '17 6 * * *'
         run: python fetch_results.py --summary
         continue-on-error: true
 
