@@ -58,6 +58,18 @@ def _badge_of(sigs):
     return None
 
 
+def _match_key(m):
+    """
+    Rendezetlen meccs-kulcs: a TennisExplorer neha MEGCSERELVE adja vissza a
+    ket jatekost (es az idopont is csuszhat parral), ezert a (player1, player2)
+    par onmagaban nem azonositja a meccset. Igy allt elo 97 duplikalt sor a
+    historyban 2026-10-20 es 11-05 kozott: a megforditott sor uj meccsnek
+    latszott, es az append-only logika a regi melle tette.
+    """
+    a, b = str(m.get("player1") or ""), str(m.get("player2") or "")
+    return (a, b) if a <= b else (b, a)
+
+
 def apply_sticky_badges(analyses):
     """
     A badge egyszer megszolal, utana NEM tunik el.
@@ -163,7 +175,7 @@ def save_history_snapshot(analyses):
             try:
                 old = json.loads(path.read_text())
                 for m in old.get("matches", []):
-                    k = (m.get("player1"), m.get("player2"))
+                    k = _match_key(m)
                     prev_rows[k] = m
                     if m.get("winner") is not None or m.get("retired"):
                         prev_results[k] = {
@@ -177,7 +189,7 @@ def save_history_snapshot(analyses):
 
         seen = set()
         for m in rows:
-            k = (m.get("player1"), m.get("player2"))
+            k = _match_key(m)
             seen.add(k)
             hit = prev_results.get(k)
             if hit:

@@ -1,5 +1,6 @@
 {
   "date": "2026-11-05",
+  "matched": 12,
   "matches": [
     {
       "badge1": null,
@@ -38,9 +39,14 @@
       "rank1": 14,
       "rank2": 46,
       "rank_ratio": 3.286,
+      "retired": false,
       "score": "7-6 6-4",
       "seed1": 12,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -54,12 +60,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -98,9 +99,14 @@
       "rank1": 4,
       "rank2": 68,
       "rank_ratio": 17.0,
+      "retired": false,
       "score": "3-6 6-4 7-6",
       "seed1": 3,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -114,12 +120,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "szuper",
@@ -158,9 +159,14 @@
       "rank1": 83,
       "rank2": 31,
       "rank_ratio": 2.677,
+      "retired": false,
       "score": "2-6 6-3 7-5",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [
         "szuper"
       ],
@@ -176,12 +182,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -220,9 +221,14 @@
       "rank1": 24,
       "rank2": 47,
       "rank_ratio": 1.958,
+      "retired": false,
       "score": "5-7 6-3 4-6",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 4,
@@ -236,72 +242,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.31,
-      "book_odds_home": 3.44,
-      "c_elo1": 1721.4,
-      "c_elo2": 1863.7,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": 0.0439,
-      "edge2": -0.098,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1715.8,
-      "h_elo2": 1835.2,
-      "is_tomorrow": false,
-      "match_date": "2026-11-05",
-      "name1": "Luca Van Assche",
-      "name2": "Lorenzo Musetti",
-      "odds1": 2.99,
-      "odds2": 1.5,
-      "player1": "Van Assche L.",
-      "player2": "Musetti L.",
-      "prob1": 0.33462915009447386,
-      "rank1": 47,
-      "rank2": 24,
-      "rank_ratio": 1.958,
-      "score": "7-5 3-6 6-4",
-      "seed1": null,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 4,
-      "surf_delta": -119.40000000000009,
-      "surf_elo1": 1715.8,
-      "surf_elo2": 1835.2,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "15:35",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": "alap",
@@ -340,9 +281,14 @@
       "rank1": 49,
       "rank2": 33,
       "rank_ratio": 1.485,
+      "retired": false,
       "score": "6-0 6-2",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [
         "alap"
       ],
@@ -358,12 +304,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -402,9 +343,14 @@
       "rank1": 3,
       "rank2": 43,
       "rank_ratio": 14.333,
+      "retired": false,
       "score": "",
       "seed1": 2,
       "seed2": null,
+      "sets": [
+        1,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 6,
@@ -418,72 +364,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        1,
-        0
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.14,
-      "book_odds_home": 5.64,
-      "c_elo1": 1786.5,
-      "c_elo2": 2101.2,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": -0.0543,
-      "edge2": -0.0002,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1778.4,
-      "h_elo2": 2119.7,
-      "is_tomorrow": false,
-      "match_date": "2026-11-05",
-      "name1": "Matteo Berrettini",
-      "name2": "Carlos Alcaraz",
-      "odds1": 8.13,
-      "odds2": 1.14,
-      "player1": "Berrettini M.",
-      "player2": "Alcaraz C.",
-      "prob1": 0.12296137730008151,
-      "rank1": 43,
-      "rank2": 3,
-      "rank_ratio": 14.333,
-      "score": "",
-      "seed1": null,
-      "seed2": 2,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 6,
-      "surf_delta": -341.2999999999997,
-      "surf_elo1": 1778.4,
-      "surf_elo2": 2119.7,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "19:00",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -522,9 +403,14 @@
       "rank1": 7,
       "rank2": 12,
       "rank_ratio": 1.714,
+      "retired": false,
       "score": "3-6 4-6",
       "seed1": 6,
       "seed2": 11,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -538,72 +424,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.67,
-      "book_odds_home": 2.18,
-      "c_elo1": 1779.2,
-      "c_elo2": 1945.4,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": -0.0459,
-      "edge2": -0.0116,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1881.7,
-      "h_elo2": 1942.9,
-      "is_tomorrow": false,
-      "match_date": "2026-11-05",
-      "name1": "Taylor Fritz",
-      "name2": "Arthur Fils",
-      "odds1": 2.42,
-      "odds2": 1.7,
-      "player1": "Fritz T.",
-      "player2": "Fils A.",
-      "prob1": 0.4128258745534599,
-      "rank1": 12,
-      "rank2": 7,
-      "rank_ratio": 1.714,
-      "score": "6-3 6-4",
-      "seed1": 11,
-      "seed2": 6,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 8,
-      "ss2": 5,
-      "surf_delta": -61.200000000000045,
-      "surf_elo1": 1881.7,
-      "surf_elo2": 1942.9,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "19:20",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -642,9 +463,14 @@
       "rank1": 39,
       "rank2": 23,
       "rank_ratio": 1.696,
+      "retired": false,
       "score": "3-6 3-6",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 6,
@@ -658,75 +484,9 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 2.82,
-      "book_odds_home": 1.43,
-      "c_elo1": 1946.0,
-      "c_elo2": 1712.7,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": -0.0185,
-      "edge2": -0.0354,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1863.8,
-      "h_elo2": 1732.2,
-      "is_tomorrow": false,
-      "match_date": "2026-11-05",
-      "name1": "Casper Ruud",
-      "name2": "Jan Lennard Struff",
-      "odds1": 1.47,
-      "odds2": 3.13,
-      "player1": "Ruud C.",
-      "player2": "Struff J.",
-      "prob1": 0.6808216837863069,
-      "rank1": 23,
-      "rank2": 39,
-      "rank_ratio": 1.696,
-      "score": "6-3 6-3",
-      "seed1": null,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 2,
-      "ss2": 6,
-      "surf_delta": 131.5999999999999,
-      "surf_elo1": 1863.8,
-      "surf_elo2": 1732.2,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "20:55",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     }
   ],
   "results_fetched_at": "2026-11-06T09:02:09.712296+00:00",
-  "matched": 12,
   "total": 12
 }

@@ -1,5 +1,6 @@
 {
   "date": "2026-10-23",
+  "matched": 21,
   "matches": [
     {
       "badge1": "alap",
@@ -38,9 +39,14 @@
       "rank1": 32,
       "rank2": 26,
       "rank_ratio": 1.231,
+      "retired": false,
       "score": "3-6 4-6",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [
         "alap"
       ],
@@ -56,74 +62,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": "alap",
-      "badge2_live": true,
-      "badge2_odds": 2.29,
-      "badge2_rkr": 1.231,
-      "badge2_seen": "2026-10-22T07:02Z",
-      "badge2_sodds": null,
-      "book_odds_away": 2.28,
-      "book_odds_home": 1.62,
-      "c_elo1": 1804.3,
-      "c_elo2": 1749.5,
-      "category": "W500",
-      "court_cpi": 37,
-      "edge1": -0.089,
-      "edge2": 0.0331,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1819.7,
-      "h_elo2": 1800.0,
-      "is_tomorrow": false,
-      "match_date": "2026-10-23",
-      "name1": "Marie Bouzkova",
-      "name2": "Sara Bejlek",
-      "odds1": 1.89,
-      "odds2": 2.12,
-      "player1": "Bouzkova M.",
-      "player2": "Bejlek S.",
-      "prob1": 0.5283202354071336,
-      "rank1": 26,
-      "rank2": 32,
-      "rank_ratio": 1.231,
-      "score": "6-3 6-4",
-      "seed1": null,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [
-        "alap"
-      ],
-      "ss1": 6,
-      "ss2": 7,
-      "surf_delta": 19.700000000000045,
-      "surf_elo1": 1819.7,
-      "surf_elo2": 1800.0,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "07:10",
-      "time_unknown": null,
-      "tour": "WTA",
-      "tournament": "Ningbo WTA",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -162,9 +101,14 @@
       "rank1": 128,
       "rank2": 79,
       "rank_ratio": 1.62,
+      "retired": false,
       "score": "6-3 6-1",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 6,
@@ -178,12 +122,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -222,9 +161,14 @@
       "rank1": 30,
       "rank2": 33,
       "rank_ratio": 1.1,
+      "retired": false,
       "score": "4-6 6-2 6-1",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -238,12 +182,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -282,9 +221,14 @@
       "rank1": 39,
       "rank2": 73,
       "rank_ratio": 1.872,
+      "retired": false,
       "score": "6-3 6-4",
       "seed1": 7,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -298,12 +242,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -342,9 +281,14 @@
       "rank1": 12,
       "rank2": 13,
       "rank_ratio": 1.083,
+      "retired": false,
       "score": "3-6 6-4 1-6",
       "seed1": 4,
       "seed2": 6,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [],
       "sigs2": [
         "alap"
@@ -360,12 +304,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -404,9 +343,14 @@
       "rank1": 5,
       "rank2": 98,
       "rank_ratio": 19.6,
+      "retired": false,
       "score": "6-4 6-4",
       "seed1": 1,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -420,74 +364,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
-    },
-    {
-      "badge1": "alap",
-      "badge1_live": true,
-      "badge1_odds": 2.07,
-      "badge1_rkr": 1.083,
-      "badge1_seen": "2026-10-23T08:28Z",
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.74,
-      "book_odds_home": 2.08,
-      "c_elo1": 1868.1,
-      "c_elo2": 1819.6,
-      "category": "W500",
-      "court_cpi": 37,
-      "edge1": 0.0119,
-      "edge2": -0.0674,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1900.2,
-      "h_elo2": 1905.3,
-      "is_tomorrow": false,
-      "match_date": "2026-10-23",
-      "name1": "Diana Shnaider",
-      "name2": "Iva Jovic",
-      "odds1": 2.03,
-      "odds2": 1.97,
-      "player1": "Shnaider D.",
-      "player2": "Jovic I.",
-      "prob1": 0.4926610371232874,
-      "rank1": 13,
-      "rank2": 12,
-      "rank_ratio": 1.083,
-      "score": "6-3 4-6 6-1",
-      "seed1": 6,
-      "seed2": 4,
-      "sigs1": [
-        "alap"
-      ],
-      "sigs2": [],
-      "ss1": 7,
-      "ss2": 8,
-      "surf_delta": -5.099999999999909,
-      "surf_elo1": 1900.2,
-      "surf_elo2": 1905.3,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "11:40",
-      "time_unknown": null,
-      "tour": "WTA",
-      "tournament": "Ningbo WTA",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -526,9 +403,14 @@
       "rank1": 21,
       "rank2": 152,
       "rank_ratio": 7.238,
+      "retired": false,
       "score": "6-2 6-4",
       "seed1": 3,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -542,72 +424,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.53,
-      "book_odds_home": 2.47,
-      "c_elo1": 1420.2,
-      "c_elo2": 1848.0,
-      "category": "A250",
-      "court_cpi": 37,
-      "edge1": -0.1888,
-      "edge2": 0.1304,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1616.0,
-      "h_elo2": 1839.9,
-      "is_tomorrow": false,
-      "match_date": "2026-10-23",
-      "name1": "Clement Chidekh",
-      "name2": "Francisco Cerundolo",
-      "odds1": 4.63,
-      "odds2": 1.28,
-      "player1": "Chidekh C.",
-      "player2": "Cerundolo F.",
-      "prob1": 0.21604379673695703,
-      "rank1": 152,
-      "rank2": 21,
-      "rank_ratio": 7.238,
-      "score": "2-6 4-6",
-      "seed1": null,
-      "seed2": 3,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 9,
-      "ss2": 5,
-      "surf_delta": -223.9000000000001,
-      "surf_elo1": 1616.0,
-      "surf_elo2": 1839.9,
-      "surface": "hard",
-      "test_pool": true,
-      "time": "14:10",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Brussels",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -646,9 +463,14 @@
       "rank1": 94,
       "rank2": 15,
       "rank_ratio": 6.267,
+      "retired": false,
       "score": "4-6 6-3 3-6",
       "seed1": null,
       "seed2": 4,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 6,
@@ -662,72 +484,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 3.73,
-      "book_odds_home": 1.27,
-      "c_elo1": 1885.2,
-      "c_elo2": 1676.5,
-      "category": "A250",
-      "court_cpi": 37,
-      "edge1": -0.0359,
-      "edge2": -0.0196,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1885.8,
-      "h_elo2": 1693.6,
-      "is_tomorrow": false,
-      "match_date": "2026-10-23",
-      "name1": "Tommy Paul",
-      "name2": "Corentin Moutet",
-      "odds1": 1.33,
-      "odds2": 4.02,
-      "player1": "Paul T.",
-      "player2": "Moutet C.",
-      "prob1": 0.7514558826168808,
-      "rank1": 15,
-      "rank2": 94,
-      "rank_ratio": 6.267,
-      "score": "6-4 3-6 6-3",
-      "seed1": 4,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 6,
-      "surf_delta": 192.20000000000005,
-      "surf_elo1": 1885.8,
-      "surf_elo2": 1693.6,
-      "surface": "hard",
-      "test_pool": true,
-      "time": "14:10",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Lyon",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -766,9 +523,14 @@
       "rank1": 1,
       "rank2": 128,
       "rank_ratio": 128.0,
+      "retired": false,
       "score": "6-1 3-6 6-1",
       "seed1": 1,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -782,12 +544,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Ningbo WTA",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -826,9 +583,14 @@
       "rank1": 60,
       "rank2": 20,
       "rank_ratio": 3.0,
+      "retired": false,
       "score": "4-6 6-4 6-3",
       "seed1": null,
       "seed2": 2,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -842,12 +604,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -886,9 +643,14 @@
       "rank1": 19,
       "rank2": 25,
       "rank_ratio": 1.316,
+      "retired": false,
       "score": "4-6 7-6 7-6",
       "seed1": 3,
       "seed2": 5,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 6,
@@ -902,12 +664,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Almaty",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -946,9 +703,14 @@
       "rank1": 65,
       "rank2": 14,
       "rank_ratio": 4.643,
+      "retired": false,
       "score": "6-7 2-6",
       "seed1": null,
       "seed2": 2,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -962,72 +724,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 4.22,
-      "book_odds_home": 1.22,
-      "c_elo1": 1771.4,
-      "c_elo2": 1681.9,
-      "category": "A250",
-      "court_cpi": 37,
-      "edge1": -0.0256,
-      "edge2": -0.0311,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1861.1,
-      "h_elo2": 1626.6,
-      "is_tomorrow": false,
-      "match_date": "2026-10-23",
-      "name1": "Taylor Fritz",
-      "name2": "Daniel Altmaier",
-      "odds1": 1.26,
-      "odds2": 4.86,
-      "player1": "Fritz T.",
-      "player2": "Altmaier D.",
-      "prob1": 0.7941117274730732,
-      "rank1": 14,
-      "rank2": 65,
-      "rank_ratio": 4.643,
-      "score": "7-6 6-2",
-      "seed1": 2,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 8,
-      "ss2": 3,
-      "surf_delta": 234.5,
-      "surf_elo1": 1861.1,
-      "surf_elo2": 1626.6,
-      "surface": "hard",
-      "test_pool": true,
-      "time": "17:15",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Lyon",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -1066,9 +763,14 @@
       "rank1": 10,
       "rank2": 37,
       "rank_ratio": 3.7,
+      "retired": false,
       "score": "6-4 7-6",
       "seed1": 1,
       "seed2": 5,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -1082,12 +784,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -1126,9 +823,14 @@
       "rank1": 6,
       "rank2": 17,
       "rank_ratio": 2.833,
+      "retired": false,
       "score": "4-6 6-4 6-4",
       "seed1": 1,
       "seed2": 5,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -1142,12 +844,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "alap",
@@ -1186,9 +883,14 @@
       "rank1": 58,
       "rank2": 41,
       "rank_ratio": 1.415,
+      "retired": false,
       "score": "6-3 7-6",
       "seed1": null,
       "seed2": 6,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [
         "alap"
       ],
@@ -1204,12 +906,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Brussels",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "szuper",
@@ -1248,9 +945,14 @@
       "rank1": 48,
       "rank2": 26,
       "rank_ratio": 1.846,
+      "retired": false,
       "score": "6-7 7-6 4-6",
       "seed1": null,
       "seed2": 6,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [
         "szuper"
       ],
@@ -1266,15 +968,9 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Lyon",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
+      "winner": 2
     }
   ],
   "results_fetched_at": "2026-10-24T03:58:54.993694+00:00",
-  "matched": 21,
   "total": 21
 }

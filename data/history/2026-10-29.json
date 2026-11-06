@@ -1,5 +1,6 @@
 {
   "date": "2026-10-29",
+  "matched": 23,
   "matches": [
     {
       "badge1": null,
@@ -38,9 +39,14 @@
       "rank1": 65,
       "rank2": 41,
       "rank_ratio": 1.585,
+      "retired": false,
       "score": "6-3 6-1",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -54,12 +60,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Tokyo",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "szuper",
@@ -98,9 +99,14 @@
       "rank1": 23,
       "rank2": 14,
       "rank_ratio": 1.643,
+      "retired": false,
       "score": "6-2 7-6",
       "seed1": null,
       "seed2": 5,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [
         "szuper"
       ],
@@ -116,12 +122,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Tokyo",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -160,9 +161,14 @@
       "rank1": 18,
       "rank2": 144,
       "rank_ratio": 8.0,
+      "retired": false,
       "score": "3-6 5-7",
       "seed1": 7,
       "seed2": null,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -176,72 +182,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Tokyo",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.23,
-      "book_odds_home": 4.13,
-      "c_elo1": 1521.8,
-      "c_elo2": 1902.3,
-      "category": "W500",
-      "court_cpi": 37,
-      "edge1": -0.0748,
-      "edge2": 0.0197,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1678.5,
-      "h_elo2": 1957.3,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Mia Pohankova",
-      "name2": "Naomi Osaka",
-      "odds1": 5.98,
-      "odds2": 1.2,
-      "player1": "Pohankova M.",
-      "player2": "Osaka N.",
-      "prob1": 0.16729763388116362,
-      "rank1": 144,
-      "rank2": 18,
-      "rank_ratio": 8.0,
-      "score": "6-3 7-5",
-      "seed1": null,
-      "seed2": 7,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 9,
-      "ss2": 7,
-      "surf_delta": -278.79999999999995,
-      "surf_elo1": 1678.5,
-      "surf_elo2": 1957.3,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "06:45",
-      "time_unknown": null,
-      "tour": "WTA",
-      "tournament": "Tokyo",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -280,9 +221,14 @@
       "rank1": 1,
       "rank2": 67,
       "rank_ratio": 67.0,
+      "retired": false,
       "score": "6-2 6-3",
       "seed1": 1,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -296,12 +242,7 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Tokyo",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "szuper",
@@ -340,9 +281,14 @@
       "rank1": 31,
       "rank2": 11,
       "rank_ratio": 2.818,
+      "retired": false,
       "score": "7-6 2-6 7-6",
       "seed1": null,
       "seed2": 3,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [
         "szuper"
       ],
@@ -358,12 +304,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -402,9 +343,14 @@
       "rank1": 5,
       "rank2": 41,
       "rank_ratio": 8.2,
+      "retired": false,
       "score": "4-6 6-3 7-6",
       "seed1": 3,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -418,72 +364,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.2,
-      "book_odds_home": 4.42,
-      "c_elo1": 1776.7,
-      "c_elo2": 1897.7,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": 0.0099,
-      "edge2": -0.0695,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1765.5,
-      "h_elo2": 1969.4,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Cameron Norrie",
-      "name2": "Daniil Medvedev",
-      "odds1": 4.23,
-      "odds2": 1.31,
-      "player1": "Norrie C.",
-      "player2": "Medvedev D.",
-      "prob1": 0.2361791308363221,
-      "rank1": 41,
-      "rank2": 5,
-      "rank_ratio": 8.2,
-      "score": "6-4 3-6 6-7",
-      "seed1": null,
-      "seed2": 3,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 4,
-      "ss2": 7,
-      "surf_delta": -203.9000000000001,
-      "surf_elo1": 1765.5,
-      "surf_elo2": 1969.4,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "13:40",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Vienna",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -522,9 +403,14 @@
       "rank1": 14,
       "rank2": 23,
       "rank_ratio": 1.643,
+      "retired": false,
       "score": "6-1 6-1",
       "seed1": 7,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -538,12 +424,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -582,9 +463,14 @@
       "rank1": 8,
       "rank2": 34,
       "rank_ratio": 4.25,
+      "retired": false,
       "score": "4-6 6-3 7-6",
       "seed1": 2,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -598,72 +484,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.46,
-      "book_odds_home": 2.69,
-      "c_elo1": 1713.9,
-      "c_elo2": 1947.7,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": -0.0242,
-      "edge2": -0.0325,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1837.5,
-      "h_elo2": 1946.9,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Alex Michelsen",
-      "name2": "Arthur Fils",
-      "odds1": 2.88,
-      "odds2": 1.53,
-      "player1": "Michelsen A.",
-      "player2": "Fils A.",
-      "prob1": 0.3475656341604305,
-      "rank1": 34,
-      "rank2": 8,
-      "rank_ratio": 4.25,
-      "score": "6-4 3-6 6-7",
-      "seed1": null,
-      "seed2": 2,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 8,
-      "ss2": 5,
-      "surf_delta": -109.40000000000009,
-      "surf_elo1": 1837.5,
-      "surf_elo2": 1946.9,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "15:00",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Basel",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -702,9 +523,14 @@
       "rank1": 95,
       "rank2": 3,
       "rank_ratio": 31.667,
+      "retired": false,
       "score": "1-6 6-7",
       "seed1": null,
       "seed2": 2,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -718,72 +544,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 7.6,
-      "book_odds_home": 1.09,
-      "c_elo1": 2088.1,
-      "c_elo2": 1615.3,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": 0.0002,
-      "edge2": -0.0492,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 2086.2,
-      "h_elo2": 1667.4,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Carlos Alcaraz",
-      "name2": "Nikoloz Basilashvili",
-      "odds1": 1.09,
-      "odds2": 12.14,
-      "player1": "Alcaraz C.",
-      "player2": "Basilashvili N.",
-      "prob1": 0.9176476569451295,
-      "rank1": 3,
-      "rank2": 95,
-      "rank_ratio": 31.667,
-      "score": "6-1 7-6",
-      "seed1": 2,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 7,
-      "surf_delta": 418.7999999999997,
-      "surf_elo1": 2086.2,
-      "surf_elo2": 1667.4,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "16:40",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": "alap",
@@ -822,9 +583,14 @@
       "rank1": 35,
       "rank2": 26,
       "rank_ratio": 1.346,
+      "retired": false,
       "score": "6-4 5-7 6-4",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [
         "alap"
       ],
@@ -840,12 +606,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -884,9 +645,14 @@
       "rank1": 60,
       "rank2": 21,
       "rank_ratio": 2.857,
+      "retired": false,
       "score": "5-7 4-6",
       "seed1": null,
       "seed2": 8,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -900,72 +666,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 5.36,
-      "book_odds_home": 1.15,
-      "c_elo1": 1842.9,
-      "c_elo2": 1690.6,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": -0.0537,
-      "edge2": -0.0024,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1909.5,
-      "h_elo2": 1650.9,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Jiri Lehecka",
-      "name2": "Daniel Altmaier",
-      "odds1": 1.23,
-      "odds2": 5.43,
-      "player1": "Lehecka J.",
-      "player2": "Altmaier D.",
-      "prob1": 0.8158712414585364,
-      "rank1": 21,
-      "rank2": 60,
-      "rank_ratio": 2.857,
-      "score": "7-5 6-4",
-      "seed1": 8,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 7,
-      "ss2": 3,
-      "surf_delta": 258.5999999999999,
-      "surf_elo1": 1909.5,
-      "surf_elo2": 1650.9,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "17:15",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Basel",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -1004,9 +705,14 @@
       "rank1": 13,
       "rank2": 52,
       "rank_ratio": 4.0,
+      "retired": false,
       "score": "6-4 6-3",
       "seed1": 6,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [
         "szuper"
@@ -1022,12 +728,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -1066,9 +767,14 @@
       "rank1": 2,
       "rank2": 50,
       "rank_ratio": 25.0,
+      "retired": false,
       "score": "6-4 7-5",
       "seed1": 1,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -1082,12 +788,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -1126,9 +827,14 @@
       "rank1": 12,
       "rank2": 47,
       "rank_ratio": 3.917,
+      "retired": false,
       "score": "7-6 5-7 6-7",
       "seed1": 4,
       "seed2": null,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -1142,72 +848,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.26,
-      "book_odds_home": 3.82,
-      "c_elo1": 1699.3,
-      "c_elo2": 1961.0,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": -0.1217,
-      "edge2": 0.0662,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1700.0,
-      "h_elo2": 2015.2,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Jan Lennard Struff",
-      "name2": "Novak Djokovic",
-      "odds1": 7.14,
-      "odds2": 1.16,
-      "player1": "Struff J.",
-      "player2": "Djokovic N.",
-      "prob1": 0.14010272230295007,
-      "rank1": 47,
-      "rank2": 12,
-      "rank_ratio": 3.917,
-      "score": "6-7 7-5 7-6",
-      "seed1": null,
-      "seed2": 4,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 7,
-      "surf_delta": -315.20000000000005,
-      "surf_elo1": 1700.0,
-      "surf_elo2": 2015.2,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "19:20",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Basel",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -1246,9 +887,14 @@
       "rank1": 6,
       "rank2": 48,
       "rank_ratio": 8.0,
+      "retired": false,
       "score": "2-5",
       "seed1": 4,
       "seed2": null,
+      "sets": [
+        0,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -1262,72 +908,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Vienna",
-      "winner": 2,
-      "sets": [
-        0,
-        1
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.87,
-      "book_odds_home": 1.92,
-      "c_elo1": 1778.9,
-      "c_elo2": 1843.5,
-      "category": "A500",
-      "court_cpi": 37,
-      "edge1": -0.0769,
-      "edge2": 0.0213,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1762.5,
-      "h_elo2": 1801.6,
-      "is_tomorrow": false,
-      "match_date": "2026-10-29",
-      "name1": "Matteo Berrettini",
-      "name2": "Flavio Cobolli",
-      "odds1": 2.25,
-      "odds2": 1.8,
-      "player1": "Berrettini M.",
-      "player2": "Cobolli F.",
-      "prob1": 0.44396693009444577,
-      "rank1": 48,
-      "rank2": 6,
-      "rank_ratio": 8.0,
-      "score": "5-2",
-      "seed1": null,
-      "seed2": 4,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 4,
-      "ss2": 3,
-      "surf_delta": -39.09999999999991,
-      "surf_elo1": 1762.5,
-      "surf_elo2": 1801.6,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "20:45",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Vienna",
-      "winner": 1,
-      "sets": [
-        1,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -1366,9 +947,14 @@
       "rank1": 4,
       "rank2": 222,
       "rank_ratio": 55.5,
+      "retired": false,
       "score": "3-6 7-6 6-7",
       "seed1": 1,
       "seed2": null,
+      "sets": [
+        1,
+        2
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -1382,15 +968,9 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Basel",
-      "winner": 2,
-      "sets": [
-        1,
-        2
-      ],
-      "retired": false
+      "winner": 2
     }
   ],
   "results_fetched_at": "2026-10-30T05:56:26.463164+00:00",
-  "matched": 23,
   "total": 23
 }

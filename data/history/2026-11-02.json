@@ -1,5 +1,6 @@
 {
   "date": "2026-11-02",
+  "matched": 15,
   "matches": [
     {
       "badge1": null,
@@ -38,9 +39,14 @@
       "rank1": 33,
       "rank2": 40,
       "rank_ratio": 1.212,
+      "retired": false,
       "score": "6-2 6-4",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 3,
@@ -54,12 +60,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -98,9 +99,14 @@
       "rank1": 83,
       "rank2": 21,
       "rank_ratio": 3.952,
+      "retired": false,
       "score": "6-2 6-2",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 8,
@@ -114,12 +120,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -158,9 +159,14 @@
       "rank1": 24,
       "rank2": 29,
       "rank_ratio": 1.208,
+      "retired": false,
       "score": "7-6 7-6",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 4,
@@ -174,12 +180,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -218,9 +219,14 @@
       "rank1": 47,
       "rank2": 48,
       "rank_ratio": 1.021,
+      "retired": false,
       "score": "6-3 7-5",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [
         "alap"
@@ -236,12 +242,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -280,9 +281,14 @@
       "rank1": 10,
       "rank2": 30,
       "rank_ratio": 3.0,
+      "retired": false,
       "score": "6-2 6-3",
       "seed1": 9,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 4,
@@ -296,72 +302,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": null,
-      "badge2_live": false,
-      "badge2_odds": null,
-      "badge2_rkr": null,
-      "badge2_seen": null,
-      "badge2_sodds": null,
-      "book_odds_away": 1.22,
-      "book_odds_home": 4.25,
-      "c_elo1": 1744.4,
-      "c_elo2": 1956.1,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": 0.0123,
-      "edge2": -0.0672,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1738.3,
-      "h_elo2": 1931.4,
-      "is_tomorrow": false,
-      "match_date": "2026-11-02",
-      "name1": "Alejandro Tabilo",
-      "name2": "Rafael Jodar",
-      "odds1": 4.04,
-      "odds2": 1.33,
-      "player1": "Tabilo A.",
-      "player2": "Jodar R.",
-      "prob1": 0.24757775769201712,
-      "rank1": 30,
-      "rank2": 10,
-      "rank_ratio": 3.0,
-      "score": "2-6 3-6",
-      "seed1": null,
-      "seed2": 9,
-      "sigs1": [],
-      "sigs2": [],
-      "ss1": 5,
-      "ss2": 4,
-      "surf_delta": -193.10000000000014,
-      "surf_elo1": 1738.3,
-      "surf_elo2": 1931.4,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "13:15",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -400,9 +341,14 @@
       "rank1": 45,
       "rank2": 36,
       "rank_ratio": 1.25,
+      "retired": false,
       "score": "6-4 1-6 6-3",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 5,
@@ -416,12 +362,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -460,9 +401,14 @@
       "rank1": 23,
       "rank2": 54,
       "rank_ratio": 2.348,
+      "retired": false,
       "score": "6-3 6-2",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 2,
@@ -476,12 +422,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": null,
@@ -520,9 +461,14 @@
       "rank1": 66,
       "rank2": 106,
       "rank_ratio": 1.606,
+      "retired": false,
       "score": "6-4 6-3",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        0
+      ],
       "sigs1": [],
       "sigs2": [
         "szuper"
@@ -538,12 +484,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "alap",
@@ -582,9 +523,14 @@
       "rank1": 80,
       "rank2": 69,
       "rank_ratio": 1.159,
+      "retired": false,
       "score": "6-7 1-6",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        0,
+        2
+      ],
       "sigs1": [
         "alap"
       ],
@@ -600,74 +546,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        2
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": "alap",
-      "badge2_live": true,
-      "badge2_odds": 2.56,
-      "badge2_rkr": 1.113,
-      "badge2_seen": "2026-11-02T12:40Z",
-      "badge2_sodds": null,
-      "book_odds_away": 2.66,
-      "book_odds_home": 1.47,
-      "c_elo1": 1746.1,
-      "c_elo2": 1618.6,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": -0.1295,
-      "edge2": 0.0733,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1750.6,
-      "h_elo2": 1715.2,
-      "is_tomorrow": false,
-      "match_date": "2026-11-02",
-      "name1": "Tomas Machac",
-      "name2": "Kyrian Jacquet",
-      "odds1": 1.82,
-      "odds2": 2.23,
-      "player1": "Machac T.",
-      "player2": "Jacquet K.",
-      "prob1": 0.550769130958393,
-      "rank1": 69,
-      "rank2": 80,
-      "rank_ratio": 1.159,
-      "score": "7-6 6-1",
-      "seed1": null,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [
-        "alap"
-      ],
-      "ss1": 5,
-      "ss2": 8,
-      "surf_delta": 35.399999999999864,
-      "surf_elo1": 1750.6,
-      "surf_elo2": 1715.2,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "16:55",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -706,9 +585,14 @@
       "rank1": 78,
       "rank2": 79,
       "rank_ratio": 1.013,
+      "retired": false,
       "score": "4-6 6-4 6-4",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [
         "alap"
@@ -724,12 +608,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     },
     {
       "badge1": "szuper",
@@ -768,9 +647,14 @@
       "rank1": 51,
       "rank2": 25,
       "rank_ratio": 2.04,
+      "retired": false,
       "score": "3-6 7-6 4-1",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        0,
+        1
+      ],
       "sigs1": [
         "szuper"
       ],
@@ -786,74 +670,7 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 2,
-      "sets": [
-        0,
-        1
-      ],
-      "retired": false
-    },
-    {
-      "badge1": null,
-      "badge1_live": false,
-      "badge1_odds": null,
-      "badge1_rkr": null,
-      "badge1_seen": null,
-      "badge1_sodds": null,
-      "badge2": "szuper",
-      "badge2_live": true,
-      "badge2_odds": 2.4,
-      "badge2_rkr": 2.167,
-      "badge2_seen": "2026-11-02T12:40Z",
-      "badge2_sodds": 2.4,
-      "book_odds_away": 2.45,
-      "book_odds_home": 1.55,
-      "c_elo1": 1802.9,
-      "c_elo2": 1697.3,
-      "category": "M1000",
-      "court_cpi": 40,
-      "edge1": -0.1303,
-      "edge2": 0.077,
-      "elo_found": true,
-      "error": null,
-      "h_elo1": 1812.4,
-      "h_elo2": 1802.1,
-      "is_tomorrow": false,
-      "match_date": "2026-11-02",
-      "name1": "Karen Khachanov",
-      "name2": "Denis Shapovalov",
-      "odds1": 1.94,
-      "odds2": 2.06,
-      "player1": "Khachanov K.",
-      "player2": "Shapovalov D.",
-      "prob1": 0.5148185505851801,
-      "rank1": 25,
-      "rank2": 51,
-      "rank_ratio": 2.04,
-      "score": "6-3 6-7 1-4",
-      "seed1": null,
-      "seed2": null,
-      "sigs1": [],
-      "sigs2": [
-        "szuper"
-      ],
-      "ss1": 5,
-      "ss2": 8,
-      "surf_delta": 10.300000000000182,
-      "surf_elo1": 1812.4,
-      "surf_elo2": 1802.1,
-      "surface": "hard",
-      "test_pool": false,
-      "time": "19:20",
-      "time_unknown": null,
-      "tour": "ATP",
-      "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        1,
-        0
-      ],
-      "retired": false
+      "winner": 2
     },
     {
       "badge1": null,
@@ -892,9 +709,14 @@
       "rank1": 38,
       "rank2": 37,
       "rank_ratio": 1.027,
+      "retired": false,
       "score": "7-6 6-7 6-3",
       "seed1": null,
       "seed2": null,
+      "sets": [
+        2,
+        1
+      ],
       "sigs1": [],
       "sigs2": [],
       "ss1": 7,
@@ -908,15 +730,9 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": 1,
-      "sets": [
-        2,
-        1
-      ],
-      "retired": false
+      "winner": 1
     }
   ],
   "results_fetched_at": "2026-11-03T10:45:54.721075+00:00",
-  "matched": 15,
   "total": 15
 }
