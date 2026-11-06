@@ -406,7 +406,10 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
         return n
     n_szuper, n_alap = _cnt("szuper"), _cnt("alap")
     n_osszes = n_szuper + n_alap          # SZUPER ⊂ ALAP, igy az osszes jeloles
-    n_teszt  = _cnt("szuper", True) + _cnt("alap", True)   # ATP 250, kulon
+    # A teszt-medencet is CSAK a SZUPER szintre merjuk es mutatjuk — ugyanaz
+    # a szabaly, mint az eles oldalon. Az ALAP a historyban tovabbra is
+    # rogzul, de sem a lapon, sem a szamlaloban nem jelenik meg.
+    n_teszt  = _cnt("szuper", True)
     n_v = sum(1 for m in allm
               if (m.get("edge1") or 0) >= 0.04 or (m.get("edge2") or 0) >= 0.04)
 
