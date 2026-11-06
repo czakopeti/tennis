@@ -120,6 +120,12 @@ def badge_html(sigs, entry_odds=None, live=True, test=False):
     b = badge_of(sigs)
     if not b:
         return ""
+    # Az ALAP badge (arany < 1.5x) NEM jelenik meg a lapon: 386 jeloleses
+    # merese szerint nincs mogotte edge (-5.1% a teljes mintan, a friss
+    # adaton -29.2%), es badge-kent fogadasi jelzesnek nezett ki.
+    # A historyban TOVABBRA IS rogzul, hogy a meres ne szakadjon meg.
+    if b != "szuper":
+        return ""
     st = dict(BADGE_STYLE[b])
     if test:
         st.update(TEST_STYLE)
@@ -201,6 +207,15 @@ def render_card(m):
     bl2      = m.get("badge2_live", True)
     btest    = bool(m.get("test_pool"))      # ATP 250 — csak teszt, nem fogadando
     delta    = m.get("surf_delta", 0)
+    # Ranking-arany: folytonos szamkent kiirva, NEM jelzeskent. Igy latszik,
+    # hogy egy meccs mennyire van kozel az 1,50x-es SZUPER kuszobhoz, anelkul
+    # hogy barmilyen savot fogadasi ajanlasnak lehetne olvasni.
+    _rkr     = m.get("rank_ratio")
+    if _rkr:
+        rkr_txt = ("%.2f×" % _rkr).replace(".", ",")
+        rkr_col = "#fbbf24" if _rkr >= 1.5 else ("#94a3b8" if _rkr >= 1.25 else "#475569")
+    else:
+        rkr_txt, rkr_col = "", "#475569"
 
     oc1 = "#22c55e" if prob1 >= prob2 else "#e2e8f0"
     oc2 = "#22c55e" if prob1 < prob2  else "#e2e8f0"
@@ -266,7 +281,8 @@ def render_card(m):
       <div class="obox"><div class="odec" style="color:%s">%s</div>
         <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>%s<br>
         <span style="color:#64748b">%.1f%%</span></div></div>
-      <div class="odelta">Δ %+.0f</div>
+      <div class="odelta">Δ %+.0f<br><span style="font-size:9px;font-weight:600;color:%s"
+        title="A ket ranglistahely aranya (rosszabb / jobb). A SZUPER badge-hez >=1,50x kell.">%s</span></div>
       <div class="obox" style="flex-direction:row-reverse;text-align:right">
         <div class="odec" style="color:%s">%s</div>
         <div class="oinfo"><span style="font-size:9px;color:#64748b">Fair</span><br>%s<br>
@@ -289,7 +305,7 @@ def render_card(m):
         SS9[ss2]["col"], SS9_LABEL[ss2], ss2, ss9_display(ss2),
         badge_html(sg2, be2, bl2, btest),
         oc1, o1, p1s.split()[-1], prob1 * 100,
-        delta,
+        delta, rkr_col, rkr_txt,
         oc2, o2, p2s.split()[-1], prob2 * 100,
         book_row, coin,
         prob1 * 100, bw, bcol, prob2 * 100)
@@ -497,21 +513,21 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
   <div class="stat"><div class="sl">WTA</div><div class="sv" style="color:var(--pink)">%d</div></div>
   <div class="stat"><div class="sl">Elo</div><div class="sv" style="color:var(--ye)">%d</div></div>
   <div class="stat"><div class="sl">🏆 Szuper</div><div class="sv" style="color:#fbbf24">%d</div></div>
-  <div class="stat"><div class="sl">🎯 Alap</div><div class="sv" style="color:#38bdf8">%d</div></div>
-  <div class="stat"><div class="sl">Jeloles</div><div class="sv" style="color:var(--tx)">%d</div></div>
   <div class="stat"><div class="sl">🧪 Teszt</div><div class="sv" style="color:#a78bfa">%d</div></div>
   <div class="stat"><div class="sl">Value</div><div class="sv" style="color:var(--gr)">%d</div></div>
   <div class="stat"><div class="sl">ROI</div><div class="sv" style="color:%s">%+.1f%%</div></div>
 </div>
 <div class="legend">
-  <strong>Badge-ek</strong> — kozos feltetel mindkettonel: a jatekos ranglistas helyezese
-  <u>rosszabb</u>, a kapott odds &ge; a sajat fair oddsunk, es a bukmekeri odds &le; 3,25.<br>
-  <strong style="color:#38bdf8">🎯 ALAP</strong>: a fenti harom &middot;
-  <strong style="color:#fbbf24">🏆 SZUPER</strong>: + a ket helyezes aranya &ge; 1,5&times;
-  (pl. 40. vs 60. igen, 28. vs 30. nem)<br>
-  A szint egymasba agyazott, ezert csak a SZUPER latszik, ha az is teljesul.
+  <strong style="color:#fbbf24">🏆 SZUPER</strong> — negy feltetel egyszerre: a jatekos
+  ranglistas helyezese <u>rosszabb</u>, a kapott odds &ge; a sajat fair oddsunk,
+  a bukmekeri odds &le; 3,25, es a ket helyezes <u>aranya &ge; 1,50&times;</u>
+  (40. vs 60. igen, 28. vs 30. nem).<br>
   A badge <u>nem tunik el</u>, ha az odds kesobb elmozdul — a mellette allo szam a
   megszolalaskori bukmekeri odds, ⚓ = mar nem all fenn a mostani aron.<br>
+  A <strong>ranking-arany</strong> minden meccsnel ki van irva a Δ alatt, hogy lasd,
+  mennyire van kozel az 1,50&times;-hez. Ez <u>szam, nem jelzes</u>: 386 jelolesen
+  mérve a kuszob alatti savnak nincs edge-e (az 1,25–1,50&times; sav kifejezetten
+  rossz volt), ezert a korabbi 🎯 ALAP badge megszunt.<br>
   🧱🧱🧱(1) 🧱🧱(2) 🧱(3) 🔸(4) ⚖(5) 🔹(6) 💙(7) 💙💙(8) 💙💙💙(9) — boritas preferencia<br>
   <strong style="color:#a78bfa">🧪 TESZT</strong> = ATP 250-es torna. A szabaly NEM ezen
   a populacion szuletett (GS / M1000 / 500), ott gyengebb a mezony es zajosabb az Elo.
@@ -527,7 +543,7 @@ def generate_html(atp_analyses, wta_analyses=None, elo_meta=None, bankroll=1000.
 </html>""" % (
         updated, scraped,
         len(atp_analyses), len(wta_analyses), len(all_live),
-        n_szuper, n_alap, n_osszes, n_teszt, n_v,
+        n_szuper, n_teszt, n_v,
         "var(--gr)" if stats["roi"] >= 0 else "var(--rd)", stats["roi"],
         notice,
         ('<div class="sec" style="color:var(--ye)">● Elo</div><div class="cards">%s</div>'
