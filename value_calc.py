@@ -43,7 +43,7 @@ BADGE_ORDER = ["szuper", "alap"]   # legerosebb elol
 # keszul a jatekosok Elo-ja, tehat a modellunk varhatoan pontatlanabb.
 # A badge megjelenik rajtuk, de TESZT jelolessel, es kulon merjuk.
 # Amig nincs sajat mintajuk, NEM fogadando.
-TEST_CATEGORIES = {"A250"}
+TEST_CATEGORIES = {"A250", "W250", "WFINALS"}
 
 
 def is_test_pool(category):

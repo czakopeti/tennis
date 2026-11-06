@@ -96,14 +96,30 @@ WTA_MAP = [
     (["ningbo"],                               "hard",  "W500",  "WTA"),
     (["monterrey"],                            "hard",  "W500",  "WTA"),
     (["adelaide"],                             "hard",  "W500",  "WTA"),
+
+    # ══ WTA 250 — TESZT MEDENCE (2026-os szezon hatralevo resze) ═════════
+    # Ugyanaz a logika, mint az ATP 250-eseknel: NEM reszei annak a
+    # populacionak, amin a szabaly szuletett, ezert "TESZT" jelolest kapnak
+    # es kulon merjuk oket. Amig nincs sajat mintajuk, NEM fogadando.
+    # Mind szabadteri kemeny, 2026. nov 2-8:
+    (["chennai"],                              "hard",  "W250",  "WTA"),
+    (["hong kong"],                            "hard",  "W250",  "WTA"),
+    (["jiangxi","jiujiang"],                   "hard",  "W250",  "WTA"),
+    # WTA Finals (Rijad, nov 9-15, FEDETT kemeny) — a TennisExplorer
+    # "Masters Cup WTA" neven hozza. Szinten teszt-medenceben: 8 fos
+    # kormerkozes, ahol elofordulnak tet nelkuli meccsek, tehat mas
+    # populacio, mint a kieseses tornak.
+    (["masters cup"],                          "hard",  "WFINALS", "WTA"),
+    # FIGYELEM: ez a lista a 2026-os szezon vegeig szol. Januarban a teljes
+    # torna-terkepet felul kell vizsgalni (a naptar evente valtozik).
 ]
 
 ATP_VALID = {"GS", "M1000", "A500", "A250"}
-WTA_VALID = {"GS", "W1000", "W500"}
+WTA_VALID = {"GS", "W1000", "W500", "W250", "WFINALS"}
 
 # Teszt-medence: ezekre a kategoriakra kulon jeloles kerul, es KULON merjuk.
 # A validalt szabaly NEM ezen a populacion szuletett.
-TEST_CATEGORIES = {"A250"}
+TEST_CATEGORIES = {"A250", "W250", "WFINALS"}
 EXCLUDE   = ["challenger","futures","utr","itf","satellite","125","doubles",
              "h2h","main tournaments","lower level","motuwethfr","wta elite",
              # Csapatversenyek: mas dinamika (nincs ranglista-tet, kapitany
