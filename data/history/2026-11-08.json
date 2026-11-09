@@ -38,7 +38,7 @@
       "rank1": 102,
       "rank2": 17,
       "rank_ratio": 6.0,
-      "score": null,
+      "score": "6-3 6-0",
       "seed1": null,
       "seed2": 2,
       "sigs1": [],
@@ -54,7 +54,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Hong Kong WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": "szuper",
@@ -93,7 +98,7 @@
       "rank1": 133,
       "rank2": 87,
       "rank_ratio": 1.529,
-      "score": null,
+      "score": "6-3 7-6",
       "seed1": 8,
       "seed2": 2,
       "sigs1": [
@@ -113,7 +118,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -152,7 +162,7 @@
       "rank1": 106,
       "rank2": 191,
       "rank_ratio": 1.802,
-      "score": null,
+      "score": "7-5 6-3",
       "seed1": 6,
       "seed2": null,
       "sigs1": [],
@@ -168,7 +178,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -207,7 +222,7 @@
       "rank1": 97,
       "rank2": 59,
       "rank_ratio": 1.644,
-      "score": null,
+      "score": "3-6 7-5 6-1",
       "seed1": 5,
       "seed2": 1,
       "sigs1": [],
@@ -223,7 +238,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": "alap",
@@ -262,7 +282,7 @@
       "rank1": 107,
       "rank2": 90,
       "rank_ratio": 1.189,
-      "score": null,
+      "score": "6-2 6-4",
       "seed1": 7,
       "seed2": 4,
       "sigs1": [
@@ -280,7 +300,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -374,7 +399,7 @@
       "rank1": 3,
       "rank2": 4,
       "rank_ratio": 1.333,
-      "score": null,
+      "score": "7-6 7-5",
       "seed1": 2,
       "seed2": 3,
       "sigs1": [],
@@ -390,7 +415,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Paris",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -429,7 +459,7 @@
       "rank1": 54,
       "rank2": 245,
       "rank_ratio": 4.537,
-      "score": null,
+      "score": "6-1 7-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -445,7 +475,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -484,7 +519,7 @@
       "rank1": 53,
       "rank2": 65,
       "rank_ratio": 1.226,
-      "score": null,
+      "score": "7-6 6-3",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -502,7 +537,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        0
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -541,7 +581,7 @@
       "rank1": 10,
       "rank2": 8,
       "rank_ratio": 1.25,
-      "score": null,
+      "score": "2-6 4-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -557,7 +597,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Masters Cup WTA",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -596,7 +641,7 @@
       "rank1": 4,
       "rank2": 5,
       "rank_ratio": 1.25,
-      "score": null,
+      "score": "6-4 6-7 6-2",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -614,7 +659,15 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Masters Cup WTA",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-11-09T09:48:04.855478+00:00",
+  "matched": 10,
+  "total": 11
 }
