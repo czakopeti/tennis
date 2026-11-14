@@ -1,12 +1,12 @@
 [
   {
-    "time": "13:00",
+    "time": "13:10",
     "player1": "Fritz T.",
     "player2": "Tirante T.",
     "seed1": 1,
     "seed2": null,
     "book_odds_home": 1.15,
-    "book_odds_away": 5.28,
+    "book_odds_away": 5.31,
     "tournament": "Stockholm",
     "surface": "hard",
     "category": "A250",
@@ -52,7 +52,7 @@
     "odds1": 1.27,
     "odds2": 4.76,
     "edge1": -0.0795,
-    "edge2": 0.0206,
+    "edge2": 0.0216,
     "sigs1": [],
     "sigs2": [],
     "court_cpi": 37,
