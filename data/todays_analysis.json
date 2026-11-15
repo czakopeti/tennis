@@ -6,7 +6,7 @@
     "seed1": null,
     "seed2": null,
     "book_odds_home": 1.36,
-    "book_odds_away": 3.16,
+    "book_odds_away": 3.17,
     "tournament": "Masters Cup WTA",
     "surface": "hard",
     "category": "WFINALS",
@@ -52,7 +52,7 @@
     "odds1": 1.91,
     "odds2": 2.1,
     "edge1": -0.2126,
-    "edge2": 0.1608,
+    "edge2": 0.1618,
     "sigs1": [],
     "sigs2": [
       "szuper"
