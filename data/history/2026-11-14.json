@@ -38,7 +38,7 @@
       "rank1": 10,
       "rank2": 51,
       "rank_ratio": 5.1,
-      "score": null,
+      "score": "6-2 4-6 7-6",
       "seed1": 1,
       "seed2": null,
       "sigs1": [],
@@ -54,7 +54,12 @@
       "time_unknown": null,
       "tour": "ATP",
       "tournament": "Stockholm",
-      "winner": null
+      "winner": 1,
+      "sets": [
+        2,
+        1
+      ],
+      "retired": false
     },
     {
       "badge1": "szuper",
@@ -93,7 +98,7 @@
       "rank1": 5,
       "rank2": 3,
       "rank_ratio": 1.667,
-      "score": null,
+      "score": "3-6 4-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [
@@ -111,7 +116,12 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Masters Cup WTA",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     },
     {
       "badge1": null,
@@ -150,7 +160,7 @@
       "rank1": 8,
       "rank2": 6,
       "rank_ratio": 1.333,
-      "score": null,
+      "score": "2-6 1-6",
       "seed1": null,
       "seed2": null,
       "sigs1": [],
@@ -166,7 +176,15 @@
       "time_unknown": null,
       "tour": "WTA",
       "tournament": "Masters Cup WTA",
-      "winner": null
+      "winner": 2,
+      "sets": [
+        0,
+        2
+      ],
+      "retired": false
     }
-  ]
+  ],
+  "results_fetched_at": "2026-11-15T09:26:05.759624+00:00",
+  "matched": 3,
+  "total": 3
 }
