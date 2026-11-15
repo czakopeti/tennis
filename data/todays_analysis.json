@@ -5,8 +5,8 @@
     "player2": "Svitolina E.",
     "seed1": null,
     "seed2": null,
-    "book_odds_home": 1.36,
-    "book_odds_away": 3.17,
+    "book_odds_home": 1.35,
+    "book_odds_away": 3.2,
     "tournament": "Masters Cup WTA",
     "surface": "hard",
     "category": "WFINALS",
@@ -51,8 +51,8 @@
     "prob1": 0.5227223661255553,
     "odds1": 1.91,
     "odds2": 2.1,
-    "edge1": -0.2126,
-    "edge2": 0.1618,
+    "edge1": -0.218,
+    "edge2": 0.1648,
     "sigs1": [],
     "sigs2": [
       "szuper"
