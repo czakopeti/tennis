@@ -1,17 +1,1 @@
-[
-  {
-    "time": "21:00",
-    "player1": "Andreeva M.",
-    "player2": "Svitolina E.",
-    "seed1": null,
-    "seed2": null,
-    "book_odds_home": 1.35,
-    "book_odds_away": 3.2,
-    "tournament": "Masters Cup WTA",
-    "surface": "hard",
-    "category": "WFINALS",
-    "tour": "WTA",
-    "match_date": "2026-11-15",
-    "is_tomorrow": false
-  }
-]
+[]
